@@ -1,0 +1,5429 @@
+[
+    {
+        "no_mesin": "JB02E2017955",
+        "no_rangka": "JB02A7K5009026",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-RD",
+        "type": "Z125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JB02E2018230",
+        "no_rangka": "JB02A3K5009301",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-RD",
+        "type": "Z125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JB02E2018235",
+        "no_rangka": "JB02A2K5009306",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-YL",
+        "type": "Z125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JB02E2018238",
+        "no_rangka": "JB02A8K5009309",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-YL",
+        "type": "Z125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBK1E1642675",
+        "no_rangka": "JBK111KK645369",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GB2-BG",
+        "type": "REVO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBK1E1684870",
+        "no_rangka": "JBK113LK688807",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GB2-BR",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK1E1692365",
+        "no_rangka": "JBK11XLK696760",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GB3-BG",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK1E1693559",
+        "no_rangka": "JBK117LK697493",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GB3-BR",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK1E1693970",
+        "no_rangka": "JBK111LK697506",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GB3-BB",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK1E1705694",
+        "no_rangka": "JBK114LK710183",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GB3-BR",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK1E1706192",
+        "no_rangka": "JBK119LK710129",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GB3-BR",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK3E1311453",
+        "no_rangka": "JBK317KK313028",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD2-WH",
+        "type": "REVO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBK3E1317600",
+        "no_rangka": "JBK317KK319606",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD2-BK",
+        "type": "REVO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBK3E1326919",
+        "no_rangka": "JBK318LK328736",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD2-BK",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK3E1326933",
+        "no_rangka": "JBK317LK328730",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD2-BK",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK3E1333707",
+        "no_rangka": "JBK310LK335986",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD3-MH",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK3E1335356",
+        "no_rangka": "JBK314LK337773",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD3-MH",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK3E1336180",
+        "no_rangka": "JBK312LK338145",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD3-BK",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBK3E1336265",
+        "no_rangka": "JBK31XLK338149",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GD3-BK",
+        "type": "REVO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1751049",
+        "no_rangka": "JBP114KK751120",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1751253",
+        "no_rangka": "JBP112KK751214",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1752159",
+        "no_rangka": "JBP110KK752054",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1752553",
+        "no_rangka": "JBP112KK752587",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1753699",
+        "no_rangka": "JBP114KK753840",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1753826",
+        "no_rangka": "JBP110KK753785",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1754020",
+        "no_rangka": "JBP119KK753946",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1754896",
+        "no_rangka": "JBP11XKK755012",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1759026",
+        "no_rangka": "JBP114KK759881",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1760449",
+        "no_rangka": "JBP114KK760285",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JBP1E1773652",
+        "no_rangka": "JBP118LK773686",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1774655",
+        "no_rangka": "JBP111LK774517",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1774722",
+        "no_rangka": "JBP114LK774544",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1776426",
+        "no_rangka": "JBP115LK776366",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1786998",
+        "no_rangka": "JBP112LK787003",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1788494",
+        "no_rangka": "JBP117LK788633",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1788835",
+        "no_rangka": "JBP111LK789177",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1789253",
+        "no_rangka": "JBP117LK789362",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-MH",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JBP1E1789360",
+        "no_rangka": "JBP112LK789446",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "GF4-BK",
+        "type": "SUPRA X",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JFZ1E3012309",
+        "no_rangka": "JFZ133KK015786",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM5-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3494042",
+        "no_rangka": "JFZ130KK494118",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3494166",
+        "no_rangka": "JFZ137KK495301",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3494850",
+        "no_rangka": "JFZ134KK494977",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3494895",
+        "no_rangka": "JFZ135KK494969",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3500449",
+        "no_rangka": "JFZ131KK500704",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3500532",
+        "no_rangka": "JFZ136KK500729",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3500533",
+        "no_rangka": "JFZ132KK500730",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3531476",
+        "no_rangka": "JFZ134KK531560",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3534601",
+        "no_rangka": "JFZ130KK535301",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3549511",
+        "no_rangka": "JFZ132KK549684",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3563851",
+        "no_rangka": "JFZ138KK563928",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3563898",
+        "no_rangka": "JFZ131KK563978",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3565012",
+        "no_rangka": "JFZ135KK565247",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3565012",
+        "no_rangka": "JFZ135KK565247",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3578473",
+        "no_rangka": "JFZ132KK576951",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3594293",
+        "no_rangka": "JFZ132KK594480",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3597166",
+        "no_rangka": "JFZ134KK597476",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3619663",
+        "no_rangka": "JFZ133KK619774",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3632146",
+        "no_rangka": "JFZ138KK632231",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3632154",
+        "no_rangka": "JFZ130KK632241",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ1E3644970",
+        "no_rangka": "JFZ132KK642642",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HM7-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ2E1685842",
+        "no_rangka": "JFZ211KK687021",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HN4-SV",
+        "type": "BEAT STREET",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ2E1685882",
+        "no_rangka": "JFZ217KK687072",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HN4-SV",
+        "type": "BEAT STREET",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ2E1685886",
+        "no_rangka": "JFZ217KK687086",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HN4-SV",
+        "type": "BEAT STREET",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ2E1705411",
+        "no_rangka": "JFZ219KK706608",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HN4-SV",
+        "type": "BEAT STREET",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ2E1705441",
+        "no_rangka": "JFZ217KK706638",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HN4-SV",
+        "type": "BEAT STREET",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JFZ2E1758203",
+        "no_rangka": "JFZ211KK759397",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HN4-SV",
+        "type": "BEAT STREET",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2007784",
+        "no_rangka": "JM1121KK037025",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLZ-MC",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2289857",
+        "no_rangka": "JM112XKK307739",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2289858",
+        "no_rangka": "JM112XKK307806",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2291348",
+        "no_rangka": "JM1128KK309277",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2291351",
+        "no_rangka": "JM1125KK309267",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2291362",
+        "no_rangka": "JM1123KK309249",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2315896",
+        "no_rangka": "JM1126KK333772",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2340666",
+        "no_rangka": "JM1122KK358457",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HL9-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2341216",
+        "no_rangka": "JM1125KK359005",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HL9-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2341227",
+        "no_rangka": "JM1128KK359015",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HL9-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2341234",
+        "no_rangka": "JM1121KK359017",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HL9-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2345702",
+        "no_rangka": "JM1121KK363911",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2352183",
+        "no_rangka": "JM1123KK369970",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2384985",
+        "no_rangka": "JM1127KK402789",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-MC",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM11E2398036",
+        "no_rangka": "JM1121LK416012",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HLS-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM21E2393218",
+        "no_rangka": "JM2120KK415602",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2393253",
+        "no_rangka": "JM2120KK415633",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2407587",
+        "no_rangka": "JM2122KK429971",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-MP",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2411583",
+        "no_rangka": "JM2124KK434170",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2540142",
+        "no_rangka": "JM2126KK562622",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2550712",
+        "no_rangka": "JM2128KK572231",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2550717",
+        "no_rangka": "JM2129KK572240",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2550842",
+        "no_rangka": "JM2127KK572382",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2550887",
+        "no_rangka": "JM212XKK572375",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2550890",
+        "no_rangka": "JM2123KK572377",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2565023",
+        "no_rangka": "JM2128KK586405",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2565054",
+        "no_rangka": "JM2121KK586424",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2565091",
+        "no_rangka": "JM2123KK586456",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2569171",
+        "no_rangka": "JM2129KK590690",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM21E2623100",
+        "no_rangka": "JM2129KK644408",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HK6-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2516707",
+        "no_rangka": "JM312XKK522677",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2601018",
+        "no_rangka": "JM3123KK606095",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2601024",
+        "no_rangka": "JM3123KK606100",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2601029",
+        "no_rangka": "JM3125KK606082",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2601062",
+        "no_rangka": "JM3126KK606043",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2601406",
+        "no_rangka": "JM3122KK604435",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2601411",
+        "no_rangka": "JM3125KK604431",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2601464",
+        "no_rangka": "JM3120KK604420",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2680808",
+        "no_rangka": "JM312XKK686057",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2680895",
+        "no_rangka": "JM3129KK686356",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2688005",
+        "no_rangka": "JM3125KK693157",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2707432",
+        "no_rangka": "JM3121KK712657",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2734183",
+        "no_rangka": "JM3129KK734406",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2734187",
+        "no_rangka": "JM3127KK734663",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2734550",
+        "no_rangka": "JM3120KK734634",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2734604",
+        "no_rangka": "JM3128KK734641",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2734618",
+        "no_rangka": "JM3120KK734665",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2736042",
+        "no_rangka": "JM3127KK741130",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2736133",
+        "no_rangka": "JM3122KK741200",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2755928",
+        "no_rangka": "JM3125KK760971",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2756065",
+        "no_rangka": "JM3122KK760944",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2756069",
+        "no_rangka": "JM3127KK760941",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2756080",
+        "no_rangka": "JM3124KK760962",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2756092",
+        "no_rangka": "JM3128KK760950",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759426",
+        "no_rangka": "JM3129KK764392",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759428",
+        "no_rangka": "JM3122KK764394",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759432",
+        "no_rangka": "JM3121KK764385",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759435",
+        "no_rangka": "JM312XKK764384",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759436",
+        "no_rangka": "JM3127KK764388",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759469",
+        "no_rangka": "JM3126KK764320",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759529",
+        "no_rangka": "JM3121KK764399",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759533",
+        "no_rangka": "JM3128KK764397",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759534",
+        "no_rangka": "JM3124KK764395",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759535",
+        "no_rangka": "JM3126KK764396",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2759537",
+        "no_rangka": "JM312XKK764398",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2760359",
+        "no_rangka": "JM3125KK765409",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2760364",
+        "no_rangka": "JM3120KK765415",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2760454",
+        "no_rangka": "JM3121KK765438",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2882844",
+        "no_rangka": "JM3128KK887455",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889107",
+        "no_rangka": "JM3121KK893761",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889206",
+        "no_rangka": "JM3123KK893907",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889207",
+        "no_rangka": "JM3124KK893902",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889244",
+        "no_rangka": "JM3121KK893999",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889258",
+        "no_rangka": "JM3122KK893929",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889271",
+        "no_rangka": "JM3126KK894002",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889339",
+        "no_rangka": "JM3126KK893965",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889343",
+        "no_rangka": "JM3120KK893962",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889353",
+        "no_rangka": "JM3126KK893979",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889354",
+        "no_rangka": "JM3122KK893980",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889355",
+        "no_rangka": "JM3124KK893981",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889391",
+        "no_rangka": "JM3123KK893986",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889394",
+        "no_rangka": "JM3120KK893993",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2889401",
+        "no_rangka": "JM3127KK893991",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2909911",
+        "no_rangka": "JM3128KK914573",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2909929",
+        "no_rangka": "JM3123KK914691",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2909943",
+        "no_rangka": "JM3126KK914667",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2909944",
+        "no_rangka": "JM3129KK914677",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2909950",
+        "no_rangka": "JM3124KK914683",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2909955",
+        "no_rangka": "JM3120KK914678",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2909981",
+        "no_rangka": "JM3125KK914689",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2910060",
+        "no_rangka": "JM312XKK914770",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2931279",
+        "no_rangka": "JM3129KK935612",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2931405",
+        "no_rangka": "JM3124KK938045",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2943411",
+        "no_rangka": "JM3126KK952187",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2943786",
+        "no_rangka": "JM312XKK948613",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PM",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2944060",
+        "no_rangka": "JM3129KK948683",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PM",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2944066",
+        "no_rangka": "JM3123KK948680",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PM",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2947210",
+        "no_rangka": "JM3127KK951758",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2947239",
+        "no_rangka": "JM3125KK951774",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2948373",
+        "no_rangka": "JM3125KK953931",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2948379",
+        "no_rangka": "JM3123KK953930",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2948386",
+        "no_rangka": "JM3121KK953943",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2955509",
+        "no_rangka": "JM312XKK960275",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2955671",
+        "no_rangka": "JM3121KK960262",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2960647",
+        "no_rangka": "JM3120KK965131",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2960688",
+        "no_rangka": "JM3120KK965128",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2960696",
+        "no_rangka": "JM3124KK965133",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2960764",
+        "no_rangka": "JM3121KK965106",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2960823",
+        "no_rangka": "JM3126KK965117",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2980850",
+        "no_rangka": "JM3127KK985599",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2980918",
+        "no_rangka": "JM312XKK985578",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2980927",
+        "no_rangka": "JM3120KK985458",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2980942",
+        "no_rangka": "JM3125KK985472",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2980962",
+        "no_rangka": "JM3124KK985575",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E2992748",
+        "no_rangka": "JM3129KK997172",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E3001346",
+        "no_rangka": "JM3138KK008027",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E3024654",
+        "no_rangka": "JM3133KK029352",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E3079907",
+        "no_rangka": "JM3132KK084469",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM31E3184778",
+        "no_rangka": "JM3131LK189425",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3199769",
+        "no_rangka": "JM3136LK204548",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3212747",
+        "no_rangka": "JM3135LK217615",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3230452",
+        "no_rangka": "JM3132LK234078",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3241557",
+        "no_rangka": "JM3133LK248460",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3244856",
+        "no_rangka": "JM3139LK249922",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3245695",
+        "no_rangka": "JM3137LK252351",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3252033",
+        "no_rangka": "JM3138LK260992",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3264458",
+        "no_rangka": "JM3137LK269084",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3271873",
+        "no_rangka": "JM3137LK276584",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3274821",
+        "no_rangka": "JM3131LK279495",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3279046",
+        "no_rangka": "JM3138LK283740",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3282364",
+        "no_rangka": "JM313XLK287062",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3285945",
+        "no_rangka": "JM3135LK290614",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3297176",
+        "no_rangka": "JM3134LK301876",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3300080",
+        "no_rangka": "JM3130LK304810",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-CH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3307253",
+        "no_rangka": "JM3137LK308885",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3312635",
+        "no_rangka": "JM3135LK317360",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3323966",
+        "no_rangka": "JM3134LK328771",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3324215",
+        "no_rangka": "JM3133LK328891",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3324955",
+        "no_rangka": "JM3130LK329559",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3324956",
+        "no_rangka": "JM3137LK329557",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3325499",
+        "no_rangka": "JM313XLK330198",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3325765",
+        "no_rangka": "JM3134LK332707",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3327879",
+        "no_rangka": "JM3130LK333742",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3328777",
+        "no_rangka": "JM3132LK337596",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3340029",
+        "no_rangka": "JM3136LK345748",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3342414",
+        "no_rangka": "JM3130LK351593",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3343174",
+        "no_rangka": "JM313XLK347812",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3343660",
+        "no_rangka": "JM3137LK348271",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3352083",
+        "no_rangka": "JM3131LK356723",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3352371",
+        "no_rangka": "JM3130LK357183",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3352532",
+        "no_rangka": "JM313XLK357207",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3352555",
+        "no_rangka": "JM3136LK357219",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3352590",
+        "no_rangka": "JM3134LK357249",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3353306",
+        "no_rangka": "JM3132LK357279",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3356097",
+        "no_rangka": "JM3131LK360836",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3356873",
+        "no_rangka": "JM3130LK363792",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3358964",
+        "no_rangka": "JM313XLK366439",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3361339",
+        "no_rangka": "JM3138LK365869",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3361366",
+        "no_rangka": "JM3138LK365886",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3362807",
+        "no_rangka": "JM3136LK367541",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3367485",
+        "no_rangka": "JM3136LK373694",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3367873",
+        "no_rangka": "JM3133LK373829",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3368677",
+        "no_rangka": "JM3136LK373274",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-MH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3369471",
+        "no_rangka": "JM3136LK379821",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3369793",
+        "no_rangka": "JM3136LK379818",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3369798",
+        "no_rangka": "JM3137LK379813",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PH",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3375944",
+        "no_rangka": "JM3132LK381050",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3379666",
+        "no_rangka": "JM313XLK385735",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-HS",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3382280",
+        "no_rangka": "JM3134LK386900",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPD-BK",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM31E3404599",
+        "no_rangka": "JM3134LK409477",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HPS-PM",
+        "type": "SCOOPY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM41E1486225",
+        "no_rangka": "JM4113KK486599",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1486266",
+        "no_rangka": "JM4115KK486734",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1490290",
+        "no_rangka": "JM4115KK490797",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1490328",
+        "no_rangka": "JM411XKK490763",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1490372",
+        "no_rangka": "JM4114KK490712",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1493478",
+        "no_rangka": "JM4111KK493969",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1518992",
+        "no_rangka": "JM4112KK519401",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1521539",
+        "no_rangka": "JM4113KK522095",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1538101",
+        "no_rangka": "JM4116KK539828",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1540002",
+        "no_rangka": "JM4114KK541285",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1544128",
+        "no_rangka": "JM411XKK544580",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1548813",
+        "no_rangka": "JM4119KK550919",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM41E1600536",
+        "no_rangka": "JM4117LK601397",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM41E1603610",
+        "no_rangka": "JM4117LK604252",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM41E1605175",
+        "no_rangka": "JM411XLK605380",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-RD",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM41E1608463",
+        "no_rangka": "JM4111LK608667",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-RD",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM41E1608485",
+        "no_rangka": "JM4110LK608689",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-RD",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM41E1610799",
+        "no_rangka": "JM4116LK610978",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HY2-RD",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1341786",
+        "no_rangka": "JM5116KK342034",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BW",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1350012",
+        "no_rangka": "JM5114KK350245",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1351695",
+        "no_rangka": "JM5113KK352066",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BW",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1387808",
+        "no_rangka": "JM5117KK388147",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1469112",
+        "no_rangka": "JM5117KK469617",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1473440",
+        "no_rangka": "JM5118KK473837",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1475028",
+        "no_rangka": "JM5119KK475337",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1496012",
+        "no_rangka": "JM5114KK497066",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZT-BW",
+        "type": "VARIO 125",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM51E1526651",
+        "no_rangka": "JM5119LK524876",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1526745",
+        "no_rangka": "JM5116LK524818",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1534153",
+        "no_rangka": "JM5116LK534510",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1538532",
+        "no_rangka": "JM5115LK538838",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1540965",
+        "no_rangka": "JM5119LK541290",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1559773",
+        "no_rangka": "JM5111LK560092",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1559783",
+        "no_rangka": "JM5116LK560105",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1559843",
+        "no_rangka": "JM5114LK560183",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1562536",
+        "no_rangka": "JM5117LK562915",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1566488",
+        "no_rangka": "JM5116LK566888",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BW",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1570923",
+        "no_rangka": "JM5117LK570805",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BK",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1574900",
+        "no_rangka": "JM5111LK559072",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1576578",
+        "no_rangka": "JM5118LK576807",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1576603",
+        "no_rangka": "JM5118LK576824",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1578221",
+        "no_rangka": "JM511XLK578283",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1578376",
+        "no_rangka": "JM5112LK578830",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1579450",
+        "no_rangka": "JM511XLK580017",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1579458",
+        "no_rangka": "JM5112LK580013",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BL",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1585540",
+        "no_rangka": "JM5114LK585844",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BW",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1585550",
+        "no_rangka": "JM5118LK585779",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BW",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM51E1585598",
+        "no_rangka": "JM5112LK585888",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HZ1-BW",
+        "type": "VARIO 125",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM61E1057024",
+        "no_rangka": "JM6117KK057106",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-HM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1057113",
+        "no_rangka": "JM6117KK057039",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-HM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1064016",
+        "no_rangka": "JM6119KK063943",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-BK",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1072492",
+        "no_rangka": "JM6117KK072382",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-BK",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1073601",
+        "no_rangka": "JM6119KK073310",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-BK",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1074129",
+        "no_rangka": "JM611XKK074157",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LDS-BK",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1074420",
+        "no_rangka": "JM6116KK074382",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-HM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1077714",
+        "no_rangka": "JM6110KK077598",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-HM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1084728",
+        "no_rangka": "JM6113KK084948",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-BK",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1085359",
+        "no_rangka": "JM6113KK085288",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-BK",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1086823",
+        "no_rangka": "JM6117KK087223",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-HM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1089554",
+        "no_rangka": "JM6110KK089606",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-BK",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1092982",
+        "no_rangka": "JM6110KK092960",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-HM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM61E1149359",
+        "no_rangka": "JM6117LK149396",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-RD",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM61E1149658",
+        "no_rangka": "JM6112LK149791",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-RD",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM61E1149735",
+        "no_rangka": "JM6112LK149807",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LD0-RD",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1028513",
+        "no_rangka": "JM7119KK028678",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HF",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM71E1028540",
+        "no_rangka": "JM7112KK028652",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HF",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM71E1046311",
+        "no_rangka": "JM7112KK046312",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HF",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM71E1050831",
+        "no_rangka": "JM7118KK050932",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-PM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM71E1050851",
+        "no_rangka": "JM7116KK050962",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-PM",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM71E1098817",
+        "no_rangka": "JM7115KK071060",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HF",
+        "type": "GENIO",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "JM71E1125769",
+        "no_rangka": "JM7111LK125715",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1126056",
+        "no_rangka": "JM7113LK124906",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HF",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1128049",
+        "no_rangka": "JM7116LK128089",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HF",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1130493",
+        "no_rangka": "JM7117LK130417",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1130533",
+        "no_rangka": "JM7110LK130646",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1134940",
+        "no_rangka": "JM7119LK134856",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1135745",
+        "no_rangka": "JM7113LK135551",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HM",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1136472",
+        "no_rangka": "JM7114LK136420",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1136475",
+        "no_rangka": "JM7116LK136418",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1138908",
+        "no_rangka": "JM7114LK142167",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1138959",
+        "no_rangka": "JM7117LK138906",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1138965",
+        "no_rangka": "JM7117LK138923",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LEA-BK",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1141130",
+        "no_rangka": "JM7111LK139937",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HM",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1141133",
+        "no_rangka": "JM7117LK139960",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HM",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1141152",
+        "no_rangka": "JM7114LK139964",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HM",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM71E1143827",
+        "no_rangka": "JM7117LK143653",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LE0-HM",
+        "type": "GENIO",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1003607",
+        "no_rangka": "JM811XLK003697",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1003897",
+        "no_rangka": "JM8117LK003883",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1005635",
+        "no_rangka": "JM8113LK005663",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1008151",
+        "no_rangka": "JM8117LK008243",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1010937",
+        "no_rangka": "JM8110LK010805",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1016807",
+        "no_rangka": "JM8114LK016591",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1017244",
+        "no_rangka": "JM8113LK017070",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1022658",
+        "no_rangka": "JM8119LK022435",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BP",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1023665",
+        "no_rangka": "JM8117LK023390",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1028436",
+        "no_rangka": "JM8114LK026330",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1028907",
+        "no_rangka": "JM811XLK028731",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1029067",
+        "no_rangka": "JM8118LK028842",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1029076",
+        "no_rangka": "JM8119LK028851",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1036244",
+        "no_rangka": "JM8116LK036034",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1037844",
+        "no_rangka": "JM8114LK037635",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1043228",
+        "no_rangka": "JM8110LK043089",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1043252",
+        "no_rangka": "JM8110LK042976",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1050992",
+        "no_rangka": "JM8112LK050772",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1055833",
+        "no_rangka": "JM8115LK055528",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1057834",
+        "no_rangka": "JM8112LK057625",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1057845",
+        "no_rangka": "JM8111LK057633",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1058642",
+        "no_rangka": "JM8110LK058594",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1067046",
+        "no_rangka": "JM8118LK066815",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1072211",
+        "no_rangka": "JM8119LK071988",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1072265",
+        "no_rangka": "JM8119LK072039",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1073037",
+        "no_rangka": "JM8117LK072816",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1073039",
+        "no_rangka": "JM8116LK072810",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1073041",
+        "no_rangka": "JM811XLK072812",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1073335",
+        "no_rangka": "JM811XLK073037",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1075230",
+        "no_rangka": "JM8117LK075098",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1090049",
+        "no_rangka": "JM8112LK089846",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1090069",
+        "no_rangka": "JM8118LK089849",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1103340",
+        "no_rangka": "JM8110LK102481",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-MH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM81E1107540",
+        "no_rangka": "JM8113LK106539",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LH0-WH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1018223",
+        "no_rangka": "JM8210LK018207",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-SV",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1018240",
+        "no_rangka": "JM8217LK018222",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-SV",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1026668",
+        "no_rangka": "JM8214LK026651",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-BK",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1026675",
+        "no_rangka": "JM8219LK026659",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-BK",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1037865",
+        "no_rangka": "JM8212LK037907",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-BK",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1037957",
+        "no_rangka": "JM8211LK037946",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-BK",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1037972",
+        "no_rangka": "JM821XLK037945",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-BK",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1051756",
+        "no_rangka": "JM821XLK051733",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-BK",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM82E1053521",
+        "no_rangka": "JM8214LK053512",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LJ0-BK",
+        "type": "BEAT STREET",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1013513",
+        "no_rangka": "JM911XLK010414",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1019917",
+        "no_rangka": "JM9117LK023699",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-MC",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1020042",
+        "no_rangka": "JM9113LK023599",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-MC",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1020285",
+        "no_rangka": "JM9111LK020006",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1020336",
+        "no_rangka": "JM9110LK020059",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1034895",
+        "no_rangka": "JM9114LK034787",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LKA-SV",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1039302",
+        "no_rangka": "JM9114LK039021",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1039367",
+        "no_rangka": "JM9112LK039082",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1039424",
+        "no_rangka": "JM9112LK039146",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1039448",
+        "no_rangka": "JM9119LK039161",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1039578",
+        "no_rangka": "JM9112LK039292",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1039640",
+        "no_rangka": "JM9112LK039356",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1039845",
+        "no_rangka": "JM911XLK039802",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-MC",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1049606",
+        "no_rangka": "JM9119LK049303",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1051198",
+        "no_rangka": "JM911XLK050699",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-MC",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1053501",
+        "no_rangka": "JM9117LK053205",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1079586",
+        "no_rangka": "JM9111LK079315",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1089532",
+        "no_rangka": "JM9119LK089204",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LKA-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1094683",
+        "no_rangka": "JM9114LK094388",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LKA-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1102458",
+        "no_rangka": "JM9117LK101933",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LKA-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1117321",
+        "no_rangka": "JM9112LK119868",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LKX-BK",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1119486",
+        "no_rangka": "JM9112LK121149",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LK0-BH",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1155011",
+        "no_rangka": "JM9119LK154410",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LKA-SV",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "JM91E1155019",
+        "no_rangka": "JM9115LK154419",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LKA-SV",
+        "type": "BEAT SPORTY",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KB11E1238871",
+        "no_rangka": "KB1111KK239347",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HDV-BK",
+        "type": "SONIC",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KB11E1249098",
+        "no_rangka": "KB1118LK249584",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HD7-MH",
+        "type": "SONIC",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KB11E1249133",
+        "no_rangka": "KB1110LK249630",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HDN-MP",
+        "type": "SONIC",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KB11E1249137",
+        "no_rangka": "KB1118LK249634",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HDN-MP",
+        "type": "SONIC",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KB11E1250802",
+        "no_rangka": "KB1116LK251396",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HDP-BK",
+        "type": "SONIC",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KB11E1252009",
+        "no_rangka": "KB1111LK252519",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HD7-MH",
+        "type": "SONIC",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KB22E1003916",
+        "no_rangka": "KB2210KK003857",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HJK-MH",
+        "type": "SUPRA GTR150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KB22E1006431",
+        "no_rangka": "KB2217KK006352",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HJ9-MH",
+        "type": "SUPRA GTR150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KB22E1006463",
+        "no_rangka": "KB2219LK006578",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HJT-BK",
+        "type": "SUPRA GTR150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KB22E1007155",
+        "no_rangka": "KB2217LK007292",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HJ9-BK",
+        "type": "SUPRA GTR150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC01E1028306",
+        "no_rangka": "KC0116LK027407",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EH1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC01E1028398",
+        "no_rangka": "KC0117LK027450",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EH1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1068118",
+        "no_rangka": "KC0214KK067630",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EGX-BS",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1068604",
+        "no_rangka": "KC0219KK068112",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1073003",
+        "no_rangka": "KC0219KK072516",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-MH",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1083770",
+        "no_rangka": "KC0213KK083267",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EGX-BS",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1083772",
+        "no_rangka": "KC0217KK083269",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EGX-BS",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1084133",
+        "no_rangka": "KC021XKK083752",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1087905",
+        "no_rangka": "KC021XKK087414",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1087913",
+        "no_rangka": "KC0215KK087417",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC02E1090675",
+        "no_rangka": "KC0213LK091189",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1091698",
+        "no_rangka": "KC0210LK092204",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1091710",
+        "no_rangka": "KC0212LK092267",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1091767",
+        "no_rangka": "KC0213LK092276",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1095510",
+        "no_rangka": "KC0213LK096022",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1096779",
+        "no_rangka": "KC0217LK097450",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1096894",
+        "no_rangka": "KC0212LK097405",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1099249",
+        "no_rangka": "KC0216LK099769",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1099262",
+        "no_rangka": "KC0219LK099796",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1099269",
+        "no_rangka": "KC0211LK099789",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1099492",
+        "no_rangka": "KC0210LK100009",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BS",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC02E1099615",
+        "no_rangka": "KC0212LK100139",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EG1-BR",
+        "type": "VERZA",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KC92E1027983",
+        "no_rangka": "KC9216KK030390",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EX0-HM",
+        "type": "CBR 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC92E1028043",
+        "no_rangka": "KC9211KK030331",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EX0-HM",
+        "type": "CBR 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC92E1028152",
+        "no_rangka": "KC9211KK030541",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EX0-HM",
+        "type": "CBR 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC92E1028981",
+        "no_rangka": "KC9219KK031159",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EX0-HM",
+        "type": "CBR 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC92E1040532",
+        "no_rangka": "KC9218KK042847",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EXB-OP",
+        "type": "CBR 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC92E1040539",
+        "no_rangka": "KC9212KK042858",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EXB-OP",
+        "type": "CBR 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC92E1041414",
+        "no_rangka": "KC9211KK043838",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EXA-MP",
+        "type": "CBR 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012314",
+        "no_rangka": "KC9318KK011094",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012363",
+        "no_rangka": "KC9312KK011009",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012393",
+        "no_rangka": "KC9311KK011034",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012394",
+        "no_rangka": "KC9313KK011035",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012417",
+        "no_rangka": "KC9318KK011080",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012426",
+        "no_rangka": "KC9311KK011082",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012429",
+        "no_rangka": "KC9316KK011059",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012435",
+        "no_rangka": "KC9311KK011065",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012443",
+        "no_rangka": "KC9319KK011072",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012777",
+        "no_rangka": "KC9315KK011456",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012780",
+        "no_rangka": "KC9319KK011458",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KC93E1012790",
+        "no_rangka": "KC931XKK011467",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA1E1009510",
+        "no_rangka": "KCA118JK009459",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EV0-BR",
+        "type": "CB 150",
+        "tahun": 2018
+    },
+    {
+        "no_mesin": "KCA1E1012344",
+        "no_rangka": "KCA11XJK012363",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EV0-BR",
+        "type": "CB 150",
+        "tahun": 2018
+    },
+    {
+        "no_mesin": "KCA1E1013504",
+        "no_rangka": "KCA113KK014604",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EV0-BY",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA1E1013517",
+        "no_rangka": "KCA114KK014613",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EV0-BY",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA1E1026404",
+        "no_rangka": "KCA111KK027609",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EV1-BK",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA1E1026654",
+        "no_rangka": "KCA11XKK027897",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EV1-BK",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA2E1005692",
+        "no_rangka": "KCA216JK005392",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EWB-RD",
+        "type": "CB 150",
+        "tahun": 2018
+    },
+    {
+        "no_mesin": "KCA2E1022701",
+        "no_rangka": "KCA218JK023845",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EWA-RD",
+        "type": "CB 150",
+        "tahun": 2018
+    },
+    {
+        "no_mesin": "KCA2E1062431",
+        "no_rangka": "KCA213KK066815",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EW2-BK",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA2E1063946",
+        "no_rangka": "KCA211KK068384",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EWE-RD",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA2E1075084",
+        "no_rangka": "KCA215KK079470",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EW2-BK",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA2E1076682",
+        "no_rangka": "KCA216KK081115",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EW2-WH",
+        "type": "CB 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KCA2E1080401",
+        "no_rangka": "KCA21XLK084908",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EWD-RD",
+        "type": "CB 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KCA2E1080882",
+        "no_rangka": "KCA212LK085356",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EWD-RD",
+        "type": "CB 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KCA2E1081522",
+        "no_rangka": "KCA214LK086010",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EWD-RD",
+        "type": "CB 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KD11E1079481",
+        "no_rangka": "KD1119KK080202",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-MP",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1083424",
+        "no_rangka": "KD1115KK084201",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1087493",
+        "no_rangka": "KD1114KK088319",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-MP",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1087516",
+        "no_rangka": "KD1112KK088366",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-MP",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1087523",
+        "no_rangka": "KD1116KK088340",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-MP",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1087541",
+        "no_rangka": "KD1115KK088359",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-MP",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1096315",
+        "no_rangka": "KD1115KK097059",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1097622",
+        "no_rangka": "KD1115KK098230",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES1-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1101730",
+        "no_rangka": "KD1116KK102415",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES4-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1101852",
+        "no_rangka": "KD1119KK102540",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES4-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1101855",
+        "no_rangka": "KD111XKK102546",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES4-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1101859",
+        "no_rangka": "KD1111KK102547",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES4-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1102246",
+        "no_rangka": "KD111XKK102949",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES4-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1107308",
+        "no_rangka": "KD1111KK108090",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES4-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1108040",
+        "no_rangka": "KD1112KK108731",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES4-BK",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1110548",
+        "no_rangka": "KD111XKK111229",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES3-MP",
+        "type": "CRF150L",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KD11E1122125",
+        "no_rangka": "KD1118LK122828",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES3-MP",
+        "type": "CRF150L",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KD11E1122137",
+        "no_rangka": "KD1119LK122840",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES3-MP",
+        "type": "CRF150L",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KD11E1126050",
+        "no_rangka": "KD1117LK126742",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES3-MP",
+        "type": "CRF150L",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KD11E1126057",
+        "no_rangka": "KD1119LK126760",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ES3-MP",
+        "type": "CRF150L",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KD11E1128016",
+        "no_rangka": "KD1116LK128787",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ESP-MP",
+        "type": "CRF150L",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KD11E1128019",
+        "no_rangka": "KD1112LK128785",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ESP-MP",
+        "type": "CRF150L",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1154689",
+        "no_rangka": "KF2119KK155299",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-BK",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1155345",
+        "no_rangka": "KF211XKK155862",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-BK",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1205185",
+        "no_rangka": "KF2114KK205719",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-SV",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1237837",
+        "no_rangka": "KF2117KK238665",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1237918",
+        "no_rangka": "KF2114KK238669",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1240206",
+        "no_rangka": "KF2111KK240816",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-SV",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1240231",
+        "no_rangka": "KF2113KK240820",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-SV",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1241096",
+        "no_rangka": "KF2117KK241985",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-BW",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1241098",
+        "no_rangka": "KF2115KK241984",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-BW",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1241864",
+        "no_rangka": "KF2114KK242690",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1241969",
+        "no_rangka": "KF2115KK242696",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1242011",
+        "no_rangka": "KF2118KK242644",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF21E1313072",
+        "no_rangka": "KF2114LK313954",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-BK",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1313364",
+        "no_rangka": "KF211XLK314185",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSX-RD",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1313800",
+        "no_rangka": "KF2119LK314646",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-BK",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1316826",
+        "no_rangka": "KF2119LK317644",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSX-RD",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1317103",
+        "no_rangka": "KF2112LK318277",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1318305",
+        "no_rangka": "KF2119LK319426",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1322044",
+        "no_rangka": "KF2115LK323165",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1322047",
+        "no_rangka": "KF2116LK323174",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS1-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1328156",
+        "no_rangka": "KF2112LK328615",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1328845",
+        "no_rangka": "KF2114LK329166",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1328870",
+        "no_rangka": "KF2110LK329150",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "",
+        "type": null,
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1329822",
+        "no_rangka": "KF2118LK330255",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS2-BL",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1332220",
+        "no_rangka": "KF2116LK332506",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSW-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1332227",
+        "no_rangka": "KF2116LK332554",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSW-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1336088",
+        "no_rangka": "KF2116LK336975",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS2-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1338526",
+        "no_rangka": "KF2116LK339035",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS2-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1339882",
+        "no_rangka": "KF2114LK340460",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS2-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1340406",
+        "no_rangka": "KF2112LK341168",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HS2-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1344038",
+        "no_rangka": "KF2118LK344382",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSW-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1345238",
+        "no_rangka": "KF2114LK345304",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSW-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1347766",
+        "no_rangka": "KF2113LK348405",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSW-RD",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF21E1352419",
+        "no_rangka": "KF2115LK352715",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HSW-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF22E1081115",
+        "no_rangka": "KF2218KK081274",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTY-BK",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1081116",
+        "no_rangka": "KF2214KK081272",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTY-BK",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1115430",
+        "no_rangka": "KF2216KK115650",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-BW",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1118399",
+        "no_rangka": "KF2212KK118626",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-SV",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1120746",
+        "no_rangka": "KF2211KK121243",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-SV",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1125173",
+        "no_rangka": "KF2210KK125493",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-WH",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1125175",
+        "no_rangka": "KF2215KK125487",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-WH",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1125526",
+        "no_rangka": "KF221XKK125856",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-BK",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1125538",
+        "no_rangka": "KF221XKK125839",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-BK",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1125549",
+        "no_rangka": "KF2214KK125884",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-BK",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1126178",
+        "no_rangka": "KF2211KK126541",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-RD",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1126278",
+        "no_rangka": "KF2214KK126520",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-RD",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1145207",
+        "no_rangka": "KF2212KK145423",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTZ-BW",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF22E1156067",
+        "no_rangka": "KF2218LK156072",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HT2-RD",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF22E1162338",
+        "no_rangka": "KF2216LK162288",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HTW-WH",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF22E1166791",
+        "no_rangka": "KF2218LK166780",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HT2-BL",
+        "type": "PCX",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF31E1001942",
+        "no_rangka": "KF3119KK001942",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HV0-BL",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF31E1001946",
+        "no_rangka": "KF3116KK001946",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HV0-BL",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF31E1001954",
+        "no_rangka": "KF3115KK001954",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HV0-BL",
+        "type": "PCX",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1734976",
+        "no_rangka": "KF4114KK732302",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1743859",
+        "no_rangka": "KF4117KK741303",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-SV",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1743875",
+        "no_rangka": "KF4116KK741311",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-SV",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1743912",
+        "no_rangka": "KF4115KK741252",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-SV",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1755909",
+        "no_rangka": "KF4112KK753231",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-RD",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1755928",
+        "no_rangka": "KF4116KK753250",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-RD",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1755931",
+        "no_rangka": "KF4113KK753254",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-RD",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1781432",
+        "no_rangka": "KF4116KK778651",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-RD",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1805466",
+        "no_rangka": "KF4114KK802879",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-WH",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1839704",
+        "no_rangka": "KF411XKK837216",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF41E1884066",
+        "no_rangka": "KF4117LK881661",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BW",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885142",
+        "no_rangka": "KF4117LK882728",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885164",
+        "no_rangka": "KF4112LK882748",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885166",
+        "no_rangka": "KF4110LK882750",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885168",
+        "no_rangka": "KF4114LK882752",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885171",
+        "no_rangka": "KF411XLK882755",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885172",
+        "no_rangka": "KF4111LK882756",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885174",
+        "no_rangka": "KF4115LK882758",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1885175",
+        "no_rangka": "KF4117LK882759",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1887851",
+        "no_rangka": "KF4110LK885468",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1887948",
+        "no_rangka": "KF4110LK885566",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HW3-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1887974",
+        "no_rangka": "KF4113LK885593",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1888538",
+        "no_rangka": "KF411XLK886126",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1890565",
+        "no_rangka": "KF4119LK888160",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-WH",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1891877",
+        "no_rangka": "KF4115LK889600",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1891941",
+        "no_rangka": "KF4117LK889520",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1893650",
+        "no_rangka": "KF4111LK891232",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1902530",
+        "no_rangka": "KF4114LK899941",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-SV",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1910087",
+        "no_rangka": "KF4113LK907883",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1910904",
+        "no_rangka": "KF4115LK908873",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1911135",
+        "no_rangka": "KF4110LK908926",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-SV",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1912184",
+        "no_rangka": "KF4119LK909959",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1912565",
+        "no_rangka": "KF4115LK910400",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1917113",
+        "no_rangka": "KF4115LK914978",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-SV",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1918917",
+        "no_rangka": "KF4114LK917015",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-WH",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1919371",
+        "no_rangka": "KF4113LK917166",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-WH",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1920856",
+        "no_rangka": "KF4112LK918647",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-WH",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1921398",
+        "no_rangka": "KF4119LK919195",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1922237",
+        "no_rangka": "KF4116LK920028",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1926810",
+        "no_rangka": "KF4118LK924484",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BW",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1928052",
+        "no_rangka": "KF4115LK925642",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BW",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1932071",
+        "no_rangka": "KF4113LK929639",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1932112",
+        "no_rangka": "KF411XLK929699",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1932891",
+        "no_rangka": "KF4111LK930482",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1932892",
+        "no_rangka": "KF4113LK930483",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1935404",
+        "no_rangka": "KF4118LK933010",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-WH",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1939113",
+        "no_rangka": "KF4117LK937100",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BK",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1947480",
+        "no_rangka": "KF4115LK945082",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1954501",
+        "no_rangka": "KF4111LK952126",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BW",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1955313",
+        "no_rangka": "KF4112LK952913",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF41E1955382",
+        "no_rangka": "KF4116LK952977",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "HWS-BL",
+        "type": "VARIO 150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF51E1013810",
+        "no_rangka": "KF5119KK014900",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LF0-RD",
+        "type": "ADV150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF51E1014190",
+        "no_rangka": "KF5119KK015173",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LF0-BW",
+        "type": "ADV150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF51E1014794",
+        "no_rangka": "KF5117KK015902",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LF0-SV",
+        "type": "ADV150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF51E1029911",
+        "no_rangka": "KF5113KK031000",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LFT-BW",
+        "type": "ADV150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF51E1042363",
+        "no_rangka": "KF5111LK043521",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LF0-SV",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF51E1042579",
+        "no_rangka": "KF5116LK043692",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LF0-RD",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF51E1044566",
+        "no_rangka": "KF5112LK045603",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LF0-SV",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF51E1045203",
+        "no_rangka": "KF5113LK046243",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LF0-BK",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF51E1052594",
+        "no_rangka": "KF5110LK053845",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LFX-RD",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF51E1053689",
+        "no_rangka": "KF5117LK054605",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LFX-RD",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF51E1053804",
+        "no_rangka": "KF5115LK054991",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LFX-RD",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF61E1008504",
+        "no_rangka": "KF6119KK008567",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LG0-MH",
+        "type": "ADV150",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "KF61E1022683",
+        "no_rangka": "KF6110LK022858",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LG0-MH",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF61E1023243",
+        "no_rangka": "KF6116LK023352",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LG0-MH",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF61E1023581",
+        "no_rangka": "KF6113LK023602",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LG0-PH",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "KF61E1024801",
+        "no_rangka": "KF6111LK025039",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "LG0-MH",
+        "type": "ADV150",
+        "tahun": 2020
+    },
+    {
+        "no_mesin": "MC31E1008950",
+        "no_rangka": "MC3117KK011483",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EKJ-RD",
+        "type": "CBR 250",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "MC31E1009329",
+        "no_rangka": "MC3110KK010921",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EKK-BK",
+        "type": "CBR 250",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "MC31E1009365",
+        "no_rangka": "MC3118KK010956",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EKK-BK",
+        "type": "CBR 250",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "MC31E1010087",
+        "no_rangka": "MC3118KK011721",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EK2-RD",
+        "type": "CBR 250",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "MC31E1010092",
+        "no_rangka": "MC3116KK011748",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EK2-RD",
+        "type": "CBR 250",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "MC31E1010155",
+        "no_rangka": "MC3116KK011782",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EKH-BK",
+        "type": "CBR 250",
+        "tahun": 2019
+    },
+    {
+        "no_mesin": "MC41E1008632",
+        "no_rangka": "MC4116KK010444",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "ELJ-RD",
+        "type": "CBR 250",
+        "tahun": 2019
+    }
+]
