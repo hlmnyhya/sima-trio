@@ -388,7 +388,7 @@ class Audit extends CI_Controller
             'id_cabang'      => $this->input->post('id_cabang', true),
             'tanggal'        => $this->input->post('tanggal', true),
             'waktu'          => $this->input->post('waktu', true),
-            'keterangan'     => 'waiting',
+            'keterangan'     => $this->input->post('keterangan', true),
             'user'  => $this->session->userdata('no_mesin')
         ];
         $id = $data['idjadwal_audit'];
