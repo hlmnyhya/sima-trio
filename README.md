@@ -1,8 +1,5 @@
 # SIMA
 SIMA-PKL tesadd 
+tes sekali lagi
 
 tes
-<<<<<<< HEAD
-
-=======
->>>>>>> 821f58447e9d7fe216191410e8be1e6e387fe63e
