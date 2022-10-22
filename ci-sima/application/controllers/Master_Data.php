@@ -2595,7 +2595,7 @@ class Master_Data extends CI_Controller
         $listgroup = $this->mmasdat->getUserGroup();
         foreach ($listgroup as $list) {
             $no++;
-            if ($list['id_usergroup'] == $id) {
+rz            if ($list['id_usergroup'] == $id) {
                 $output .= '
                     <option value="' . $list['id_usergroup'] . '" selected>' . $list['id_usergroup'] . ' - ' . $list['user_group'] . '</option>
                 ';
