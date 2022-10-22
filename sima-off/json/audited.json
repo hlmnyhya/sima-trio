@@ -1,0 +1,62 @@
+[
+    {
+        "no_mesin": "JB02E2017955",
+        "no_rangka": "JB02A7K5009026",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-RD",
+        "type": "Z125",
+        "tahun": "2019",
+        "status_unit": "Sesuai",
+        "keterangan": "",
+        "is_ready": "1"
+    },
+    {
+        "no_mesin": "JB02E2017955",
+        "no_rangka": "JB02A7K5009026",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-RD",
+        "type": "Z125",
+        "tahun": "2019",
+        "status_unit": "Sesuai",
+        "keterangan": "",
+        "is_ready": "1"
+    },
+    {
+        "no_mesin": "JB02E2017955",
+        "no_rangka": "JB02A7K5009026",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-RD",
+        "type": "Z125",
+        "tahun": "2019",
+        "status_unit": "Sesuai",
+        "keterangan": "",
+        "is_ready": "1"
+    },
+    {
+        "no_mesin": "JB02E2017955",
+        "no_rangka": "JB02A7K5009026",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD",
+        "kode_item": "EZ0-RD",
+        "type": "Z125",
+        "tahun": "2019",
+        "status_unit": "Sesuai",
+        "keterangan": "",
+        "is_ready": "1"
+    },
+    {
+        "no_mesin": "JB02E2017955",
+        "no_rangka": "JB02A7K5009026",
+        "id_cabang": "T13",
+        "id_lokasi": "GUD2",
+        "kode_item": "EZ0-RD",
+        "type": "Z125",
+        "tahun": "2019",
+        "status_unit": "Sesuai",
+        "keterangan": "Lokasi Tidak Sesuai",
+        "is_ready": "1"
+    }
+]
