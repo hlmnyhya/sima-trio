@@ -53,10 +53,9 @@ class Audit extends CI_Controller
             'judul1' => 'Audit'
         ];
         $tglnow = Date('Y-m-d');
-        $wktnow = Time();
+        $wktnow = Date('H:i');
         $wktnow = str_replace(':', '', $wktnow);
         $waktujadwalaudit = $this->maudit->getAudit();
-        date_default_timezone_set("Asia/Makassar");
         if ($waktujadwalaudit) {
             foreach ($waktujadwalaudit as $waktuaudit) {
                 $tanggal = $waktuaudit['tanggal'];
@@ -185,7 +184,6 @@ class Audit extends CI_Controller
         }
         $start = ($page - 1) * $config['per_page'];
         $listJadwalAudit = $this->maudit->getAudit($start);
-        date_default_timezone_set("Asia/Makassar");
         if ($listJadwalAudit) {
             foreach ($listJadwalAudit as $list) {
                 if ($list['keterangan'] == 'waiting') {
@@ -218,7 +216,7 @@ class Audit extends CI_Controller
                     <td class="text-center">' . $list['idjadwal_audit'] . '</td>
                     <td class="text-center">' . $list['auditor'] . '</td>
                     <td class="text-center">' . $list['tanggal'] . '</td>
-                    <td class="text-center">' . $list['waktu'] . ' WITA</td>
+                    <td class="text-center">' . $list['waktu'] . '</td>
                     <td class="text-center">' . $list['nama_cabang'] . '</td>
                     <td class="text-center">' . $list['jenis_audit'] . '</td>
                     <td class="text-center">' . $list['keterangan'] . '</td>
@@ -448,7 +446,7 @@ class Audit extends CI_Controller
                 <td >' . $list['idjadwal_audit'] . '</td>
                 <td>' . $list['auditor'] . '</td>
                 <td>' . $list['tanggal'] . '</td>
-                <td>' . $list['waktu'] . ' WITA</td>
+                <td>' . $list['waktu'] . ' </td>
                 <td>' . $list['nama_cabang'] . '</td>
                 <td>' . $list['jenis_audit'] . '</td>
                 <td>' . $list['keterangan'] . '</td>
@@ -473,7 +471,6 @@ class Audit extends CI_Controller
         $no = 0;
         $output = '';
         $base = base_url();
-        date_default_timezone_set("Asia/Makassar");
         if ($listJdwAudit) {
             foreach ($listJdwAudit as $list) {
                 if ($list['keterangan'] == 'waiting') {
@@ -501,7 +498,7 @@ class Audit extends CI_Controller
                 <td >' . $list['idjadwal_audit'] . '</td>
                 <td>' . $list['auditor'] . '</td>
                 <td>' . $list['tanggal'] . '</td>
-                <td>' . $list['waktu'] . ' WITA</td>
+                <td>' . $list['waktu'] . '</td>
                 <td>' . $list['nama_cabang'] . '</td>
                 <td>' . $list['jenis_audit'] . '</td>
                 <td>' . $list['keterangan'] . '</td>
@@ -588,9 +585,8 @@ class Audit extends CI_Controller
 
     public function waktu_audit()
     {
-        date_default_timezone_set("Asia/Makassar");
         $tglnow = Date('Y-m-d');
-        $wktnow = time();
+        $wktnow = Date('H:i');
         $wktnow = str_replace(':', '', $wktnow);
         $waktujadwalaudit = $this->maudit->getAudit();
         foreach ($waktujadwalaudit as $waktuaudit) {
