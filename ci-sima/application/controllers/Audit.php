@@ -388,8 +388,8 @@ class Audit extends CI_Controller
             'id_cabang'      => $this->input->post('id_cabang', true),
             'tanggal'        => $this->input->post('tanggal', true),
             'waktu'          => $this->input->post('waktu', true),
-            'keterangan'     => 'waiting',
-            'user'  => $this->session->userdata('no_mesin')
+            'keterangan'     => $this->input->post('keterangan', true),
+            'user'  => $this->session->userdata('no_mesin') 
         ];
         $id = $data['idjadwal_audit'];
 
@@ -492,9 +492,7 @@ class Audit extends CI_Controller
                 $output .= '
             <tr> 
                 <td>' . $no . '</td>
-                <td>
-                <a href="' . $base . 'audit/deletejadwal_audit/' . $list['idjadwal_audit'] . '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' . $list['idjadwal_audit'] . ' - ' . $list['auditor'] . ' ? ");\'><i class="fa fa-trash"></i></a>
-                </td>
+                <td></td>
                 <td >' . $list['idjadwal_audit'] . '</td>
                 <td>' . $list['auditor'] . '</td>
                 <td>' . $list['tanggal'] . '</td>
