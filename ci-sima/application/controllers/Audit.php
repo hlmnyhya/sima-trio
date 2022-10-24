@@ -14,7 +14,7 @@ class Audit extends CI_Controller
         $this->load->library('pagination');
 
         if (!$this->session->userdata('username')) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger">Login Dulu!</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger">Silakan Login lebih dulu!</div>');
 
             redirect('login/sima_login');
         } else {
@@ -389,7 +389,7 @@ class Audit extends CI_Controller
             'tanggal'        => $this->input->post('tanggal', true),
             'waktu'          => $this->input->post('waktu', true),
             'keterangan'     => $this->input->post('keterangan', true),
-            'user'  => $this->session->userdata('no_mesin') 
+            'user'  => $this->session->userdata('no_mesin')
         ];
         $id = $data['idjadwal_audit'];
 
@@ -490,16 +490,18 @@ class Audit extends CI_Controller
                 }
                 $no++;
                 $output .= '
-            <tr> 
-                <td>' . $no . '</td>
-                <td></td>
-                <td >' . $list['idjadwal_audit'] . '</td>
-                <td>' . $list['auditor'] . '</td>
-                <td>' . $list['tanggal'] . '</td>
-                <td>' . $list['waktu'] . '</td>
-                <td>' . $list['nama_cabang'] . '</td>
-                <td>' . $list['jenis_audit'] . '</td>
-                <td>' . $list['keterangan'] . '</td>
+            <tr > 
+                <td class="text-center">' . $no . '</td>
+                <td>  
+                
+                </td>
+                <td class="text-center">' . $list['idjadwal_audit'] . '</td>
+                <td class="text-center">' . $list['auditor'] . '</td>
+                <td class="text-center">' . $list['tanggal'] . '</td>
+                <td class="text-center">' . $list['waktu'] . '</td>
+                <td class="text-center">' . $list['nama_cabang'] . '</td>
+                <td class="text-center">' . $list['jenis_audit'] . '</td>
+                <td class="text-center">' . $list['keterangan'] . '</td>
             </tr>
             
             ';
@@ -513,9 +515,6 @@ class Audit extends CI_Controller
         }
         echo json_encode($output, true);
     }
-
-
-
 
     public function search_data_usergroup()
     {
