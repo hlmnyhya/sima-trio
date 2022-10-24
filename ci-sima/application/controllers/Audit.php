@@ -14,7 +14,7 @@ class Audit extends CI_Controller
         $this->load->library('pagination');
 
         if (!$this->session->userdata('username')) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger">Login Dulu!</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger">Silakan Login lebih dulu!</div>');
 
             redirect('login/sima_login');
         } else {
@@ -389,7 +389,7 @@ class Audit extends CI_Controller
             'tanggal'        => $this->input->post('tanggal', true),
             'waktu'          => $this->input->post('waktu', true),
             'keterangan'     => $this->input->post('keterangan', true),
-            'user'  => $this->session->userdata('no_mesin') 
+            'user'  => $this->session->userdata('no_mesin')
         ];
         $id = $data['idjadwal_audit'];
 
