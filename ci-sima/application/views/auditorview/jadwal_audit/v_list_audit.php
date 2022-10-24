@@ -31,7 +31,8 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                                 <tr>
-                                    <th class="text-center">No</th>
+                                    <th width="3%" class="text-center">No</th>
+                                    <th width="5%" class="text-center">Aksi</th>
                                     <th class="text-center">ID Waktu Audit</th>
                                     <th class="text-center">Auditor</th>
                                     <th class="text-center">Tanggal</th>
@@ -44,7 +45,8 @@
                             <tbody id="list_jadwal_audit"></tbody>
                             <tfoot>
                                 <tr>
-                                    <th class="text-center">No</th>
+                                    <th width="3%" class="text-center">No</th>
+                                    <th class="text-center">Aksi</th>
                                     <th class="text-center">ID Waktu Audit</th>
                                     <th class="text-center">Auditor</th>
                                     <th class="text-center">Tanggal</th>
