@@ -14,7 +14,7 @@ class Audit extends CI_Controller
         $this->load->library('pagination');
 
         if (!$this->session->userdata('username')) {
-            $this->session->set_flashdata('pesan', '<div class="alert alert-danger">Login Dulu!</div>');
+            $this->session->set_flashdata('pesan', '<div class="alert alert-danger">Silakan Login lebih dulu!</div>');
 
             redirect('login/sima_login');
         } else {
