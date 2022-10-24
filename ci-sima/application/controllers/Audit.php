@@ -490,18 +490,18 @@ class Audit extends CI_Controller
                 }
                 $no++;
                 $output .= '
-            <tr> 
-                <td>' . $no . '</td>
+            <tr > 
+                <td class="text-center">' . $no . '</td>
                 <td>  
-                <a href="' . $base . 'audit/deletejadwal_audit/' . $list['idjadwal_audit'] . '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' . $list['idjadwal_audit'] . ' - ' . $list['auditor'] . ' ? ");\'><i class="fa fa-trash"></i></a>
+                
                 </td>
-                <td >' . $list['idjadwal_audit'] . '</td>
-                <td>' . $list['auditor'] . '</td>
-                <td>' . $list['tanggal'] . '</td>
-                <td>' . $list['waktu'] . '</td>
-                <td>' . $list['nama_cabang'] . '</td>
-                <td>' . $list['jenis_audit'] . '</td>
-                <td>' . $list['keterangan'] . '</td>
+                <td class="text-center">' . $list['idjadwal_audit'] . '</td>
+                <td class="text-center">' . $list['auditor'] . '</td>
+                <td class="text-center">' . $list['tanggal'] . '</td>
+                <td class="text-center">' . $list['waktu'] . '</td>
+                <td class="text-center">' . $list['nama_cabang'] . '</td>
+                <td class="text-center">' . $list['jenis_audit'] . '</td>
+                <td class="text-center">' . $list['keterangan'] . '</td>
             </tr>
             
             ';
