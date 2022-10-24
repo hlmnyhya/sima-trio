@@ -30,14 +30,16 @@
                                             </div>
                                         </div>
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Part Number</label>
-                                            <div class="col-sm-8">
+                                            <label class="col-sm-3 control-label">Part Number</label>
+                                            <div class="col-sm-9">
                                                 <input type="text" class="form-control" placeholder="Cari Data Part" id="cari">
                                                 <span class="help-block m-b-none text-danger" id="info"></span>
                                             </div>
-                                            <div class="col-sm-1">
+                                            <div class="col-sm-12">
                                                 <a id="doCari" class="btn btn-primary">Scan Data</a>
                                                 <a href="<?php echo base_url() ?>transaksi_auditor/temp_part?id=<?php echo $_GET['id'] ?>" class="btn btn-warning">Temporary Data</a>
+                                                <!-- <a class="btn btn-success" onClick="MyWindow=window.open(\'' . $link . '\',\'MyWindow\',\'width=683,height=576\'); return false;">BUKA</a> -->
+                                                <a class="btn btn-danger" id="close">Close Part</a>
 
                                             </div>
                                         </div>
