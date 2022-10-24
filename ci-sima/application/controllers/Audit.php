@@ -493,7 +493,6 @@ class Audit extends CI_Controller
             <tr > 
                 <td class="text-center">' . $no . '</td>
                 <td>  
-                
                 </td>
                 <td class="text-center">' . $list['idjadwal_audit'] . '</td>
                 <td class="text-center">' . $list['auditor'] . '</td>
