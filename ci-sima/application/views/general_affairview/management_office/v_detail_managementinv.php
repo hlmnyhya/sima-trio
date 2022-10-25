@@ -42,7 +42,7 @@
                             </div>
 
                             <div class="form-group"><label class="col-sm-3 control-label">Sub Inventory</label>
-                                <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled>
+                                <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled readonly>
 
                                     </select>
                                 </div>
@@ -75,7 +75,7 @@
                                 <div class="col-sm-9">
                                     <div class="input-group date">
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        <input type="text" class="form-control" name="tanggal_barang_terima" id="tanggal_barang_terima" value="<?php echo $e['tanggal_barang_diterima'] ?>">
+                                        <input type="text" class="form-control" name="tanggal_barang_terima" id="tanggal_barang_terima" value="<?php echo $e['tanggal_barang_diterima'] ?>" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -104,8 +104,8 @@
                             </div>
 
 
-                            <div class="form-group"><label class="col-sm-3 control-label">Lokasi</label>
-                                <div class="col-sm-9"><select class="form-control m-b" name="id_lokasi" id="OptLokasi" disabled>
+                            <div class="form-group"><label class="col-sm-3 control-label">Lokasi Aset GA</label>
+                                <div class="col-sm-9"><select class="form-control m-b" name="id_lokasi" id="OptLokasi" disabled readonly>
                                     </select>
                                 </div>
                             </div>
