@@ -10,9 +10,9 @@
                 <div class="panel-body">
 
                     <div class="form-group"><label class="col-sm-2 control-label">Data Part</label>
-                        <div class="col-sm-7"><input type="text" class="form-control" placeholder="Cari Data Part" id="cari"></div>
+                        <div class="col-sm-7"><input type="text" class="form-control" placeholder="Cari Data Part" id="info"></div>
                         <div>
-                            <button class="btn btn-success btn-m">Scan Data</button>
+                            <button class="btn btn-success btn-m" id="docari">Scan Data</button>
                         </div>
                     </div>
 
@@ -28,6 +28,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
+                                    <th>Kondisi</th>
 
                                 </tr>
                             </thead>
@@ -43,9 +44,11 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
+                                    <th>Kondisi</th>
                                 </tr>
                             </tfoot>
                         </table>
+                        <div class="text-right"> <span id="pagination"></span></div>
                     </div>
 
                 </div>
