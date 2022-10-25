@@ -2,13 +2,16 @@
     <!-- <?php print_r($edit) ?> -->
     <div class="row form-horizontal">
         <div class="col-lg-12">
-            <!-- <form class="form-horizontal" method="post" action="<?php echo base_url('transaksi_ga/put_inventory') ?>" id="FormInventory"> -->
+            <form class="form-horizontal" >
             <div class="panel panel-primary">
                 <div class="panel-heading">
 
                     <div class="col-lg-10">
                         <h4><i class="fa fa-info-circle"></i> Detail Inventory</h4>
                     </div>
+                    <div class="panel-body"></div>
+
+
 
                 </div>
                 <?php foreach ($edit as $e) { ?>
@@ -42,7 +45,7 @@
                             </div>
 
                             <div class="form-group"><label class="col-sm-3 control-label">Sub Inventory</label>
-                                <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled>
+                                <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled readonly>
 
                                     </select>
                                 </div>
@@ -75,7 +78,7 @@
                                 <div class="col-sm-9">
                                     <div class="input-group date">
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        <input type="text" class="form-control" name="tanggal_barang_terima" id="tanggal_barang_terima" value="<?php echo $e['tanggal_barang_diterima'] ?>">
+                                        <input type="text" class="form-control" name="tanggal_barang_terima" id="tanggal_barang_terima" value="<?php echo $e['tanggal_barang_diterima'] ?>" readonly>
                                     </div>
                                 </div>
                             </div>
@@ -104,8 +107,8 @@
                             </div>
 
 
-                            <div class="form-group"><label class="col-sm-3 control-label">Lokasi</label>
-                                <div class="col-sm-9"><select class="form-control m-b" name="id_lokasi" id="OptLokasi" disabled>
+                            <div class="form-group"><label class="col-sm-3 control-label">Lokasi Aset GA</label>
+                                <div class="col-sm-9"><select class="form-control m-b" name="id_lokasi" id="OptLokasi" disabled readonly>
                                     </select>
                                 </div>
                             </div>

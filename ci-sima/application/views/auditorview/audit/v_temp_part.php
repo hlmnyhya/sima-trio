@@ -10,7 +10,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <a href="<?php echo base_url() ?>transaksi_auditor/auditpart?id=<?php echo $_GET['id'] ?>" class="btn btn-danger">Back</a>
+                                    <a href="<?php echo base_url() ?>transaksi_auditor/auditpart?id=<?php echo $_GET['id'].  "&&a=".base64_encode('idjadwal_audit') ?>" class="btn btn-danger">Back</a>
                                 </div>
 
                             </div>
@@ -25,7 +25,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
+                                            <th class="text-center">Cabang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
@@ -38,7 +38,7 @@
                                     <tfoot>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
+                                            <th class="text-center">Cabang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
