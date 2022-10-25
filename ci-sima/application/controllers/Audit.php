@@ -264,11 +264,12 @@ class Audit extends CI_Controller
                     <td class="text-center">' . $list['tahun'] . '</td>
                     <td class="text-center">' . $list['type'] . '</td>
                     <td class="text-center">' . $list['kode_item'] . '</td>
-                  
+                    <option value="' . $list['id_cabang'] . '">' . $list['id_cabang'] . ' - ' . $list['nama_cabang'] . '</option>
                 </tr>
                 
                 ';
             }
+            echo '<option value="">--- Pilih Cabang ---</option>';
             echo $output;
         } else {
             echo $output .= '
@@ -299,10 +300,12 @@ class Audit extends CI_Controller
                 <td>' . $list['id_bin_box'] . '</td>
                 <td>' . $list['deskripsi'] . '</td>
                 <td>' . $list['qty'] . '</td>
+                <option value="' . $list['id_cabang'] . '">' . $list['id_cabang'] . ' - ' . $list['nama_cabang'] . '</option>
             </tr>
             
             ';
         }
+        echo '<option value="">--- Pilih Cabang --- </option>';
         echo $output;
     }
 
