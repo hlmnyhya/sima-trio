@@ -1,14 +1,16 @@
 <div class="wrapper wrapper-content m-t-xl wrapper wrapper-content animated fadeInRight">
     <!-- <?php print_r($edit) ?> -->
     <div class="row form-horizontal">
-        <div class="col-lg-12">
-            <!-- <form class="form-horizontal" method="post" action="<?php echo base_url('transaksi_ga/put_inventory') ?>" id="FormInventory"> -->
+        <div class="col-lg-20">
             <div class="panel panel-primary">
                 <div class="panel-heading">
 
                     <div class="col-lg-10">
                         <h4><i class="fa fa-info-circle"></i> Detail Inventory</h4>
                     </div>
+                    <div class="panel-body"></div>
+
+
 
                 </div>
                 <?php foreach ($edit as $e) { ?>

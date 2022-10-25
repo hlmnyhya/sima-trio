@@ -25,7 +25,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
+                                            <th class="text-center">Cabang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
@@ -38,7 +38,7 @@
                                     <tfoot>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
+                                            <th class="text-center">Cabang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>

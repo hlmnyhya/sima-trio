@@ -305,7 +305,7 @@ class Audit extends CI_Controller
             
             ';
         }
-        echo '<option value="">--- Pilih Cabang --- </option>'
+        echo '<option value="">--- Pilih Cabang --- </option>';
         echo $output;
     }
 
