@@ -2,7 +2,7 @@
     <!-- <?php print_r($edit) ?> -->
     <div class="row form-horizontal">
         <div class="col-lg-12">
-            <!-- <form class="form-horizontal" method="post" action="<?php echo base_url('transaksi_ga/put_inventory') ?>" id="FormInventory"> -->
+            <form class="form-horizontal" >
             <div class="panel panel-primary">
                 <div class="panel-heading">
 
