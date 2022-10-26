@@ -535,15 +535,15 @@ class Transaksi_Auditor extends CI_Controller
                 $no++;
                 $output .= '
 				<tr> 
-					<td>' . $no . '</td>
-					<td><a onclick="edit(id=\'' . $list['id_part'] . '\')" class="text-warning" ><i class="fa fa-pencil"></i></a></td>
-					<td>' . $list['nama_cabang'] . '</td>
-					<td>' . $list['nama_gudang'] . '</td>
-					<td>' . $list['part_number'] . '</td>
-					<td>' . $list['kd_lokasi_rak'] . '</td>
-					<td>' . $list['deskripsi'] . '</td>
-					<td>' . $list['qty'] . '</td>
-					<td>' . $list['status'] . '</td>
+					<td class="text-center">' . $no . '</td>
+					<td class="text-center"><a onclick="edit(id=\'' . $list['id_part'] . '\')" class="text-warning" ><i class="fa fa-pencil"></i></a></td>
+					<td class="text-center">' . $list['nama_cabang'] . '</td>
+					<td class="text-center">' . $list['nama_gudang'] . '</td>
+					<td class="text-center">' . $list['part_number'] . '</td>
+					<td class="text-center">' . $list['kd_lokasi_rak'] . '</td>
+					<td class="text-center">' . $list['deskripsi'] . '</td>
+					<td class="text-center">' . $list['qty'] . '</td>
+					<td class="text-center">' . $list['status'] . '</td>
 				</tr>
 				
 				';
