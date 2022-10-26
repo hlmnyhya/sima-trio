@@ -50,14 +50,6 @@
                                     </select>
                                 </div>
                             </div>
-
-
-                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Awal</label>
-                                <div class="col-sm-9"><input type="text" class="form-control" name="nilai_awal" id="nilai_awal" readonly>
-                                    <span class="help-block m-b-none">* Harga Sebelum PPn</span>
-                                </div>
-                            </div>
-
                             <div class="form-group"><label class="col-sm-3 control-label">DDP</label>
                                 <div class="col-sm-9"><input type="text" class="form-control" name="ddp" id="dpp">
                                 </div>
@@ -69,11 +61,18 @@
                                 <div class="col-sm-2"><a onclick="hitung()" class="btn btn-primary"> Hitung</a></div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Total Keseluruhan</label>
-                                <div class="col-sm-9"><input type="text" class="form-control" name="nilai_total_keseluruhan">
+                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Awal</label>
+                                <div class="col-sm-9"><input type="text" class="form-control" name="nilai_awal" id="nilai_awal" readonly>
+                                    <span class="help-block m-b-none">* Harga Sebelum PPn</span>
                                 </div>
                             </div>
 
+                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Total Keseluruhan</label>
+                                <div class="col-sm-9"><input type="text" class="form-control" name="nilai_total_keseluruhan">
+                                </div>
+                            </div>            
+
+                            
                             <div class="form-group" id="data_1"><label class="col-sm-3 control-label">Tanggal Barang Terima</label>
                                 <div class="col-sm-9">
                                     <div class="input-group date">
