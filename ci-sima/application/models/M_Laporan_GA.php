@@ -2,16 +2,17 @@
 
 use GuzzleHttp\Client;
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Laporan_GA extends CI_Model {
+class M_Laporan_GA extends CI_Model
+{
 
     private $_client;
     public function __construct()
     {
         parent::__construct();
         $this->_client = new Client([
-            'base_uri' => SERVER_BASE . 'api/transaksi/'
+            'base_uri' => SERVER_BASE . 'api/generalaffairs/'
         ]);
     }
 
@@ -320,9 +321,6 @@ class M_Laporan_GA extends CI_Model {
             return 0;
         }
     }
-
 }
 
-/* End of file M_Laporan_GA.php */
-
-?>
+/* End of file M_Transaksi_GA.php */

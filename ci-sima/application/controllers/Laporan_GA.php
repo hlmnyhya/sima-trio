@@ -9,7 +9,9 @@ class Laporan_GA extends CI_Controller
     {
         parent::__construct();
         ini_set('max_execution_time', 0);
-        $this->load->model('m_monitoring_inventory', 'moniv');
+        $this->load->model('m_laporan_GA', 'mlapga');
+        $_tgl = date('Y-m-d');
+
         if (!$this->session->userdata('username')) {
 
             redirect('login/login');

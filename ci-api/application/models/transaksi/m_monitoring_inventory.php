@@ -3,6 +3,7 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_monitoring_inventory extends CI_Model {
+    
     public function getInv($id = null , $offset=null,$cabang = null)
     {
         if ($id===null&& $offset === null) {
