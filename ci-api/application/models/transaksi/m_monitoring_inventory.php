@@ -56,24 +56,6 @@ class m_monitoring_inventory extends CI_Model {
         // return true;
     }
 
-    public function addInv($data)
-    {
-        $this->db->insert('transaksi_inventory', $data);
-        return $this->db->affected_rows();  
-    }
-    public function editInv($id,$data)
-    {
-        $this->db->where('idtransaksi_inv', $id);
-        
-        $this->db->update('transaksi_inventory', $data);
-        return $this->db->affected_rows();  
-    }
-    public function delInv($id)
-    {
-        $this->db->where('idtransaksi_inv', $id);
-        $this->db->delete('transaksi_inventory');
-        return $this->db->affected_rows();
-    }
 
     public function Cariinventory($id = null,$offset = null,$cabang = null)
     {

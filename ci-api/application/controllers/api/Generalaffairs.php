@@ -29,11 +29,11 @@
         $offset = $this->get('offset');
         $cabang= $this->get('cabang');
         if($id===null&& $offset ===null){
-            $listinv = $this->minv->getInv($id,$offset,$cabang);
+            $listinv = $this->moniv->getInv($id,$offset,$cabang);
         }elseif($id===null&& $offset !=null){
-            $listinv = $this->minv->getInv($id,$offset,$cabang);
+            $listinv = $this->moniv->getInv($id,$offset,$cabang);
         }else{
-            $listinv = $this->minv->getInv($id,$offset,$cabang);
+            $listinv = $this->moniv->getInv($id,$offset,$cabang);
         }
         // $listinv = $this->minv->getInv();
         // var_dump($listinv);
@@ -236,7 +236,7 @@
         if ($id===null) {
             $inv = null;
         }else{
-            $inv = $this->minv->Cariinventory($id,$offset)->result();
+            $inv = $this->moniv->Cariinventory($id,$offset)->result();
         }
         
         if ($inv) {
@@ -264,7 +264,7 @@
                 'message' => 'need id'
             ], REST_Controller::HTTP_OK);
         }else{
-            if ($this->minv->delInv($id)) {
+            if ($this->moniv->delInv($id)) {
                 $this->response([
                     'status' => true,
                     'id' => $id,
@@ -320,7 +320,7 @@
                 
         ];
         // var_dump($data);die;
-            if ($this->minv->AddInv($data)) {
+            if ($this->moniv->AddInv($data)) {
                 $this->response([
                     'status' => true,
                     'data' => "User has been created"
@@ -377,7 +377,7 @@
                 'data' => "need id"
             ], REST_Controller::HTTP_OK);
         }else {
-            if ($this->minv->editInv($id,$data)) {
+            if ($this->moniv->editInv($id,$data)) {
                 $this->response([
                     'status' => true,
                     'data' => "User has been modified"
@@ -399,7 +399,7 @@
         if ($id===null) {
             $office= $this->mcount->countoffice($id,$cabang);
         }else{
-            $office = $this->minv->Cariinventory($id,null,$cabang)->num_rows();
+            $office = $this->moniv->Cariinventory($id,null,$cabang)->num_rows();
         }
         if ($office) {
             $this->response([
