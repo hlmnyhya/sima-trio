@@ -198,7 +198,7 @@ class Transaksi_GA extends CI_Controller
                 $start++;
                 $output .= '
                 <tr >
-                    <td>' . $start . '</td>
+                    <td class="text-center">' . $start . '</td>
                     <td class="tooltip-demo text-center">
                     <a href="' . base_url() . 'transaksi/editoffice?id=' . $list['idtransaksi_inv'] . '" class="text-warning"><i class="fa fa-fw fa-pencil"></i></a>
                     <a href="' . base_url() . 'transaksi_ga/deloffice?id=' . base64_encode($list['idtransaksi_inv']) . '" onclick=\'return confirm("Konfirmasi menghapus data ' . $list['idtransaksi_inv'] . ' ? ");\' class="text-danger"><i class="fa fa-fw fa-trash"></i></a>

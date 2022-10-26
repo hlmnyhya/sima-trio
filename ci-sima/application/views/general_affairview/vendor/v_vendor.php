@@ -26,7 +26,7 @@
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <div class="col-lg-11">
-                        <h4><i class="fa fa-info-circle"></i>List Data Vendor</h4>
+                        <h4><i class="fa fa-info-circle"></i> List Data Vendor</h4>
                     </div>
                     <div>
                         <input type="submit" value="Add Data" id="add" name="add" class="btn btn-success" onclick="show()">
