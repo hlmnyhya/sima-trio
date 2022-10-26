@@ -30,11 +30,8 @@
                     <div>
                         <a href="<?php echo base_url() ?>transaksi/management_office" value="Add Data" id="add" name="add" class="btn btn-success"> Add Data </a>
                     </div>
-
-
                 </div>
                 <div class="panel-body">
-
                     <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
@@ -51,7 +48,6 @@
                                     <th class="text-center">LOKASI</th>
                                     <th class="text-center">PENGGUNA</th>
                                     <th class="text-center">KETERANGAN</th>
-
                                 </tr>
                             </thead>
                             <tbody id="inv_office">

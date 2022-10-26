@@ -302,7 +302,7 @@ class Audit extends CI_Controller
                 <td>' . $list['qty'] . '</td>
                 <option value="' . $list['id_cabang'] . '">' . $list['id_cabang'] . ' - ' . $list['nama_cabang'] . '</option>
             </tr>
-            
+            h
             ';
         }
         echo '<option value="">--- Pilih Cabang --- </option>';
