@@ -24,11 +24,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-<<<<<<< HEAD
-=======
                                     <th>Kondisi</th>
-
->>>>>>> 465650cb1ac4f135178f55b2dc74bc33aef09936
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
