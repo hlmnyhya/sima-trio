@@ -197,23 +197,23 @@ class Transaksi_GA extends CI_Controller
                 }
                 $start++;
                 $output .= '
-                <tr>
+                <tr >
                     <td>' . $start . '</td>
-                    <td class="tooltip-demo">
+                    <td class="tooltip-demo text-center">
                     <a href="' . base_url() . 'transaksi/editoffice?id=' . $list['idtransaksi_inv'] . '" class="text-warning"><i class="fa fa-fw fa-pencil"></i></a>
                     <a href="' . base_url() . 'transaksi_ga/deloffice?id=' . base64_encode($list['idtransaksi_inv']) . '" onclick=\'return confirm("Konfirmasi menghapus data ' . $list['idtransaksi_inv'] . ' ? ");\' class="text-danger"><i class="fa fa-fw fa-trash"></i></a>
                     <a href="' . base_url() . 'transaksi/detail?id=' . $list['idtransaksi_inv'] . '" class="text-blue" data-toggle="tooltip" data-placement="top" title="Detail"><i class="fa fa-fw fa-eye"></i></a>
                     </td>
-                    <td>' . $list['idtransaksi_inv'] . '</td>
-                    <td>' . $list['jenis_inventory'] . '</td>
-                    <td>' . $list['sub_inventory'] . '</td>
-                    <td>' . $list['nilai_awal'] . '</td>
-                    <td>' . $tgl . '</td>
-                    <td>' . $list['nama_vendor'] . '</td>
-                    <td>' . $list['jenis_pembayaran'] . '</td>
-                    <td>' . $list['nama_lokasi'] . '</td>
-                    <td>' . $list['nama_pengguna'] . '</td>               
-                    <td>' . $list['keterangan'] . '</td>
+                    <td class="text-center">' . $list['idtransaksi_inv'] . '</td>
+                    <td class="text-center">' . $list['jenis_inventory'] . '</td>
+                    <td class="text-center">' . $list['sub_inventory'] . '</td>
+                    <td class="text-center">' . $list['nilai_awal'] . '</td>
+                    <td class="text-center">' . $tgl . '</td>
+                    <td class="text-center">' . $list['nama_vendor'] . '</td>
+                    <td class="text-center">' . $list['jenis_pembayaran'] . '</td>
+                    <td class="text-center">' . $list['nama_lokasi'] . '</td>
+                    <td class="text-center">' . $list['nama_pengguna'] . '</td>               
+                    <td class="text-center">' . $list['keterangan'] . '</td>
                     
                 </tr>
               ';
