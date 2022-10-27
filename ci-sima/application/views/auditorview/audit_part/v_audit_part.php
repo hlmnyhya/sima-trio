@@ -7,12 +7,12 @@
                 </div>
                 <div class="panel-body">
                     <div class="form-group"><label class="col-sm-2 control-label">Data Part</label>
-                        <div class="col-sm-7"><input type="text" class="form-control" placeholder="Cari Data Part" id="cari"></div>
+                        <div class="col-sm-7"><input type="text" class="form-control" placeholder="Cari Data Part" name="caripart" id="part"></div>
                         <span class="help-block m-b-none text-danger" id="info"></span>
                         <div>
                         <!-- <input type="text" class="form-control" placeholder="Cari Data Part" id="cari"> -->
                                                 
-                            <a class="btn btn-success btn-m" id="docari">Scan Data</a>
+                            <a class="btn btn-success btn-m" id="dopart">Scan Data</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -27,6 +27,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
@@ -41,7 +42,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Kondisi</th>
+                                    <th>Status</th>
                                 </tr>
                             </tfoot>
                         </table>
