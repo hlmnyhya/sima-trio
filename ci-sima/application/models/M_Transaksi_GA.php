@@ -321,6 +321,10 @@ class M_Transaksi_GA extends CI_Model
             return 0;
         }
     }
+
+
+
+    
 }
 
 /* End of file M_Transaksi_GA.php */

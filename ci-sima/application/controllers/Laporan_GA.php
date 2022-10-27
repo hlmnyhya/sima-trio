@@ -35,11 +35,14 @@ class Laporan_GA extends CI_Controller
         $this->load->view('general_affairview/_partial/footer.php');
     }
 
+    
     public function filterCabang()
     {
         $this->load->view('general_affairview/perusahaan/v_input_perusahaan.php');
         $this->load->view('general_affairview/perusahaan/_partial/footer2.php');
     }
+
+   
 }
 
 /* End of file Laporan_GA.php */
