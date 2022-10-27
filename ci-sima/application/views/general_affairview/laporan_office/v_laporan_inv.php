@@ -5,7 +5,7 @@
                 <div class="panel-body">
                     <div class="form-group">
                         <div class="col-sm-2"><label>Cari Laporan Inventory Office</label></div>
-                        <div class="col-sm-8"><input type="text" class="form-control" id="inv"></div>
+                        <div class="col-sm-8"><input type="text" class="form-control" id="inventory"></div>
                         <div class="col-sm-2 text-center"><button class="btn btn-w-m btn-success" id="caribtn">Cari Data</button>
                         </div>
                     </div>

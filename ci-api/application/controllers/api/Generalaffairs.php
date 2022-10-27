@@ -18,7 +18,7 @@
         $this->load->model('master/m_lokasi','mlokasi');
         $this->load->model('master/m_count','mcount');
         $this->load->model('master/m_lokasi_cabang','mlokasicabang');
-        $this->load->model('generalaffairs/m_monitoring_inventory', 'moniv');
+        $this->load->model('transaksi/m_monitoring_inventory', 'moniv');
         $this->_tgl = date('Y-m-d');
         ini_set('max_execution_time', 0);
         }
