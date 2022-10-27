@@ -9,7 +9,6 @@
     private $_tgl;
     function __construct() {
         parent::__construct();
-        $this->load->model('transaksi/m_management_inventory', 'minv');
         $this->load->model('master/m_status_inventory','mstatusinv');
         $this->load->model('master/m_jenis_inventory','mjenisinv');
         $this->load->model('master/m_sub_inventory','msubinv');
@@ -18,12 +17,12 @@
         $this->load->model('master/m_lokasi','mlokasi');
         $this->load->model('master/m_count','mcount');
         $this->load->model('master/m_lokasi_cabang','mlokasicabang');
-        $this->load->model('generalaffairs/m_monitoring_inventory', 'moniv');
+        $this->load->model('generalaffairs/m_laporan_ga', 'mlapga');
         $this->_tgl = date('Y-m-d');
         ini_set('max_execution_time', 0);
         }
 
-        public function Inv_get()
+         public function Inv_get()
     {
         $id = $this->get('id');
         $offset = $this->get('offset');
@@ -415,5 +414,5 @@
         }
     }
     }
-    /** End of file Transaksi.php **/
+    /** End of file Generalaffairs.php **/
 ?>
