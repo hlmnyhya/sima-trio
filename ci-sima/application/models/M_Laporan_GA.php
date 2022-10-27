@@ -323,4 +323,4 @@ class M_Laporan_GA extends CI_Model
     }
 }
 
-/* End of file M_Transaksi_GA.php */
+/* End of file M_Laporan_GA.php */
