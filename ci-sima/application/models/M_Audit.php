@@ -249,26 +249,6 @@ class M_Audit extends CI_Model {
         }
       }
 
-      public function counttemppart($a,$b,$c,$d)
-      {
-          $respon =  $this->_client->request('GET', 'counttempart',[
-              'query'=>[
-                  'id_cabang' => $a,
-                  'id_lokasi' =>$b,
-                  'part_number' =>$c,
-                  'status' =>$d
-              ]
-          ]);
-
-        $result = json_decode($respon->getBody()->getContents(),true);
-        // var_dump($result['data'][0]);die;
-        if ($result['status']==true) {
-            return $result['data'];
-        }else{
-            return 0;
-        }
-      }
-
       public function countjadwalaudit()
       {
           $respon =  $this->_client->request('GET', 'countjadwalaudit');
@@ -300,25 +280,6 @@ class M_Audit extends CI_Model {
               return false;
           }
       }
-      public function cariPart($part_number,$kd_lokasi_rak)
-      {
-          
-          $respon =  $this->_client->request('GET', 'cariPart',[
-              'query'=>[
-                  'part_number'=> $part_number,
-                  'kd_lokasi'=> $kd_lokasi_rak
-              ]
-          ]);
-  
-          $result = json_decode($respon->getBody()->getContents(),true);
-  
-          if ($result['status']==true) {
-              return $result['data'];
-          }else{
-              return false;
-          }
-      }
-      
       
 
     

@@ -12,7 +12,7 @@ class M_Laporan_GA extends CI_Model
     {
         parent::__construct();
         $this->_client = new Client([
-            'base_uri' => SERVER_BASE . 'api/transaksi/'
+            'base_uri' => SERVER_BASE . 'api/generalaffairs/'
         ]);
     }
 

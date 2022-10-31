@@ -35,9 +35,15 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function getPartValid()
+    public function getPartValid($cabang, $offset, $idjadwal_audit)
     {
-        $respon =  $this->_client->request('GET', 'part');
+        $respon =  $this->_client->request('GET', 'partvalid', [
+            'query' => [
+                'id_cabang' => $cabang,
+                'offset' => $offset,
+                'idjadwal_audit' => $idjadwal_audit
+            ]
+        ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -64,7 +70,7 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-  
+
     public function getPart()
     {
         $respon =  $this->_client->request('GET', 'part');
@@ -234,49 +240,6 @@ class M_Transaksi_Auditor extends CI_Model
         return $output;
     }
 
-    public function previewPart($a, $b, $d, $e)
-    {
-        $respon =  $this->_client->request('GET', 'previewpart', [
-            'query' => [
-                'id_cabang' => $a,
-                'idjadwal_audit' => $b,
-                'status' => $d,
-                'offset' => $e
-            ]
-        ]);
-
-        $result = json_decode($respon->getBody()->getContents(), true);
-        $base = base_url();
-
-        $output = '';
-        $aksi = '';
-        if ($result['status'] == true) {
-            foreach ($result['data'] as $res) {
-
-                $aksi = '
-                    <a href="' . $base . 'transaksi_auditor/edit_audit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
-                    ';
-                $e++;
-                $output .= '
-                    <tr>
-                    <td>' . $e . '</td>
-                    <td>' . $aksi . '</td>
-                    <td>' . $res['nama_cabang'] . '</td>
-                    <td>' . $res['lokasi'] . '</td>
-                    <td>' . $res['part_number'] . '</td>
-                    <td>' . $res['kd_lokasi_rak'] . '</td>
-                    <td>' . $res['deskripsi'] . '</td>
-                    <td>' . $res['qty'] . '</td>
-                    <td>' . $res['status'] . '</td>
-                ';
-            }
-        } else {
-            $output .= '
-                <tr><td colspan="24" class="text-center">Data not found.</td></tr>
-            ';
-        }
-        return $output;
-    }
     public function downloadunit($id, $idaudit)
     {
         $respon =  $this->_client->request('GET', 'dataunit', [
@@ -329,12 +292,13 @@ class M_Transaksi_Auditor extends CI_Model
             return 0;
         }
     }
-    public function countunit1($a = null, $b = null)
+    public function countpart($a, $b, $c)
     {
-        $respon =  $this->_client->request('GET', 'countunit1', [
+        $respon =  $this->_client->request('GET', 'countpart', [
             'query' => [
                 'id_cabang' => $a,
-                'idjadwal_audit' => $b
+                'idjadwal_audit' => $b,
+                'status' => $c
             ]
         ]);
 
@@ -346,13 +310,12 @@ class M_Transaksi_Auditor extends CI_Model
             return 0;
         }
     }
-    public function countpart($a, $b, $c)
+    public function countunit1($a = null, $b = null)
     {
-        $respon =  $this->_client->request('GET', 'countpart', [
+        $respon =  $this->_client->request('GET', 'countunit1', [
             'query' => [
                 'id_cabang' => $a,
-                'idjadwal_audit' => $b,
-                'status' => $c
+                'idjadwal_audit' => $b
             ]
         ]);
 
@@ -401,26 +364,6 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
-    public function getPartField($kd_lokasi_rak)
-    {
-        $respon =  $this->_client->request('GET', 'fieldPart', [
-            'query' => [
-                'kd_lokasi_rak' => $kd_lokasi_rak
-            ]
-        ]);
-
-
-        $result = json_decode($respon->getBody()->getContents(), true);
-
-        if ($result['status'] == true) {
-
-            return $result['data'];
-        } else {
-            return false;
-        }
-    }
-
-
     public function cariscanunit($id, $cabang)
     {
         $respon =  $this->_client->request('GET', 'listaud', [
@@ -438,29 +381,12 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function cariscanpart($id_part, $cabang)
+
+    public function caripart($id, $cabang, $idjadwal_audit)
     {
         $respon =  $this->_client->request('GET', 'listaudpart', [
             'query' => [
-                'id_part' => $id_part,
-                'id_cabang' => $cabang
-            ]
-        ]);
-
-        $result = json_decode($respon->getBody()->getContents(), true);
-
-        if ($result['status'] == true) {
-            return $result['data'];
-        } else {
-            return false;
-        }
-    }
-
-    public function caripart($id_part, $cabang, $idjadwal_audit)
-    {
-        $respon =  $this->_client->request('GET', 'listaudpart', [
-            'query' => [
-                'id_part' => $id_part,
+                'id' => $id,
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit
             ]
@@ -540,20 +466,6 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-public function editpart($data)
-{
-    $respon = $this -> _client->request('PUT', 'listPart', [
-        'form_params' => $data
-    ]);
-    $result = json_decode($respon -> geBody()->getContents(),true);
-
-    if ($result['status'] == true) {
-        return $result['data'];
-    }else {
-        return false;
-    }
-}
-
 
     public function cek($a, $b, $c)
     {
@@ -586,22 +498,6 @@ public function editpart($data)
         $result = json_decode($respon->getBody()->getContents(), true);
         if ($result['status'] == true) {
             return $result['data'];
-        } else {
-            return false;
-        }
-    }
-
-    public function getPartById($id_part)
-    {
-        $respon =  $this->_client->request('GET', 'part', [
-            'query' => [
-                'id_part' => $id_pary
-            ]
-        ]);
-
-        $result = json_decode($respon->getBody()->getContents(), true);
-        if ($result['status'] == true) {
-            return $result['data']['0'];
         } else {
             return false;
         }

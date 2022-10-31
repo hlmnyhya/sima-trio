@@ -122,7 +122,7 @@ class laporan_auditor extends CI_Controller
             $pdf->Cell(28, 15, 'No Rangka', 1, 0, 'C', TRUE);
             $pdf->Cell(27, 15, 'Type Unit', 1, 0, 'C', TRUE);
             $pdf->Cell(20, 15, 'Umur Unit', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'Lokasi', 1, 0, 'C', TRUE);
+            $pdf->Cell(35, 15, 'Lokasi', 1, 0, 'C', TRUE);
             $pdf->Cell(25, 15, 'Status Unit', 1, 0, 'C', TRUE);
             $pdf->Cell(25, 15, 'Keterangan', 1, 1, 'C', TRUE);
             $start = null;
@@ -141,7 +141,7 @@ class laporan_auditor extends CI_Controller
                 $x = $pdf->GetX();
                 $pdf->myCell(20, 7, $x, (($c['umur_unit'] == "") ? "-" : ($c['umur_unit'] . ' tahun')));
                 $x = $pdf->GetX();
-                $pdf->myCell(25, 7, $x, $c['nama_gudang']);
+                $pdf->myCell(35, 7, $x, $c['nama_gudang']);
                 $x = $pdf->GetX();
                 $pdf->myCell(25, 7, $x, $c['status_unit']);
                 $x = $pdf->GetX();
@@ -348,7 +348,7 @@ class laporan_auditor extends CI_Controller
                 $pdf->Cell(25, 6, 'KODE ITEM', 1, 0, 'C');
                 $pdf->Cell(27, 6, 'TYPE UNIT', 1, 0, 'C');
                 $pdf->Cell(25, 6, 'USIA UNIT', 1, 0, 'C');
-                $pdf->Cell(25, 6, 'LOKASI', 1, 0, 'C');
+                $pdf->Cell(50, 6, 'LOKASI', 1, 0, 'C');
                 $pdf->Cell(25, 6, 'STATUS', 1, 1, 'C');
 
                 $pdf->SetFont('Arial', 'B', 8);
@@ -363,7 +363,7 @@ class laporan_auditor extends CI_Controller
                     $pdf->Cell(25, 6, $c['kode_item'], 1, 0);
                     $pdf->Cell(27, 6, $c['type'], 1, 0);
                     $pdf->Cell(25, 6, $c['umur_unit'], 1, 0, 'C');
-                    $pdf->Cell(25, 6, $c['nama_gudang'], 1, 0);
+                    $pdf->Cell(50, 6, $c['nama_gudang'], 1, 0);
                     $pdf->Cell(25, 6, $c['status_unit'], 1, 1);
                     $no++;
                     $start = $start + 15;
@@ -1065,12 +1065,12 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFillColor(0, 186, 242);
             $pdf->SetFont('Times', 'B', 10);
 
-            $pdf->Cell(10, 5, 'Hasil Audit', 0, 1);
+            $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
             $pdf->Cell(8, 15, 'No', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'LOKASI', 1, 0, 'C', TRUE);
+            $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', TRUE);
             $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', TRUE);
-            $pdf->Cell(27, 15, 'DESKRIPSI', 1, 0, 'C', TRUE);
-            $pdf->Cell(20, 15, 'KD RAK BIN', 1, 0, 'C', TRUE);
+            $pdf->Cell(50, 15, 'DESKRIPSI', 1, 0, 'C', TRUE);
+            $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', TRUE);
             $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', TRUE);
             $start = null;
 
@@ -1078,15 +1078,15 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFont('Times', '', 8);
             foreach ($cetak as $c) {
                 $pdf->Cell(8, 6, $no, 1, 0, 'C');
-                $pdf->Cell(25, 6, $c['nama_gudang'], 1, 0);
+                $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
                 $pdf->Cell(28, 6, $c['part_number'], 1, 0);
-                $pdf->Cell(27, 6, $c['deskripsi'], 1, 0);
-                $pdf->Cell(20, 6, $c['kd_lokasi_rak'], 1, 0, 'C');
+                $pdf->Cell(50, 6, $c['deskripsi'], 1, 0);
+                $pdf->Cell(30, 6, $c['kd_lokasi_rak'], 1, 0, 'C');
                 $pdf->Cell(25, 6, $c['qty'], 1, 1);
                 $no++;
             }
             $pdf->Ln(5);
-            $pdf->SetLineWidth(0.05);
+            $pdf->SetLineWidth(0.15);
             $tgl_now = date('d F Y');
             $pdf->cell(0, 6, $tempat . ' , ' . $tgl_now, 0, 1);
             $pdf->cell(50, 8, 'Diperiksa Oleh,', 1, 0, 'C');
@@ -1105,7 +1105,7 @@ class laporan_auditor extends CI_Controller
             $pdf->Output();
         } else {
 
-            redirect('laporan_auditor/lap_audit_unit', 'refresh');
+            redirect('laporan_auditor/lap_audit_part', 'refresh');
         }
     }
 
@@ -1145,6 +1145,18 @@ class laporan_auditor extends CI_Controller
         $this->load->view('_partial/sidebar.php');
         $this->load->view('auditorview/laporan_unit/v_laporan_audit_unit.php', $data);
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
+    }
+    public function Lap_Audit_part()
+    {
+        $data = [
+            'judul' => "Laporan Audit Unit",
+            'judul1' => 'Laporan Auditor',
+            'tgl' => date('m/d/Y'),
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view('auditorview/laporan_part/v_laporan_part.php', $data);
+        $this->load->view('auditorview/laporan_part/_partial/footer.php');
     }
 
     public function Lap_Perlokasi()
