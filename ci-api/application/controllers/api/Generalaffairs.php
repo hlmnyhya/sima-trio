@@ -17,22 +17,22 @@
         $this->load->model('master/m_lokasi','mlokasi');
         $this->load->model('master/m_count','mcount');
         $this->load->model('master/m_lokasi_cabang','mlokasicabang');
-        $this->load->model('transaksi/m_monitoring_inventory', 'moniv');
+        $this->load->model('generalaffairs/m_laporan_ga', 'mlapga');
         $this->_tgl = date('Y-m-d');
         ini_set('max_execution_time', 0);
         }
 
          public function Inv_get()
     {
-        $id = $this->get('id');
+        $id2 = $this->get('id');
         $offset = $this->get('offset');
-        $cabang= $this->get('cabang');
-        if($id===null&& $offset ===null){
-            $listinv = $this->moniv->getInv($id,$offset,$cabang);
-        }elseif($id===null&& $offset !=null){
-            $listinv = $this->moniv->getInv($id,$offset,$cabang);
+        $cabang2= $this->get('cabang');
+        if($id2===null&& $offset ===null){
+            $listinv = $this->moniv->getInv($id2,$offset,$cabang2);
+        }elseif($id2===null&& $offset !=null){
+            $listinv = $this->moniv->getInv($id2,$offset,$cabang2);
         }else{
-            $listinv = $this->moniv->getInv($id,$offset,$cabang);
+            $listinv = $this->moniv->getInv($id2,$offset,$cabang2);
         }
         // $listinv = $this->minv->getInv();
         // var_dump($listinv);
@@ -54,13 +54,13 @@
 
     public function statusinv_get()
     {
-        $id= $this->get('id');
+        $id2= $this->get('id');
         
-        if ($id===null) {
+        if ($id2===null) {
             $statusinv= $this->mstatusinv->GetStatusinv();
             
         }else{
-            $statusinv= $this->mstatusinv->GetStatusinv($id);
+            $statusinv= $this->mstatusinv->GetStatusinv($id2);
 
         }
         if ($statusinv) {
@@ -79,14 +79,13 @@
 
     public function Jenisinv_get()
     {
-        $id= $this->get('id');
+        $id2= $this->get('id');
         
-        if ($id===null) {
+        if ($id2===null) {
             $jenisinv= $this->mjenisinv->GetJenisinv();
             
         }else{
-            $jenisinv= $this->mjenisinv->GetJenisinv($id);
-
+            $jenisinv= $this->mjenisinv->GetJenisinv($id2);
         }
         if ($jenisinv) {
             $this->response([
@@ -104,13 +103,13 @@
 
     public function SubJenisinv_get()
     {
-        $id= $this->get('id');
+        $id2= $this->get('id');
         
-        if ($id===null) {
+        if ($id2===null) {
             $subjenisinv= $this->msubinv->GetSubJenisinv();
             
         }else{
-            $subjenisinv= $this->msubinv->GetSubJenisinv($id);
+            $subjenisinv= $this->msubinv->GetSubJenisinv($id2);
 
         }
         if ($subjenisinv) {
@@ -129,13 +128,13 @@
 
     public function Vendor_get()
     {
-        $id= $this->get('id');
+        $id2= $this->get('id');
         
-        if ($id===null) {
+        if ($id2===null) {
             $vendor= $this->mvendor->GetVendor();
             
         }else{
-            $vendor= $this->mvendor->GetVendor($id);
+            $vendor= $this->mvendor->GetVendor($id2);
 
         }
         if ($vendor) {
@@ -154,19 +153,19 @@
 
     public function cabang_get()
     {
-        $id= $this->get('id');
+        $id2= $this->get('id');
         
-        if ($id===null) {
-            $cabang= $this->mcabang->GetCabang();
+        if ($id2===null) {
+            $cabang2= $this->mcabang->GetCabang();
             
         }else{
-            $cabang= $this->mcabang->GetCabang($id);
+            $cabang2= $this->mcabang->GetCabang($id2);
 
         }
-        if ($cabang) {
+        if ($cabang2) {
             $this->response([
                 'status' => true,
-                'data' => $cabang
+                'data' => $cabang2
             ], REST_Controller::HTTP_OK);
         }else{
             $this->response([
@@ -179,13 +178,13 @@
 
     public function Lokasi_get()
     {
-        $id= $this->get('id');
+        $id2= $this->get('id');
         
-        if ($id===null) {
+        if ($id2===null) {
             $lokasi= $this->mlokasi->GetLokasi();
             
         }else{
-            $lokasi= $this->mlokasi->GetLokasi($id);
+            $lokasi= $this->mlokasi->GetLokasi($id2);
 
         }
         if ($lokasi) {
@@ -204,13 +203,13 @@
 
     public function lokasicabang_get()
     {
-        $id= $this->get('id_cabang');
+        $id2= $this->get('id_cabang');
         
-        if ($id===null) {
+        if ($id2===null) {
             $lokasicabang= $this->mlokasicabang->GetLokasiCabang();
             
         }else{
-            $lokasicabang= $this->mlokasicabang->GetLokasiCabang($id);
+            $lokasicabang= $this->mlokasicabang->GetLokasiCabang($id2);
 
         }
         if ($lokasicabang) {
@@ -229,13 +228,13 @@
 
 
     public function cariInv_get(){
-        $id = $this->get('id');
+        $id2 = $this->get('id');
         $offset = $this->get('offset');
 
-        if ($id===null) {
+        if ($id2===null) {
             $inv = null;
         }else{
-            $inv = $this->moniv->Cariinventory($id,$offset)->result();
+            $inv = $this->moniv->Cariinventory($id2,$offset)->result();
         }
         
         if ($inv) {
@@ -255,18 +254,18 @@
 
     public function Inv_delete()
     {
-        $id= $this->delete('id');
+        $id2= $this->delete('id');
 
-        if ($id===null) {
+        if ($id2===null) {
             $this->response([
                 'status' => false,
                 'message' => 'need id'
             ], REST_Controller::HTTP_OK);
         }else{
-            if ($this->moniv->delInv($id)) {
+            if ($this->moniv->delInv($id2)) {
                 $this->response([
                     'status' => true,
-                    'id' => $id,
+                    'id' => $id2,
                     'message'=> 'deleted.'
                 ], REST_Controller::HTTP_OK);
             }else{
@@ -335,7 +334,7 @@
 
     public function Inv_put()
     {
-        $id = $this->put('id');
+        $id2 = $this->put('id');
         $data=[
                 'idstatus_inventory' => $this->put('idstatus_inventory',true),
                 'idjenis_inventory' => $this->put('idjenis_inventory',true),
@@ -370,13 +369,13 @@
                 'edit_by'=> $this->put('user',true),
                 'tanggal_edit' =>$this->_tgl
     ];
-        if ($id===null) {
+        if ($id2===null) {
             $this->response([
                 'status' => false,
                 'data' => "need id"
             ], REST_Controller::HTTP_OK);
         }else {
-            if ($this->moniv->editInv($id,$data)) {
+            if ($this->moniv->editInv($id2,$data)) {
                 $this->response([
                     'status' => true,
                     'data' => "User has been modified"
@@ -392,13 +391,13 @@
 
     public function countOffice_get()
     {
-        $id= $this->get('id');
-        $cabang= $this->get('cabang');
+        $id2= $this->get('id');
+        $cabang2= $this->get('cabang');
         
-        if ($id===null) {
-            $office= $this->mcount->countoffice($id,$cabang);
+        if ($id2===null) {
+            $office= $this->mcount->countoffice($id2,$cabang2);
         }else{
-            $office = $this->moniv->Cariinventory($id,null,$cabang)->num_rows();
+            $office = $this->moniv->Cariinventory($id2,null,$cabang2)->num_rows();
         }
         if ($office) {
             $this->response([

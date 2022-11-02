@@ -41,8 +41,20 @@ class Laporan_GA extends CI_Controller
         $this->load->view('general_affairview/perusahaan/v_input_perusahaan.php');
         $this->load->view('general_affairview/perusahaan/_partial/footer2.php');
     }
-
-   
+    public function cetaklaporan()
+    {
+        $cabang = $this->input->post('cabang');
+        $tgl = $this->input->post('tgl');
+        $tgl2 = $this->input->post('tgl2');
+        $data = [
+            'judul' => "Laporan Inventory Office",
+            'judul1' => 'Laporan GA',
+            'cabang' => $cabang,
+            'tgl' => $tgl,
+            'tgl2' => $tgl2
+        ];
+        $this->load->view('general_affairview/laporan_office/...', $data);
+    }
 }
 
 /* End of file Laporan_GA.php */
