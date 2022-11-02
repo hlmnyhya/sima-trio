@@ -42,6 +42,7 @@ class Laporan_GA extends CI_Controller
         $this->load->view('general_affairview/perusahaan/v_input_perusahaan.php');
         $this->load->view('general_affairview/perusahaan/_partial/footer2.php');
     }
+<<<<<<< HEAD
 
     public function search()
     {
@@ -128,6 +129,21 @@ class Laporan_GA extends CI_Controller
             'pagination' => $this->pagination->create_links()
         ];
         echo json_encode($data, true);
+=======
+    public function cetaklaporan()
+    {
+        $cabang = $this->input->post('cabang');
+        $tgl = $this->input->post('tgl');
+        $tgl2 = $this->input->post('tgl2');
+        $data = [
+            'judul' => "Laporan Inventory Office",
+            'judul1' => 'Laporan GA',
+            'cabang' => $cabang,
+            'tgl' => $tgl,
+            'tgl2' => $tgl2
+        ];
+        $this->load->view('general_affairview/laporan_office/...', $data);
+>>>>>>> 26b4e7dcdb4f4be1f62f381801c56b5ec18f2600
     }
 }
 

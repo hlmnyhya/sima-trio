@@ -261,7 +261,7 @@ class laporan_auditor extends CI_Controller
                 $excel->setActiveSheetIndex(0)->setCellValue('E5', 'TYPE UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('F5', 'USIA UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('G5', 'LOKASI');
-                $excel->setActiveSheetIndex(0)->setCellValue('H5', 'STATUS');
+                $excel->setActiveSheetIndex(0)->setCellValue('H5', 'SFTATUS');
 
                 $excel->getActiveSheet()->getStyle('A5')->applyFromArray($style_col);
                 $excel->getActiveSheet()->getStyle('B5')->applyFromArray($style_col);
