@@ -42,7 +42,6 @@ class Laporan_GA extends CI_Controller
         $this->load->view('general_affairview/perusahaan/v_input_perusahaan.php');
         $this->load->view('general_affairview/perusahaan/_partial/footer2.php');
     }
-<<<<<<< HEAD
 
     public function search()
     {
@@ -118,7 +117,7 @@ class Laporan_GA extends CI_Controller
                      
                  </tr>
                ';
-            }
+            } 
         } else {
             $output .= '
             <tr><td colspan="13" class="text-center">data not found</td></tr>
@@ -129,7 +128,7 @@ class Laporan_GA extends CI_Controller
             'pagination' => $this->pagination->create_links()
         ];
         echo json_encode($data, true);
-=======
+
     public function cetaklaporan()
     {
         $cabang = $this->input->post('cabang');
@@ -143,8 +142,8 @@ class Laporan_GA extends CI_Controller
             'tgl2' => $tgl2
         ];
         $this->load->view('general_affairview/laporan_office/...', $data);
->>>>>>> 26b4e7dcdb4f4be1f62f381801c56b5ec18f2600
     }
+}
 }
 
 /* End of file Laporan_GA.php */

@@ -27,6 +27,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
@@ -41,7 +42,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Kondisi</th>
+                                    <th>Status</th>
                                 </tr>
                             </tfoot>
                         </table>
