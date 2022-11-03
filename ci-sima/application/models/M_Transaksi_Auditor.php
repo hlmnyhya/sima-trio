@@ -292,6 +292,24 @@ class M_Transaksi_Auditor extends CI_Model
             return 0;
         }
     }
+    public function countpart($a, $b, $c)
+    {
+        $respon =  $this->_client->request('GET', 'countpart', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'status' => $c
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return 0;
+        }
+    }
     public function countunit1($a = null, $b = null)
     {
         $respon =  $this->_client->request('GET', 'countunit1', [

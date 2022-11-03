@@ -254,12 +254,8 @@ class Transaksi_Auditor extends CI_Controller
     public function ListAudit_Part()
     {
         $cabang = $this->input->post('id_cabang');
-        $tgl_awal = $this->input->post('tgl_awal');
-        $tgl_awal = strtotime($tgl_awal);
-        $tgl_awal = date('Y-m-d', $tgl_awal);
-        $tgl_akhir = $this->input->post('tgl_akhir');
-        $tgl_akhir = strtotime($tgl_akhir);
-        $tgl_akhir = date('Y-m-d', $tgl_akhir);
+        $lokasi = $this->input->post('id_lokasi');
+        $part_number = $this->input->post('part_number');
         $status = $this->input->post('status');
         $data = [
             'judul' => "List Audit Part",
@@ -267,8 +263,8 @@ class Transaksi_Auditor extends CI_Controller
             'tgl' => date('m/d/Y')
         ];
 
-        $config['base_url'] = base_url() . "transaksi/audit_unit";
-        $config['total_rows'] = $this->mtransauditor->countunit($cabang, $tgl_awal, $tgl_akhir, $status);
+        $config['base_url'] = base_url() . "transaksi/audit_part";
+        $config['total_rows'] = $this->mtransauditor->countpart($cabang, $lokasi, $part_number, $status);
         $config['per_page'] = 15;
         $config['page_query_string'] = TRUE;
         $config['query_string_segment'] = 'pages';
@@ -496,27 +492,27 @@ class Transaksi_Auditor extends CI_Controller
             $offset++;
             $output .= '
             <tr> 
-                <td>' . $offset . '</td>
-                <td></td>
-                <td>' . $list['id_unit'] . '</td>
-                <td>' . $list['no_mesin'] . '</td>
-                <td>' . $list['no_rangka'] . '</td>
-                <td>' . $list['nama_cabang'] . '</td>
-                <td>' . $list['nama_gudang'] . '</td>
-                <td>' . $list['umur_unit'] . '</td>
-                <td>' . $list['status_unit'] . '</td>
+                <td class="text-center">' . $offset . '</td>
+                <td class="text-center"></td>
+                <td class="text-center">' . $list['id_unit'] . '</td>
+                <td class="text-center">' . $list['no_mesin'] . '</td>
+                <td class="text-center">' . $list['no_rangka'] . '</td>
+                <td class="text-center">' . $list['nama_cabang'] . '</td>
+                <td class="text-center">' . $list['nama_gudang'] . '</td>
+                <td class="text-center">' . $list['umur_unit'] . '</td>
+                <td class="text-center">' . $list['status_unit'] . '</td>
                 <td class="text-center">' . $list['aki'] . '</td>
                 <td class="text-center">' . $list['spion'] . '</td>
                 <td class="text-center">' . $list['helm'] . '</td>
                 <td class="text-center">' . $list['tools'] . '</td>
                 <td class="text-center">' . $list['buku_service'] . '</td>
-                <td>' . $list['tahun'] . '</td>
-                <td>' . $list['type'] . '</td>
-                <td>' . $list['kode_item'] . '</td>
-                <td>' . $list['foto'] . '</td>
-                <td>' . $list['keterangan'] . '</td>
-                <td>' . $list['is_ready'] . '</td>
-                <td>' . $list['tanggal_audit'] . '</td>
+                <td class="text-center">' . $list['tahun'] . '</td>
+                <td class="text-center">' . $list['type'] . '</td>
+                <td class="text-center">' . $list['kode_item'] . '</td>
+                <td class="text-center">' . $list['foto'] . '</td>
+                <td class="text-center">' . $list['keterangan'] . '</td>
+                <td class="text-center">' . $list['is_ready'] . '</td>
+                <td class="text-center">' . $list['tanggal_audit'] . '</td>
             </tr>     
             ';
         }
@@ -740,18 +736,18 @@ class Transaksi_Auditor extends CI_Controller
                     $start++;
                     $output .= '
                                     <tr> 
-                                        <td>' . $start . '</td>
+                                        <td class="text-center">' . $start . '</td>
                                         <td></td>
-                                        <td>' . $list['no_mesin'] . '</td>
-                                        <td>' . $list['no_rangka'] . '</td>
-                                        <td>' . $list['nama_cabang'] . '</td>
-                                        <td>' . $list['nama_gudang'] . '</td>
-                                        <td>' . $list['status_unit'] . '</td>
-                                        <td>' . $list['tahun'] . '</td>
-                                        <td>' . $list['type'] . '</td>
-                                        <td>' . $list['kode_item'] . '</td>
-                                        <td>' . $list['keterangan'] . '</td>
-                                        <td>' . $list['is_ready'] . '</td>
+                                        <td class="text-center">' . $list['no_mesin'] . '</td>
+                                        <td class="text-center">' . $list['no_rangka'] . '</td>
+                                        <td class="text-center">' . $list['nama_cabang'] . '</td>
+                                        <td class="text-center">' . $list['nama_gudang'] . '</td>
+                                        <td class="text-center">' . $list['status_unit'] . '</td>
+                                        <td class="text-center">' . $list['tahun'] . '</td>
+                                        <td class="text-center">' . $list['type'] . '</td>
+                                        <td class="text-center">' . $list['kode_item'] . '</td>
+                                        <td class="text-center">' . $list['keterangan'] . '</td>
+                                        <td class="text-center">' . $list['is_ready'] . '</td>
                                     </tr>     
                                     ';
                 }
@@ -802,18 +798,18 @@ class Transaksi_Auditor extends CI_Controller
                         $start++;
                         $output .= '
                                         <tr> 
-                                            <td>' . $start . '</td>
+                                            <td class="text-center">' . $start . '</td>
                                             <td></td>
-                                            <td>' . $list['no_mesin'] . '</td>
-                                            <td>' . $list['no_rangka'] . '</td>
-                                            <td>' . $list['nama_cabang'] . '</td>
-                                            <td>' . $list['nama_gudang'] . '</td>
-                                            <td>' . $list['status_unit'] . '</td>
-                                            <td>' . $list['tahun'] . '</td>
-                                            <td>' . $list['type'] . '</td>
-                                            <td>' . $list['kode_item'] . '</td>
-                                            <td>' . $list['keterangan'] . '</td>
-                                            <td>' . $list['is_ready'] . '</td>
+                                            <td class="text-center">' . $list['no_mesin'] . '</td>
+                                            <td class="text-center">' . $list['no_rangka'] . '</td>
+                                            <td class="text-center">' . $list['nama_cabang'] . '</td>
+                                            <td class="text-center">' . $list['nama_gudang'] . '</td>
+                                            <td class="text-center">' . $list['status_unit'] . '</td>
+                                            <td class="text-center">' . $list['tahun'] . '</td>
+                                            <td class="text-center">' . $list['type'] . '</td>
+                                            <td class="text-center">' . $list['kode_item'] . '</td>
+                                            <td class="text-center">' . $list['keterangan'] . '</td>
+                                            <td class="text-center">' . $list['is_ready'] . '</td>
                                         </tr>     
                                         ';
                     }
@@ -863,18 +859,18 @@ class Transaksi_Auditor extends CI_Controller
                         $start++;
                         $output .= '
                                         <tr> 
-                                            <td>' . $start . '</td>
+                                            <td class="text-center">' . $start . '</td>
                                             <td></td>
-                                            <td>' . $list['no_mesin'] . '</td>
-                                            <td>' . $list['no_rangka'] . '</td>
-                                            <td>' . $list['nama_cabang'] . '</td>
-                                            <td>' . $list['nama_gudang'] . '</td>
-                                            <td>' . $list['status_unit'] . '</td>
-                                            <td>' . $list['tahun'] . '</td>
-                                            <td>' . $list['type'] . '</td>
-                                            <td>' . $list['kode_item'] . '</td>
-                                            <td>' . $list['keterangan'] . '</td>
-                                            <td>' . $list['is_ready'] . '</td>
+                                            <td class="text-center">' . $list['no_mesin'] . '</td>
+                                            <td class="text-center">' . $list['no_rangka'] . '</td>
+                                            <td class="text-center">' . $list['nama_cabang'] . '</td>
+                                            <td class="text-center">' . $list['nama_gudang'] . '</td>
+                                            <td class="text-center">' . $list['status_unit'] . '</td>
+                                            <td class="text-center">' . $list['tahun'] . '</td>
+                                            <td class="text-center">' . $list['type'] . '</td>
+                                            <td class="text-center">' . $list['kode_item'] . '</td>
+                                            <td class="text-center">' . $list['keterangan'] . '</td>
+                                            <td class="text-center">' . $list['is_ready'] . '</td>
                                         </tr>     
                                         ';
                     }
@@ -999,18 +995,18 @@ class Transaksi_Auditor extends CI_Controller
                         $start++;
                         $output .= '
                                     <tr> 
-                                        <td>' . $start . '</td>
+                                        <td class="text-center">' . $start . '</td>
                                         <td></td>
-                                        <td>' . $list['no_mesin'] . '</td>
-                                        <td>' . $list['no_rangka'] . '</td>
-                                        <td>' . $list['nama_cabang'] . '</td>
-                                        <td>' . $list['nama_gudang'] . '</td>
-                                        <td>' . $list['status_unit'] . '</td>
-                                        <td>' . $list['tahun'] . '</td>
-                                        <td>' . $list['type'] . '</td>
-                                        <td>' . $list['kode_item'] . '</td>
-                                        <td>' . $list['keterangan'] . '</td>
-                                        <td>' . $list['is_ready'] . '</td>
+                                        <td class="text-center">' . $list['no_mesin'] . '</td>
+                                        <td class="text-center">' . $list['no_rangka'] . '</td>
+                                        <td class="text-center">' . $list['nama_cabang'] . '</td>
+                                        <td class="text-center">' . $list['nama_gudang'] . '</td>
+                                        <td class="text-center">' . $list['status_unit'] . '</td>
+                                        <td class="text-center">' . $list['tahun'] . '</td>
+                                        <td class="text-center">' . $list['type'] . '</td>
+                                        <td class="text-center">' . $list['kode_item'] . '</td>
+                                        <td class="text-center">' . $list['keterangan'] . '</td>
+                                        <td class="text-center">' . $list['is_ready'] . '</td>
                                     </tr>     
                                     ';
                     }

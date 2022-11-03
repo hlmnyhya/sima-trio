@@ -9,7 +9,7 @@ private $_tgl;
 public $ip_address;
 public $username;
 public $password;
-public $database;
+public $database; 
 function __construct() {
     parent::__construct();
     ini_set('max_execution_time', 0);

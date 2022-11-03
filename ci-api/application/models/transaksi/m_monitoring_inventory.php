@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class m_monitoring_inventory extends CI_Model {
     
-    public function getInv($id = null , $offset=null,$cabang = null)
+   public function getInv($id = null , $offset=null,$cabang = null)
     {
         if ($id===null&& $offset === null) {
             $this->db->select('
@@ -57,6 +57,24 @@ class m_monitoring_inventory extends CI_Model {
         // return true;
     }
 
+    public function addInv($data)
+    {
+        $this->db->insert('transaksi_inventory', $data);
+        return $this->db->affected_rows();  
+    }
+    public function editInv($id,$data)
+    {
+        $this->db->where('idtransaksi_inv', $id);
+        
+        $this->db->update('transaksi_inventory', $data);
+        return $this->db->affected_rows();  
+    }
+    public function delInv($id)
+    {
+        $this->db->where('idtransaksi_inv', $id);
+        $this->db->delete('transaksi_inventory');
+        return $this->db->affected_rows();
+    }
 
     public function Cariinventory($id = null,$offset = null,$cabang = null)
     {
@@ -116,5 +134,6 @@ class m_monitoring_inventory extends CI_Model {
     
 
 }
+
 
 /* End of file m_monitoring_inventory.php */

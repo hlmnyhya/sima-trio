@@ -12,7 +12,7 @@
                         <div>
                         <!-- <input type="text" class="form-control" placeholder="Cari Data Part" id="cari"> -->
                                                 
-                            <a class="btn btn-success btn-m" id="docari">Scan Data</a>
+                            <a class="btn btn-success btn-m" id="docaripart">Scan Data</a>
                         </div>
                     </div>
                     <div class="table-responsive">
@@ -27,6 +27,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
@@ -41,7 +42,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Kondisi</th>
+                                    <th>Status</th>
                                 </tr>
                             </tfoot>
                         </table>
