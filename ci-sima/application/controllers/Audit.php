@@ -52,6 +52,7 @@ class Audit extends CI_Controller
             'judul' => "List Audit",
             'judul1' => 'Audit'
         ];
+        // $$tanggalnow = Date('Y-m-d', 'H:I');
         $tglnow = Date('Y-m-d');
         $wktnow = Date('H:i');
         $wktnow = str_replace(':', '', $wktnow);
@@ -83,6 +84,7 @@ class Audit extends CI_Controller
             'judul' => "Temporary Data Part",
             'judul1' => 'Audit'
         ];
+        
 
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
@@ -130,6 +132,7 @@ class Audit extends CI_Controller
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
         $this->load->view('auditorview/temp_unit/v_temp_unit.php', $data);
+        $this->load->view('auditorview/audit/v_audit.php', $data);
         $this->load->view('auditorview/temp_unit/_partial/footer.php');
     }
 
