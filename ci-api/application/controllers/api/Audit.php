@@ -1986,7 +1986,7 @@ function __construct() {
             'tanggal_audit'         => $this->_tgl,
             'edit_by'               => $this->post('edit_by'),
             'tanggal_edit'          => $this->_tgl,
-            'idjadwal_audit'        => $this->$idjadwal_audit;
+            'idjadwal_audit'        => $this->$idjadwal_audit
         ];
         if ($id===null) {
             $postPart = null;
@@ -1997,7 +1997,7 @@ function __construct() {
         if ($postPart) {
             $this->response([
                 'status' => true,
-                'data' => "Aksesoris has been created"
+                'data' => "Audit Part has been created"
             ], REST_Controller::HTTP_OK);
         }else{
             $this->response([
