@@ -1,21 +1,54 @@
 <div class="wrapper wrapper-content m-t-xl wrapper wrapper-content animated fadeInRight">
+
     <div class="row">
         <div class="col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
                     <i class="fa fa-info-circle"></i> AUDIT PART
                 </div>
-                <div class="panel-body">
-                    <div class="form-group"><label class="col-sm-2 control-label">Data Part</label>
-                        <div class="col-sm-7"><input type="text" class="form-control" placeholder="Cari Data Part" id="cari"></div>
-                        <span class="help-block m-b-none text-danger" id="info"></span>
-                        <div>
-                        <!-- <input type="text" class="form-control" placeholder="Cari Data Part" id="cari"> -->
-                                                
-                            <a class="btn btn-success btn-m" id="docaripart">Scan Data</a>
+                                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+                                    <form action="" method="post">
+                                        <div class="col-sm-4">
+                                            <label>Cabang</label>
+                                            <div class="form-group">
+                                                <select name="id_cabang" class="form-control" id="OptCabang"></select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-4">
+                                            <label>List Audit</label>
+                                            <div class="form-group" id="data_5">
+                                                <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-3">
+                                            <label>Status Unit</label>
+                                            <div class="form-group">
+                                                <select name="status_unit" class="form-control" id="status">
+                                                    <option value="">--- ALL ---</option>
+                                                    <option value="Sesuai" id="sesuai">Bagus</option>
+                                                    <option value="Belum Sesuai" id="belum_sesuai">Rusak</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-sm-1">
+                                            <div class="form-group m-t-md">
+                                                <a id="preview" class="btn btn-success">Preview</a>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                </div>
+
+                            </div>
                         </div>
                     </div>
-                    <div class="table-responsive">
+                <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                                 <tr>

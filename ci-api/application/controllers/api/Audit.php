@@ -1941,5 +1941,106 @@ function __construct() {
         
     }
 
+    // controller untuk audit part
+    public function AuditPart_get(){
+        $id= $this->get('id');
+        $offset = $this->get('offset');
+        
+        if ($id===null) {
+            $audit= $this->maudit->getPart(null,$offset);
+            
+        }else{
+            $audit= $this->maudit->getPart($id);
+
+        }
+        if ($audit) {
+            $this->response([
+                'status' => true,
+                'data' => $audit
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function DeletePart()
+    {
+        $id= $this->delete('id');
+        if ($id===null) {
+            $this->response([
+                'status' => false,
+                'data' => 'need id'
+            ], REST_Controller::HTTP_OK);
+        }else{
+            if ($this->maudit->deletePart($id)) {
+                $this->response([
+                    'status' => true,
+                    'id' => $id,
+                    'data'=> 'deleted.'
+                ], REST_Controller::HTTP_NO_CONTENT);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => 'ID not found.'
+                ], REST_Controller::HTTP_OK);
+            }
+        }
+    }
+
+    public function partend_get()
+    {
+        $cabang = $this->get('id_cabang');
+        $idjadwal_audit = $this->get('idjadwal_audit');
+        if ($cabang == null) {
+            $list= null;
+        }else{
+            $list= $this->maudit->partend($cabang, $idjadwal_audit);
+        }
+        
+        if ($list) {
+            $this->response([
+                'status' => true,
+                'data' => $list
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function editPart()
+    {
+        $id= $this->put('id');
+        $data=[
+            'id_cabang' => $this->put('id_cabang'),
+            'idjadwal_audit' => $this->put('idjadwal_audit'),
+            'id_part' => $this->put('id_part'),
+            'qty' => $this->put('qty'),
+            'status' => $this->put('status'),
+            'keterangan' => $this->put('keterangan'),
+            'created_at' => $this->put('created_at'),
+            'updated_at' => $this->put('updated_at')
+        ];
+        if ($this->maudit->updatePart($data, $id)>0) {
+            $this->response([
+                'status' => true,
+                'data' => 'Data has been updated.'
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Failed to update data.'
+            ], REST_Controller::HTTP_OK);
+        }
+    }
+
+    
 }
 /** End of file Audit.php **/
