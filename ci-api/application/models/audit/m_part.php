@@ -105,7 +105,7 @@ class M_Part extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    public function getpartendbefore($id)
+    public function getpartendbefore($id)2qqqqqqqqqqqq
     {
         $this->db->select('part.*,nama_cabang, nama_gudang');
         $this->db->from('part');
@@ -158,6 +158,7 @@ class M_Part extends CI_Model {
 
         return $result;
     }
+    
 }
 
 /* End of file M_part.php */
