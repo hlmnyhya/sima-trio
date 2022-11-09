@@ -39,9 +39,10 @@
                                                 <span class="help-block m-b-none text-danger" id="info"></span>
                                             </div>
                                             <div class="col-sm-12">
-                                                <a id="doCari" class="btn btn-primary">Scan Data</a>
+                                                <a id="doCariPart" class="btn btn-primary">Scan Data</a>
                                                 <a href="<?php echo base_url() ?>transaksi_auditor/temp_part?id=<?php echo $_GET['id']."&&a". base64_encode('idjadwal_audit') ?>" class="btn btn-warning">Temporary Data</a>
-                                                <a class="btn btn-danger" id="close">Close Part</a>
+                                                <?php $id = $_GET['id']; ?> 
+                                                <a class="btn btn-danger" id="close_part">Close Part</a>
 
                                             </div>
                                         </div>
@@ -60,7 +61,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
+                                            <th class="text-center" width="3%">aksi</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
@@ -74,7 +75,7 @@
                                     <tfoot>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
+                                            <th class="text-center" width="3%">aksi</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
