@@ -1203,6 +1203,8 @@ function __construct() {
            }
         }
     }
+
+    // mengambil data temporary unit 
     public function dataunit_get()
     {
         $this->mtempunit->app_db = $this->load->database($this->_getconfig(),TRUE);
@@ -1991,29 +1993,29 @@ function __construct() {
         }
     }
 
-    public function partend_get()
-    {
-        $cabang = $this->get('id_cabang');
-        $idjadwal_audit = $this->get('idjadwal_audit');
-        if ($cabang == null) {
-            $list= null;
-        }else{
-            $list= $this->maudit->partend($cabang, $idjadwal_audit);
-        }
+    // public function partend_get()
+    // {
+    //     $cabang = $this->get('id_cabang');
+    //     $idjadwal_audit = $this->get('idjadwal_audit');
+    //     if ($cabang == null) {
+    //         $list= null;
+    //     }else{
+    //         $list= $this->maudit->partend($cabang, $idjadwal_audit);
+    //     }
         
-        if ($list) {
-            $this->response([
-                'status' => true,
-                'data' => $list
-            ], REST_Controller::HTTP_OK);
-        }else{
-            $this->response([
-                'status' => false,
-                'data' => 'Data not found.'
-            ], REST_Controller::HTTP_OK);
+    //     if ($list) {
+    //         $this->response([
+    //             'status' => true,
+    //             'data' => $list
+    //         ], REST_Controller::HTTP_OK);
+    //     }else{
+    //         $this->response([
+    //             'status' => false,
+    //             'data' => 'Data not found.'
+    //         ], REST_Controller::HTTP_OK);
             
-        }
-    }
+    //     }
+    // }
 
     public function editPart()
     {
