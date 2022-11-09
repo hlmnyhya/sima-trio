@@ -13,7 +13,7 @@
                                     <div class="row">
                                         <div class="form-group">
                                             <label class="col-sm-2 control-label">Lokasi</label>
-                                            <div class="col-sm-7"><select class="form-control m-b" name="id_lokasi" id="id_lokasi">
+                                            <div class="col-sm-9"><select class="form-control control-label m-b" name="id_lokasi" id="id_lokasi">
                                                 </select>
 
                                             </div>
@@ -32,8 +32,7 @@
                                         <div class="from-group">
                                             <div class="col-sm-12">
                                                 <a id="doCari" class=" btn btn-primary">Scan Data</a>
-                                                <a href="<?php echo base_url() ?>transaksi_auditor/temp_unit?id=<?php echo $_GET['id'] ?>" class="btn btn-warning">Temporary Data</a>
-                                                <?php $id = $_GET['id']; ?>
+                                                <a href="<?php echo base_url() ?>transaksi_auditor/temp_unit?id=<?php echo $_GET['id'] . "&&a=" . base64_encode('idjadwal_audit')?>" class="btn btn-warning">Temporary Data</a>
                                                 <a id="close" class="btn btn-danger">Close Audit</a>
                                             </div>
                                         </div>
@@ -78,7 +77,7 @@
                                             <th class="text-center">Is Ready</th>
                                         </tr>
                                     </thead>
-                                    <tbody id="v_audit_unit">
+                                    <tbody id="audit_unit">
                                     </tbody>
                                     <tfoot>
                                         <tr>
