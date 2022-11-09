@@ -60,20 +60,21 @@
                                 </div>
                             </div>
                         </div>
+<div id="tz">
 
+    </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Waktu</label>
-                            <div class="col-sm-2">
+                            <div class="col-sm-3">
                                 <span id="date_time"></span>
                                 <?php
                                 date_default_timezone_set('Asia/Makassar');
                                 $wita = date('H:i');
-                                $wib = date(
-                                    'H:i',
-                                    strtotime('-1 hour', strtotime($wita))
+                                $wib = date('H:i',strtotime('-1 hour', strtotime($wita))
                                 );                                    
                                 ?>
-                                <div class="input-group clockpicker" data-autoclose="true">
-                                    <input type="text" class="form-control" name="waktu" id="waktu" value="<?php echo $wita;?>"><div class="input-group-addon ">
+                                <div class="input-group clockpicker " data-autoclose="true">
+                                    <input type="text" class="form-control" name="waktu" id="waktu">
+                                    <div class="input-group-addon">
                                         <span class="fa fa-clock-o"></span>
                                         <span>
                                         </span>
@@ -82,12 +83,12 @@
                                 
                         </div>
                         
-                            <div class="form-group col-sm-1 ">
+                            <div class="form-group col-sm-2 ">
                             <div class="">
-                                <select class="form-control">
-                                <option value="selected" name="<?php $wita ?>   " id="<?php $wita ?>">WITA</option>
-                                <option value="selected" name="<?php $wib ?>" id="<?php $wib ?>">WIB</option>
-</select>
+                                <select class="form-control js-example-basic-single" name="state" id="state">
+                                <option value="wita">WITA</option>
+                                <option value="wib">WIB</option>
+                            </select>
                             </div>
                         </div>  
 
