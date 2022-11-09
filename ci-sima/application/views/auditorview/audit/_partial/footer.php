@@ -86,6 +86,7 @@
         download();
         get_data(1);
         lokasi();
+        
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
@@ -104,8 +105,88 @@
                 }
             })
         }
+      
 
-        function lokasi() {
+    //     function get_data(page) {
+    //         $('#audit_unit').html('<tr> <td colspan="7" id="loading"></td></tr>');
+    //         var cabang = "<?php echo $_GET['id'] ?>";
+    //         var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
+    //         $.ajax({
+    //             type: "post",
+    //             dataType: 'JSON',
+    //             url: "<?php echo base_url() ?>transaksi_auditor/ajax_unitvalid/" + page,
+    //             data: {
+    //                 cabang: cabang,
+    //                 idjadwal_audit: idjadwal_audit
+    //             },
+    //             success: function(data) {
+    //                 console.log(data);
+    //                 $('#pagination').html(data.pagination);
+    //                 $('#audit_unit').html(data.output);
+    //             }
+    //         });
+    //     }
+    //     $(document).on('click', '.pagination li a', function(event) {
+    //         event.preventDefault();
+    //         var page = $(this).data('ci-pagination-page');
+    //         get_data(page);
+
+    //     });
+
+    //     function scan_getdata() {
+    //         $('#manual').addClass('hidden');
+    //         var cari = $('#cari').val();
+    //         var lokasi = $('#id_lokasi').val();
+    //         var rakbin = $('#rakbin').val();
+    //         var kondisi = $('#kondisi').val();
+    //         var cabang = "<?php echo $_GET['id'] ?>";
+    //         var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
+    //         console.log(cari);
+    //         $('#audit_unit').html('<tr> <td colspan="7" id="loading"></td></tr>');
+    //         if (cari != '') {
+    //             $.ajax({
+    //                 type: "post",
+    //                 dataType: 'JSON',
+    //                 url: "<?php echo base_url() ?>transaksi_auditor/scan_data_unit",
+    //                 data: {
+    //                     id: cari,
+    //                     cabang: cabang,
+    //                     lokasi: lokasi,
+    //                     rakbin: rakbin,
+    //                     kondisi: kondisi,
+    //                     idjadwal_audit: idjadwal_audit
+    //                 },
+    //                 success: function(data) {
+    //                     $('#cari').val('');
+    //                     $('#info').html(data.info);
+    //                     $('#audit_unit').html(data.output);
+    //                     $('#pagination').html(data.pagination);
+    //                 }
+    //             });
+    //         } else {
+    //             get_data();
+    //         }
+    //     }
+
+    //     $('#cari').keyup(function(e) {
+    //         if (e.keyCode == 13) {
+    //             if (cari) {
+    //                 scan_getdata();
+    //             } else {
+    //                 $('#info').html("Data Kosong");
+    //             }
+    //         }
+    //     });
+
+    // });
+    // lokasi();
+
+
+    
+
+
+        function lokasi() 
+        {
             var cabang = "<?php echo $_GET['id'] ?>";
             $.ajax({
                 type: 'POST',
@@ -129,6 +210,12 @@
             }
             return false;
         })
+        $('#back').click(function(){
+            var confrmtext = " localhost says. BECK DECK";
+            if (confirm(confirmText)) {
+                
+            }
+        })
 
         function close_audit() {
             var id = "<?php echo $_GET['id'] ?>";
@@ -143,7 +230,7 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/closeaudit",
                 success: function(data) {
                     if (data.status == true) {
-                        window.alert('Audit Scan Successful');
+                        window.alert('Audit Scan Succsess');
                         window.opener.location.reload(true);
                         window.close();
                     } else {
@@ -153,6 +240,7 @@
                 }
             });
         }
+
         $('#audit').click(function() {
             var no_mesin = $('#no_mesin').val();
             var no_rangka = $('#no_rangka').val();

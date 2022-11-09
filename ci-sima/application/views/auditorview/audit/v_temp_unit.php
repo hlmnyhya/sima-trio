@@ -10,7 +10,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <a href="<?php echo base_url() ?>transaksi_auditor/audit?id=<?php echo $_GET['id']. "&&a=" . base64_encode('idjadwal_audit')?>" class="btn btn-danger">Back</a>
+                                    <a  id="back" href="<?php echo base_url() ?>transaksi_auditor/audit?id=<?php echo $_GET['id']. "&&a=" . base64_encode('idjadwal_audit')?>" class="btn btn-danger">Back</a>
                                 </div>
 
                             </div>

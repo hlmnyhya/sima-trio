@@ -31,7 +31,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="panel-body" id="show()">
-                        <form method="post" class="form-horizontal" id="Formcabang" action="<?php echo base_url() ?>transaksi_auditor/post_manual">
+                        <form method="post" class="form-horizontal" id="Formcabang" action="<?php echo base_url  () ?>transaksi_auditor/post_manual">
                         
                         <div>
                         <!-- <div class="form-group"><label class="col-sm-2 control-label">ID Unit</label>
