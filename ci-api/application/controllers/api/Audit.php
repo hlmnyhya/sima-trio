@@ -22,7 +22,6 @@ function __construct() {
     $this->load->model('master/m_cabang','mcabang');
     $this->load->model('master/m_jenis_audit','mjenisaudit');
     $this->load->model('master/m_count','mcount');
-    
     $this->_tgl = date('Y-m-d');
     $this->load->model('config/m_config','mconfig');
         // $data = $this->mconfig->getUserConfig();
@@ -1878,10 +1877,10 @@ function __construct() {
         $offset = $this->get('offset');
         
         if ($id===null) {
-            $audit= $this->maudit->getPart(null,$offset);
+            $audit= $this->mpart->getPart(null,$offset);
             
         }else{
-            $audit= $this->maudit->getPart($id);
+            $audit= $this->mpart->getPart($id);
 
         }
         if ($audit) {
@@ -1907,7 +1906,7 @@ function __construct() {
                 'data' => 'need id'
             ], REST_Controller::HTTP_OK);
         }else{
-            if ($this->maudit->deletePart($id)) {
+            if ($this->mpart->deletePart($id)) {
                 $this->response([
                     'status' => true,
                     'id' => $id,
@@ -1929,7 +1928,7 @@ function __construct() {
         if ($cabang == null) {
             $list= null;
         }else{
-            $list= $this->maudit->partend($cabang, $idjadwal_audit);
+            $list= $this->mpart->partend($cabang, $idjadwal_audit);
         }
         
         if ($list) {
@@ -1959,7 +1958,7 @@ function __construct() {
             'created_at' => $this->put('created_at'),
             'updated_at' => $this->put('updated_at')
         ];
-        if ($this->maudit->updatePart($data, $id)>0) {
+        if ($this->mpart->updatePart($data, $id)>0) {
             $this->response([
                 'status' => true,
                 'data' => 'Data has been updated.'
@@ -1971,6 +1970,67 @@ function __construct() {
             ], REST_Controller::HTTP_OK);
         }
     }
+
+    
+    public function addpart_post()
+    {
+        $id=$this->post('id_cabang');
+        $data=[
+            'id_cabang'             => $this->post('id_cabang'),
+            'id_lokasi'             => $this->post('id_lokasi'),
+            'part_number'           => $this->post('part_number'),
+            'kd_lokasi_rak'         => $this->post('kd_lokasi_rak'),
+            'deskripsi'             => $this->post('deskripsi'),
+            'qty'                   => $this->post('qty'),
+            'status'                => $this->post('status'),
+            'tanggal_audit'         => $this->_tgl,
+            'edit_by'               => $this->post('edit_by'),
+            'tanggal_edit'          => $this->_tgl,
+            'idjadwal_audit'        => $this->$idjadwal_audit;
+        ];
+        if ($id===null) {
+            $postPart = null;
+        }else{
+            $postPart = $this->mpart->addPart($data);
+        }
+
+        if ($postPart) {
+            $this->response([
+                'status' => true,
+                'data' => "Aksesoris has been created"
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => "failed."
+            ], REST_Controller::HTTP_OK);
+        }
+    }
+
+    public function cariPart()
+    {
+        $id= $this->get('id');
+        $offset = $this->get('offset');
+        if ($id===null) {
+            $cari= $this->mpart->cariPart(null,$offset);
+            
+        }else{
+            $cari= $this->mpart->cariPart($id);
+        }
+        if ($cari) {
+            $this->response([
+                'status' => true,
+                'data' => $cari
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
 
     
 }
