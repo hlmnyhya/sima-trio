@@ -365,6 +365,16 @@ class M_Audit extends CI_Model {
             return $result;
         }
         }
+        public function cariscanpart($id = null )
+        {
+            if ($id === null ) {
+                return false;
+            }else {
+                $this->db->like('scanpart', $id);
+                $result= $this->db->get('temp_part')-> result();
+                return $result;
+            }
+        }
 
     
 

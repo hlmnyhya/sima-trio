@@ -819,6 +819,54 @@ function __construct() {
             
         }
     }
+    public function partbefore_get()
+    {
+        $id = $this->get('id');
+        $cabang = $this->get('id_cabang');
+        if ($id=== null) {
+            $list= $this->mpart->GetpartendBefore($id,$cabang);
+            
+        }else{
+            $list= $this->mpart->GetauditBefore($id,$cabang);
+
+        }
+        
+        if ($list) {
+            $this->response([
+                'status' => true,
+                'data' => $list
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+    public function partend_get() 
+    {
+        $cabang = $this->get('id_cabang');
+        $idjadwal_audit = $this->get('idjadwal_audit');
+        if ($cabang == null) {
+            $list= null;
+        }else{
+            $list= $this->mpart->PartEnd($cabang, $idjadwal_audit);
+        }
+        
+        if ($list) {
+            $this->response([
+                'status' => true,
+                'data' => $list
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }   
+    }
 
     public function auditend_get()
     {
@@ -1852,6 +1900,27 @@ function __construct() {
             
         }
     }
+
+    // public function cariscanpart_get()
+    // {
+    //     $id= $this->get('id');
+    //     if ($id ==== nul ) { 
+    //         $scanpart= $this->maudit->cariscanpart();
+    //     }else {
+    //         $scanpart=$this->maudit->cariscanpart($id);
+    //     }
+    //     if ($scanpart) {
+    //         $this-> response([
+    //             'status' => true, 
+    //             'data' => $scanpart
+    //         ], REST_Controller::HTTP_OK);
+    //     }else {
+    //         $this-> response([
+    //             'status' => false, 
+    //             'data' => 'Data Not Found'
+    //         ], REST_Controller::HTTP_OK);
+    //     }
+    // }
 
     public function QtyUnit_get()
     {

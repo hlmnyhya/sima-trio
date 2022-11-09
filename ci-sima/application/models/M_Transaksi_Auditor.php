@@ -384,7 +384,7 @@ class M_Transaksi_Auditor extends CI_Model
 
     public function caripart($id, $cabang, $idjadwal_audit)
     {
-        $respon =  $this->_client->request('GET', 'listaudpart', [
+        $respon =  $this->_client->request('GET', 'listaudPart', [
             'query' => [
                 'id' => $id,
                 'id_cabang' => $cabang,
