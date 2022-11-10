@@ -17,19 +17,18 @@
 
 </head>
 
-<body class="dark-bg watermark">
+<body class="white-bg watermark">
 
-    <div class="middle-box text-center  animated fadeInDown">
-        <div class="panel panel-danger">
-            <div class="panel-heading red-bg">
-                <div>
-                    <h2 class="logo-name text-white">SIMA</h2>
-                </div>
-                <div class=" m-t-n text-white">
-                <h4>Sistem Informasi Management Audit</h4>
+    <div class="middle-box text-center  animated fadeInUp m-b-n">
+        <div class="panel">
+            <div class="white-bg">
+                <div class="logo">
+                    <br><br><br>
+                    <img src="<?php echo base_url() ?>assets/images/sima-2.png" width="275px" height="100px"></img>
                 </div>
             </div>
             <div class="panel-body">
+                <br><br><br>
                 <form id="FormLog" method="post" action="<?php echo base_url() ?>login/login">
                 <?php if ($this->session->userdata('pesan')) {?>
                         <?php echo $this->session->userdata('pesan'); ?>
@@ -44,6 +43,7 @@
                     <span class="input-group-addon"><i class="fa fa-fw fa-unlock-alt"></i></span> 
                     <input type="password" placeholder="Password" class="form-control" name="password">
                 </div>
+                <br><br>
                     <button type="submit" class="btn btn-danger full-width center sm-b">LOG IN</button>
             
                 </form>
