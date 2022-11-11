@@ -18,7 +18,7 @@ class M_Transaksi_Auditor extends CI_Model
 
 
     public function getUnit($cabang, $offset, $idjadwal_audit)
-    {
+    {   
         $respon =  $this->_client->request('GET', 'unitvalid', [
             'query' => [
                 'id_cabang' => $cabang,

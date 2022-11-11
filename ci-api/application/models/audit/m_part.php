@@ -158,6 +158,7 @@ class M_Part extends CI_Model {
 
         return $result;
     }
+
 }
 
 /* End of file M_part.php */
