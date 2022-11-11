@@ -4821,10 +4821,7 @@ body.mini-navbar.fixed-sidebar .logo-element {
   padding: 100px 20px 20px 20px;
 }
 .logo-name {
-  /* color: #f5515x1; */
-  /* color: rgb(246, 246, 246);
-   */
-   color: #ffff;
+  color: #EE1C25 !important;
   font-size: 86px;
   font-weight: 800;
   letter-spacing: -10px;
@@ -4832,6 +4829,21 @@ body.mini-navbar.fixed-sidebar .logo-element {
   margin-bottom: 0;
   padding-top: 2px;
   letter-spacing: 1rem
+}
+.logo-sima {
+  color: #DC143C;
+  font-size: 86px;
+  font-weight: 800;
+  letter-spacing: -10px;
+  margin-top: 55px;
+  margin-bottom: 0;
+  padding-top: 2px;
+  letter-spacing: 1rem
+}
+.logo{
+  margin-top: 55px;
+  margin-bottom: 0;
+  padding-top: 2px;
 }
 .middle-box h1 {
   font-size: 170px;
