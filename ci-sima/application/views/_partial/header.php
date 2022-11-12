@@ -9,6 +9,7 @@
     <title><?php echo SITE_NAME ?> | <?php echo $judul ?></title>
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>assets/images/icon.png" />
     <link href="<?php echo base_url() ?>assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+     <!-- <link href="<?php echo base_url() ?>assets/css-4/bootstrap.min.css" rel="stylesheet"> -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
