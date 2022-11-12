@@ -24,7 +24,6 @@
         <div class="card">
             <div class="bg-light">
                 <div class="logo">
-            
                     <img src="<?php echo base_url() ?>assets/images/sima-2.png" width="325px" height="100px"></img>
                 </div>
             </div>
