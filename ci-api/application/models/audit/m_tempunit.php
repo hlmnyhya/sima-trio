@@ -110,7 +110,7 @@ class M_TempUnit extends CI_Model {
         return $result;
         
     }
-    public function getToUnit($cabang =null,$offset=null)
+    public function GetToUnit($cabang =null,$offset=null)
     {
         if ($cabang === null) {
             $this->db->select('a.id_unit,a.no_mesin, a.no_rangka, a.tahun, a.type, a.kode_item, a.id_cabang, a.id_lokasi , b.nama_gudang, c.nama_cabang');
