@@ -18,7 +18,7 @@
 
 </head>
 
-<body class="sima-bg">
+<body class="sima-bg animated fadeInUp">
     <div class="middle-box text-center  animated fadeInUp m-b-n">
         <div class="panel">
             <div class="white-bg">
