@@ -944,7 +944,7 @@ class Transaksi_Auditor extends CI_Controller
                 $page = 1;
             }
             $start = ($page - 1) * $config['per_page'];
-            $getPartValid = $this->mtransauditor->getParValid($cabang, $start, $idjadwal_audit);
+            $getPartValid = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
             if ($getPartValid) {
                 foreach ($getpart as $list) {
                     $start++;
