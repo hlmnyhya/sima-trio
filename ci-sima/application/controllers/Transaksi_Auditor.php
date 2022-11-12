@@ -908,7 +908,7 @@ class Transaksi_Auditor extends CI_Controller
         if ($cek) {
             $info = 'Data Telah diaudit';
             $output = '';
-            $count = $this->mtransauditor->countunit1($cabang, $rakbin, $kondisi, $idjadwal_audit);
+            $count = $this->mtransauditor->countPart1($cabang, $rakbin, $kondisi, $idjadwal_audit);
             $this->load->library('pagination');
 
             $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';

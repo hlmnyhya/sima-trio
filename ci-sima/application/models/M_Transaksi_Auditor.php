@@ -440,7 +440,7 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function editScanPart($data)
+    public function editscanpart($data)
     {
         $respon =  $this->_client->request('PUT', 'listaudpart', [
             'form_params' => $data

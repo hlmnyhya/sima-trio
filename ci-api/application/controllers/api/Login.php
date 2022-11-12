@@ -14,6 +14,8 @@ function __construct() {
 
     }
 
+    // test
+
     public function index_get(){
         $id = $this->get('username');
         $password = $this->get('password');
