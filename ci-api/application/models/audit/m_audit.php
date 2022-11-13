@@ -275,6 +275,18 @@ class M_Audit extends CI_Model {
             return $this->db->get('temp_unit')->result();
         }
     }
+    public function GetpartBefore($id = null, $cabang=null)
+    {
+        if ($id === null) {
+            $where = "temp_part.part_number NOT IN (SELECT part_number FROM part) AND id_cabang='$cabang'";
+            $this->db->where($where);
+            return $this->db->get('temp_part')->result();
+        }else {
+            $where = "temp_part.part_number NOT IN (SELECT part_number FROM part) AND (temp_part.id_cabang='$cabang' AND (temp_part.kd_lokasi_rak='$id' OR temp_part.part_number='$id'))";
+            $this->db->where($where);
+            return $this->db->get('temp_unit')->result();
+        }
+    }
     public function AuditEnd($cabang, $idjadwal_audit)
     { 
         $query = "
@@ -364,6 +376,16 @@ class M_Audit extends CI_Model {
             $result=$this->db->get('temp_unit')->result();
             return $result;
         }
+        }
+        public function cariscanpart($id = null )
+        {
+            if ($id === null ) {
+                return false;
+            }else {
+                $this->db->like('scanpart', $id);
+                $result= $this->db->get('temp_part')-> result();
+                return $result;
+            }
         }
 
     

@@ -2,13 +2,4 @@
     background-image: url('../images/sima-bg2.jpg');
     background-size: 1920px 1000px;
     background-repeat: no-repeat;
-    background-position: center;
-    background-attachment: fixed;
-    background-color: #000;
-    height: 100%;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: -1;
 }
