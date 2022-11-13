@@ -458,6 +458,7 @@ function __construct() {
         if ($id===null) {
             $listaud = null;
         }else{
+            // harusnya masuk ke data part
             $listaud = $this->maudit->AddListPart($data);
         }
         if ($listaud) {
@@ -2034,4 +2035,4 @@ function __construct() {
 
     
 }
-/** End of file Audit.php **/
+/* End of file Audit.php */

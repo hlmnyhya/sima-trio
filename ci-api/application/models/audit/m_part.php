@@ -99,7 +99,7 @@ class M_Part extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    public function partend($id)
+    public function PartEnd($id)
     {
         $this->db->update('part', ['status' => 1], ['part_number' => $id]);
         return $this->db->affected_rows();

@@ -18,7 +18,7 @@ class M_Transaksi_Auditor extends CI_Model
 
 
     public function getUnit($cabang, $offset, $idjadwal_audit)
-    {
+    {   
         $respon =  $this->_client->request('GET', 'unitvalid', [
             'query' => [
                 'id_cabang' => $cabang,
@@ -384,7 +384,7 @@ class M_Transaksi_Auditor extends CI_Model
 
     public function caripart($id, $cabang, $idjadwal_audit)
     {
-        $respon =  $this->_client->request('GET', 'listaudpart', [
+        $respon =  $this->_client->request('GET', 'listaudPart', [
             'query' => [
                 'id' => $id,
                 'id_cabang' => $cabang,
@@ -440,7 +440,7 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function editScanPart($data)
+    public function editscanpart($data)
     {
         $respon =  $this->_client->request('PUT', 'listaudpart', [
             'form_params' => $data

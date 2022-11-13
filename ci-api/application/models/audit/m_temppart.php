@@ -31,7 +31,7 @@ class M_TempPart extends CI_Model {
         
     }
 
-    public function getToPart($cabang =null,$offset=null)
+    public function GetToPart($cabang =null,$offset=null)
     {
         $this->db->select('a.*,c.nama_cabang, b.nama_lokasi');
         $this->db->from('temp_part a');
