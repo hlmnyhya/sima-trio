@@ -163,9 +163,11 @@ $(document).ready(function() {
     $('.js-example-basic-single').select2();
 });
 </script>
-<script>
-
-
+<script type="text/javascript">
+   function timezone(){
+   var time = document.getElementById('zone').value;
+   document.getElementById('waktu').value = time;
+   }
 </script>
 </body>
 
