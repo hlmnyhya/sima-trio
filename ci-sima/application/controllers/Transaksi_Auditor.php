@@ -1802,8 +1802,12 @@ public function ajax_temppart()
         'pagination' => $this->pagination->create_links(),
         'output' => $output
     ];
+    $this->load->view('auditorview/audit//_partial/footer3.php');
 
     echo json_encode($data, true);
+
+
+
 }
 
 public function closepart()
@@ -1816,7 +1820,7 @@ public function closepart()
             'info' => "Check your data"
         ];
     } else {
-        $list = $this->mtransauditor->closeaudit($id, $a);
+        $list = $this->mtransauditor->closepart($id, $a);
         if ($list) {
             $data = [
                 'status' => true
@@ -1835,6 +1839,8 @@ public function closepart()
 
 // tidak ada preview 
 // tidakk ada fungsi manual yang digunakan untuk menambahkan data part (mungkin data dimasukan dari SIMANDE)
+// tambahkan frontend edit part 
+// beckend edit part pada modul ci-SIMA juga perlu dibuat
 /* END OF PART */
 
 

@@ -491,7 +491,7 @@ function __construct() {
             if ($this->maudit->EditListPart($id,$data)) {
                 $this->response([
                     'status' => true,
-                    'data' => "Data Audit has been modified"
+                    'data' => "Data Audit Part has been modified"
                 ], REST_Controller::HTTP_OK);
             }else{
                 $this->response([
