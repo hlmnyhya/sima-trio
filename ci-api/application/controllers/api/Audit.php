@@ -1987,7 +1987,7 @@ function __construct() {
             'tanggal_audit'         => $this->_tgl,
             'edit_by'               => $this->post('edit_by'),
             'tanggal_edit'          => $this->_tgl,
-            'idjadwal_audit'        => $this->$idjadwal_audit
+            
         ];
         if ($id===null) {
             $postPart = null;
@@ -2032,7 +2032,59 @@ function __construct() {
         }
     }
 
-
-    
+    public function listpart_put()
+    {
+        $id= $this->put('id_part');
+        if ($id==null) {
+            $data =[
+                'part_number' => $this->put('part_number'),
+                'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
+                'deskripsi' => $this->put('deskripsi'),
+                'qty' => $this->put('qty'),
+                'status' => $this->put('status'),
+                'audit_by' => $this->put('audit_by'),
+                'id_lokasi' => $this->put('id_lokasi'),
+                'id_cabang' => $this->put('id_cabang'),
+                'tanggal_audit' => $this->put('tanggal_audit'),
+                'edit_by' => $this->put('edit_by'),
+                'tanggal_edit' => $this->_tgl
+            ];
+        }else{
+            $data =[
+                'part_number' => $this->put('part_number'),
+                'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
+                'deskripsi' => $this->put('deskripsi'),
+                'qty' => $this->put('qty'),
+                'status' => $this->put('status'),
+                'audit_by' => $this->put('audit_by'),
+                'id_lokasi' => $this->put('id_lokasi'),
+                'id_cabang' => $this->put('id_cabang'),
+                'tanggal_audit' => $this->put('tanggal_audit'),
+                'edit_by' => $this->put('edit_by'),
+                'tanggal_edit' => $this->_tgl
+            ];
+            
+        }
+        if ($id===null) {
+            $this->response([
+                'status' => false,
+                'data' => "need id"
+            ], REST_Controller::HTTP_OK);
+        }else{
+            if ($this->maudit->EditListPart($id,$data)) {
+                $this->response([
+                    'status' => true,
+                    'data' => "Data Audit has been modified"
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "failed."
+                ], REST_Controller::HTTP_OK);
+            }
+        }
+        
+    }
 }
+
 /* End of file Audit.php */
