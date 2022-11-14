@@ -61,6 +61,7 @@
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
                                     <th>Status</th>
+                                    <th>Keterangan</th>
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
@@ -76,6 +77,7 @@
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
                                     <th>Status</th>
+                                    <th>Keterangan</th>
                                 </tr>
                             </tfoot>
                         </table>

@@ -1280,6 +1280,7 @@ public function ajax_get_part()
                 <td class="text-center">' . $list['deskripsi'] . '</td>
                 <td class="text-center">' . $list['qty'] . '</td>
                 <td class="text-center">' . $list['status'] . '</td>
+                <td class="text-center">' . $list['keterangan'] . '</td>
             </tr>
             
             ';
