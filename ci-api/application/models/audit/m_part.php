@@ -99,10 +99,28 @@ class M_Part extends CI_Model {
         return $this->db->affected_rows();
     }
 
-    public function PartEnd($id)
-    {
-        $this->db->update('part', ['status' => 1], ['part_number' => $id]);
-        return $this->db->affected_rows();
+    public function PartEnd($cabang, $idjadwal_audit)
+    { 
+        $query = "
+        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, status, audit_by, tanggal_audit, idjadwal_audit) 
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, status, audit_by, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
+        FROM temp_unit a 
+        WHERE a.part_number NOT IN (
+        SELECT part_number FROM part WHERE idjadwal_audit = '$idjadwal_audit')
+        AND a.id_cabang='$cabang' AND idjadwal_audit = '$idjadwal_audit'        
+        ";
+        $this->db->query($query);
+        $query2 = "
+            UPDATE part
+            SET status = 'Rusak'
+            WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
+        ";
+        $this->db->query($query2);
+        $query3 = "
+            DELETE FROM temp_part WHERE id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
+        ";
+        $this->db->query($query3);
+        return  $this->db->affected_rows();
     }
 
     public function getpartendbefore($id)

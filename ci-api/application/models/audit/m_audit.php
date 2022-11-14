@@ -289,6 +289,7 @@ class M_Audit extends CI_Model {
             return $this->db->get('temp_unit')->result();
         }
     }
+    
     public function AuditEnd($cabang, $idjadwal_audit)
     { 
         $query = "

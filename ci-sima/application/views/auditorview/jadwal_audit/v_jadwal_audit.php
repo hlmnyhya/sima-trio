@@ -88,13 +88,6 @@
                             </select>
                             </div>
                         </div>  
-
-                        <script type="text/javascript">
-                                function timezone(){
-                                    var time = document.getElementById('zone').value;
-                                    document.getElementById('waktu').value = time;
-                                }
-                        </script>
                             </div>
                         </div>
                         <!-- <input type="hidden" name="data_insert" id="data_insert" value="Insert"/> -->

@@ -53,7 +53,8 @@ class Audit extends CI_Controller
     }
 
     public function viewListAudit()
-    {
+    {   
+        date_default_timezone_set('Asia/Makassar');
         $data = [
             'judul' => 'List Audit',
             'judul1' => 'Audit',
