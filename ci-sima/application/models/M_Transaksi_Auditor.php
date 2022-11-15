@@ -580,6 +580,7 @@ class M_Transaksi_Auditor extends CI_Model
             'query' => [
                 'id_cabang' => $id,
                 'idjadwal_audit' => $a
+            ]
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);

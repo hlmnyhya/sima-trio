@@ -54,6 +54,11 @@
                         <div class="form-group "><label class="col-sm-2 control-label">STATUS</label>
                             <div class="col-sm-10"><input type="text" class="form-control" name="status" id="status" value="<?php echo $edit['status'] ?>"></div>
                         </div>
+                        <select name="status_unit" class="form-control" id="status">
+                                                    <option value="">--- ALL ---</option>
+                                                    <option value="Sesuai" id="sesuai">Terjual</option>
+                                                    <option value="Belum Sesuai" id="belum_sesuai">Ready For Sale</option>
+                                                </select>
 
 
                        
