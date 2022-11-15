@@ -5,7 +5,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Part extends CI_Model {
 
-    public function getPart($id=null)
+    public function GetPart($id=null)
     {
         if ($id === null) {
             $this->db->select('part.*,nama_cabang, nama_gudang');
@@ -177,6 +177,27 @@ class M_Part extends CI_Model {
         return $result;
     }
 
+    public function previewPart($a,$b,$d,$e)
+    {
+        $this->db->select('
+                a.id_part, a.part_number, a.deskripsi,
+                a.kd_lokasi_rak, a.deskripsi, a.qty, a.status, a.keterangan, b.nama_cabang, c.nama_gudang
+
+        ');
+            $this->db->from('unit a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+
+            $this->db->where("a.id_cabang='$a' AND a.idjadwal_audit = '$b' ");
+            if($d != ""){
+                $this->db->where('a.status_unit', $d);
+            }
+            $this->db->limit(15);
+            $this->db->offset($e);
+
+            return $this->db->get()->result();
+
+    }
 }
 
 /* End of file M_part.php */

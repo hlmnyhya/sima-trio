@@ -1627,6 +1627,26 @@ function __construct() {
             
         }
     }
+    public function previewPart_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $status = $this->get('status');
+        $offset = $this->get('offset');
+        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit,$status,$offset);
+        if ($tampil) {
+            $this->response([
+                'status' => true,
+                'data' => $tampil
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
     public function previewUnitNotReady_get()
     {
         $cabang= $this->get('id_cabang');

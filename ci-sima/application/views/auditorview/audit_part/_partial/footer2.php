@@ -26,7 +26,6 @@
         });
     </script>
     <script>
-        <script>
     $(document).ready(function() {
         var i = 0;
         $('#add').click(function() {
@@ -123,11 +122,11 @@
             var tgl_awal = $('#tgl_awal').val();
             var tgl_akhir = $('#tgl_akhir').val();
             var status = $('#status').val();
-            var action = 'preview';
+            var action = 'previewpart';
             $.ajax({
                 method: 'post',
                 dataType: 'JSON',
-                url: '<?php echo base_url(); ?>transaksi_auditor/preview/' + page,
+                url: '<?php echo base_url(); ?>transaksi_auditor/previewpart/' + page,
                 data: {
                     id_cabang: cabang,
                     tgl_awal: tgl_awal,
@@ -150,8 +149,7 @@
     })
 
     </script>
-
-
+</script>
 </body>
 
 </html>
