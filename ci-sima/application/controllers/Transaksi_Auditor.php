@@ -209,6 +209,22 @@ public function Edit_Audit()
     $this->load->view('auditorview/audit_unit/_partial/footer2.php', $data);
 }
 
+public function Edit_Part()
+{
+    $id = base64_decode($this->input->get('id'));
+    $data = [
+        'judul' => "Audit Unit",
+        'judul1' => 'Transaksi Auditor',
+        'edit' => $this->mtransauditor->getPartById($id)
+
+    ];
+    // var_dump($data['edit']);die;
+    $this->load->view('_partial/header.php', $data);
+    $this->load->view('_partial/sidebar.php');
+    $this->load->view('auditorview/audit_part/v_edit_part.php', $data);
+    $this->load->view('auditorview/audit_part/_partial/footer2.php', $data);
+}
+
 public function Audit_Unit()
 {
     $cabang = $this->input->post('id_cabang');
@@ -1835,6 +1851,66 @@ public function closepart()
     }
     echo json_encode($data, true);
 }
+
+public function previewpart($page)
+{
+    $cabang = $this->input->post('id_cabang');
+    $idjadwal_audit = $this->input->post('idjadwal_audit');
+    $status = $this->input->post('status');
+
+    $count = $this->mtransauditor->countunit($cabang, $idjadwal_audit, $status);
+    $this->load->library('pagination');
+
+    $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';
+    $config['total_rows'] = $count;
+    $config['per_page'] = 15;
+    $config['uri_segment'] = 3;
+    $config['use_page_numbers'] = TRUE;
+    $config['num_links'] = 3;
+
+    $config['full_tag_open'] = '<ul class="pagination">';
+    $config['full_tag_close'] = '</ul>';
+    $config['first_link'] = 'First';
+    $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+    $config['first_tag_close'] = '</li>';
+    $config['last_link'] = 'Last';
+    $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+    $config['last_tag_close'] = '</li>';
+    $config['next_link'] = '&gt;';
+    $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+    $config['next_tag_close'] = '</li>';
+    $config['prev_link'] = '&lt;&nbsp;';
+    $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+    $config['prev_tag_close'] = '</li>';
+    $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+    $config['num_tag_close'] = '</li>';
+    $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+    $config['cur_tag_close'] = '</li>';
+
+    $this->pagination->initialize($config);
+
+    //$page = floor($count / 15); 
+    //$page = $this->uri->segment(3);
+    if ($page == null) {
+        $page = 1;
+    }
+    $start = ($page - 1) * $config['per_page'];
+
+    $cetak = $this->mtransauditor->previewPart($cabang, $idjadwal_audit, $status, $start);
+    $row_entry = '
+            <div class=" label label-default">' . $count . '</div>
+        ';
+    $output = [
+        'pagination_link'   => $this->pagination->create_links(),
+        'unit_list'         => $cetak,
+        'row_entry' => $row_entry,
+    ];
+
+    echo json_encode($output);
+}
+
+
+
 
 
 

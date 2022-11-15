@@ -32,11 +32,6 @@
 
                                             </div>
                                         </div>
-                                        <div class="form-group"><label class="col-sm-3 control-label">Keterangan</label>
-                                        <div class="form-group col-sm-9" name="keterangan" id="keterangan">
-                                        <label class="radio-inline"><input type="radio" name="optradio" checked>Terjual</label>
-                                        <label class="radio-inline"><input type="radio" name="optradio">Ready For Sale</label>
-                                        </div>
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Part Number</label>
                                             <div class="col-sm-9">

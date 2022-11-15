@@ -71,6 +71,22 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
+      public function getPartById($id)
+    {
+        $respon =  $this->_client->request('GET', 'auditpart', [
+            'query' => [
+                'id' => $id
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+        if ($result['status'] == true) {
+            return $result['data']['0'];
+        } else {
+            return false;
+        }
+    }
+
     public function getPart()
     {
         $respon =  $this->_client->request('GET', 'part');
@@ -230,6 +246,50 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $res['keterangan'] . '</td>
                     <td>' . $res['is_ready'] . '</td>
                     <td>' . $res['tanggal_audit'] . '</td>
+                ';
+            }
+        } else {
+            $output .= '
+                <tr><td colspan="24" class="text-center">Data not found.</td></tr>
+            ';
+        }
+        return $output;
+    }
+
+    public function previewPart($a, $b, $d, $e)
+    {
+        $respon =  $this->_client->request('GET', 'previewpart', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'status' => $d,
+                'offset' => $e
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+        $base = base_url();
+
+        $output = '';
+        $aksi = '';
+        if ($result['status'] == true) {
+            foreach ($result['data'] as $res) {
+
+                $aksi = '
+                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    ';
+                $e++;
+                $output .= '
+                    <tr>
+                    <td>' . $e . '</td>
+                    <td>' . $aksi . '</td>
+                    <td>' . $res['part_number'] . '</td>
+                    <td>' . $res['kd_lokasi_rak'] . '</td>
+                    <td>' . $res['deskripsi'] . '</td>
+                    <td>' . $res['qty'] . '</td>
+                    <td>' . $res['status'] . '</td>
+                    <td>' . $res['keterangan'] . '</td>
+                    <td>' . $res['idjadwal_audit'] . '</td>
                 ';
             }
         } else {
