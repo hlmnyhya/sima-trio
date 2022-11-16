@@ -1089,7 +1089,7 @@ public function closeaudit()
                 'info' => "Failed Closed"
             ];
         }
-    }`
+    }
     echo json_encode($data, true);
 }
 
@@ -1120,6 +1120,7 @@ public function downloadpart()
 
     echo json_encode($output, true);
 }
+// punya nya temp part
 public function AuditPart()
 {
     $data = [
@@ -1862,11 +1863,8 @@ public function previewpart($page)
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $status = $this->input->post('status');
 
-<<<<<<< HEAD
     $count = $this->mtransauditor->countpart($cabang, $idjadwal_audit, $status);
-=======
     $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $status);
->>>>>>> 7843f9e5db09bea38e3ff64a8109735db5fab085
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';
