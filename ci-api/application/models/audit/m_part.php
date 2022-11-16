@@ -206,5 +206,4 @@ class M_Part extends CI_Model {
     }
     
 }
-
 /* End of file M_part.php */

@@ -448,7 +448,7 @@ function __construct() {
             'part_number' => $this->post('part_number'),
             'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
             'deskripsi' => $this->post('deskripsi'),
-            'status' => $this->post('status'),
+            'kondisi' => $this->post('kondisi'),
             'qty' => $this->post('qty'),
             'audit_by' => $this->post('user'),
             'tanggal_audit' => $this->_tgl,
