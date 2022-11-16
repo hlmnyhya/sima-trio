@@ -2105,6 +2105,34 @@ function __construct() {
         }
         
     }
+
+    public function Partket_put()
+    {
+        $id =$this->put('idjadwal_audit');
+
+        $data=[
+                'keterangan' => $this->put('keterangan',true),
+                'tanggal_edit' => $this->_tgl
+        ];
+        if ($id===null) {
+            $this->response([
+                'status' => false,
+                'data' => "need id"
+            ], REST_Controller::HTTP_OK);
+        }else {
+            if ($this->mpart->EditPartKet($data, $id)) {
+                $this->response([
+                    'status' => true,
+                    'data' => "Data Audit has been modified"
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "failed."
+                ], REST_Controller::HTTP_OK);
+            }
+        }
+    }
 }
 
 /* End of file Audit.php */

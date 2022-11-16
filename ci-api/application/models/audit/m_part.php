@@ -197,6 +197,14 @@ class M_Part extends CI_Model {
             return $this->db->get()->result();
 
     }
+    
+    public function EditPartKet($data,$id)
+    {
+        $this->db->where('idjadwal_audit', $id);
+        $this->db->update('jadwal_audit', $data);
+        return $this->db->affected_rows(); 
+    }
+    
 }
 
 /* End of file M_part.php */
