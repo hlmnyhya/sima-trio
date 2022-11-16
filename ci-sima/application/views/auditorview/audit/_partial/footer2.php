@@ -295,6 +295,35 @@
                 $('#info').html("data Kosong");
             }
         });
+
+        function get_data(page) {
+            $('#audit_part').html('<tr> <td colspan="13" id="loading"></td></tr>');
+            $('#manual').addClass('hidden');
+            var cabang = "<?php echo $_GET['id'] ?>";
+            var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>"
+            console.log("jadwal_audit get_data : " + idjadwal_audit);
+            $.ajax({
+                type: "post",
+                dataType: 'JSON',
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
+                data: {
+                    cabang: cabang,
+                    idjadwal_audit: idjadwal_audit
+                },
+                success: function(data) {
+                    console.log(data);
+                    $('#pagination').html(data.pagination);
+                    $('#audit_part').html(data.output);
+                }
+            });
+        }
+        $(document).on('click', '.pagination li a', function(event) {
+            event.preventDefault();
+            var page = $(this).data('ci-pagination-page');
+            get_data(page);
+
+        });  
+
         function scan_getdata() {
             $('#manual').addClass('hidden');
             var cari = $('#cari').val();
