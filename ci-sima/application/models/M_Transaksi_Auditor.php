@@ -286,6 +286,7 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['kd_lokasi_rak'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
+                    <td>' . $res['status_part'] . '</td>
                     <td>' . $res['qty'] . '</td>
                     <td>' . $res['status'] . '</td>
                     <td>' . $res['keterangan'] . '</td>

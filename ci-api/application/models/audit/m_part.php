@@ -181,16 +181,17 @@ class M_Part extends CI_Model {
     {
         $this->db->select('
                 a.id_part, a.part_number, a.deskripsi,
-                a.kd_lokasi_rak, a.deskripsi, a.qty, a.status, a.keterangan, b.nama_cabang, c.nama_gudang
+                a.kd_lokasi_rak, a.deskripsi, a.qty, a.status, a.keterangan, b.nama_cabang, c.nama_gudang,
+                a.status_part
 
         ');
-            $this->db->from('unit a');
+            $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
 
             $this->db->where("a.id_cabang='$a' AND a.idjadwal_audit = '$b' ");
             if($d != ""){
-                $this->db->where('a.status_unit', $d);
+                $this->db->where('a.status_part', $d);
             }
             $this->db->limit(15);
             $this->db->offset($e);

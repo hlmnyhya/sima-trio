@@ -38,7 +38,7 @@
 
                                         <div class="col-sm-1">
                                             <div class="form-group m-t-md">
-                                                <a id="preview" class="btn btn-success">Preview</a>
+                                                <a id="previewpart" class="btn btn-success">Preview</a>
                                             </div>
                                         </div>
                                     </form>
