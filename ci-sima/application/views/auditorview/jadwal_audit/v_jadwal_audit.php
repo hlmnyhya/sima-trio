@@ -83,7 +83,7 @@
                         function timezone(){
                         var time = document.getElementById('zone').value;
                         document.getElementById('waktu').value = time;
-                        }
+                        } 
                         </script>
                             <div class="form-group col-sm-2 ">
                             <div class="">
