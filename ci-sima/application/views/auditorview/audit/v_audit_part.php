@@ -43,7 +43,6 @@
                                                 <a href="<?php echo base_url() ?>transaksi_auditor/temp_part?id=<?php echo $_GET['id']."&&a". base64_encode('idjadwal_audit') ?>" class="btn btn-warning">Temporary Data</a>
                                                 <?php $id = $_GET['id']; ?> 
                                                 <a class="btn btn-danger" id="close_part">Close Part</a>
-
                                             </div>
                                         </div>
                                     </div>
