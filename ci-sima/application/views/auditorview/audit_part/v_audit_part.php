@@ -24,21 +24,20 @@
                                                 <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
                                             </div>
                                         </div>
-
                                         <div class="col-sm-3">
-                                            <label>Status Unit</label>
+                                            <label>Status Part</label>
                                             <div class="form-group">
-                                                <select name="status_unit" class="form-control" id="status">
+                                                <select name="status" class="form-control" id="status">
                                                     <option value="">--- ALL ---</option>
-                                                    <option value="Sesuai" id="sesuai">Bagus</option>
-                                                    <option value="Belum Sesuai" id="belum_sesuai">Rusak</option>
+                                                    <option value="Sesuai" id="sesuai">Sesuai</option>
+                                                    <option value="Belum Sesuai" id="belum_sesuai">Belum Sesuai</option>
+                                                    <option value="Belum ditemukan" id="belum_ditemukan">Belum Ditemukan</option>
                                                 </select>
                                             </div>
                                         </div>
-
                                         <div class="col-sm-1">
                                             <div class="form-group m-t-md">
-                                                <a id="preview" class="btn btn-success">Preview</a>
+                                                <a id="previewpart" class="btn btn-success">Preview</a>
                                             </div>
                                         </div>
                                     </form>
@@ -58,9 +57,10 @@
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
+                                    <th>Status</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Status</th>
+                                    <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>
                             </thead>
@@ -68,15 +68,16 @@
                             </tbody>
                             <tfoot>
                                 <tr>
-                                    <th>No</th>
-                                    <th>Aksi</th>
+                                    <th width="3%">No</th>
+                                    <th width="5%">Aksi</th>
                                     <th>Cabang</th>
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
+                                    <th>Status</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Status</th>
+                                    <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>
                             </tfoot>

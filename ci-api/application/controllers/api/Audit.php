@@ -1631,9 +1631,9 @@ function __construct() {
     {
         $cabang= $this->get('id_cabang');
         $idjadwal_audit= $this->get('idjadwal_audit');
-        $status = $this->get('status');
+        $kondisi = $this->get('kondisi');
         $offset = $this->get('offset');
-        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit,$status,$offset);
+        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit,$kondisi,$offset);
         if ($tampil) {
             $this->response([
                 'status' => true,
@@ -1974,7 +1974,7 @@ function __construct() {
             'idjadwal_audit' => $this->put('idjadwal_audit'),
             'id_part' => $this->put('id_part'),
             'qty' => $this->put('qty'),
-            'status' => $this->put('status'),
+            'kondisi' => $this->put('kondisi'),
             'keterangan' => $this->put('keterangan'),
             'created_at' => $this->put('created_at'),
             'updated_at' => $this->put('updated_at')
@@ -2061,7 +2061,7 @@ function __construct() {
                 'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
                 'deskripsi' => $this->put('deskripsi'),
                 'qty' => $this->put('qty'),
-                'status' => $this->put('status'),
+                'kondisi' => $this->put('kondisi'),
                 'audit_by' => $this->put('audit_by'),
                 'id_lokasi' => $this->put('id_lokasi'),
                 'id_cabang' => $this->put('id_cabang'),
@@ -2075,7 +2075,7 @@ function __construct() {
                 'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
                 'deskripsi' => $this->put('deskripsi'),
                 'qty' => $this->put('qty'),
-                'status' => $this->put('status'),
+                'kondisi' => $this->put('kondisi'),
                 'audit_by' => $this->put('audit_by'),
                 'id_lokasi' => $this->put('id_lokasi'),
                 'id_cabang' => $this->put('id_cabang'),
