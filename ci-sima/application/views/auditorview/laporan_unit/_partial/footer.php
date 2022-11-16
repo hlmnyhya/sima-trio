@@ -126,7 +126,7 @@
             keyboardNavigation: false,
             forceParse: false,
             calendarWeeks: true,
-            autoclose: trueoptjad
+            autoclose: true
         });
 
         $('#data_5 .input-daterange').datepicker({
