@@ -148,7 +148,6 @@
                 }
             });
         }
-        
         $('#is_ready').change(function() {
             var id = $(this).val();
             console.log(id);
