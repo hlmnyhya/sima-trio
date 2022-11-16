@@ -209,22 +209,6 @@ public function Edit_Audit()
     $this->load->view('auditorview/audit_unit/_partial/footer2.php', $data);
 }
 
-public function Edit_Part()
-{
-    $id = base64_decode($this->input->get('id'));
-    $data = [
-        'judul' => "Audit Unit",
-        'judul1' => 'Transaksi Auditor',
-        'edit' => $this->mtransauditor->getPartById($id)
-
-    ];
-    // var_dump($data['edit']);die;
-    $this->load->view('_partial/header.php', $data);
-    $this->load->view('_partial/sidebar.php');
-    $this->load->view('auditorview/audit_part/v_edit_part.php', $data);
-    $this->load->view('auditorview/audit_part/_partial/footer2.php', $data);
-}
-
 public function Audit_Unit()
 {
     $cabang = $this->input->post('id_cabang');
@@ -1136,6 +1120,7 @@ public function downloadpart()
 
     echo json_encode($output, true);
 }
+// punya nya temp part
 public function AuditPart()
 {
     $data = [
@@ -1145,6 +1130,22 @@ public function AuditPart()
     $this->load->view('_partial/header.php', $data);
     $this->load->view('auditorview/audit/v_audit_part.php', $data);
     $this->load->view('auditorview/audit/_partial/footer2.php');
+}
+
+public function Edit_Part()
+{
+    $id = base64_decode($this->input->get('id'));
+    $data = [
+        'judul' => "Audit Unit",
+        'judul1' => 'Transaksi Auditor',
+        'edit' => $this->mtransauditor->getPartById($id)
+
+    ];
+    // var_dump($data['edit']);die;
+    $this->load->view('_partial/header.php', $data);
+    $this->load->view('_partial/sidebar.php');
+    $this->load->view('auditorview/audit_part/v_edit_part.php', $data);
+    $this->load->view('auditorview/audit_part/_partial/footer2.php', $data);
 }
 public function ajax_partvalid($page)
 {
@@ -1823,8 +1824,12 @@ public function ajax_temppart()
         'pagination' => $this->pagination->create_links(),
         'output' => $output
     ];
+    $this->load->view('auditorview/audit//_partial/footer3.php');
 
     echo json_encode($data, true);
+
+
+
 }
 
 public function closepart()
@@ -1837,7 +1842,7 @@ public function closepart()
             'info' => "Check your data"
         ];
     } else {
-        $list = $this->mtransauditor->closeaudit($id, $a);
+        $list = $this->mtransauditor->closepart($id, $a);
         if ($list) {
             $data = [
                 'status' => true
@@ -1858,6 +1863,7 @@ public function previewpart($page)
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $status = $this->input->post('status');
 
+    $count = $this->mtransauditor->countpart($cabang, $idjadwal_audit, $status);
     $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $status);
     $this->load->library('pagination');
 
@@ -1916,6 +1922,8 @@ public function previewpart($page)
 
 // tidak ada preview 
 // tidakk ada fungsi manual yang digunakan untuk menambahkan data part (mungkin data dimasukan dari SIMANDE)
+// tambahkan frontend edit part 
+// beckend edit part pada modul ci-SIMA juga perlu dibuat
 /* END OF PART */
 
 

@@ -286,6 +286,7 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['kd_lokasi_rak'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
+                    <td>' . $res['status_part'] . '</td>
                     <td>' . $res['qty'] . '</td>
                     <td>' . $res['kondisi'] . '</td>
                     <td>' . $res['keterangan'] . '</td>
@@ -663,36 +664,36 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    // public function closepart($id = null, $a = null)
-    // {
+    public function closepart($id = null, $a = null)
+    {
 
-    //     $respon =  $this->_client->request('GET', 'partend', [
-    //         'query' => [
-    //             'id_cabang' => $id,
-    //             'idjadwal_audit' => $a
-    //         ]
-    //     ]);
+        $respon =  $this->_client->request('GET', 'partend', [
+            'query' => [
+                'id_cabang' => $id,
+                'idjadwal_audit' => $a
+            ]
+        ]);
 
-    //     $result = json_decode($respon->getBody()->getContents(), true);
-    //     $data = [
-    //         'idjadwal_audit' => $a,
-    //         'keterangan' => 'done'
-    //     ];
-    //     $respon1 =  $this->_client->request('PUT', 'auditket', [
-    //         'form_params' => $data
-    //     ]);
+        $result = json_decode($respon->getBody()->getContents(), true);
+        $data = [
+            'idjadwal_audit' => $a,
+            'keterangan' => 'done'
+        ];
+        $respon1 =  $this->_client->request('PUT', 'auditket', [
+            'form_params' => $data
+        ]);
 
-    //     $result1 = json_decode($respon1->getBody()->getContents(), true);
-    //     if ($result1['status'] == true) {
-    //         if ($result['status'] == true) {
-    //             return $result['data'];
-    //         } else {
-    //             return false;
-    //         }
-    //     } else {
-    //         return false;
-    //     }
-    // }
+        $result1 = json_decode($respon1->getBody()->getContents(), true);
+        if ($result1['status'] == true) {
+            if ($result['status'] == true) {
+                return $result['data'];
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+    }
 }
 
 /* End of file M_Transaksi_Auditor.php */

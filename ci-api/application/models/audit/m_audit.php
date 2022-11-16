@@ -136,6 +136,8 @@ class M_Audit extends CI_Model {
         $this->db->insert('part', $data);
         return $this->db->affected_rows(); 
     }
+
+    // update data unit
     public function EditList($id,$data)
     {
             $this->db->where("id_unit = '$id'" );
