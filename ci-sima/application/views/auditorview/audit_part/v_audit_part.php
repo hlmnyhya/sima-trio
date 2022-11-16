@@ -51,17 +51,16 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                                 <tr>
-                                    <th width="3%">No</th>
+                                <th width="3%">No</th>
                                     <th width="5%">Aksi</th>
                                     <th>Cabang</th>
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
-                                    <th>Status</th>
+                                    <th>Kondisi</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Kondisi</th>
-                                    <th>Keterangan</th>
+                                    <th>Status</th>
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
@@ -74,11 +73,10 @@
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
-                                    <th>Status</th>
+                                    <th>Kondisi</th>
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Kondisi</th>
-                                    <th>Keterangan</th>
+                                    <th>Status</th>
                                 </tr>
                             </tfoot>
                         </table>

@@ -1837,7 +1837,7 @@ public function closepart()
             'info' => "Check your data"
         ];
     } else {
-        $list = $this->mtransauditor->closeaudit($id, $a);
+        $list = $this->mtransauditor->closepart($id, $a);
         if ($list) {
             $data = [
                 'status' => true
