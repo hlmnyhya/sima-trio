@@ -102,8 +102,8 @@ class M_Part extends CI_Model {
     public function PartEnd($cabang, $idjadwal_audit)
     { 
         $query = "
-        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, status, audit_by, tanggal_audit, idjadwal_audit) 
-        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, status, audit_by, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
+        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, audit_by, tanggal_audit, idjadwal_audit) 
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, audit_by, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
         FROM temp_unit a 
         WHERE a.part_number NOT IN (
         SELECT part_number FROM part WHERE idjadwal_audit = '$idjadwal_audit')
@@ -112,8 +112,8 @@ class M_Part extends CI_Model {
         $this->db->query($query);
         $query2 = "
             UPDATE part
-            SET status = 'Rusak'
-            WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
+            SET kondisi = 'Rusak'
+            WHERE kondisi is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
         ";
         $this->db->query($query2);
         $query3 = "
@@ -130,33 +130,33 @@ class M_Part extends CI_Model {
         $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
         $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
         $this->db->where('part.id_cabang',$id);
-        $this->db->where('part.status', 1);
+        $this->db->where('part.kondisi', 1);
         $result = $this->db->get()->result();
 
         return $result;
     }
 
-    public function getlistpartstatus($id)
+    public function getlistpartkondisi($id)
     {
         $this->db->select('part.*,nama_cabang, nama_gudang');
         $this->db->from('part');
         $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
         $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
         $this->db->where('part.id_cabang',$id);
-        $this->db->where('part.status', 0);
+        $this->db->where('part.kondisi', 0);
         $result = $this->db->get()->result();
 
         return $result;
     }
 
-    public function getsearchpartstatus($id, $offset, $idjadwal_audit)
+    public function getsearchpartkondisi($id, $offset, $idjadwal_audit)
     {
         $this->db->select('part.*,nama_cabang, nama_gudang');
         $this->db->from('part');
         $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
         $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
         $this->db->where('part.id_cabang',$id);
-        $this->db->where('part.status', 0);
+        $this->db->where('part.kondisi', 0);
         $this->db->where("part.idjadwal_audit", $idjadwal_audit);
         $this->db->limit(15);
         $this->db->offset($offset);
@@ -177,28 +177,7 @@ class M_Part extends CI_Model {
         return $result;
     }
 
-    public function previewPart($a,$b,$d,$e)
-    {
-        $this->db->select('
-                a.id_part, a.part_number, a.deskripsi,
-                a.kd_lokasi_rak, a.deskripsi, a.qty, a.status, a.keterangan, b.nama_cabang, c.nama_gudang,
-                a.status_part
-
-        ');
-            $this->db->from('part a');
-            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
-            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
-
-            $this->db->where("a.id_cabang='$a' AND a.idjadwal_audit = '$b' ");
-            if($d != ""){
-                $this->db->where('a.status_part', $d);
-            }
-            $this->db->limit(15);
-            $this->db->offset($e);
-
-            return $this->db->get()->result();
-
-    }
+    
 }
 
 /* End of file M_part.php */

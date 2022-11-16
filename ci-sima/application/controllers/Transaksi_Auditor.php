@@ -1221,7 +1221,7 @@ public function ListAudit_Part()
     $cabang = $this->input->post('id_cabang');
     $lokasi = $this->input->post('id_lokasi');
     $part_number = $this->input->post('part_number');
-    $status = $this->input->post('status');
+    $kondisi = $this->input->post('kondisi');
     $data = [
         'judul' => "List Audit Part",
         'judul1' => 'Transaksi Auditor',
@@ -1229,7 +1229,7 @@ public function ListAudit_Part()
     ];
 
     $config['base_url'] = base_url() . "transaksi/audit_part";
-    $config['total_rows'] = $this->mtransauditor->countpart($cabang, $lokasi, $part_number, $status);
+    $config['total_rows'] = $this->mtransauditor->countpart1($cabang, $lokasi, $part_number, $kondisi);
     $config['per_page'] = 15;
     $config['page_query_string'] = TRUE;
     $config['query_string_segment'] = 'pages';
@@ -1288,14 +1288,15 @@ public function ajax_get_part()
             $output .= '
             <tr> 
                 <td class="text-center">' . $no . '</td>
-                <td class="text-center"><a onclick="edit(id=\'' . $list['id_part'] . '\')" class="text-warning" ><i class="fa fa-pencil"></i></a></td>
+                <td class="text-center"><a onclick="edit_part(id=\'' . $list['id_part'] . '\')" class="text-warning" ><i class="fa fa-pencil"></i></a></td>
                 <td class="text-center">' . $list['nama_cabang'] . '</td>
                 <td class="text-center">' . $list['nama_gudang'] . '</td>
                 <td class="text-center">' . $list['part_number'] . '</td>
                 <td class="text-center">' . $list['kd_lokasi_rak'] . '</td>
+                <td class="text-center">' . $list['status'] . '</td>
                 <td class="text-center">' . $list['deskripsi'] . '</td>
                 <td class="text-center">' . $list['qty'] . '</td>
-                <td class="text-center">' . $list['status'] . '</td>
+                <td class="text-center">' . $list['kondisi'] . '</td>
                 <td class="text-center">' . $list['keterangan'] . '</td>
             </tr>
             
@@ -1329,6 +1330,7 @@ public function doPart()
     $lokasi = $this->input->post('lokasi');
     $rakbin = $this->input->post('rakbin');
     $kondisi = $this->input->post('kondisi');
+    $status = $this->input->post('status');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $data = [
         'id' => $this->input->post('id'),
@@ -1336,6 +1338,7 @@ public function doPart()
         'id_lokasi' => $lokasi,
         'rakbin' => $rakbin,
         'kondisi' => $kondisi,
+        'status' => $status,
         'part_number' => $this->input->post('part_number'),
         'deskripsi' => $this->input->post('deskripsi'),
         'idjadwal_audit' => $this->input->post('idjadwal_audit')
@@ -1345,7 +1348,7 @@ public function doPart()
     if ($cek) {
         $info = 'Data Telah diaudit';
         $output = '';
-        $count = $this->mtransauditor->countPart1($cabang, $rakbin, $kondisi, $idjadwal_audit);
+        $count = $this->mtransauditor->countPart1($cabang, $rakbin, $kondisi, $status, $idjadwal_audit);
         $this->load->library('pagination');
 
         $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';
@@ -1383,7 +1386,7 @@ public function doPart()
         $start = ($page - 1) * $config['per_page'];
         $getPartValid = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
         if ($getPartValid) {
-            foreach ($getpart as $list) {
+            foreach ($getPartValid as $list) {
                 $start++;
                 $output .= '
                                 <tr> 
@@ -1439,7 +1442,7 @@ public function doPart()
                 $page = 1;
             }
             $start = ($page - 1) * $config['per_page'];
-            $getpartValid = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
+            $getPartValid = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
             if ($getPartValid) {
                 foreach ($getPartValid as $list) {
                     $start++;
@@ -1622,7 +1625,8 @@ public function scan_data_part()
                     'kd_lokasi_rak' => $rakbin,
                     'deskripsi' => $part['deskripsi'],
                     'qty' => 1,
-                    'status' => $kondisi,
+                    'kondisi' => $kondisi,
+                    'status' => 'valid',
                     'idjadwal_audit' => $idjadwal_audit
                 ];
             }
@@ -1858,7 +1862,11 @@ public function previewpart($page)
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $status = $this->input->post('status');
 
+<<<<<<< HEAD
     $count = $this->mtransauditor->countpart($cabang, $idjadwal_audit, $status);
+=======
+    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $status);
+>>>>>>> 7843f9e5db09bea38e3ff64a8109735db5fab085
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';
@@ -1902,7 +1910,7 @@ public function previewpart($page)
         ';
     $output = [
         'pagination_link'   => $this->pagination->create_links(),
-        'unit_list'         => $cetak,
+        'part_list'         => $cetak,
         'row_entry' => $row_entry,
     ];
 
