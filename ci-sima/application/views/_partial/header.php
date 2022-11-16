@@ -17,6 +17,9 @@
     <link href="<?php echo base_url() ?>assets/css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style2.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style3.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style4.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/textSpinners/spinners.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">

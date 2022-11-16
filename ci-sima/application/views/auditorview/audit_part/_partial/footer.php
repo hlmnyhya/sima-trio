@@ -12,18 +12,21 @@
 </div>
 
 
-<!-- Mainly scripts -->
-<script src="<?php echo base_url(); ?>assets/js/jquery-3.1.1.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-<!-- Idle Timer plugin -->
-<script src="<?php echo base_url(); ?>assets/js/plugins/idle-timer/idle-timer.min.js"></script>
-<!-- Custom and plugin javascript -->
-<script src="<?php echo base_url(); ?>assets/js/inspinia.js"></script>
-<script src="<?php echo base_url(); ?>assets/js/plugins/pace/pace.min.js"></script>
 
-<script src="<?php echo base_url(); ?>assets/js/plugins/toastr/toastr.min.js"></script>
+<!-- Mainly scripts -->
+<script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="<?php echo base_url() ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Idle Timer plugin -->
+<script src="<?php echo base_url() ?>assets/js/plugins/idle-timer/idle-timer.min.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="<?php echo base_url() ?>assets/js/inspinia.js"></script>
+<script src="<?php echo base_url() ?>assets/js/plugins/pace/pace.min.js"></script>
+
+<script src="<?php echo base_url() ?>assets/js/plugins/toastr/toastr.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/plugins/datapicker/bootstrap-datepicker.js"></script>
 
 
 <script>
@@ -43,6 +46,7 @@
 
             }, 1300);
         <?php } ?>
+        
         <?php if ($this->session->flashdata('gagal')) { ?>
             setTimeout(function() {
                 toastr.options = {
@@ -89,9 +93,16 @@
 
 <script>
     $(document).ready(function() {
-        $('#audit_part').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_part");
+        // $('#audit_part').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_part");
         // $('#list_audit_part').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_part");
         $('#OptCabang').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_cabang2");
+
+        // var id_cabang = ""
+        // $('#OptCabang').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_cabang2");
+        // //$('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit");
+        // $('#OptCabang').change(function() {
+        //     $('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit/" + $(this).val());
+        // })
 
         function search() {
             var cabang = $('#Incabang').val();
@@ -184,7 +195,7 @@
             autoclose: true
         });
 
-        $('#preview').click(function(e) {
+        $('#previewpart').click(function(e) {
             e.preventDefault();
             preview(1);
         });
@@ -200,23 +211,25 @@
             var cabang = $('#OptCabang').val();
             var idjadwal_audit = $('#OptJadwalAudit').val();
             var status = $('#status').val();
-            var action = 'preview';
+            var action = 'previewpart';
+            var kondisi = $('#kondisi').val();
             $('#audit_unit').html('<tr><td colspan="20" id="loading"></td></tr>');
 
             $.ajax({
                 method: 'post',
                 dataType: 'JSON',
-                url: '<?php echo base_url(); ?>transaksi_auditor/preview/' + page,
+                url: '<?php echo base_url(); ?>transaksi_auditor/previewpart/' + page,
                 data: {
                     id_cabang: cabang,
                     idjadwal_audit: idjadwal_audit,
                     status: status,
+                    kondisi: kondisi,
                     action: action
                 },
                 // data: 'id_cabang='+cabang+'&&tgl_awal='+tgl_awal+'&&tgl_akhir='+tgl_akhir+'&&status='+status+'&&pages='+valu,
                 success: function(data) {
 
-                    $('#audit_unit').html(data.unit_list);
+                    $('#audit_part').html(data.part_list);
                     $('#pagination').html(data.pagination_link);
                     $('#rows_entry').html(data.row_entry);
 

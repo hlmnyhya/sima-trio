@@ -258,6 +258,7 @@
             var part_number = $('#part_number').val();
             var rakbin = $('#rakbin').val();
             var lokasi = $('#id_lokasi').val();
+            var keterangan = $('#keterangan').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             $('#Audit_Part').html('<tr> <td colspan="13" id="loading"></td></tr>');
@@ -270,6 +271,7 @@
                     rakbin: rakbin,
                     lokasi: lokasi,
                     cabang: cabang,
+                    keterangan: keterangan,
                     idjadwal_audit: idjadwal_audit
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/doPart",
@@ -343,8 +345,6 @@
         checkboxClass: 'icheckbox_square-green',
         radioClass: 'iradio_square-green',
     });
-
-
 </script>
 
 </body>

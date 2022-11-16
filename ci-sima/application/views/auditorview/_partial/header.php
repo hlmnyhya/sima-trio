@@ -13,6 +13,9 @@
     <link href="<?php echo base_url() ?>assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/js/moment.js" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/js/moment-timezone-with-data.js" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/js/moment-with-locales.js" rel="stylesheet">
     <script>
         function redirectCU(e) {
             if (e.ctrlKey && e.which == 85) {

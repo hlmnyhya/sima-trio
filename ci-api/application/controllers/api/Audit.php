@@ -458,6 +458,7 @@ function __construct() {
         if ($id===null) {
             $listaud = null;
         }else{
+            // harusnya masuk ke data part
             $listaud = $this->maudit->AddListPart($data);
         }
         if ($listaud) {
@@ -1626,6 +1627,26 @@ function __construct() {
             
         }
     }
+    public function previewPart_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $kondisi = $this->get('kondisi');
+        $offset = $this->get('offset');
+        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit,$kondisi,$offset);
+        if ($tampil) {
+            $this->response([
+                'status' => true,
+                'data' => $tampil
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
     public function previewUnitNotReady_get()
     {
         $cabang= $this->get('id_cabang');
@@ -1953,7 +1974,7 @@ function __construct() {
             'idjadwal_audit' => $this->put('idjadwal_audit'),
             'id_part' => $this->put('id_part'),
             'qty' => $this->put('qty'),
-            'status' => $this->put('status'),
+            'kondisi' => $this->put('kondisi'),
             'keterangan' => $this->put('keterangan'),
             'created_at' => $this->put('created_at'),
             'updated_at' => $this->put('updated_at')
@@ -1986,7 +2007,7 @@ function __construct() {
             'tanggal_audit'         => $this->_tgl,
             'edit_by'               => $this->post('edit_by'),
             'tanggal_edit'          => $this->_tgl,
-            'idjadwal_audit'        => $this->$idjadwal_audit
+            
         ];
         if ($id===null) {
             $postPart = null;
@@ -2031,7 +2052,59 @@ function __construct() {
         }
     }
 
-
-    
+    public function listpart_put()
+    {
+        $id= $this->put('id_part');
+        if ($id==null) {
+            $data =[
+                'part_number' => $this->put('part_number'),
+                'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
+                'deskripsi' => $this->put('deskripsi'),
+                'qty' => $this->put('qty'),
+                'kondisi' => $this->put('kondisi'),
+                'audit_by' => $this->put('audit_by'),
+                'id_lokasi' => $this->put('id_lokasi'),
+                'id_cabang' => $this->put('id_cabang'),
+                'tanggal_audit' => $this->put('tanggal_audit'),
+                'edit_by' => $this->put('edit_by'),
+                'tanggal_edit' => $this->_tgl
+            ];
+        }else{
+            $data =[
+                'part_number' => $this->put('part_number'),
+                'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
+                'deskripsi' => $this->put('deskripsi'),
+                'qty' => $this->put('qty'),
+                'kondisi' => $this->put('kondisi'),
+                'audit_by' => $this->put('audit_by'),
+                'id_lokasi' => $this->put('id_lokasi'),
+                'id_cabang' => $this->put('id_cabang'),
+                'tanggal_audit' => $this->put('tanggal_audit'),
+                'edit_by' => $this->put('edit_by'),
+                'tanggal_edit' => $this->_tgl
+            ];
+            
+        }
+        if ($id===null) {
+            $this->response([
+                'status' => false,
+                'data' => "need id"
+            ], REST_Controller::HTTP_OK);
+        }else{
+            if ($this->maudit->EditListPart($id,$data)) {
+                $this->response([
+                    'status' => true,
+                    'data' => "Data Audit has been modified"
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "failed."
+                ], REST_Controller::HTTP_OK);
+            }
+        }
+        
+    }
 }
-/** End of file Audit.php **/
+
+/* End of file Audit.php */
