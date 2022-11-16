@@ -83,6 +83,8 @@
 <script>
     $(document).ready(function() {
         download();
+        get_data(1);
+        lokasi();
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
