@@ -14,17 +14,17 @@
 
     <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
-    <link href="<?php echo base_url() ?>assets/css/style2.css" rel="stylesheet">
 
 </head>
 
-<body class="sima-bg animated fadeInUp">
+<body >
+    <img src="<?php echo base_url() ?>assets/images/sima-bg.png" width="1920px" height="1080px"></img>
     <div class="middle-box text-center  animated fadeInUp m-b-n">
         <div class="panel">
             <div class="white-bg">
                 <div class="logo">
                     <br><br><br>
-                    <img src="<?php echo base_url() ?>assets/images/sima-2.png" width="325px" height="100px"></img>
+                    <img src="<?php echo base_url() ?>assets/images/sima-2.png" width="275px" height="100px"></img>
                 </div>
             </div>
             <div class="panel-body">

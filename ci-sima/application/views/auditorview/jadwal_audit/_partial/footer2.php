@@ -1,5 +1,8 @@
     <script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
+    <script src="<?php echo base_url() ?>assets/js/moment.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment-with-locales.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment-timezone-with-data.js"></script>
     <script>
         $('#Optcabang').load("<?php echo base_url() ?>audit/ajax_get_cabang2");
         $('#Optjenisaudit').load("<?php echo base_url(); ?>audit/ajax_get_jenis_audit2");

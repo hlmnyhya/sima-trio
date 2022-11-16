@@ -15,6 +15,10 @@
 <script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
 <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment-with-locales.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment-timezone-with-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <!-- Idle Timer plugin -->
@@ -152,8 +156,19 @@
         });
 
     });
+    $("#tz").html(moment().format('MMMM Do YYYY, h:mm:ss a'))
 </script>
-
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+<script type="text/javascript">
+   function timezone(){
+   var time = document.getElementById('zone').value;
+   document.getElementById('waktu').value = time;
+   }
+</script>
 </body>
 
 </html>
