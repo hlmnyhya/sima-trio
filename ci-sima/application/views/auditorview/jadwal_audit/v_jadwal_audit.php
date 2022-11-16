@@ -79,7 +79,12 @@
                             </div>  
                                 
                         </div>
-                        
+                        <script type="text/javascript">
+                        function timezone(){
+                        var time = document.getElementById('zone').value;
+                        document.getElementById('waktu').value = time;
+                        }
+                        </script>
                             <div class="form-group col-sm-2 ">
                             <div class="">
                                 <select class="form-control js-example-basic-single" name="zone" id="zone" onchange="timezone()">
