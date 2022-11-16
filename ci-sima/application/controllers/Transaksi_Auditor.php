@@ -947,7 +947,7 @@ public function ajax_unitvalid($page)
     // $cabang='T13';
 
     $output = '';
-    $count = $this->mtransauditor->countunit1($cabang, $idjadwal_audit);
+    $count = $this->mtransauditor->Countunit1($cabang, $idjadwal_audit);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/ajax_unitvalid';
