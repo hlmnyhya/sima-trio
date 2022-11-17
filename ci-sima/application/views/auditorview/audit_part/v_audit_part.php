@@ -57,10 +57,11 @@
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
-                                    <th>Kondisi</th>
+                                    <th>Status</th>                                    
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Status</th>
+                                    <th>Kondisi</th>
+                                    <th>Keterangan</th>
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
@@ -73,10 +74,11 @@
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
-                                    <th>Kondisi</th>
+                                    <th>Status</th>                                    
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
-                                    <th>Status</th>
+                                    <th>Kondisi</th>
+                                    <th>Keterangan</th>
                                 </tr>
                             </tfoot>
                         </table>

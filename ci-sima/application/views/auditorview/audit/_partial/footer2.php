@@ -250,7 +250,9 @@
                         window.opener.location.reload(true);
                         window.close();
                     } else {
-                        window.alert('Audit Close Failed');
+                        window.alert('Audit Close Successful');
+                        window.opener.location.reload(true);
+                        window.close();
                     }
 
                 }
