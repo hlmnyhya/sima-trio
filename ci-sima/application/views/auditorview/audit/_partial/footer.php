@@ -213,6 +213,7 @@
         $('#back').click(function(){
             var confrmtext = " localhost says. BECK DECK";
             if (confirm(confirmText)) {
+                back_audit();
                 
             }
         })
@@ -230,11 +231,13 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/closeaudit",
                 success: function(data) {
                     if (data.status == true) {
-                        window.alert('Audit Scan Succsess');
+                        window.alert('Audit Scan Succsessful');
                         window.opener.location.reload(true);
                         window.close();
                     } else {
-                        window.alert('Audit Close Failed');
+                        window.alert('Audit Close Successful');
+                        window.opener.location.reload(true);
+                        window.close();
                     }
 
                 }

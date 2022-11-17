@@ -1097,7 +1097,8 @@ public function closeaudit()
         $list = $this->mtransauditor->closeaudit($id, $a);
         if ($list) {
             $data = [
-                'status' => true
+                'status' => true,
+                'info' => "Success"
             ];
         } else {
             $data = [
