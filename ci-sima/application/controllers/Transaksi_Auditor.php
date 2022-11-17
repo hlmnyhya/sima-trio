@@ -1338,7 +1338,8 @@ public function doPart()
         'id_lokasi' => $lokasi,
         'rakbin' => $rakbin,
         'kondisi' => $kondisi,
-        'status' => $status,
+        'status' => 'sesuai',
+        'keterangan' => 'RFS',
         'part_number' => $this->input->post('part_number'),
         'deskripsi' => $this->input->post('deskripsi'),
         'idjadwal_audit' => $this->input->post('idjadwal_audit')
