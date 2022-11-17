@@ -1610,8 +1610,11 @@ public function scan_data_part()
                                             <td>' . $list['part_number'] . '</td>
                                             <td>' . $list['deskripsi'] . '</td>
                                             <td>' . $list['kd_lokasi_rak'] . '</td>
-                                            <td>' . $list['qty'] . '</td>
                                             <td>' . $list['status'] . '</td>
+                                            <td>' . $list['deskripsi'] . '</td>
+                                            <td>' . $list['qty'] . '</td>
+                                            <td>' . $list['kondisi'] . '</td>
+                                            <td>' . $list['keterangan'] . '</td>
                                         </tr>       
                                         ';
                     }
