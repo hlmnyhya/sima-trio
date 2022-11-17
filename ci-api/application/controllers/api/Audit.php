@@ -1949,7 +1949,7 @@ function __construct() {
         if ($cabang == null) {
             $list= null;
         }else{
-            $list= $this->mpart->partend($cabang, $idjadwal_audit);
+            $list= $this->mpart->PartEnd($cabang, $idjadwal_audit);
         }
         
         if ($list) {
