@@ -213,7 +213,7 @@ class M_Audit extends CI_Model {
                 
             }
             if ($kondisi !=null) {
-                $this->db->where("a.status",$kondisi);
+                $this->db->where("a.kondisi",$kondisi);
                 
             }
             if ($idjadwal_audit !=null) {

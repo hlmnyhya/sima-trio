@@ -448,7 +448,9 @@ function __construct() {
             'part_number' => $this->post('part_number'),
             'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
             'deskripsi' => $this->post('deskripsi'),
+            'kondisi' => $this->post('kondisi'),
             'status' => $this->post('status'),
+            'keterangan' => $this->post('keterangan'),
             'qty' => $this->post('qty'),
             'audit_by' => $this->post('user'),
             'tanggal_audit' => $this->_tgl,
@@ -1949,7 +1951,7 @@ function __construct() {
         if ($cabang == null) {
             $list= null;
         }else{
-            $list= $this->mpart->partend($cabang, $idjadwal_audit);
+            $list= $this->mpart->PartEnd($cabang, $idjadwal_audit);
         }
         
         if ($list) {
@@ -2104,6 +2106,34 @@ function __construct() {
             }
         }
         
+    }
+
+    public function Partket_put()
+    {
+        $id =$this->put('idjadwal_audit');
+
+        $data=[
+                'keterangan' => $this->put('keterangan',true),
+                'tanggal_edit' => $this->_tgl
+        ];
+        if ($id===null) {
+            $this->response([
+                'status' => false,
+                'data' => "need id"
+            ], REST_Controller::HTTP_OK);
+        }else {
+            if ($this->mpart->EditPartKet($data, $id)) {
+                $this->response([
+                    'status' => true,
+                    'data' => "Data Audit has been modified"
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "failed."
+                ], REST_Controller::HTTP_OK);
+            }
+        }
     }
 }
 

@@ -947,7 +947,7 @@ public function ajax_unitvalid($page)
     // $cabang='T13';
 
     $output = '';
-    $count = $this->mtransauditor->countunit1($cabang, $idjadwal_audit);
+    $count = $this->mtransauditor->Countunit1($cabang, $idjadwal_audit);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/ajax_unitvalid';
@@ -1097,7 +1097,8 @@ public function closeaudit()
         $list = $this->mtransauditor->closeaudit($id, $a);
         if ($list) {
             $data = [
-                'status' => true
+                'status' => true,
+                'info' => "Success"
             ];
         } else {
             $data = [
@@ -1838,7 +1839,7 @@ public function closepart()
             'info' => "Check your data"
         ];
     } else {
-        $list = $this->mtransauditor->closeaudit($id, $a);
+        $list = $this->mtransauditor->closepart($id, $a);
         if ($list) {
             $data = [
                 'status' => true
