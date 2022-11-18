@@ -51,13 +51,13 @@
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
                                 <tr>
-                                    <th width="3%">No</th>
+                                <th width="3%">No</th>
                                     <th width="5%">Aksi</th>
                                     <th>Cabang</th>
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
-                                    <th>Status</th>
+                                    <th>Status</th>                                    
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
                                     <th>Kondisi</th>
@@ -74,7 +74,7 @@
                                     <th>Lokasi</th>
                                     <th>Part Number</th>
                                     <th>KD Bin Box</th>
-                                    <th>Status</th>
+                                    <th>Status</th>                                    
                                     <th>Deskripsi</th>
                                     <th>Qty</th>
                                     <th>Kondisi</th>
