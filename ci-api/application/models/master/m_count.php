@@ -92,7 +92,7 @@ class M_Count extends CI_Model {
     public function CountJadwalAudit()
     {
 		//update!!!
-		$this->db->select("max(jadwal_audit) as max_id");
+		$this->db->select("max(RIGHT(idjadwal_audit,5)) as max_id");
         $count =$this->db->get('jadwal_audit');
 
         if ($count->num_rows()>0) {
