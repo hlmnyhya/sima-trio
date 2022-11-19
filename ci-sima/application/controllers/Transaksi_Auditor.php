@@ -1151,9 +1151,10 @@ public function ajax_partvalid($page)
 {
     $cabang = $this->input->post('cabang');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
+    $kd_lokasi_rak = $this->input->post('kd_lokasi_rak');
     // $cabang='T13';
     $output = '';
-    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit);
+    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $kd_lokasi_rak);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';

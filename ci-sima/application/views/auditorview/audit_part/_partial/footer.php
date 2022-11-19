@@ -175,7 +175,7 @@
         $('#OptCabang').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_cabang2");
         //$('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit");
         $('#OptCabang').change(function() {
-            $('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit/" + $(this).val());
+            $('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalauditpart/" + $(this).val());
         })
 
 

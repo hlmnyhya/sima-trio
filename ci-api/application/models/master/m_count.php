@@ -282,11 +282,12 @@ class M_Count extends CI_Model {
             }
         }
         
-    public function CountPart1($a=null, $b=null)
+    public function CountPart1($a=null, $b=null, $c=null)
     {
         if ($a!=null) {
             $this->db->where('a.id_cabang', $a);
             $this->db->where('a.idjadwal_audit', $b);
+            $this->db->where('a.kd_lokasi_rak', $c);
         }
         $count =$this->db->get('part a');
 

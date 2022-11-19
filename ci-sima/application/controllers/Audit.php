@@ -175,9 +175,9 @@ class Audit extends CI_Controller
         $config['base_url'] = base_url() . 'audit/list_audit';
         $config['total_rows'] = $this->maudit->countjadwalaudit();
         $config['per_page'] = 15;
-        $config['uri_segment'] = 3;
-        $config['use_page_numbers'] = true;
-        $config['num_links'] = 3;
+        $config['page_query_string'] = true;
+        $config['query_string_segment'] = 'pages';
+        $config['num_links'] = 2;
 
         $config['full_tag_open'] =
             '<div class="pagination"><nav><ul class="pagination">';
