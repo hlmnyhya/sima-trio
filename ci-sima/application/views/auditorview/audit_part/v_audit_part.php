@@ -18,13 +18,13 @@
                                                 <select name="id_cabang" class="form-control" id="OptCabang"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-3">
                                             <label>List Audit</label>
                                             <div class="form-group" id="data_5">
                                                 <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-2">
                                             <label>Status Part</label>
                                             <div class="form-group">
                                                 <select name="status" class="form-control" id="status">
@@ -32,6 +32,16 @@
                                                     <option value="Sesuai" id="sesuai">Sesuai</option>
                                                     <option value="Belum Sesuai" id="belum_sesuai">Belum Sesuai</option>
                                                     <option value="Belum ditemukan" id="belum_ditemukan">Belum Ditemukan</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-2">
+                                            <label>Kondisi Part</label>
+                                            <div class="form-group">
+                                                <select name="status" class="form-control" id="kondisi">
+                                                    <option value="">--- ALL ---</option>
+                                                    <option value="Sesuai" id="bagus">Bagus</option>
+                                                    <option value="Belum Sesuai" id="rusak">Rusak</option>
                                                 </select>
                                             </div>
                                         </div>
