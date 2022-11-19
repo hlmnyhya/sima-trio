@@ -43,7 +43,6 @@
                 calendarWeeks: true,
                 autoclose: true
             });
-
             $('.clockpicker').clockpicker();
         })
     </script>

@@ -215,8 +215,7 @@ class Audit extends CI_Controller
         if ($listJadwalAudit) {
             foreach ($listJadwalAudit as $list) {
                 if ($list['keterangan'] == 'waiting') {
-                    $hapus =
-                        '
+                    $hapus =                        '
                     <a href="' .
                         $base .
                         'audit/delete_jadwalaudit/' .

@@ -207,23 +207,7 @@
     //     radioClass: 'iradio_square-green',
     // });
 
-    function lokasi() 
-    {
-            var cabang = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    id_cabang: cabang
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-                success: function(data) {
-                    $('#id_lokasi').html(data);
-                }
-
-            });
-
-        }
+ 
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");
         $('#close_part').click(function() {
             var confirmText = "Anda yakin ingin menghentikan proses audit?";
