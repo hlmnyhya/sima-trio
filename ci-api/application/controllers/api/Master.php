@@ -1990,8 +1990,30 @@ function __construct() {
             
         }
     }
+    public function lokasirak_get()
+    {
+        $id= $this->get('kd_lokasi_rak');
+        
+        if ($id===null) {
+            $lokasirak= $this->mlokasicabang->getLokasiRak();
+            
+        }else{
+            $lokasirak= $this->mlokasicabang->getLokasiRak($id);
 
-
-
-}
+        }
+        if ($lokasirak) {
+            $this->response([
+                'status' => true,
+                'data' => $lokasirak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+    
+    }
 /** End of file Master.php **/
