@@ -240,7 +240,7 @@ class M_Master_Data extends CI_Model
 
     public function getLokasirak($id)
     {
-        $respon = $this->_client->request('GET', 'rakbin', [
+        $respon = $this->_client->request('GET', 'lokasirak', [
             'query' => [
                 'kd_lokasi_rak' => $id
             ]
