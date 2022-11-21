@@ -117,13 +117,14 @@
             $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
+            var rakbin = $('#rakbin').val();
             $.ajax({
                 type: "post",
                 dataType: 'JSON',
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
                 data: {
                     cabang: cabang,
-                    kd_lokasi_rak,
+                    rakbin: rakbin,
                     idjadwal_audit: idjadwal_audit
                 },
                 success: function(data) {
@@ -144,7 +145,7 @@
             $('#manual').addClass('hidden');
             var cari = $('#cari').val();
             var lokasi = $('#id_lokasi').val();
-            var rakbin = "<?php echo $_GET['kd_lokasi_rak'] ?>";
+            var rakbin = $('#rakbin').val();
             var kondisi = $('#kondisi').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";

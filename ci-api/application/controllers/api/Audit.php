@@ -873,6 +873,31 @@ function __construct() {
         }
     }
 
+    public function rakbin_get()
+    {
+        $id= $this->get('kd_lokasi_rak');
+        
+        if ($id===null) {
+            $rak= $this->mcabang->GetRak();
+            
+        }else{
+            $rak= $this->mcabang->GetRak($id);
+
+        }
+        if ($rak) {
+            $this->response([
+                'status' => true,
+                'data' => $rak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
     public function jadwalaudit_get()
     {
         $id= $this->get('id');
