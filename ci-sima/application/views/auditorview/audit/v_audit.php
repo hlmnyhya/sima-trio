@@ -32,7 +32,7 @@
                                         <div class="from-group">
                                             <div class="col-sm-12">
                                                 <a id="doCari" class=" btn btn-primary">Scan Data</a>
-                                                <a href="<?php echo base_url() ?>transaksi_auditor/temp_unit?id=<?php echo $_GET['id'] . "&&a=" . base64_encode('idjadwal_audit')?>" class="btn btn-warning">Temporary Data</a>
+                                                <a onclick="window.open ('<?php echo base_url() ?>transaksi_auditor/temp_unit?id=<?php echo $_GET['id'] . "&&a=" . base64_encode('idjadwal_audit')?>')"   class="btn btn-warning">Temporary Data</a>
                                                 <a id="close" class="btn btn-danger">Close Audit</a>
                                             </div>
                                         </div>

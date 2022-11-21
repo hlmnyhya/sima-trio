@@ -4,7 +4,7 @@
         <div class="col-lg-12">
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                    <i class="fa fa-info-circle"></i> AUDIT PART
+                    <h3><i class="fa fa-info-circle"></i> AUDIT PART<h3>
                 </div>
                                 <div class="panel-body">
                     <div class="row">
@@ -47,7 +47,7 @@
                                         </div>
                                         <div class="col-sm-1">
                                             <div class="form-group m-t-md">
-                                                <a id="previewpart" class="btn btn-success">Preview</a>
+                                                <a id="preview" class="btn btn-success">Preview</a>
                                             </div>
                                         </div>
                                     </form>
