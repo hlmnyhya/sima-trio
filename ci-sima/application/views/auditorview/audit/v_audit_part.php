@@ -17,11 +17,10 @@
                                         <div class="form-group"><label class="col-sm-3 control-label">Lokasi </label>
                                             <div class="col-sm-9"><select class="form-control control-label m-b" name="id_lokasi" id="id_lokasi">
                                                 </select>
-
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-3 control-label">Rak Bin </label>
-                                            <div class="col-sm-9"><select class="form-control control-label m-b" name="rakbin" id="rakbin"></select> 
+                                            <div class="col-sm-9"><select type="text" class="form-control" name="rakbin" id="rakbin"></select>
                                             </div>
                                         </div>
                                         <div class="form-group"><label class="col-sm-3 control-label">Kondisi </label>

@@ -227,6 +227,30 @@
         }
     }
 
+    public function rakbin_get()
+    {
+        $id= $this->get('id_cabang');
+        
+        if ($id===null) {
+            $lokasirak= $this->mlokasicabang->getLokasiRak();
+            
+        }else{
+            $lokasirak= $this->mlokasicabang->getLokasiRak($id);
+
+        }
+        if ($lokasirak) {
+            $this->response([
+                'status' => true,
+                'data' => $lokasirak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
 
     public function cariInv_get(){
         $id = $this->get('id');

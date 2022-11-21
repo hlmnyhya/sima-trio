@@ -22,6 +22,7 @@ function __construct() {
     $this->load->model('master/m_cabang','mcabang');
     $this->load->model('master/m_jenis_audit','mjenisaudit');
     $this->load->model('master/m_count','mcount');
+    $this->load->model('master/m_lokasi_cabang','mlokasicabang');
     $this->_tgl = date('Y-m-d');
     $this->load->model('config/m_config','mconfig');
         // $data = $this->mconfig->getUserConfig();
@@ -863,6 +864,31 @@ function __construct() {
             $this->response([
                 'status' => true,
                 'data' => $cabang
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function rakbin_get()
+    {
+        $id= $this->get('kd_lokasi_rak');
+        
+        if ($id===null) {
+            $rak= $this->mcabang->GetRak();
+            
+        }else{
+            $rak= $this->mcabang->GetRak($id);
+
+        }
+        if ($rak) {
+            $this->response([
+                'status' => true,
+                'data' => $rak
             ], REST_Controller::HTTP_OK);
         }else{
             $this->response([
