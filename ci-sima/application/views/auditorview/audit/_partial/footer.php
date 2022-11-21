@@ -85,7 +85,6 @@
     $(document).ready(function() {
         download();
         get_data(1);
-        lokasi();
         
 
         function download() {
@@ -202,6 +201,25 @@
             });
 
         }
+
+        function rakbin() 
+        {
+            var rak = "<?php echo $_GET['id'] ?>";
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    kd_lokasi_rak: rak
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#rakbin').html(data);
+                }
+
+            });
+
+        }
+
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");
         $('#close').click(function() {
             var confirmText = "Anda yakin ingin menghentikan proses audit?";

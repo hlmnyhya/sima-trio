@@ -2652,6 +2652,28 @@ class Master_Data extends CI_Controller
         echo $output;
     }
 
+    public function ajax_get_rakbin($id = null)
+    {
+        $output = '';
+        $no = 0;
+        $listrak = $this->mmasdat->getLokasirak();
+        foreach ($listrak as $list) {
+            $no++;
+            if ($list['kd_lokasi_rak'] == $id) {
+
+                $output .= '
+                    <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_lokasi_rak'] . ' - ' . $list['kd_rak'] . '</option>
+                ';
+            } else {
+                $output .= '
+                    <option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . ' - ' . $list['kd_rak'] . '</option>
+                ';
+            }
+        }
+        echo '<option value="">--- Pilih Rak Bin ---</option>';
+        echo $output;
+    }
+
     public function ajax_get_lokasi2($id = null)
     {
         $output = '';

@@ -186,7 +186,42 @@
         });
 
     });
-    lokasi();
+    function lokasi() 
+        {
+            var cabang = "<?php echo $_GET['id'] ?>";
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    id_cabang: cabang
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+                success: function(data) {
+                    $('#id_lokasi').html(data);
+                }
+
+            });
+
+        }
+
+        function rakbin() 
+        {
+            var rak = "<?php echo $_GET['id'] ?>";
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    kd_lokasi_rak: rak
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#rakbin').html(data);
+                }
+
+            });
+
+        }
+
 
     // function lokasi() {
     //     var cabang = "<?php echo $_GET['id'] ?>";
