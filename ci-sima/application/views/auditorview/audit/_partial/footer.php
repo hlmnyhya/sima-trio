@@ -87,17 +87,17 @@
         get_data(1);
         
 
-        function download() {
+        function downloadpart() {
             var id = "<?php echo $this->input->get('id') ?>";
-            var idaudit = "<?php echo base64_decode($this->input->get('a')) ?>";
+            var idauditpart = "<?php echo base64_decode($this->input->get('a')) ?>";
             $('#info').html("<div id='loading'></div>");
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/downloadunit",
+                url: "<?php echo base_url() ?>transaksi_auditor/downloadpart",
                 data: {
                     id: id,
-                    idaudit: idaudit
+                    idaudit: idauditpart
                 },
                 success: function(data) {
                     $('#info').html(data);
@@ -253,7 +253,7 @@
                         window.opener.location.reload(true);
                         window.close();
                     } else {
-                        window.alert('Audit Close Successful');
+                        window.alert('Audit Close Failed');2
                         window.opener.location.reload(true);
                         window.close();
                     }
