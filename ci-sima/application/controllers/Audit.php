@@ -69,17 +69,27 @@ class Audit extends CI_Controller
                 $tanggal = $waktuaudit['tanggal'];
                 $waktu = $waktuaudit['waktu'];
                 $waktu = str_replace(':', '', $waktu);
-                if (
-                    $tanggal == $tglnow &&
-                    $wktnow >= $waktu &&
-                    $waktuaudit['keterangan'] == 'waiting'
-                ) {
+                if ($tglnow >= $tanggal && $wktnow >= $waktu && $waktuaudit['keterangan'] == 'waiting') 
+                {
                     $up = [
                         'idjadwal_audit' => $waktuaudit['idjadwal_audit'],
                         'keterangan' => 'in progress',
                     ];
                     $this->maudit->updatejadwalaudit($up);
+                    
+                redirect('audit/list_audit', 'refresh');
                 }
+
+                // }elseif ($tanggal <= $tglnow && $wktnow <= $waktu && $waktuaudit['keterangan'] == 'in progress')
+                //   {
+                //     $data = [
+                //       'idjadwal_audit' => $waktuaudit['idjadwal_audit'],
+                //         'keterangan' => 'in progress',
+                //     ];
+                //     $this->maudit->updatejadwalaudit($data);
+                // } else{
+                //     return true;
+                // }
             }
         }
 
