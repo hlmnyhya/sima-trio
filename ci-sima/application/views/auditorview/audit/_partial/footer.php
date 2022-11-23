@@ -88,17 +88,17 @@
         lokasi();
         
 
-        function downloadpart() {
+        function download() {
             var id = "<?php echo $this->input->get('id') ?>";
-            var idauditpart = "<?php echo base64_decode($this->input->get('a')) ?>";
+            var idaudit = "<?php echo base64_decode($this->input->get('a')) ?>";
             $('#info').html("<div id='loading'></div>");
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/downloadpart",
+                url: "<?php echo base_url() ?>transaksi_auditor/downloadunit",
                 data: {
                     id: id,
-                    idaudit: idauditpart
+                    idaudit: idaudit
                 },
                 success: function(data) {
                     $('#info').html(data);

@@ -338,7 +338,7 @@
                     console.log(data);
                     $('#pagination').html(data.pagination);
                     $('#audit_part').html(data.output);
-                }9
+                }
             });
         }
         $(document).on('click', '.pagination li a', function(event) {

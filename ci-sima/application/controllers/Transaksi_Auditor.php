@@ -424,7 +424,7 @@ public function ajax_get_jadwalaudit($idcabang = null)
         $output .= '
             <option value="' . $list['idjadwal_audit'] . '">' . $list['idjadwal_audit'] . ' (' . $list['tanggal'] . ')</option>
         ';
-    }
+    };
     echo '<option value="">--- Pilih ID Audit ---</option>';
     echo $output;
 }
@@ -1857,7 +1857,7 @@ public function ajax_temppart()
                     <tr> 
                             <td>' . $start . '</td>
                             <td></td>
-                            <td>' . $list['nama_gudang'] . '</td>
+                            <td>' . $list['id_lokasi'] . '</td>
                             <td>' . $list['part_number'] . '</td>
                             <td>' . $list['deskripsi'] . '</td>
                             <td>' . $list['kd_lokasi_rak'] . '</td>
