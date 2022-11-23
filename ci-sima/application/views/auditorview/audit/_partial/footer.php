@@ -85,20 +85,19 @@
     $(document).ready(function() {
         download();
         get_data(1);
-        lokasi();
         
 
-        function download() {
+        function downloadpart() {
             var id = "<?php echo $this->input->get('id') ?>";
-            var idaudit = "<?php echo base64_decode($this->input->get('a')) ?>";
+            var idauditpart = "<?php echo base64_decode($this->input->get('a')) ?>";
             $('#info').html("<div id='loading'></div>");
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/downloadunit",
+                url: "<?php echo base_url() ?>transaksi_auditor/downloadpart",
                 data: {
                     id: id,
-                    idaudit: idaudit
+                    idaudit: idauditpart
                 },
                 success: function(data) {
                     $('#info').html(data);
@@ -202,6 +201,25 @@
             });
 
         }
+
+        function rakbin() 
+        {
+            var rak = "<?php echo $_GET['id'] ?>";
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    kd_lokasi_rak: rak
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#rakbin').html(data);
+                }
+
+            });
+
+        }
+
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");
         $('#close').click(function() {
             var confirmText = "Anda yakin ingin menghentikan proses audit?";
@@ -213,6 +231,7 @@
         $('#back').click(function(){
             var confrmtext = " localhost says. BECK DECK";
             if (confirm(confirmText)) {
+                back_audit();
                 
             }
         })
@@ -230,11 +249,13 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/closeaudit",
                 success: function(data) {
                     if (data.status == true) {
-                        window.alert('Audit Scan Succsess');
+                        window.alert('Audit Scan Succsessful');
                         window.opener.location.reload(true);
                         window.close();
                     } else {
-                        window.alert('Audit Close Failed');
+                        window.alert('Audit Close Failed');2
+                        window.opener.location.reload(true);
+                        window.close();
                     }
 
                 }

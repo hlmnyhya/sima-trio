@@ -22,6 +22,7 @@ function __construct() {
     $this->load->model('master/m_cabang','mcabang');
     $this->load->model('master/m_jenis_audit','mjenisaudit');
     $this->load->model('master/m_count','mcount');
+    $this->load->model('master/m_lokasi_cabang','mlokasicabang');
     $this->_tgl = date('Y-m-d');
     $this->load->model('config/m_config','mconfig');
         // $data = $this->mconfig->getUserConfig();
@@ -448,7 +449,9 @@ function __construct() {
             'part_number' => $this->post('part_number'),
             'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
             'deskripsi' => $this->post('deskripsi'),
+            'kondisi' => $this->post('kondisi'),
             'status' => $this->post('status'),
+            'keterangan' => $this->post('keterangan'),
             'qty' => $this->post('qty'),
             'audit_by' => $this->post('user'),
             'tanggal_audit' => $this->_tgl,
@@ -861,6 +864,31 @@ function __construct() {
             $this->response([
                 'status' => true,
                 'data' => $cabang
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function rakbin_get()
+    {
+        $id= $this->get('kd_lokasi_rak');
+        
+        if ($id===null) {
+            $rak= $this->mcabang->GetRak();
+            
+        }else{
+            $rak= $this->mcabang->GetRak($id);
+
+        }
+        if ($rak) {
+            $this->response([
+                'status' => true,
+                'data' => $rak
             ], REST_Controller::HTTP_OK);
         }else{
             $this->response([
@@ -1556,6 +1584,7 @@ function __construct() {
     {
         $a= $this->get('id_cabang');
         $b= $this->get('idjadwal_audit');
+        $c= $this->get('kd_lokasi_rak');
             $count= $this->mcount->countpart1($a,$b);
         if ($count) {
             $this->response([
@@ -1949,7 +1978,7 @@ function __construct() {
         if ($cabang == null) {
             $list= null;
         }else{
-            $list= $this->mpart->partend($cabang, $idjadwal_audit);
+            $list= $this->mpart->PartEnd($cabang, $idjadwal_audit);
         }
         
         if ($list) {
@@ -2104,6 +2133,34 @@ function __construct() {
             }
         }
         
+    }
+
+    public function Partket_put()
+    {
+        $id =$this->put('idjadwal_audit');
+
+        $data=[
+                'keterangan' => $this->put('keterangan',true),
+                'tanggal_edit' => $this->_tgl
+        ];
+        if ($id===null) {
+            $this->response([
+                'status' => false,
+                'data' => "need id"
+            ], REST_Controller::HTTP_OK);
+        }else {
+            if ($this->mpart->EditPartKet($data, $id)) {
+                $this->response([
+                    'status' => true,
+                    'data' => "Data Audit has been modified"
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "failed."
+                ], REST_Controller::HTTP_OK);
+            }
+        }
     }
 }
 

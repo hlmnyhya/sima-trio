@@ -137,7 +137,7 @@
 
                     </div>
                     <div class="text-right" id="pagination"></div>
-                </div>
+                </div> 
             </div>
         </div>
     </div>

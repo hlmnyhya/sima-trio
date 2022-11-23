@@ -43,6 +43,7 @@ class Transaksi_Auditor extends CI_Controller
         $id = $this->input->post('id_cabang');
         $key = $this->input->post('key');
         $lokasicabang = $this->mmasdat->getLokasiCabang($id);
+
         $output .= '<option value="">--- Pilih Lokasi ---</option>';
         foreach ($lokasicabang as $lokcab) {
             $idlokasi = $lokcab['kd_gudang'];
@@ -61,6 +62,21 @@ class Transaksi_Auditor extends CI_Controller
             //}
         }
         echo json_encode($output, true);
+    }
+
+    public function ajax_get_rakbin()
+    {
+        $output = '';
+        $no = 0;
+        $listrak = $this->mmasdat->getLokasirak();
+        foreach ($listrak as $list) {
+            $no++;
+            $output .= '
+				<option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . '</option>
+			';
+        }
+        echo '<option value="">--- Pilih Rak Bin ---</option>';
+        echo $output;
     }
 
     public function ajax_get_cabang2()
@@ -947,7 +963,7 @@ public function ajax_unitvalid($page)
     // $cabang='T13';
 
     $output = '';
-    $count = $this->mtransauditor->countunit1($cabang, $idjadwal_audit);
+    $count = $this->mtransauditor->Countunit1($cabang, $idjadwal_audit);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/ajax_unitvalid';
@@ -1097,7 +1113,8 @@ public function closeaudit()
         $list = $this->mtransauditor->closeaudit($id, $a);
         if ($list) {
             $data = [
-                'status' => true
+                'status' => true,
+                'info' => "Success"
             ];
         } else {
             $data = [
@@ -1136,6 +1153,7 @@ public function downloadpart()
 
     echo json_encode($output, true);
 }
+// punya nya temp part
 public function AuditPart()
 {
     $data = [
@@ -1150,9 +1168,10 @@ public function ajax_partvalid($page)
 {
     $cabang = $this->input->post('cabang');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
+    $kd_lokasi_rak = $this->input->post('kd_lokasi_rak');
     // $cabang='T13';
     $output = '';
-    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit);
+    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $kd_lokasi_rak);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';
@@ -1338,7 +1357,8 @@ public function doPart()
         'id_lokasi' => $lokasi,
         'rakbin' => $rakbin,
         'kondisi' => $kondisi,
-        'status' => $status,
+        'status' => 'sesuai',
+        'keterangan' => 'RFS',
         'part_number' => $this->input->post('part_number'),
         'deskripsi' => $this->input->post('deskripsi'),
         'idjadwal_audit' => $this->input->post('idjadwal_audit')
@@ -1608,8 +1628,11 @@ public function scan_data_part()
                                             <td>' . $list['part_number'] . '</td>
                                             <td>' . $list['deskripsi'] . '</td>
                                             <td>' . $list['kd_lokasi_rak'] . '</td>
-                                            <td>' . $list['qty'] . '</td>
                                             <td>' . $list['status'] . '</td>
+                                            <td>' . $list['deskripsi'] . '</td>
+                                            <td>' . $list['qty'] . '</td>
+                                            <td>' . $list['kondisi'] . '</td>
+                                            <td>' . $list['keterangan'] . '</td>
                                         </tr>       
                                         ';
                     }
@@ -1837,7 +1860,7 @@ public function closepart()
             'info' => "Check your data"
         ];
     } else {
-        $list = $this->mtransauditor->closeaudit($id, $a);
+        $list = $this->mtransauditor->closepart($id, $a);
         if ($list) {
             $data = [
                 'status' => true
@@ -1858,7 +1881,7 @@ public function previewpart($page)
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $status = $this->input->post('status');
 
-    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $status);
+    $count = $this->mtransauditor->countpart($cabang, $idjadwal_audit, $status);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';

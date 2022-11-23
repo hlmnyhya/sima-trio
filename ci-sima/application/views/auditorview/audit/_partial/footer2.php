@@ -83,6 +83,8 @@
 <script>
     $(document).ready(function() {
         download();
+        get_data(1);
+        lokasi();
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
@@ -115,12 +117,14 @@
             $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
+            var rakbin = $('#rakbin').val();
             $.ajax({
                 type: "post",
                 dataType: 'JSON',
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
                 data: {
                     cabang: cabang,
+                    rakbin: rakbin,
                     idjadwal_audit: idjadwal_audit
                 },
                 success: function(data) {
@@ -182,7 +186,42 @@
         });
 
     });
-    lokasi();
+    function lokasi() 
+        {
+            var cabang = "<?php echo $_GET['id'] ?>";
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    id_cabang: cabang
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+                success: function(data) {
+                    $('#id_lokasi').html(data);
+                }
+
+            });
+
+        }
+
+        function rakbin() 
+        {
+            var rak = "<?php echo $_GET['id'] ?>";
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    kd_lokasi_rak: rak
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#rakbin').html(data);
+                }
+
+            });
+
+        }
+
 
     // function lokasi() {
     //     var cabang = "<?php echo $_GET['id'] ?>";
@@ -205,23 +244,7 @@
     //     radioClass: 'iradio_square-green',
     // });
 
-    function lokasi() 
-    {
-            var cabang = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    id_cabang: cabang
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-                success: function(data) {
-                    $('#id_lokasi').html(data);
-                }
-
-            });
-
-        }
+ 
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");
         $('#close_part').click(function() {
             var confirmText = "Anda yakin ingin menghentikan proses audit?";
@@ -248,7 +271,9 @@
                         window.opener.location.reload(true);
                         window.close();
                     } else {
-                        window.alert('Audit Close Failed');
+                        window.alert('Audit Close Successful');
+                        window.opener.location.reload(true);
+                        window.close();
                     }
 
                 }
@@ -293,6 +318,35 @@
                 $('#info').html("data Kosong");
             }
         });
+
+        function get_data(page) {
+            $('#audit_part').html('<tr> <td colspan="13" id="loading"></td></tr>');
+            $('#manual').addClass('hidden');
+            var cabang = "<?php echo $_GET['id'] ?>";
+            var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>"
+            console.log("jadwal_audit get_data : " + idjadwal_audit);
+            $.ajax({
+                type: "post",
+                dataType: 'JSON',
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
+                data: {
+                    cabang: cabang,
+                    idjadwal_audit: idjadwal_audit
+                },
+                success: function(data) {
+                    console.log(data);
+                    $('#pagination').html(data.pagination);
+                    $('#audit_part').html(data.output);
+                }
+            });
+        }
+        $(document).on('click', '.pagination li a', function(event) {
+            event.preventDefault();
+            var page = $(this).data('ci-pagination-page');
+            get_data(page);
+
+        });  
+
         function scan_getdata() {
             $('#manual').addClass('hidden');
             var cari = $('#cari').val();

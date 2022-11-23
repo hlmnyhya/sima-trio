@@ -102,9 +102,9 @@ class M_Part extends CI_Model {
     public function PartEnd($cabang, $idjadwal_audit)
     { 
         $query = "
-        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, audit_by, tanggal_audit, idjadwal_audit) 
-        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, audit_by, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
-        FROM temp_unit a 
+        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, keterangan, status, audit_by, tanggal_audit, idjadwal_audit) 
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, keterangan, status, audit_by, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
+        FROM temp_part a 
         WHERE a.part_number NOT IN (
         SELECT part_number FROM part WHERE idjadwal_audit = '$idjadwal_audit')
         AND a.id_cabang='$cabang' AND idjadwal_audit = '$idjadwal_audit'        
@@ -197,6 +197,13 @@ class M_Part extends CI_Model {
             return $this->db->get()->result();
 
     }
+    
+    public function EditPartKet($data,$id)
+    {
+        $this->db->where('idjadwal_audit', $id);
+        $this->db->update('jadwal_audit', $data);
+        return $this->db->affected_rows(); 
+    }
+    
 }
-
 /* End of file M_part.php */

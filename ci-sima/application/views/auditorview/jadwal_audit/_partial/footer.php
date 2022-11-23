@@ -97,19 +97,16 @@
         $('#Optjenisaudit').load("<?php echo base_url(); ?>audit/ajax_get_jenis_audit2");
         $('#audit_part').load("<?php echo base_url() ?>transaksi_auditor/ajax_get_part");
         $('#OptCabang').load("<?php echo base_url() ?>audit/ajax_get_cabang2");
-        get_data(1);
+        
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
-            $('#list_jadwal_audit').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
-
-            preview(page);
-
+            get_data(page);
         });
+        get_data(1);
 
         function get_data(page) {
             $('#list_jadwal_audit').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
-
             $.ajax({
                 type: 'post',
                 dataType: 'JSON',
