@@ -13,7 +13,6 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <form action="" method="post">
-                                                <div class="col-sm-4"> 
                                         <div class="form-group"><label class="col-sm-3 control-label">Lokasi </label>
                                             <div class="col-sm-9"><select class="form-control control-label m-b" name="id_lokasi" id="id_lokasi">
                                                 </select>
@@ -39,7 +38,7 @@
                                             </div>
                                             <div class="col-sm-12">
                                                 <a id="doCariPart" class="btn btn-primary">Scan Data</a>
-                                                <a href="<?php echo base_url() ?>transaksi_auditor/temp_part?id=<?php echo $_GET['id']."&&a". base64_encode('idjadwal_audit') ?>" class="btn btn-warning">Temporary Data</a>
+                                                <a onclick="window.open('<?php echo base_url() ?>transaksi_auditor/temp_part?id=<?php echo $_GET['id']."&&a". base64_encode('idjadwal_audit') ?>')" href="" class="btn btn-warning">Temporary Data</a>
                                                 <?php $id = $_GET['id']; ?> 
                                                 <a class="btn btn-danger" id="close_part">Close Part</a>
                                             </div>

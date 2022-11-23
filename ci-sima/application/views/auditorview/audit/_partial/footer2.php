@@ -181,7 +181,7 @@
                     scan_getdata();
                 } else {
                     $('#info').html("Data Kosong");
-                }
+                } 
             }
         });
 
@@ -219,6 +219,7 @@
                 }
 
             });
+            console.log(rak);
 
         }
 
@@ -268,7 +269,7 @@
                 success: function(data) {
                     if (data.status == true) {
                         window.alert('Audit Scan Successful');
-                        window.opener.location.reload(true);
+                       indow.opener.location.reload(true);
                         window.close();
                     } else {
                         window.alert('Audit Close Successful');
@@ -337,7 +338,7 @@
                     console.log(data);
                     $('#pagination').html(data.pagination);
                     $('#audit_part').html(data.output);
-                }
+                }9
             });
         }
         $(document).on('click', '.pagination li a', function(event) {
@@ -368,7 +369,6 @@
                         lokasi: lokasi,
                     },
                     success: function(data) {
-
                         $('#cari').val('');
                         $('#info').html(data.info);
                         $('#pagination').html(data.pagination);

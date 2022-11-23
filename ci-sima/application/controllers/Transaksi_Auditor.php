@@ -63,21 +63,48 @@ class Transaksi_Auditor extends CI_Controller
         }
         echo json_encode($output, true);
     }
-
     public function ajax_get_rakbin()
     {
         $output = '';
         $no = 0;
+        $id = $this->input->post('kd_lokasi_rak');
+        $key = $this->input->post('key');
         $listrak = $this->mmasdat->getLokasirak();
+
+        $output .= '<option value="">--- Pilih Lokasi ---</option>';
         foreach ($listrak as $list) {
-            $no++;
-            $output .= '
-				<option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . '</option>
-			';
+            $idlokasi = $list['kd_lokasi_rak'];
+            //$listlokasi = $this->mmasdat->getLokasiByid($idlokasi);
+            //foreach ($listlokasi as $list) {
+            //$no++;
+            if ($list['kd_lokasi_rak'] == $key) {
+                $output .= '
+                <option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . '</option>
+                    ';
+            } else {
+                $output .= '
+                <option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . '</option>
+                    ';
+            }
+            //}
         }
-        echo '<option value="">--- Pilih Rak Bin ---</option>';
-        echo $output;
+        echo json_encode($output, true);
     }
+
+    // public function ajax_get_rakbin()
+    // {
+    //     $output = '';
+    //     $no = 0;
+    //     $listrak = $this->mmasdat->getLokasirak();
+    //     foreach ($listrak as $list) {
+    //         $no++;
+    //         $output .= '
+	// 			<option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . '</option>
+	// 		';
+    //     }
+    //     echo '<option value="">--- Pilih Rak Bin ---</option>';
+    //     echo $output;
+    // }
 
     public function ajax_get_cabang2()
     {
@@ -127,7 +154,6 @@ public function downloadunit()
     } else {
         $output .= '<div class="text-danger"> Data Gagal Didownload</div>';
     }
-
     echo json_encode($output, true);
 }
 
