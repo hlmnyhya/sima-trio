@@ -211,8 +211,9 @@
             var cabang = $('#OptCabang').val();
             var idjadwal_audit = $('#OptJadwalAudit').val();
             var status = $('#status').val();
+                        var kondisi = $('#kondisi').val();
             var action = 'previewpart';
-            var kondisi = $('#kondisi').val();
+
             $('#audit_unit').html('<tr><td colspan="20" id="loading"></td></tr>');
 
             $.ajax({
