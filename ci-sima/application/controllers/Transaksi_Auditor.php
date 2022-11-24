@@ -77,8 +77,8 @@ class Transaksi_Auditor extends CI_Controller
             //$listlokasi = $this->mmasdat->getLokasiByid($idlokasi);
             //foreach ($listlokasi as $list) {
             //$no++;
-            if ($list['kd_lokasi_rak'] == $key) {
-                $output .= 'git
+            if ($idlokasi == $key) {
+                $output .= '
                         <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
                     ';
             } else {

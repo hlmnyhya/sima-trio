@@ -218,9 +218,7 @@
                 success: function(data) {
                     $('#rakbin').html(data);
                 }
-
             });
-            
         }
 
 
