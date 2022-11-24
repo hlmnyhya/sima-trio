@@ -30,7 +30,7 @@ class M_Cabang extends CI_Model {
             $result = $this->db->get('lokasi_rak_bin',15,$offset)->result();
             return $result;    
         }else{
-            $result = $this->db->get_where('lokasi_rak_bin',['id_cabang' => $id])->result();
+            $result = $this->db->get_where('lokasi_rak_bin',['kd_gudang' => $id])->result();
             return $result;              
         }
     }
