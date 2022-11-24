@@ -242,7 +242,7 @@ class M_Master_Data extends CI_Model
     {
         $respon = $this->_client->request('GET', 'lokasirak', [
             'query' => [
-                'id_cabang' => $id
+                'kd_gudang' => $id
             ]
             ]);
     

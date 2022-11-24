@@ -204,7 +204,6 @@
             });
 
         }
-
         function rakbin() 
         {
             var rak = "<?php echo $_GET['id'] ?>";
@@ -212,7 +211,7 @@
                 type: 'POST',
                 dataType: 'JSON',
                 data: {
-                    id_cabang: rak
+                    kd_gudang: rak
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {

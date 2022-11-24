@@ -67,7 +67,7 @@ class Transaksi_Auditor extends CI_Controller
     {
         $output = '';
         $no = 0;
-        $id = $this->input->post('id_cabang');
+        $id = $this->input->post('kd_gudang');
         $key = $this->input->post('key');
         $listrak = $this->mmasdat->getLokasirak($id);
 
