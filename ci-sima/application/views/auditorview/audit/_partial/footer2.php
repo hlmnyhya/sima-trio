@@ -85,6 +85,7 @@
         download();
         get_data(1);
         lokasi();
+        rakbin();
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
@@ -211,7 +212,7 @@
                 type: 'POST',
                 dataType: 'JSON',
                 data: {
-                    kd_lokasi_rak: rak
+                    id_cabang: rak
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {
@@ -219,8 +220,7 @@
                 }
 
             });
-            console.log(rak);
-
+            
         }
 
 
