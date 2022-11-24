@@ -1907,7 +1907,7 @@ public function previewpart($page)
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $status = $this->input->post('status');
 
-    $count = $this->mtransauditor->countpart($cabang, $idjadwal_audit, $status);
+    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $status);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';
