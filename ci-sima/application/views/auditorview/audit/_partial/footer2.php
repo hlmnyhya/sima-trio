@@ -85,23 +85,24 @@
         download();
         get_data(1);
         // rakbin();
-        // lokasi()
-        // $('#id_lokasi').change(function() {
-        //     var rak = "<?php echo $_GET['id'] ?>";
-        //     $.ajax({
-        //         type: 'POST',
-        //         dataType: 'JSON',
-        //         data: {
-        //             kd_gudang: rak
-        //         },
-        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
-        //         success: function(data) {
-        //             $('#rakbin').html(data);
-        //         }
-        //     });
-        // });
+        lokasi()
+        $('#id_lokasi').change(function() {
+            var rak = "<?php echo $_GET['id'] ?>";
+            // console.log(rak);
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    kd_gudang: rak
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#rakbin').html(data);
+                }
+            });
+        });
 
-        
+
 
        
         function download() {
