@@ -457,7 +457,7 @@ function __construct() {
             'tanggal_audit' => $this->_tgl,
             'idjadwal_audit' => $this->post('idjadwal_audit')
         ];
-        // var_dump($data);die;
+        // var_dump($data);exit;
         if ($id===null) {
             $listaud = null;
         }else{
@@ -540,11 +540,13 @@ function __construct() {
         $rakbin = $this->get('kd_lokasi_rak');
         $kondisi = $this->get('kondisi');
         $idjadwal_audit = $this->get('idjadwal_audit');
+        $qty = $this->get('qty');
+        $part_number = $this->get('part_number');
         if ($id=== null) {
             $list= $this->maudit->GetAuListPart(null,$cabang,$idjadwal_audit);
-            
+
         }else{
-            $list= $this->maudit->GetAuListPart($id,$cabang,$lokasi,$rakbin, $kondisi,$idjadwal_audit);
+            $list= $this->maudit->GetAuListPart($id,$cabang,$lokasi,$rakbin, $kondisi,$idjadwal_audit, $part_number, $qty);
         }
         
         if ($list) {

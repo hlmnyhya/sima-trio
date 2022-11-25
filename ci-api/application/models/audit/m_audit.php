@@ -126,6 +126,31 @@ class M_Audit extends CI_Model {
         }   
     }
 
+public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = null)
+    {
+        if ($id===null) {
+            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+            $this->db->from('temp_part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            
+            $result = $this->db->get()->result();
+            return $result;   
+        }else {
+            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+            $this->db->from('temp_part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where('a.id_cabang', $cabang);
+            $this->db->where("a.part_number",$id);
+            $this->db->where("a.idjadwal_audit", $idjadwal_audit);
+            
+            $result = $this->db->get()->result();
+            return $result;
+        }   
+    }
+
+
     public function AddList($data)
     {
         $this->db->insert('unit', $data);
@@ -186,11 +211,11 @@ class M_Audit extends CI_Model {
             return $result;
         }
     }
-    public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null)
+    public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null, $part_number = null, $qty = null)
     {
         if ($id === null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
-            $this->db->from('part a');
+            $this->db->from('temp_part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
@@ -199,7 +224,7 @@ class M_Audit extends CI_Model {
             return $this->db->get()->result();
         }else{
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
-            $this->db->from('part a');
+            $this->db->from('temp_part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
@@ -219,6 +244,12 @@ class M_Audit extends CI_Model {
             if ($idjadwal_audit !=null) {
                 $this->db->where("a.idjadwal_audit", $idjadwal_audit );
                 
+            }
+            if ($part_number !=null) {
+                $this->db->where("a.part_number", $part_number );
+            }
+            if ($qty !=null) {
+                $this->db->where("a.qty", $qty );
             }
             $result = $this->db->get()->result();
             return $result;
