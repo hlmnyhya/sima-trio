@@ -79,7 +79,7 @@ class Transaksi_Auditor extends CI_Controller
             //$no++;
             if ($idlokasi == $key) {
                 $output .= '
-                        <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+                        <option valupe="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
                     ';
             } else {
                 $output .= '
