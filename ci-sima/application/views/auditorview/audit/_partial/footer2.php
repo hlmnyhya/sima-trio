@@ -85,21 +85,21 @@
         download();
         get_data(1);
         // rakbin();
-        lokasi()
-        $('#id_lokasi').change(function() {
-            var rak = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    kd_gudang: rak
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
-                success: function(data) {
-                    $('#rakbin').html(data);
-                }
-            });
-        });
+        // lokasi()
+        // $('#id_lokasi').change(function() {
+        //     var rak = "<?php echo $_GET['id'] ?>";
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'JSON',
+        //         data: {
+        //             kd_gudang: rak
+        //         },
+        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+        //         success: function(data) {
+        //             $('#rakbin').html(data);
+        //         }
+        //     });
+        // });
 
        
         function download() {
@@ -203,22 +203,22 @@
 
     });
 
-    function lokasi() 
-        {
-            var cabang = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    id_cabang: cabang
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-                success: function(data) {
-                    $('#id_lokasi').html(data);
-                }
-            });
+    // function lokasi() 
+    //     {
+    //         var cabang = "<?php echo $_GET['id'] ?>";
+    //         $.ajax({
+    //             type: 'POST',
+    //             dataType: 'JSON',
+    //             data: {
+    //                 id_cabang: cabang
+    //             },
+    //             url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+    //             success: function(data) {
+    //                 $('#id_lokasi').html(data);
+    //             }
+    //         });
 
-        }
+    //     }
        
         function rakbin() 
         {
