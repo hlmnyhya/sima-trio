@@ -87,8 +87,7 @@
         // rakbin();
         lokasi()
         $('#id_lokasi').change(function() {
-            var rak = "<?php echo $_GET['id'] ?>";
-            // console.log(rak);
+            var rak = $(this).val();
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
@@ -100,10 +99,14 @@
                     $('#rakbin').html(data);
                 }
             });
+            console.log(rak);
         });
 
-
-
+        // $('#Optgudang').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_gudang");
+        //$('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit");
+        // $('#OptCabang').change(function() {
+        //     $('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit/" + $(this).val());
+        // }) 
        
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
@@ -206,60 +209,60 @@
 
     });
 
-    function lokasi() 
-        {
-            var cabang = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    id_cabang: cabang
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-                success: function(data) {
-                    $('#id_lokasi').html(data);
-                }
-            });
+    // function lokasi() 
+    //     {
+    //         var cabang = "<?php echo $_GET['id'] ?>";
+    //         $.ajax({
+    //             type: 'POST',
+    //             dataType: 'JSON',
+    //             data: {
+    //                 id_cabang: cabang
+    //             },
+    //             url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+    //             success: function(data) {
+    //                 $('#id_lokasi').html(data);
+    //             }
+    //         });
 
-        }
+    //     }
        
-        function rakbin() 
-        {
-            var rak = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    kd_gudang: rak
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
-                success: function(data) {
-                    $('#rakbin').html(data);
-                }
-            });
-        }
+        // function rakbin() 
+        // {
+        //     var rak = "<?php echo $_GET['id'] ?>";
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'JSON',
+        //         data: {
+        //             kd_gudang: rak
+        //         },
+        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+        //         success: function(data) {
+        //             $('#rakbin').html(data);
+        //         }
+        //     });
+        // }
 
 
-    // function lokasi() {
-    //     var cabang = "<?php echo $_GET['id'] ?>";
-    //     $.ajax({
-    //         type: 'POST',
-    //         dataType: 'JSON',
-    //         data: {
-    //             id_cabang: cabang
-    //         },
-    //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-    //         success: function(data) {
-    //             $('#id_lokasi').html(data);
-    //         }
-
-    //     });
-
-    // }
-    // $('.i-checks').iCheck({
-    //     checkboxClass: 'icheckbox_square-green',
-    //     radioClass: 'iradio_square-green',
-    // });
+    function lokasi() {
+        var cabang = "<?php echo $_GET['id'] ?>";
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                id_cabang: cabang
+            },
+            url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+            success: function(data) {
+                $('#id_lokasi').html(data);
+            }
+                
+        });
+        console.log(cabang);
+    }
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green',
+    });
 
  
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");

@@ -114,13 +114,9 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
-    public function getGudang($offset)
+    public function getGudang()
     {
-        $respon =  $this->_client->request('GET', 'gudang', [
-            'query' => [
-                'offset' => $offset
-            ]
-        ]);
+        $respon =  $this->_client->request('GET', 'gudang');
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -264,7 +260,8 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $res['keterangan'] . '</td>
                     <td>' . $res['is_ready'] . '</td>
                     <td>' . $res['tanggal_audit'] . '</td>
-                ';
+
+                    ';
             }
         } else {
             $output .= '
