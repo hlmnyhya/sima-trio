@@ -91,6 +91,21 @@ class Transaksi_Auditor extends CI_Controller
         echo json_encode($output, true);
     }
 
+    public function ajax_get_gudang()
+    {
+        $output = '';
+        $no = 0;
+        $listgudang = $this->mtransauditor->getGudang();
+        foreach ($listgudang as $list) {
+            $no++;
+            $output .= '
+				<option value="' . $list['kd_gudang'] . '">' . $list['kd_gudang'] . ' - ' . $list['nama_gudang'] . '</option>
+			';
+        }
+        echo '<option value="">--- Pilih Gudang ---</option>';
+        echo $output;
+    }
+
     // public function ajax_get_rakbin()
     // {
     //     $output = '';
