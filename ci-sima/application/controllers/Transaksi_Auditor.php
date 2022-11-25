@@ -70,6 +70,7 @@ class Transaksi_Auditor extends CI_Controller
         $id = $this->input->post('kd_gudang');
         $key = $this->input->post('key');
         $listrak = $this->mmasdat->getLokasirak($id);
+        // var_dump($listrak);exit;
 
         $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
         foreach ($listrak as $list) {
