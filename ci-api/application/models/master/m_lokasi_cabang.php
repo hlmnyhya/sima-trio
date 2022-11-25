@@ -24,16 +24,30 @@ class M_Lokasi_Cabang extends CI_Model {
 
     public function getLokasiRak($id = null, $offset=null)
     {
-        if ($id === null && $offset==null) {
-            $result = $this->db->get('lokasi_rak_bin')->result();
-            return $result;    
-        }elseif($id === null && $offset!=null) {
-            $result = $this->db->get('lokasi_rak_bin',15,$offset)->result();
+        if ($id === null) {
+            $result = $this->db->query("select * from lokasi_rak_bin")->result();
             return $result;    
         }else{
-            $result = $this->db->get_where('lokasi_rak_bin',['kd_gudang' => $id])->result();
+            $result = $this->db->query("select * from lokasi_rak_bin where left(kd_gudang, 3) = '".$id."'")->result();
             return $result;              
         }
+        
+        
+        
+        
+        
+        
+        
+        // if ($id === null && $offset==null) {
+        //     $result = $this->db->get('lokasi_rak_bin')->result();
+        //     return $result;    
+        // }elseif($id === null && $offset!=null) {
+        //     $result = $this->db->get('lokasi_rak_bin',15,$offset)->result();
+        //     return $result;    
+        // }else{
+        //     $result = $this->db->get_where('lokasi_rak_bin',['kd_gudang' => $id])->result();
+        //     return $result;              
+        // }
     }
     
 

@@ -874,6 +874,31 @@ function __construct() {
         }
     }
 
+    public function gudang_get()
+    {
+        $id= $this->get('id');
+        
+        if ($id===null) {
+            $gudang= $this->mcabang->getGudang();
+            
+        }else{
+            $gudang= $this->mcabang->getGudang($id);
+
+        }
+        if ($gudang) {
+            $this->response([
+                'status' => true,
+                'data' => $gudang
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
     public function rakbin_get()
     {
         $id= $this->get('kd_lokasi_rak');

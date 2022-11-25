@@ -189,6 +189,7 @@ class M_Master_Data extends CI_Model
         }
     }
 
+
     public function getLokasi($offset)
     {
         $respon =  $this->_client->request('GET', 'lokasi', [
@@ -224,6 +225,7 @@ class M_Master_Data extends CI_Model
             return false;
         }
     }
+
 
     public function getLokasiCabang($id)
     {
