@@ -22,6 +22,7 @@ function __construct() {
     $this->load->model('master/m_cabang','mcabang');
     $this->load->model('master/m_jenis_audit','mjenisaudit');
     $this->load->model('master/m_count','mcount');
+    $this->load->model('laporan/m_laporan_audit','mlapdat');
     $this->load->model('master/m_lokasi_cabang','mlokasicabang');
     $this->_tgl = date('Y-m-d');
     $this->load->model('config/m_config','mconfig');
