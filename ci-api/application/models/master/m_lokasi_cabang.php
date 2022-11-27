@@ -24,9 +24,18 @@ class M_Lokasi_Cabang extends CI_Model {
 
     public function getLokasiRak($id = null)
     {
+        // $id = $this->db->get('gudang')->result();
+        $data = array(
+            'id_lokasi' => $id
+        );
+        $this->db->where($data);
+        $result = $this->db->get_where('lokasi_rak_bin', 'id_lokasi', $data)->result();
+        // $result = $this->db->query("SELECT * FROM lokasi_rak_bin WHERE id_lokasi = '"[$data],"'")->row_array();
+        return $result;
         
-        $result = $this->db->query("SELECT * FROM lokasi_rak_bin WHERE id_lokasi = '2NG-2NGP';")->result();
-        return $result; 
+        // $result = $this->db->query("SELECT * FROM lokasi_rak_bin WHERE id_lokasi = '".$data."'")->result();
+
+        // return $result;
         
         
         // $result = $this->db->query("select * from lokasi_rak_bin where id_lokasi = '".$id."'")->result();
