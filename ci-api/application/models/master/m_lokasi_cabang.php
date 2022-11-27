@@ -37,7 +37,7 @@ class M_Lokasi_Cabang extends CI_Model {
         // }
        
         
-        $result = $this->db->query("SELECT * FROM lokasi_rak_bin WHERE id_cabang = '2NG'")->result();
+        $result = $this->db->query("SELECT * FROM lokasi_rak_bin WHERE id_lokasi = '2NG-2NGP'")->result();
         return $result;
         
         
