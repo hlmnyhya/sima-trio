@@ -92,7 +92,7 @@
                 type: 'POST',
                 dataType: 'JSON',
                 data: {
-                    kd_gudang: rak
+                    id_lokasi: rak
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {
