@@ -102,8 +102,8 @@ class M_Part extends CI_Model {
     public function PartEnd($cabang, $idjadwal_audit)
     { 
         $query = "
-        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, keterangan, status, audit_by, tanggal_audit, idjadwal_audit) 
-        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, keterangan, status, audit_by, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
+        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, audit_by, tanggal_audit, idjadwal_audit)
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
         FROM temp_part a 
         WHERE a.part_number NOT IN (
         SELECT part_number FROM part WHERE idjadwal_audit = '$idjadwal_audit')
@@ -117,9 +117,14 @@ class M_Part extends CI_Model {
         ";
         $this->db->query($query2);
         $query3 = "
+            UPDATE part
+            SET status = 'Belum Ditemukan'
+            WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'";
+        $this->db->query($query3);
+        $query4 = "
             DELETE FROM temp_part WHERE id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
         ";
-        $this->db->query($query3);
+        $this->db->query($query4);
         return  $this->db->affected_rows();
     }
 

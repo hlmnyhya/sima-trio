@@ -558,7 +558,7 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function cekPart($a, $b, $c, $d, $e, $f, $g)
+    public function cekPart($a, $b, $c, $d, $e, $f, $g, $h)
     {
         $respon =  $this->_client->request('GET', 'listPart', [
             'query' => [
@@ -568,7 +568,8 @@ class M_Transaksi_Auditor extends CI_Model
                 'kd_lokasi_rak' => $c,
                 'kondisi' => $e,
                 'idjadwal_audit' => $f,
-                'part_number' => $g
+                'part_number' => $g,
+                'qty' => $h
             ]
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
