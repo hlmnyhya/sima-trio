@@ -102,12 +102,6 @@
             console.log(rak);
         });
 
-        // $('#Optgudang').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_gudang");
-        //$('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit");
-        // $('#OptCabang').change(function() {
-        //     $('#OptJadwalAudit').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_jadwalaudit/" + $(this).val());
-        // }) 
-       
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
             var idjadwal_audit = "<?php echo base64_decode($this->input->get('a')) ?>";

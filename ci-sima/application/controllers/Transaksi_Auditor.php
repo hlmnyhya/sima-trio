@@ -87,7 +87,7 @@ class Transaksi_Auditor extends CI_Controller
                 <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
                     ';
             }
-            //}
+            
         }
         echo json_encode($output, true);
     }
