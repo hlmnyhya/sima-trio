@@ -237,10 +237,10 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
                 $this->db->where("a.kd_lokasi_rak",$rakbin);
                 
             }
-            if ($kondisi !=null) {
-                $this->db->where("a.kondisi",$kondisi);
+            // if ($kondisi !=null) {
+            //     $this->db->where("a.kondisi",$kondisi);
                 
-            }
+            // }
             if ($idjadwal_audit !=null) {
                 $this->db->where("a.idjadwal_audit", $idjadwal_audit );
                 

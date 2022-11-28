@@ -68,23 +68,26 @@ class Transaksi_Auditor extends CI_Controller
         $output = '';
         $no = 0;
         $id = $this->input->post('kd_gudang');
-        // $key = $this->input->post('key');
+        $key = $this->input->post('key');
         $listrak = $this->mmasdat->getLokasirak($id);
         // var_dump($listrak);exit;
 
         $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
         foreach ($listrak as $list) {
             $idlokasi = $list['kd_lokasi_rak'];
-            // if ($idlokasi == $key) {
-            //     $output .= '
-            //             <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
-            //         ';
-            // } else {
+            //$listlokasi = $this->mmasdat->getLokasiByid($idlokasi);
+            //foreach ($listlokasi as $list) {
+            //$no++;
+            if ($idlokasi == $key) {
                 $output .= '
-                <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+                        <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
                     ';
-            // }
-            
+            } else {
+                $output .= '
+                <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+                    ';
+            }
+            //}
         }
         echo json_encode($output, true);
     }
@@ -1593,6 +1596,8 @@ public function scan_data_part()
     $lokasi = $this->input->post('lokasi');
     $rakbin = $this->input->post('rakbin');
     $kondisi = $this->input->post('kondisi');
+    $part_number = $this->input->post('part_number');
+    $qty = $this->input->post('qty');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $output = '';
     $base = base_url();
@@ -1603,7 +1608,8 @@ public function scan_data_part()
         $dataPart = null;
     }
     if ($dataPart) {
-        $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $kondisi, $idjadwal_audit);
+        $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $kondisi, $idjadwal_audit, $part_number, $qty);
+        var_dump($cek);exit();
         if ($cek) {
             foreach ($cek as $c) {
                 $part = $c['qty'];
