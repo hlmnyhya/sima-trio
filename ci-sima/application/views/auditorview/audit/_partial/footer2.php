@@ -88,7 +88,7 @@
         lokasi()
         $('#id_lokasi').change(function() {
             var rak = $(this).val();
-            
+            $('#rakbin').html('');
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
