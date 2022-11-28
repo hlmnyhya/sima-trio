@@ -88,19 +88,38 @@
         lokasi()
         $('#id_lokasi').change(function() {
             var rak = $(this).val();
+            
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
                 data: {
-                    id_lokasi: rak
+                    kd_gudang: rak
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {
                     $('#rakbin').html(data);
-                }
+                } 
             });
             console.log(rak);
         });
+
+
+        function lokasi() {
+        var cabang = "<?php echo $_GET['id'] ?>";
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                id_cabang: cabang
+            },
+            url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+            success: function(data) {
+                $('#id_lokasi').html(data);
+            }
+                
+        });
+        console.log(cabang);
+    }
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
@@ -237,22 +256,7 @@
         // }
 
 
-    function lokasi() {
-        var cabang = "<?php echo $_GET['id'] ?>";
-        $.ajax({
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                id_cabang: cabang
-            },
-            url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-            success: function(data) {
-                $('#id_lokasi').html(data);
-            }
-                
-        });
-        console.log(cabang);
-    }
+ 
     $('.i-checks').iCheck({
         checkboxClass: 'icheckbox_square-green',
         radioClass: 'iradio_square-green',

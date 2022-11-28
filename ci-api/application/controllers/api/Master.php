@@ -1992,7 +1992,7 @@ function __construct() {
     }
     public function lokasirak_get()
     {
-        $id= $this->get('kd_lokasi_rak');
+        $id= $this->get('id_lokasi');
         // var_dump($id);exit;
         if ($id===null) {
             $lokasirak= $this->mlokasicabang->getLokasiRak();

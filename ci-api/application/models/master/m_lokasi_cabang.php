@@ -22,52 +22,11 @@ class M_Lokasi_Cabang extends CI_Model {
         }
     }
 
-    public function getLokasiRak($id = null)
+    public function getLokasiRak($id)
     {
-        // $id = $this->db->get('gudang')->result();
-                
-        // if ($id === null) {
-        // $data = array(
-        //     'id_lokasi' => $id
-        // );
-        // $this->db->where($data);
-
-        // $result = $this->db->get_where('lokasi_rak_bin', 'id_lokasi', $data)->result();
-        // return $result;
-        // }
-       
         
-        $result = $this->db->query("SELECT * FROM lokasi_rak_bin WHERE id_lokasi = '2NG-2NGP'")->result();
-        return $result;
-        
-        
-        // $result = $this->db->query("select * from lokasi_rak_bin where id_lokasi = '".$id."'")->result();
-        // return $result; 
-
-        
-        
-        
-        
-        
-        // if ($id === null) {
-        //     $result = $this->db->query("select * from lokasi_rak_bin")->result();
-        //     return $result;    
-        // }else{
-        //     $result = $this->db->query("select * from lokasi_rak_bin where id_lokasi = '".$id."'")->result();
-        //     return $result;              
-        // }
-        
-        
-        // if ($id === null && $offset==null) {
-        //     $result = $this->db->get('lokasi_rak_bin')->result();
-        //     return $result;    
-        // }elseif($id === null && $offset!=null) {
-        //     $result = $this->db->get('lokasi_rak_bin',15,$offset)->result();
-        //     return $result;    
-        // }else{
-        //     $result = $this->db->get_where('lokasi_rak_bin',['kd_gudang' => $id])->result();
-        //     return $result;              
-        // }
+        $result = $this->db->query("select * from lokasi_rak_bin where id_lokasi = '".$id."'")->result();
+        return $result; 
     }
     
 

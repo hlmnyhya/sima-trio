@@ -1216,8 +1216,8 @@ class Master_Data extends CI_Controller
     {
         $data = [
             'id_usergroup' => $this->input->post('id_usergroup', true, "UTF-8"),
-            'user_group'   => $this->input->post('user_group', true,"UTF-8"),
-            'user'  => $this->session->userdata('username')
+            'user_group'   => html_escape($this->input->post('user_group', true,"UTF-8")),
+            'user'  => html_escape($this->session->userdata('username')),
         ];
         
         $id = $data['id_usergroup'];

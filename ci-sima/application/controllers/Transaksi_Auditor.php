@@ -67,26 +67,23 @@ class Transaksi_Auditor extends CI_Controller
     {
         $output = '';
         $no = 0;
-        $id = $this->input->post('id_lokasi');
-        $key = $this->input->post('key');
+        $id = $this->input->post('kd_gudang');
+        // $key = $this->input->post('key');
         $listrak = $this->mmasdat->getLokasirak($id);
         // var_dump($listrak);exit;
 
         $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
         foreach ($listrak as $list) {
             $idlokasi = $list['kd_lokasi_rak'];
-            //$listlokasi = $this->mmasdat->getLokasiByid($idlokasi);
-            //foreach ($listlokasi as $list) {
-            //$no++;
-            if ($idlokasi == $key) {
+            // if ($idlokasi == $key) {
+            //     $output .= '
+            //             <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+            //         ';
+            // } else {
                 $output .= '
-                        <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+                <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
                     ';
-            } else {
-                $output .= '
-                <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
-                    ';
-            }
+            // }
             
         }
         echo json_encode($output, true);
