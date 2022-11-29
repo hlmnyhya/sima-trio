@@ -1,5 +1,6 @@
-<?php 
+<?php
 
+use PhpOffice\PhpSpreadsheet\Calculation\LookupRef\Offset;
 
 defined('BASEPATH') OR exit('No direct script access allowed');
 
@@ -40,7 +41,7 @@ class M_Part extends CI_Model {
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
-            $this->db->limit(15);
+            $this->db->limit(15, $offset);
             $this->db->offset($offset);
              
             $result = $this->db->get()->result();
