@@ -291,20 +291,21 @@ class M_Transaksi_Auditor extends CI_Model
             foreach ($result['data'] as $res) {
 
                 $aksi = '
-                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['nama_gudang']) . '&s=' . base64_encode($res['nama_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
                 $e++;
                 $output .= '
                     <tr>
                     <td>' . $e . '</td>
                     <td>' . $aksi . '</td>
+                    <td>' . $res['nama_cabang'] . '</td>
+                    <td>' . $res['nama_gudang'] . '</td>
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['kd_lokasi_rak'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
                     <td>' . $res['qty'] . '</td>
                     <td>' . $res['kondisi'] . '</td>
                     <td>' . $res['keterangan'] . '</td>
-                    <td>' . $res['idjadwal_audit'] . '</td>
                 ';
             }
         } else {

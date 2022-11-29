@@ -1593,6 +1593,8 @@ public function scan_data_part()
     $lokasi = $this->input->post('lokasi');
     $rakbin = $this->input->post('rakbin');
     $kondisi = $this->input->post('kondisi');
+    $part_number = $this->input->post('part_number');
+    $qty = $this->input->post('qty');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $output = '';
     $base = base_url();
@@ -1603,7 +1605,8 @@ public function scan_data_part()
         $dataPart = null;
     }
     if ($dataPart) {
-        $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $kondisi, $idjadwal_audit);
+        $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $kondisi, $idjadwal_audit, $part_number, $qty);
+        // var_dump($cek);exit();
         if ($cek) {
             foreach ($cek as $c) {
                 $part = $c['qty'];
@@ -1870,7 +1873,7 @@ public function ajax_temppart()
                     <tr> 
                             <td>' . $start . '</td>
                             <td></td>
-                            <td>' . $list['id_lokasi'] . '</td>
+                            <td>' . $list['nama_gudang'] . '</td>
                             <td>' . $list['part_number'] . '</td>
                             <td>' . $list['deskripsi'] . '</td>
                             <td>' . $list['kd_lokasi_rak'] . '</td>

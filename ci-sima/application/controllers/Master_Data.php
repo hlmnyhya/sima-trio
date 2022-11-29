@@ -1246,8 +1246,8 @@ class Master_Data extends CI_Controller
     public function post_jenis_inv()
     {
         $data = [
-            'idjenis_inventory' => html_escape($this->input->post('idjenis_inventory', true) ),
-            'jenis_inventory' => html_escape($this->input->post('jenis_inventory', true)),
+            'idjenis_inventory' => $this->input->post('idjenis_inventory', true),
+            'jenis_inventory' => $this->input->post('jenis_inventory', true),
             'user'  => $this->session->userdata('username')
         ];
 
@@ -1275,9 +1275,9 @@ class Master_Data extends CI_Controller
     public function post_sub_inv()
     {
         $data = [
-            'idjenis_inventory' => html_escape($this->input->post('jenis_inv', true)),
-            'idsub_inventory' => html_escape($this->input->post('idsub_inventory', true)),
-            'sub_inventory' => html_escape($this->input->post('sub_inventory', true)),
+            'idjenis_inventory' => $this->input->post('jenis_inv', true),
+            'idsub_inventory' => $this->input->post('idsub_inventory', true),
+            'sub_inventory' => $this->input->post('sub_inventory', true),
             'user'  => $this->session->userdata('username')
         ];
 
@@ -1303,8 +1303,8 @@ class Master_Data extends CI_Controller
     public function post_status_inv()
     {
         $data = [
-            'idstatus_inventory' => html_escape($this->input->post('idstatus_inventory', true)),
-            'status_inventory' => html_escape($this->input->post('status_inventory', true)),
+            'idstatus_inventory' => $this->input->post('idstatus_inventory', true),
+            'status_inventory' => $this->input->post('status_inventory', true),
             'user'  => $this->session->userdata('username')
         ];
 
@@ -1333,8 +1333,8 @@ class Master_Data extends CI_Controller
     public function post_perusahaan()
     {
         $data = [
-            'id_perusahaan' => html_escape($this->input->post('id_perusahaan', true)),
-            'nama_perusahaan' => html_escape($this->input->post('nama_perusahaan', true)),
+            'id_perusahaan' => $this->input->post('id_perusahaan', true),
+            'nama_perusahaan' => $this->input->post('nama_perusahaan', true),
             'user'  => $this->session->userdata('username')
         ];
 
@@ -1362,8 +1362,8 @@ class Master_Data extends CI_Controller
     public function post_cabang()
     {
         $data = [
-            'id_cabang' => html_escape($this->input->post('id_cabang', true)),
-            'nama_cabang' => html_escape($this->input->post('nama_cabang', true)),
+            'id_cabang' => $this->input->post('id_cabang', true),
+            'nama_cabang' => $this->input->post('nama_cabang', true),
             'user'  => $this->session->userdata('username')
         ];
 
@@ -1391,8 +1391,8 @@ class Master_Data extends CI_Controller
     public function post_lokasi()
     {
         $data = [
-            'id_lokasi' => html_escape($this->input->post('id_lokasi', true)),
-            'nama_lokasi' => html_escape($this->input->post('nama_lokasi', true)),
+            'id_lokasi' => $this->input->post('id_lokasi', true),
+            'nama_lokasi' => $this->input->post('nama_lokasi', true),
             'user'  => $this->session->userdata('username')
         ];
 
@@ -1420,10 +1420,10 @@ class Master_Data extends CI_Controller
     public function post_Gudang()
     {
         $data = [
-            'kd_gudang' => html_escape($this->input->post('kd_gudang', true)),
-            'nama_gudang' => html_escape($this->input->post('nama_gudang', true)),
-            'jenis_gudang' => html_escape($this->input->post('jenis_gudang', true)),
-            'alamat' => html_escape($this->input->post('alamat', true)),
+            'kd_gudang' => $this->input->post('kd_gudang', true),
+            'nama_gudang' => $this->input->post('nama_gudang', true),
+            'jenis_gudang' => $this->input->post('jenis_gudang', true),
+            'alamat' => $this->input->post('alamat', true),
             'created_by'  => $this->session->userdata('username')
         ];
 
@@ -1451,8 +1451,8 @@ class Master_Data extends CI_Controller
     public function post_vendor()
     {
         $data = [
-            'id_vendor' => html_escape($this->input->post('id_vendor', true)),
-            'nama_vendor' => html_escape($this->input->post('nama_vendor', true)),
+            'id_vendor' => $this->input->post('id_vendor', true),
+            'nama_vendor' => $this->input->post('nama_vendor', true),
             'user'  => $this->session->userdata('username')
         ];
 
@@ -1480,8 +1480,8 @@ class Master_Data extends CI_Controller
     public function post_jenis_audit()
     {
         $data = [
-            'idjenis_audit' => html_escape($this->input->post('idjenis_audit')),
-            'jenis_audit' => html_escape($this->input->post('jenis_audit', true)),
+            'idjenis_audit' => $this->input->post('idjenis_audit', true),
+            'jenis_audit' => $this->input->post('jenis_audit', true),
             'user'  => $this->session->userdata('username')
         ];
 
