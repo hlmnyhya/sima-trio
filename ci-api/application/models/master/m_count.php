@@ -284,7 +284,7 @@ class M_Count extends CI_Model {
         
     public function CountPart1($a=null, $b=null, $c=null)
     {
-        $this->db->select('part.*, b.nama_cabang, c.nama_gudang');
+        $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
             $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
