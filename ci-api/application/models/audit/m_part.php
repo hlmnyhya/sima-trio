@@ -12,6 +12,7 @@ class M_Part extends CI_Model {
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
+            $this->db->where('part_number', $id);
              
             $result = $this->db->get()->result();
 
@@ -103,7 +104,7 @@ class M_Part extends CI_Model {
     { 
         $query = "
         INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, audit_by, tanggal_audit, idjadwal_audit)
-        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
         FROM temp_part a 
         WHERE a.part_number NOT IN (
         SELECT part_number FROM part WHERE idjadwal_audit = '$idjadwal_audit')
