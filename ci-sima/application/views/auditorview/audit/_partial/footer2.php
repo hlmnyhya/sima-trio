@@ -286,12 +286,11 @@
                 success: function(data) {
                     if (data.status == true) {
                         window.alert('Audit Scan Successful');
-                       indow.opener.location.reload(true);
-                        window.close();
-                    } else {
-                        window.alert('Audit Close Successful');
                         window.opener.location.reload(true);
                         window.close();
+                    } else {
+                        window.alert('Audit Close Failed');
+                      ;
                     }
 
                 }
