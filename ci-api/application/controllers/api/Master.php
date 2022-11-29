@@ -372,6 +372,7 @@ function __construct() {
             ], REST_Controller::HTTP_OK);
         }
     }
+    
     public function Usergroup_put()
     {
         $id =$this->put('id');

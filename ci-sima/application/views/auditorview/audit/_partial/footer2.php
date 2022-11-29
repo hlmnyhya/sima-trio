@@ -148,33 +148,33 @@
             }
         });
 
-        function get_data(page) {
-            $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
-            var cabang = "<?php echo $_GET['id'] ?>";
-            var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
-            var rakbin = $('#rakbin').val();
-            $.ajax({
-                type: "post",
-                dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
-                data: {
-                    cabang: cabang,
-                    rakbin: rakbin,
-                    idjadwal_audit: idjadwal_audit
-                },
-                success: function(data) {
-                    console.log(data);
-                    $('#pagination').html(data.pagination);
-                    $('#audit_part').html(data.output);
-                }
-            });
-        }
-        $(document).on('click', '.pagination li a', function(event) {
-            event.preventDefault();
-            var page = $(this).data('ci-pagination-page');
-            get_data(page);
+        // function get_data(page) {
+        //     $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
+        //     var cabang = "<?php echo $_GET['id'] ?>";
+        //     var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
+        //     var rakbin = $('#rakbin').val();
+        //     $.ajax({
+        //         type: "post",
+        //         dataType: 'JSON',
+        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
+        //         data: {
+        //             cabang: cabang,
+        //             rakbin: rakbin,
+        //             idjadwal_audit: idjadwal_audit
+        //         },
+        //         success: function(data) {
+        //             console.log(data);
+        //             $('#pagination').html(data.pagination);
+        //             $('#audit_part').html(data.output);
+        //         }
+        //     });
+        // }
+        // $(document).on('click', '.pagination li a', function(event) {
+        //     event.preventDefault();
+        //     var page = $(this).data('ci-pagination-page');
+        //     get_data(page);
 
-        });
+        // });
 
         function scan_getdata() {
             $('#manual').addClass('hidden');

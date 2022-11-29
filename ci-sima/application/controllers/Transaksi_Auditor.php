@@ -73,6 +73,7 @@ class Transaksi_Auditor extends CI_Controller
         // var_dump($listrak);exit;
 
         $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
+        
         foreach ($listrak as $list) {
             $idlokasi = $list['kd_lokasi_rak'];
             //$listlokasi = $this->mmasdat->getLokasiByid($idlokasi);
@@ -1399,7 +1400,7 @@ public function doPart()
         'id_lokasi' => $lokasi,
         'rakbin' => $rakbin,
         'kondisi' => $kondisi,
-        'status' => 'sesuai',
+        'status' => 'Sesuai',
         'keterangan' => 'RFS',
         'part_number' => $this->input->post('part_number'),
         'deskripsi' => $this->input->post('deskripsi'),
