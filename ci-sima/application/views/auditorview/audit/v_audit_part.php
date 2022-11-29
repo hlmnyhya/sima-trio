@@ -64,7 +64,7 @@
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
-                                            <th class="text-center">Keterangan</th>
+                                            <th class="text-center">Status</th>
                                         </tr>
                                     </thead>
                                     <tbody id="audit_part">
@@ -78,7 +78,7 @@
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
-                                            <th class="text-center">Keterangan</th>
+                                            <th class="text-center">Status</th>
                                         </tr>
                                     </tfoot>
                                 </table>

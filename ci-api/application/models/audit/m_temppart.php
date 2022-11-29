@@ -41,7 +41,7 @@ class M_TempPart extends CI_Model {
             $this->db->where('a.id_cabang', $cabang);
             }
             if ($offset!=null) {
-               $this->db->limit(15);
+            $this->db->limit(25,$offset);
              $this->db->offset($offset); 
             }
             $result = $this->db->get()->result();
