@@ -22,6 +22,7 @@
 <!-- Custom and plugin javascript -->
 <script src="<?php echo base_url() ?>assets/js/inspinia.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/pace/pace.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/js/plugins/toastr/toastr.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/iCheck/icheck.min.js"></script>
@@ -98,6 +99,8 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {
                     $('#rakbin').html(data);
+                    $('#rakbin').select2();
+
                 } 
             });
             console.log(rak);
