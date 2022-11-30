@@ -38,7 +38,7 @@
                                         <div class="col-sm-2">
                                             <label>Kondisi Part</label>
                                             <div class="form-group">
-                                                <select name="status" class="form-control" id="kondisi">
+                                                <select name="kondisi" class="form-control" id="kondisi">
                                                     <option value="">--- ALL ---</option>
                                                     <option value="Sesuai" id="bagus">Bagus</option>
                                                     <option value="Belum Sesuai" id="rusak">Rusak</option>
