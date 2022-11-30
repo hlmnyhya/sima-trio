@@ -1607,7 +1607,7 @@ public function scan_data_part()
     }
     if ($dataPart) {
         $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $kondisi, $idjadwal_audit, $part_number, $qty);
-        // var_dump($cek);exit();
+        // var_dump($cek);exit(); 
         if ($cek) {
             foreach ($cek as $c) {
                 $part = $c['qty'];
@@ -1692,7 +1692,7 @@ public function scan_data_part()
                     'deskripsi' => $part['deskripsi'],
                     'qty' => 1,
                     'kondisi' => $kondisi,
-                    'status' => 'valid',
+                    'status' => 'berhasil',
                     'idjadwal_audit' => $idjadwal_audit
                 ];
             }
