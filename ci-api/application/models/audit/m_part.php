@@ -117,11 +117,11 @@ class M_Part extends CI_Model {
             WHERE kondisi is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
         ";
         $this->db->query($query2);
-        $query3 = "
-            UPDATE part
-            SET status = 'Belum Ditemukan'
-            WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'";
-        $this->db->query($query3);
+        // $query3 = "
+        //     UPDATE part
+        //     SET status = 'Belum Ditemukan'
+        //     WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'";
+        // $this->db->query($query3);
         $query4 = "
             DELETE FROM temp_part WHERE id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
         ";

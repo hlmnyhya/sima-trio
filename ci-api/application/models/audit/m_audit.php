@@ -102,13 +102,14 @@ class M_Audit extends CI_Model {
             return $result;
         }   
     }
-    public function GetListPart($id = null, $cabang = null, $idjadwal_audit = null)
+    public function GetListPart($id = null, $cabang = null, $idjadwal_audit = null, $qty = null, $rakbin = null)
     {
         if ($id===null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
             $this->db->from('temp_part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            
             
             $result = $this->db->get()->result();
             return $result;   
@@ -120,6 +121,8 @@ class M_Audit extends CI_Model {
             $this->db->where('a.id_cabang', $cabang);
             $this->db->where("a.part_number",$id);
             $this->db->where("a.idjadwal_audit", $idjadwal_audit);
+            $this->db->where("a.qty", $qty);
+            $this->db->where("a.kd_lokasi_rak", $rakbin);
             
             $result = $this->db->get()->result();
             return $result;

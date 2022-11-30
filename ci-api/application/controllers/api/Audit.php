@@ -422,6 +422,10 @@ function __construct() {
         $id = $this->get('id');
         $cabang = $this->get('id_cabang');
         $idjadwal_audit = $this->get('idjadwal_audit');
+        $qty = $this->get('qty');
+        $rakbin = $this->get('rakbin');
+        
+
         if ($id===null) {
             $aud = $this->maudit->GetListPart();
         }else{
@@ -441,6 +445,7 @@ function __construct() {
             
         }
     }
+
     public function listaudPart_post()
     {
         $id = $this->post('part_number');
