@@ -223,6 +223,33 @@ class M_Count extends CI_Model {
             }
         
     }
+    public function CountPart($a,$b,$c,$d)
+    {
+        $this->db->select('
+                a.*, b.nama_cabang, c.nama_gudang
+        
+        ');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where('a.id_cabang', $a);
+            if($c != ""){
+                $this->db->where('a.status', $c);
+            }
+            if($d != ""){
+                $this->db->where('a.kondisi', $d);
+            }
+            $this->db->where("(a.idjadwal_audit = '$b')");
+
+            $count =$this->db->get();
+
+            if ($count->num_rows()>0) {
+                return $count->num_rows();
+            } else {
+                return false;
+            }
+        
+    }
     public function CountUnitnotready($a,$b,$d)
     {
         $this->db->select('
