@@ -42,6 +42,19 @@
                                                 <?php $id = $_GET['id']; ?> 
                                                 <a class="btn btn-danger" id="close_part">Close Part</a>
                                             </div>
+                                            <div id="manual" class="row">
+                                        <div class="form-group col-sm-12">
+                                            <label>No. Mesin</label>
+                                            <input type="text" class="form-control" placeholder="No Mesin" id="no_mesin" required>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <label>No. Rangka</label>
+                                            <input type="text" class="form-control" placeholder="No Rangka" id="no_rangka" required>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <a id="audit" class="btn btn-primary">Audit</a>
+                                        </div>
+                                    </div>
                                         </div>
                                     </div>
                                 </div>

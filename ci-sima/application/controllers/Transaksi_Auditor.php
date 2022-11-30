@@ -2449,7 +2449,7 @@ public function previewpart($page)
     }
     $start = ($page - 1) * $config['per_page'];
 
-    $cetak = $this->mtransauditor->previewPart($cabang, $idjadwal_audit, $status, $kondis, $start);
+    $cetak = $this->mtransauditor->previewPart($cabang, $idjadwal_audit, $status, $kondisi, $start);
     $row_entry = '
             <div class=" label label-default">' . $count . '</div>
         ';
