@@ -469,7 +469,7 @@ function __construct() {
             $listaud = null;
         }else{
             // harusnya masuk ke data part
-            $listaud = $this->maudit->AddListPart($data);
+            $listaud = $this->mpart->addlistpart($data);
         }
         if ($listaud) {
             $this->response([
@@ -2196,6 +2196,66 @@ function __construct() {
             }
         }
     }
+    public function searchPart_get()
+    {
+        $id= $this->get('id');
+        $offset = $this->get('offset');
+        $limit = $this->get('limit');
+        
+        if ($id===null) {
+            $audit= $this->mpart->getaudlistpart(null,$offset, $limit);
+            
+        }else{
+            $audit= $this->maudit->getaudlistpart($id);
+
+        }
+        if ($audit) {
+            $this->response([
+                'status' => true,
+                'data' => $audit
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+    public function cekpart_get()
+    {
+        $id = $this->get('id');
+        $cabang = $this->get('id_cabang');
+        $idjadwal_audit = $this->get('idjadwal_audit');
+        $part_number = $this->get('part_number');
+        $rakbin = $this->get('kd_lokasi_rak');
+        $lokasi = $this->get('id_lokasi');
+        $qty = $this->get('qty');
+
+
+        if ($id=== null) {
+            $list= $this->mpart->getcekpart();
+            
+        }else{
+            $list= $this->mpart->getcekpart($id,$cabang,$idjadwal_audit, $part_number, $rakbin, $lokasi, $qty);
+        }
+        
+        if ($list) {
+            $this->response([
+                'status' => true,
+                'data' => $list
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+    
 }
+
+
 
 /* End of file Audit.php */
