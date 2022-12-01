@@ -187,7 +187,7 @@ class Audit extends CI_Controller
         $this->load->library('pagination');
 
         $config['total_rows'] = $count;
-        $config['per_page'] = 5;
+        $config['per_page'] = 15;
         $config['uri_segment'] = 3;
         $config['use_page_numbers'] = TRUE;
         $config['num_links'] = 2;
