@@ -1628,7 +1628,8 @@ public function scan_data_part()
 
             $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';
             $config['total_rows'] = $count;
-            $config['per_page'] = 15;                $config['uri_segment'] = 3;
+            $config['per_page'] = 15;                
+            $config['uri_segment'] = 3;
             $config['use_page_numbers'] = TRUE;
             $config['num_links'] = 3;
 
@@ -1865,7 +1866,8 @@ public function ajax_temppart()
 
     $this->pagination->initialize($config);
 
-    $page = floor($count / 15); //$this->uri->segment(3);
+    //$page = floor($count / 15); 
+   $page = $this->uri->segment(3);
     if ($page == null) {
         $page = 1;
     }
@@ -1878,6 +1880,7 @@ public function ajax_temppart()
                     <tr> 
                             <td>' . $start . '</td>
                             <td></td>
+                            <td>' . $list['nama_cabang'] . '</td>
                             <td>' . $list['nama_gudang'] . '</td>
                             <td>' . $list['part_number'] . '</td>
                             <td>' . $list['deskripsi'] . '</td>
@@ -1889,6 +1892,9 @@ public function ajax_temppart()
     } else {
         $output .= '<tr><td colspan="13" class="text-center">data not found</td></tr>';
     }
+    $row_entry = '
+    <div class=" label label-default">' . $count . '</div>
+';
     $data = [
         'pagination' => $this->pagination->create_links(),
         'output' => $output
