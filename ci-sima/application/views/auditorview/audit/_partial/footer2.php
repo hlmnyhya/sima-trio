@@ -369,8 +369,12 @@ j
             $('#manual').addClass('hidden');
             var cari = $('#cari').val();
             var cabang = "<?php echo $_GET['id'] ?>";
+            var rakbin = $('#rakbin').val();
+            var kondisi = $('#kondisi').val();
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             console.log("jadwal_audit scan_getdata : " + idjadwal_audit)
+            console.log(kondisi);
+            
             var lokasi = $('#id_lokasi').val();
 
             $('#audit_part').html('<tr> <td colspan="13" id="loading"></td></tr>');
@@ -382,6 +386,8 @@ j
                     data: {
                         id: cari,
                         cabang: cabang,
+                        rakbin: rakbin,
+                        kondisi: kondisi,
                         idjadwal_audit: idjadwal_audit,
                         lokasi: lokasi,
                     },
@@ -399,6 +405,7 @@ j
             } else {
                 get_data();
             }
+            console.log(rakbin);
         }
         $('#cari').keyup(function(e) {
             if (e.keyCode == 13) {
