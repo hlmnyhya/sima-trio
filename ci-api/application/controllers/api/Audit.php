@@ -72,9 +72,10 @@ function __construct() {
     public function Audit_get(){
         $id= $this->get('id');
         $offset = $this->get('offset');
+        $limit = $this->get('limit');
         
         if ($id===null) {
-            $audit= $this->maudit->GetAudit(null,$offset);
+            $audit= $this->maudit->GetAudit(null,$offset, $limit);
             
         }else{
             $audit= $this->maudit->GetAudit($id);
