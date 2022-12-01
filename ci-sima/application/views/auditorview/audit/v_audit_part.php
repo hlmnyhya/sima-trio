@@ -67,7 +67,7 @@
                                             <input type="text" class="form-control" placeholder="Part Number" id="part_number" required>
                                         </div>
                                         <div class="form-group col-sm-12">
-                                            <a id="audit" class="btn btn-primary">Audit</a>
+                                            <a id="auditPart" class="btn btn-primary">Audit</a>
                                         </div>
                                     </div>
                                     <!-- Penutup Form manual -->
