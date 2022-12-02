@@ -459,17 +459,15 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
-    public function caripart($id, $cabang, $idjadwal_audit, $lokasi, $rakbin, $kondisi, $qty, $part_number )
+    public function caripart($cabang, $idjadwal_audit, $lokasi, $rakbin, $qty, $part_number )
     {
         $respon =  $this->_client->request('GET', 'listaudPart', [
             'query' => [
-                'id' => $id,
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit,
                 'qty' => $qty,
-                'lokasi' => $lokasi,
-                'rakbin' => $rakbin,
-                'kondisi' => $kondisi,
+                'id_lokasi' => $lokasi,
+                'kd_lokasi_rak' => $rakbin,
                 'part_number' => $part_number
             ]
         ]);
@@ -573,7 +571,6 @@ class M_Transaksi_Auditor extends CI_Model
                 'id_cabang' => $b,
                 'id_lokasi' => $d,
                 'kd_lokasi_rak' => $c,
-                'kondisi' => $e,
                 'idjadwal_audit' => $f,
                 'part_number' => $g,
                 'qty' => $h

@@ -152,8 +152,6 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }   
     }
-
-
     public function AddList($data)
     {
         $this->db->insert('unit', $data);
@@ -214,7 +212,7 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }
     }
-    public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null, $part_number = null, $qty = null)
+    public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null,  $idjadwal_audit = null, $part_number = null, $qty = null)
     {
         if ($id === null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');

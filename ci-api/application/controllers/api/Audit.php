@@ -428,9 +428,9 @@ function __construct() {
         
 
         if ($id===null) {
-            $aud = $this->maudit->GetListPart();
+            $aud = $this->maudit->GetListAudPart();
         }else{
-            $aud = $this->maudit->GetListPart($id,$cabang,$idjadwal_audit);
+            $aud = $this->maudit->GetListAudPart($id,$cabang,$idjadwal_audit);
         }
 
         if ($aud) {
@@ -486,7 +486,7 @@ function __construct() {
     }
     public function listaudpart_put()
     {
-        $id= $this->put('id');
+        $id = $this->put('id_part');
             $data =[
                 'qty' =>$this->put('qty'),
                 'edit_by' => $this->put('user'),
@@ -545,7 +545,6 @@ function __construct() {
         $cabang = $this->get('id_cabang');
         $lokasi = $this->get('id_lokasi');
         $rakbin = $this->get('kd_lokasi_rak');
-        $kondisi = $this->get('kondisi');
         $idjadwal_audit = $this->get('idjadwal_audit');
         $qty = $this->get('qty');
         $part_number = $this->get('part_number');
@@ -553,7 +552,7 @@ function __construct() {
             $list= $this->maudit->GetAuListPart(null,$cabang,$idjadwal_audit);
 
         }else{
-            $list= $this->maudit->GetAuListPart($id,$cabang,$lokasi,$rakbin, $kondisi,$idjadwal_audit, $part_number, $qty);
+            $list= $this->maudit->GetAuListPart($id,$cabang,$lokasi,$rakbin, $idjadwal_audit, $part_number, $qty);
         }
         
         if ($list) {
@@ -2206,7 +2205,7 @@ function __construct() {
             $audit= $this->mpart->getaudlistpart(null,$offset, $limit);
             
         }else{
-            $audit= $this->maudit->getaudlistpart($id);
+            $audit= $this->mpart->getaudlistpart($id);
 
         }
         if ($audit) {
