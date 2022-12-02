@@ -210,6 +210,69 @@ class M_Part extends CI_Model {
         $this->db->update('jadwal_audit', $data);
         return $this->db->affected_rows(); 
     }
+
+    public function getaudlistpart($id=null, $offset=null)
+    {
+        if ($id === null) {
+            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi');
+            $this->db->from('temp_part');
+            $this->db->limit(15);
+            $this->db->offset($offset);
+
+            $result = $this->db->get()->result();
+
+            return $result;
+        }else {
+            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi');
+            $this->db->from('temp_part');
+            $this->db->where('part_number.id_part',$id);
+
+            $result = $this->db->get()->result();
+
+            return $result;
+        }
+
+    }
+
+    public function getcekpart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $idjadwal_audit = null, $part_number = null, $qty = null)
+    {
+        if ($id === null) {
+            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi, idjadwal_audit, id_cabang ');
+            $this->db->from('part');
+
+            $result = $this->db->get()->result();
+
+            return $result;
+        }else{
+            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi, idjadwal_audit, id_cabang ');
+            $this->db->from('part');
+
+            if ($lokasi !=null) {
+                $this->db->where("a.id_lokasi",$lokasi );
+                
+            }
+            if ($rakbin !=null) {
+                $this->db->where("a.kd_lokasi_rak",$rakbin);
+                
+            }
+            if ($idjadwal_audit !=null) {
+                $this->db->where("a.idjadwal_audit", $idjadwal_audit );
+                
+            }
+            if ($part_number !=null) {
+                $this->db->where("a.part_number", $part_number );
+            }
+
+            $result = $this->db->get()->result();
+            return $result;
+        }
+    }
+
+    public function addlistpart($data)
+    {
+        $this->db->insert('part', $data);
+        return $this->db->affected_rows();
+    }
     
 }
 /* End of file M_part.php */
