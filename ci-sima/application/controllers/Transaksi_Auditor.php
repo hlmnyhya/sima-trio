@@ -76,15 +76,15 @@ class Transaksi_Auditor extends CI_Controller
         
         foreach ($listrak as $list) {
             $idlokasi = $list['kd_lokasi_rak'];
-            if ($idlokasi == $key) {
-                $output .= '
-                <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
-                    ';
-            } else {
+            // if ($idlokasi == $key) {
+            //     $output .= '
+            //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+            //         ';
+            // } else {
                 $output .= '
                 <option value="' . $list['kd_lokasi_rak'] . '" >' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
                     ';
-            }
+            // }
             
         }
         echo json_encode($output, true);

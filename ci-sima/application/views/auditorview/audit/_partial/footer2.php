@@ -105,8 +105,7 @@
             });
             console.log(rak);
         });
-
-
+        
         function lokasi() {
         var cabang = "<?php echo $_GET['id'] ?>";
         $.ajax({
@@ -299,14 +298,16 @@
                 }
             });
         }
+
+
+
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
-            var rakbin = $('#rakbin').val();
+            var rakbin = $('#rakbin_baru').val();
             var lokasi = $('#id_lokasi').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             $('#Audit_Part').html('<tr> <td colspan="13" id="loading"></td></tr>');
-
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
@@ -327,6 +328,9 @@
                     $('#manual').addClass('hidden');
                 }
             });
+            console.log(part_number);
+            console.log(rakbin);
+            console.log(lokasi);
         });
         $('#doCariPart').click(function() {
             var cari = $('#cari').val();
@@ -362,7 +366,6 @@
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
             get_data(page);
-j
         });  
 
         function scan_getdata() {
