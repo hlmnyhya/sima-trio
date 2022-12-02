@@ -458,14 +458,35 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-
-    public function caripart($id, $cabang, $idjadwal_audit )
+    public function cariscanpart($id, $cabang,$qty,$kd_lokasi_rak)
     {
-        $respon =  $this->_client->request('GET', 'listaudPart', [
+        $respon =  $this->_client->request('GET', 'listaudpart', [
             'query' => [
                 'id' => $id,
                 'id_cabang' => $cabang,
-                'idjadwal_audit' => $idjadwal_audit
+                'kd_lokasi_rak' => $kd_lokasi_rak,
+                'qty' => $qty
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function caripart($id, $cabang, $idjadwal_audit, $lokasi, $rakbin, $kondisi, $qty, $part_number )
+    {
+        $respon =  $this->_client->request('GET', 'searchpart', [
+            'query' => [
+                'id' => $id,
+                'qty' => $qty,
+                'lokasi' => $lokasi,
+                'rakbin' => $rakbin,
+                'part_number' => $part_number
             ]
         ]);
 
@@ -560,18 +581,15 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function cekPart($a, $b, $c, $d, $e, $f, $g, $h)
+    public function cekpart($a, $b, $c, $d, $e)
     {
-        $respon =  $this->_client->request('GET', 'listPart', [
+        $respon =  $this->_client->request('GET', 'listpart', [
             'query' => [
                 'id' => $a,
                 'id_cabang' => $b,
-                'id_lokasi' => $d,
-                'kd_lokasi_rak' => $c,
-                'kondisi' => $e,
-                'idjadwal_audit' => $f,
-                'part_number' => $g,
-                'qty' => $h
+                'idjadwal_audit' => $c,
+                'kd_lokasi_rak' => $d,
+                'qty' => $e
             ]
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -581,6 +599,27 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
+    // public function cekPart($a, $b, $c, $d, $e, $f, $g, $h)
+    // {
+    //     $respon =  $this->_client->request('GET', 'listPart', [
+    //         'query' => [
+    //             'id' => $a,
+    //             'id_cabang' => $b,
+    //             'id_lokasi' => $d,
+    //             'kd_lokasi_rak' => $c,
+    //             'kondisi' => $e,
+    //             'idjadwal_audit' => $f,
+    //             'part_number' => $g,
+    //             'qty' => $h
+    //         ]
+    //     ]);
+    //     $result = json_decode($respon->getBody()->getContents(), true);
+    //     if ($result['status'] == true) {
+    //         return $result['data'];
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
     public function counttempunit($a = null)
     {
