@@ -956,7 +956,6 @@ public function scan_data_unit()
         $config['num_tag_close'] = '</li>';
         $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
         $config['cur_tag_close'] = '</li>';
-
         $this->pagination->initialize($config);
 
         $page = ceil($count / 15); //$this->uri->segment(3);
@@ -1596,6 +1595,7 @@ public function scan_data_part()
     $kondisi = $this->input->post('kondisi');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $output = '';
+    $manual = false;
     $base = base_url();
     $info = '';
     if ($scanpart != null) {
@@ -1757,6 +1757,7 @@ public function scan_data_part()
     } else {
         $info = 'Data not found';
         $output = '';
+        $manual = true;
         $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit);
         $this->load->library('pagination');
         $page = ceil($count / 15);
@@ -1817,6 +1818,7 @@ public function scan_data_part()
     $data = [
         'info' => $info,
         'output' => $output,
+        'manual' => $manual,
         'pagination' => $this->pagination->create_links(),
     ];
     echo json_encode($data, true);
