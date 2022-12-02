@@ -60,7 +60,7 @@
                                     <div id="manual" class="row p-h-sm">
                                         <div class="form-group col-sm-12">
                                             <label>Rakbin</label>
-                                            <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbin_baru" required>
+                                            <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbin" required>
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label>Part Number</label>
