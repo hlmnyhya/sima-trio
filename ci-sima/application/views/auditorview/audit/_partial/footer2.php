@@ -313,7 +313,7 @@
                 dataType: 'JSON',
                 data: {
                     part_number: part_number,
-                    rakbin: rakbin,
+                    kd_lokasi_rakbin: rakbin,
                     lokasi: lokasi,
                     cabang: cabang,
                     idjadwal_audit: idjadwal_audit
@@ -389,7 +389,7 @@
                     data: {
                         id: cari,
                         cabang: cabang,
-                        rakbin: rakbin,
+                        kd_lokasi_rakbin: rakbin,
                         kondisi: kondisi,
                         idjadwal_audit: idjadwal_audit,
                         lokasi: lokasi,
