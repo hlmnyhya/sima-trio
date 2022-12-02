@@ -105,8 +105,7 @@
             });
             console.log(rak);
         });
-
-
+        
         function lokasi() {
         var cabang = "<?php echo $_GET['id'] ?>";
         $.ajax({
@@ -299,15 +298,16 @@
                 }
             });
         }
+
+
+
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
-            var rakbin = $('#rakbin').val();
+            var rakbin = $('#rakbin_baru').val();
             var lokasi = $('#id_lokasi').val();
-            var keterangan = $('#keterangan').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             $('#Audit_Part').html('<tr> <td colspan="13" id="loading"></td></tr>');
-
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
@@ -316,7 +316,6 @@
                     rakbin: rakbin,
                     lokasi: lokasi,
                     cabang: cabang,
-                    keterangan: keterangan,
                     idjadwal_audit: idjadwal_audit
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/doPart",
@@ -329,6 +328,9 @@
                     $('#manual').addClass('hidden');
                 }
             });
+            console.log(part_number);
+            console.log(rakbin);
+            console.log(lokasi);
         });
         $('#doCariPart').click(function() {
             var cari = $('#cari').val();
@@ -364,15 +366,18 @@
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
             get_data(page);
-
         });  
 
         function scan_getdata() {
             $('#manual').addClass('hidden');
             var cari = $('#cari').val();
             var cabang = "<?php echo $_GET['id'] ?>";
+            var rakbin = $('#rakbin').val();
+            var kondisi = $('#kondisi').val();
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             console.log("jadwal_audit scan_getdata : " + idjadwal_audit)
+            console.log(kondisi);
+            
             var lokasi = $('#id_lokasi').val();
             var rakbin = $('#rakbin').val();
             console.log(rakbin);
@@ -386,6 +391,8 @@
                     data: {
                         id: cari,
                         cabang: cabang,
+                        rakbin: rakbin,
+                        kondisi: kondisi,
                         idjadwal_audit: idjadwal_audit,
                         lokasi: lokasi,
                         kd_lokasi_rak: rakbin,
@@ -404,6 +411,7 @@
             } else {
                 get_data();
             }
+            console.log(rakbin);
         }
         $('#cari').keyup(function(e) {
             if (e.keyCode == 13) {
