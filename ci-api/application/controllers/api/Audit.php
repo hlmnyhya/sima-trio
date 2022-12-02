@@ -2196,7 +2196,7 @@ function __construct() {
             }
         }
     }
-    public function searchPart_get()
+    public function searchpart_get()
     {
         $id= $this->get('id');
         $offset = $this->get('offset');
