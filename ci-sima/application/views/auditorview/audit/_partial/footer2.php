@@ -379,6 +379,8 @@
             console.log(kondisi);
             
             var lokasi = $('#id_lokasi').val();
+            var rakbin = $('#rakbin').val();
+            console.log(rakbin);
 
             $('#audit_part').html('<tr> <td colspan="13" id="loading"></td></tr>');
             if (cari != '') {
@@ -393,6 +395,7 @@
                         kondisi: kondisi,
                         idjadwal_audit: idjadwal_audit,
                         lokasi: lokasi,
+                        kd_lokasi_rak: rakbin,
                     },
                     success: function(data) {
                         $('#cari').val('');

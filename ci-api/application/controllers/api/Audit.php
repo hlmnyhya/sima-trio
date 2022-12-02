@@ -511,7 +511,7 @@ function __construct() {
     }
     public function listaudpart_put()
     {
-        $id= $this->put('id');
+        $id = $this->put('id_part');
             $data =[
                 'qty' =>$this->put('qty'),
                 'edit_by' => $this->put('user'),
@@ -567,6 +567,8 @@ function __construct() {
     {
         $id = $this->get('id');
         $cabang = $this->get('id_cabang');
+        $lokasi = $this->get('id_lokasi');
+        $rakbin = $this->get('kd_lokasi_rak');
         $idjadwal_audit = $this->get('idjadwal_audit');
         $kd_lokasi_rak = $this->get('kd_lokasi_rak');
         $qty = $this->get('qty');
@@ -2258,7 +2260,7 @@ function __construct() {
             $audit= $this->mpart->getaudlistpart(null,$offset, $limit);
             
         }else{
-            $audit= $this->maudit->getaudlistpart($id);
+            $audit= $this->mpart->getaudlistpart($id);
 
         }
         if ($audit) {

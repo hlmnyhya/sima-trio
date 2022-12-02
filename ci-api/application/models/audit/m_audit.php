@@ -176,8 +176,6 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }   
     }
-
-
     public function AddList($data)
     {
         $this->db->insert('unit', $data);

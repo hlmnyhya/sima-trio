@@ -75,11 +75,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
-	// 'hostname' => '192.168.50.18',
+	// 'hostname' => 'localhost',
+	'hostname' => '192.168.50.18',
 	'username' => 'sa',
-	'password' => 'jogja123',
-	// 'password' => 'Jogja123',
+	// 'password' => 'jogja123',
+	'password' => 'Jogja123',
 	'database' => 'sim_audit',
 	'dbdriver' => 'sqlsrv',
 	'dbprefix' => '',
