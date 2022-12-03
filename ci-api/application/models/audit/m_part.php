@@ -214,7 +214,7 @@ class M_Part extends CI_Model {
     public function getaudlistpart($id=null, $offset=null)
     {
         if ($id === null) {
-            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi, deskripsi');
+            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi, id_cabang, idjadwal_audit');
             $this->db->from('temp_part');
             $this->db->limit(15);
             $this->db->offset($offset);
@@ -223,7 +223,7 @@ class M_Part extends CI_Model {
 
             return $result;
         }else {
-            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi, deskripsi');
+            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi,id_cabang, idjadwal_audit');
             $this->db->from('temp_part');
             $this->db->where('part_number.id_part',$id);
 

@@ -284,15 +284,19 @@ class M_Count extends CI_Model {
         
     public function CountPart1($a=null, $b=null, $c=null)
     {
-        $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+        $this->db->select('a.*, b.nama_cabang, c.nama_gudang, d.kd_lokasi_rak');
             $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->join('lokasi_rak_bin d', 'a.kd_lokasi_rak = c.kd_lokasi_rak', 'left');
             if ($a !=null) {
                 $this->db->where('a.id_cabang', $a);
             }
             if ($b !=null) {
                 $this->db->where('a.idjadwal_audit', $b);
+            }
+            if ($c !=null) {
+                $this->db->where('a.kd_lokasi_rak', $c);
             }
             // $this->db->where('a.is_audit', $val);
             

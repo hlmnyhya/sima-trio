@@ -85,26 +85,32 @@
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
                                             <th class="text-center" width="3%">aksi</th>
+                                            <th class="text-center">Gudang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
-                                            <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">KD RAKBIN</th>
                                             <th class="text-center">Status</th>
+                                            <th class="text-center">Kondisi</th>
+                                            <th class="text-center">Keterangan</th>
                                         </tr>
                                     </thead>
                                     <tbody id="audit_part">
                                     </tbody>
                                     <tfoot>
                                         <tr>
-                                            <th class="text-center" width="3%">No</th>
+                                        <th class="text-center" width="3%">No</th>
                                             <th class="text-center" width="3%">aksi</th>
+                                            <th class="text-center">Gudang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
-                                            <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">KD RAKBIN</th>
                                             <th class="text-center">Status</th>
+                                            <th class="text-center">Kondisi</th>
+                                            <th class="text-center">Keterangan</th>
                                         </tr>
                                     </tfoot>
                                 </table>
