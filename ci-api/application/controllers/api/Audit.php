@@ -2313,6 +2313,41 @@ function __construct() {
             
         }
     }
+
+    public function cekqty_get()
+    {
+        $id = $this->get('id');
+        $cabang = $this->get('id_cabang');
+        $idjadwal_audit = $this->get('idjadwal_audit');
+        $part_number = $this->get('part_number');
+        $rakbin = $this->get('kd_lokasi_rak');
+        $lokasi = $this->get('id_lokasi');
+        $qty = $this->get('qty');
+        $status = $this->get('status');
+
+        
+        if ($id=== null) {
+            $list= $this->mpart->cekqty();
+            
+        }else{
+            $list= $this->mpart->cekqty($id,$cabang,$idjadwal_audit, $part_number, $rakbin, $lokasi, $qty, $status);
+        }
+
+        if ($list) {
+            $this->response([
+                'status' => true,
+                'data' => $list
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+
+    } 
+
     
 }
 

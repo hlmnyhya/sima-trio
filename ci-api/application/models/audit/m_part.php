@@ -273,6 +273,29 @@ class M_Part extends CI_Model {
         $this->db->insert('part', $data);
         return $this->db->affected_rows();
     }
+
+    public function cekqty($id = null,$cabang= null, $lokasi = null, $rakbin = null, $idjadwal_audit = null, $part_number = null, $qty = null, $status = null, $kondisi = null, $deskripsi = null)
+    {
+        if ($id === null) {
+
+        $query = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, idjadwal_audit) VALUES ('$part_number', '$rakbin', '$cabang', '$lokasi', '$deskripsi', '$qty', '$kondisi', '$status', '$idjadwal_audit')";
+
+        $this->db->query($query);
+
+        }else{
+            $query2 = "SELECT * FROM part WHERE qty < '$qty'";
+            $this->db->query($query2);
+            if ($qty == 1) {
+                $query3 = "UPDATE part SET status = 'Sesuai'";
+                $this->db->query($query3);
+            } else {
+                $query4 = "UPDATE part
+                SET qty = $qty + 1";
+                $this->db->query($query4);
+            }
+    }
+            return  $this->db->affected_rows();
     
+    }
 }
 /* End of file M_part.php */
