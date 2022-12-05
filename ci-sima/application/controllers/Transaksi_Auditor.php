@@ -1615,7 +1615,8 @@ public function scan_data_part()
     if ($dataPart) {
         $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit);
         // var_dump($cek);exit;
-        if ($cek) {
+        if ($cek)
+        {
             foreach ($cek as $c) {
                 $part = $c['qty'];
                 $data = [
@@ -1693,7 +1694,7 @@ public function scan_data_part()
                     'kd_lokasi_rak' => $rakbin,
                     'deskripsi' => $part['deskripsi'],
                     'qty' => 1,
-                    'kondisi' => $kondisi,
+                    // 'kondisi' => $kondisi,
                     'status' => 'valid',
                     'idjadwal_audit' => $idjadwal_audit
                 ];
@@ -1732,7 +1733,7 @@ public function scan_data_part()
 
                 $this->pagination->initialize($config);
 
-                //$page = $this->uri->segment(3);
+                $page = $this->uri->segment(3);
                 if ($page == null) {
                     $page = 1;
                 }
