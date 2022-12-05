@@ -388,7 +388,7 @@
                     dataType: 'JSON',
                     url: "<?php echo base_url() ?>transaksi_auditor/scan_data_part",
                     data: {
-                        part_number: cari,
+                        id: cari,
                         cabang: cabang,
                         kondisi: kondisi,
                         idjadwal_audit: idjadwal_audit,

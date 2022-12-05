@@ -570,14 +570,18 @@ function __construct() {
         $lokasi = $this->get('id_lokasi');
         $rakbin = $this->get('kd_lokasi_rak');
         $idjadwal_audit = $this->get('idjadwal_audit');
-        $kd_lokasi_rak = $this->get('kd_lokasi_rak');
+        // $kd_lokasi_rak = $this->get('kd_lokasi_rak');
         $qty = $this->get('qty');
+
+        // var_dump($id);exit;
         if ($id=== null) {
-            $list= $this->maudit->GetAuListpart(null,$cabang,$idjadwal_audit,$kd_lokasi_rak, $qty);
+            $list= $this->maudit->GetAuListpart(null,$cabang,$idjadwal_audit,$rakbin, $qty,$lokasi);
+            // var_dump($list);exit;
             
         }else{
-            $list= $this->maudit->GetAuListpart($id,$cabang,$idjadwal_audit,$kd_lokasi_rak, $qty);
+            $list= $this->maudit->GetAuListpart($id,$cabang,$idjadwal_audit,$rakbin, $qty,$lokasi);
         }
+
         
         if ($list) {
             $this->response([
@@ -2256,11 +2260,13 @@ function __construct() {
         $offset = $this->get('offset');
         $limit = $this->get('limit');
         
+        
         if ($id===null) {
             $audit= $this->mpart->getaudlistpart(null,$offset, $limit);
             
+            
         }else{
-            $audit= $this->mpart->getaudlistpart($id);
+            $audit= $this->mpart->getaudlistpart($id,$offset, $limit);
 
         }
         if ($audit) {

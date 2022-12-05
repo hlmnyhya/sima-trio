@@ -473,6 +473,7 @@ class M_Transaksi_Auditor extends CI_Model
                 'part_number' => $scanpart
             ]
         ]);
+        // var_dump($scanpart);exit;
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -572,13 +573,15 @@ class M_Transaksi_Auditor extends CI_Model
                 // 'id' => $a,
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit,
+                'id_lokasi' => $lokasi,
                 'kd_lokasi_rak' => $rakbin,
-                // 'qty' => $e,
-                'part_number' => $scanpart,
-                'id_lokasi' => $lokasi
+                'id' => $scanpart
+                // 'qty' => $e, 
             ]
         ]);
+        // var_dump($scanpart);exit;
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data'];
         } else {

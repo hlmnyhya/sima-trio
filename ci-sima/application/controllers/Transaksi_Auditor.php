@@ -1591,17 +1591,18 @@ public function doPart()
 
 public function scan_data_part()
 {
-    $scanpart = $this->input->post('part_number');
+    $scanpart = $this->input->post('id');
     $cabang = $this->input->post('cabang');
     $lokasi = $this->input->post('lokasi');
     $rakbin = $this->input->post('kd_lokasi_rak');
     // $kondisi = $this->input->post('kondisi');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
+    // $qty = $this->input->post('qty');
     $output = '';
     $manual = false;
     $base = base_url();
     $info = '';
-    // var_dump($rakbin);exit;
+    // var_dump($lokasi);exit;
     // $param=array(
     //     $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
     // );
@@ -1609,12 +1610,13 @@ public function scan_data_part()
 
     // if ($scanpart != null) {
         $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit);
-        // var_dump($dataPart);exit;
+        // $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit);
+        var_dump($dataPart);exit;
     // }
     // var_dump($dataPart);exit;
     if ($dataPart) {
         $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit);
-        // var_dump($cek);exit;
+        var_dump($cek);exit;
         if ($cek) {
             foreach ($cek as $c) {
                 $part = $c['qty'];
@@ -1674,7 +1676,6 @@ public function scan_data_part()
                                     <td class="text-center">' . $list['nama_cabang'] . '</td>
                                     <td class="text-center">' . $list['nama_gudang'] . '</td>
                                     <td class="text-center">' . $list['part_number'] . '</td>
-                                    <td class="text-center">' . $list['deskripsi'] . '</td>
                                     <td class="text-center">' . $list['qty'] . '</td>
                                     <td class="text-center">' . $list['kd_lokasi_rak'] . '</td>
                                     <td class="text-center">' . $list['status'] . '</td>
@@ -1691,9 +1692,7 @@ public function scan_data_part()
                     'id_lokasi' => $lokasi,
                     'part_number' => $part['part_number'],
                     'kd_lokasi_rak' => $rakbin,
-                    'deskripsi' => $part['deskripsi'],
                     'qty' => 1,
-                    'kondisi' => $kondisi,
                     'status' => 'valid',
                     'idjadwal_audit' => $idjadwal_audit
                 ];
@@ -1732,7 +1731,7 @@ public function scan_data_part()
 
                 $this->pagination->initialize($config);
 
-                //$page = $this->uri->segment(3);
+                $page = $this->uri->segment(3);
                 if ($page == null) {
                     $page = 1;
                 }
@@ -1748,7 +1747,6 @@ public function scan_data_part()
                                         <td class="text-center">' . $list['nama_cabang'] . '</td>
                                     <td class="text-center">' . $list['nama_gudang'] . '</td>
                                     <td class="text-center">' . $list['part_number'] . '</td>
-                                    <td class="text-center">' . $list['deskripsi'] . '</td>
                                     <td class="text-center">' . $list['qty'] . '</td>
                                     <td class="text-center">' . $list['kd_lokasi_rak'] . '</td>
                                     <td class="text-center">' . $list['status'] . '</td>
@@ -1812,7 +1810,7 @@ public function scan_data_part()
                                 <td class="text-center">' . $list['nama_cabang'] . '</td>
                                     <td class="text-center">' . $list['nama_gudang'] . '</td>
                                     <td class="text-center">' . $list['part_number'] . '</td>
-                                    <td class="text-center">' . $list['deskripsi'] . '</td>
+                                   
                                     <td class="text-center">' . $list['qty'] . '</td>
                                     <td class="text-center">' . $list['kd_lokasi_rak'] . '</td>
                                     <td class="text-center">' . $list['status'] . '</td>
