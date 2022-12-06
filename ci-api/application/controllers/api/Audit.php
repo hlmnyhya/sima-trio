@@ -565,7 +565,7 @@ function __construct() {
     }
     public function Listpart_get()
     {
-        $id = $this->get('id');
+        $id = $this->get('part_number');
         $cabang = $this->get('id_cabang');
         $lokasi = $this->get('id_lokasi');
         $rakbin = $this->get('kd_lokasi_rak');
