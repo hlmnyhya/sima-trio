@@ -568,14 +568,14 @@ function __construct() {
         $id = $this->get('id');
         $cabang = $this->get('id_cabang');
         $lokasi = $this->get('id_lokasi');
-        // $rakbin = $this->get('kd_lokasi_rak');
+        $rakbin = $this->get('kd_lokasi_rak');
         $idjadwal_audit = $this->get('idjadwal_audit');
-        $kd_lokasi_rak = $this->get('kd_lokasi_rak');
+        // $kd_lokasi_rak = $this->get('kd_lokasi_rak');
         $qty = $this->get('qty');
         if ($id=== null) {
-            $list= $this->maudit->GetAuListpart(null,$cabang,$idjadwal_audit,$kd_lokasi_rak, $qty);
+            $list= $this->maudit->GetAuListpart(null,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
         }else{
-            $list= $this->maudit->GetAuListpart($id,$cabang,$idjadwal_audit,$kd_lokasi_rak, $qty);
+            $list= $this->maudit->GetAuListpart($id,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
         }
         
         if ($list) {
