@@ -1594,7 +1594,7 @@ public function scan_data_part()
     $cabang = $this->input->post('cabang');
     $lokasi = $this->input->post('lokasi');
     $rakbin = $this->input->post('kd_lokasi_rak');
-    // $kondisi = $this->input->post('kondisi');
+    $kondisi = $this->input->post('kondisi');
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     // $qty = $this->input->post('qty');
     $output = '';
@@ -1681,16 +1681,18 @@ public function scan_data_part()
         } else {
             foreach ($dataPart as $part) {
                 $data = [
-                    'id_cabang' => $part['id_cabang'],
+                    'id_cabang' => $cabang,
                     'id_lokasi' => $lokasi,
-                    'part_number' => $part['part_number'],
+                    'part_number' =>$scanpart,
                     'kd_lokasi_rak' => $rakbin,
+                    // 'deskripsi' => $part['deskripsi'],
                     'qty' => 1,
-                    // 'kondisi' => $kondisi,
+                    'kondisi' => $kondisi,
                     'status' => 'valid',
                     'idjadwal_audit' => $idjadwal_audit
                 ];
             }
+            // var_dump($data);exit;
             $info = 'Data Ditambahkan';
             if ($this->mtransauditor->addscanpart($data)) {
                 $output = '';
@@ -1736,11 +1738,11 @@ public function scan_data_part()
                         $start++;
                         $output .= '
                                     <tr> 
-                                        <td>' . $start . '</td>
-                                        <td></td>
-                                        <td class="text-center">' . $list['nama_cabang'] . '</td>
+                                    <td>' . $start . '</td>
+                                    <td class="text-center">' . $list['nama_cabang'] . '</td>
                                     <td class="text-center">' . $list['nama_gudang'] . '</td>
                                     <td class="text-center">' . $list['part_number'] . '</td>
+                                    <td class="text-center">' . $list['deskripsi'] . '</td>
                                     <td class="text-center">' . $list['qty'] . '</td>
                                     <td class="text-center">' . $list['kd_lokasi_rak'] . '</td>
                                     <td class="text-center">' . $list['status'] . '</td>

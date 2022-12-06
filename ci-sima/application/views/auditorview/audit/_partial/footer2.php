@@ -178,49 +178,7 @@
 
         // });
 
-        function scan_getdata() {
-            $('#manual').addClass('hidden');
-            var cari = $('#cari').val();
-            var lokasi = $('#id_lokasi').val();
-            var rakbin = $('#rakbin').val();
-            var kondisi = $('#kondisi').val();
-            var cabang = "<?php echo $_GET['id'] ?>";
-            var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
-            console.log(cari);
-            $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
-            if (cari != '') {
-                $.ajax({
-                    type: "post",
-                    dataType: 'JSON',
-                    url: "<?php echo base_url() ?>transaksi_auditor/scan_data_part",
-                    data: {
-                        id: cari,
-                        cabang: cabang,
-                        lokasi: lokasi,
-                        rakbin: rakbin,
-                        kondisi: kondisi,
-                        idjadwal_audit: idjadwal_audit
-                    },
-                    success: function(data) {
-                        $('#cari').val('');
-                        $('#info').html(data.info);
-                        $('#audit_part').html(data.output);
-                        $('#pagination').html(data.pagination);
-                    }
-                });
-            } else {
-                get_data(1);
-            }
-        }
-        $('#cari').keyup(function(e) {
-            if (e.keyCode == 13) {
-                if (cari) {
-                    scan_getdata();
-                } else {
-                    $('#info').html("Data Kosong");
-                } 
-            }
-        });
+
 
     });
 
