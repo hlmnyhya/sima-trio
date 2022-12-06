@@ -1602,7 +1602,7 @@ public function scan_data_part()
     $manual = false;
     $base = base_url();
     $info = '';
-    // var_dump($lokasi);exit;
+    // var_dump($rakbin);exit;
     // $param=array(
     //     $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
     // );
@@ -1611,7 +1611,7 @@ public function scan_data_part()
     // if ($scanpart != null) {
         $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit);
         // $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit);
-        var_dump($dataPart);exit;
+        // var_dump($dataPart);exit;
     // }
     // var_dump($dataPart);exit;
     if ($dataPart) {
@@ -1619,16 +1619,9 @@ public function scan_data_part()
         // var_dump($cek);exit;
         if ($cek)
         {
-            foreach ($cek as $c) {
-                $part = $c['qty'];
-                $data = [
-                    'id' => $c['id_part'],
-                    'qty' => $part + 1,
-                ];
-            }
             $info = 'Data diupdate';
             $output = '';
-            $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit);
+            $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $rakbin);
             // var_dump($count);exit;
             $this->load->library('pagination');
 
@@ -1666,7 +1659,7 @@ public function scan_data_part()
             }
             $start = ($page - 1) * $config['per_page'];
             $getpart = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
-            // var_dump($getpart);exit;
+            var_dump($getpart);exit;
             if ($getpart) {
                 foreach ($getpart as $list) {
                     $start++;

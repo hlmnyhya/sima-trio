@@ -405,13 +405,13 @@ class M_Transaksi_Auditor extends CI_Model
             return 0;
         }
     }
-    public function countPart1($a = null, $b = null, $c=null)
+    public function countPart1($id_cabang = null, $id_jadwal_audit = null)
     {
         $respon =  $this->_client->request('GET', 'countpart1', [
             'query' => [
-                'id_cabang' => $a,
-                'idjadwal_audit' => $b,
-                'rakbin' => $c
+                'id_cabang' => $id_cabang,
+                'idjadwal_audit' => $id_jadwal_audit,
+                
             ]
         ]);
 

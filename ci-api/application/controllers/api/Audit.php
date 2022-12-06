@@ -572,8 +572,8 @@ function __construct() {
         $idjadwal_audit = $this->get('idjadwal_audit');
         // $kd_lokasi_rak = $this->get('kd_lokasi_rak');
         $qty = $this->get('qty');
+            
 
-        // var_dump($id);exit;
         if ($id=== null) {
             $list= $this->maudit->GetAuListpart(null,$cabang,$idjadwal_audit,$rakbin, $qty,$lokasi);
             // var_dump($list);exit;
@@ -581,8 +581,7 @@ function __construct() {
         }else{
             $list= $this->maudit->GetAuListpart($id,$cabang,$idjadwal_audit,$rakbin, $qty,$lokasi);
         }
-
-        
+        // var_dump($list);exit;
         if ($list) {
             $this->response([
                 'status' => true,
@@ -1676,8 +1675,8 @@ function __construct() {
     {
         $a= $this->get('id_cabang');
         $b= $this->get('idjadwal_audit');
-        $c= $this->get('kd_lokasi_rak');
-            $count= $this->mcount->countpart1($a,$b,$c);
+        // $c= $this->get('kd_lokasi_rak');
+            $count= $this->mcount->countpart1($a,$b);
         if ($count) {
             $this->response([
                 'status' => true,
@@ -2260,7 +2259,6 @@ function __construct() {
         $offset = $this->get('offset');
         $limit = $this->get('limit');
         
-        
         if ($id===null) {
             $audit= $this->mpart->getaudlistpart(null,$offset, $limit);
             
@@ -2325,14 +2323,14 @@ function __construct() {
         $qty = $this->get('qty');
         $status = $this->get('status');
 
-        
+        // var_dump($status);exit;
         if ($id=== null) {
             $list= $this->mpart->cekqty();
             
         }else{
             $list= $this->mpart->cekqty($id,$cabang,$idjadwal_audit, $part_number, $rakbin, $lokasi, $qty, $status);
         }
-
+    // var_dump($list);exit;
         if ($list) {
             $this->response([
                 'status' => true,
