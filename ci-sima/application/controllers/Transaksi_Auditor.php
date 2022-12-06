@@ -1254,7 +1254,6 @@ public function ajax_partvalid($page)
             $output .= '
                         <tr> 
                             <td>' . $start . '</td>
-                            <td></td>
                             <td>' . $list['nama_gudang'] . '</td>
                             <td>' . $list['part_number'] . '</td>
                             <td>' . $list['deskripsi'] . '</td>
