@@ -278,7 +278,9 @@ class M_Part extends CI_Model {
     {
         if ($id === null) {
 
-        $query = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, idjadwal_audit) VALUES ('$part_number', '$rakbin', '$cabang', '$lokasi', '$deskripsi', '$qty', '$kondisi', '$status', '$idjadwal_audit')";
+        $query = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, tanggal_audit, idjadwal_audit)
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
+        FROM part";
 
         $this->db->query($query);
 
