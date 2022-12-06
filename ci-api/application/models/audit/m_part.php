@@ -276,16 +276,17 @@ class M_Part extends CI_Model {
 
     public function cekqty($id = null,$cabang= null, $lokasi = null, $rakbin = null, $idjadwal_audit = null, $part_number = null, $qty = null, $status = null, $kondisi = null, $deskripsi = null)
     {
+        $query5 = "SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit FROM part";
+        $this->db->query($query5);
+
         if ($id === null) {
 
-        $query = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, tanggal_audit, idjadwal_audit)
-        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
-        FROM part";
-
+        $query = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, tanggal_audit, idjadwal_audit) 
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit FROM part";
         $this->db->query($query);
 
         }else{
-            $query2 = "SELECT * FROM part WHERE qty < '$qty'";
+            $query2 = "SELECT * FROM part WHERE qty <= '$qty'";
             $this->db->query($query2);
             if ($qty == 1) {
                 $query3 = "UPDATE part SET status = 'Sesuai'";
