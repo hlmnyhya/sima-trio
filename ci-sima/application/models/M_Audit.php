@@ -12,11 +12,10 @@ class M_Audit extends CI_Model {
             ]);
         }
 
-        public function getAudit($offset=null, $limit=0)
+        public function getAudit($offset=null)
         {
             $respon =  $this->_client->request('GET', 'audit',[
                 'query' => [
-                    'limit' => $limit,
                     'offset' => $offset
                 ]
             ]);

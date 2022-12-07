@@ -4,14 +4,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Audit extends CI_Model {
 
-    public function getAudit($id=null,$offset=null, $limit = null)
+    public function getAudit($id=null,$offset=null)
     {
         if ($id===null) {
             $this->db->select('jadwal_audit.*, jenis_audit, nama_cabang');
             $this->db->from('jadwal_audit');
             $this->db->join('jenis_audit', 'jadwal_audit.idjenis_audit = jenis_audit.idjenis_audit', 'left');
             $this->db->join('cabang', 'jadwal_audit.id_cabang = cabang.id_cabang', 'left');
-            $this->db->limit($limit);
+            $this->db->limit(15);
             $this->db->offset($offset);
             $this->db->order_by('keterangan', 'asc');
             
@@ -23,7 +23,7 @@ class M_Audit extends CI_Model {
             $this->db->from('jadwal_audit');
             $this->db->join('jenis_audit', 'jadwal_audit.idjenis_audit = jenis_audit.idjenis_audit', 'left');
             $this->db->join('cabang', 'jadwal_audit.id_cabang = cabang.id_cabang', 'left');
-            $this->db->limit($limit);
+            $this->db->limit(15);
             $this->db->offset($offset);
             $this->db->order_by('keterangan', 'asc');
             $this->db->where('idjadwal_audit', $id);
@@ -102,13 +102,14 @@ class M_Audit extends CI_Model {
             return $result;
         }   
     }
-    public function GetListpart($id = null, $cabang = null, $rakbin=null)
+    public function GetListPart($id = null, $cabang = null, $idjadwal_audit = null, $qty = null, $rakbin = null)
     {
         if ($id===null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
             $this->db->from('temp_part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            
             
             $result = $this->db->get()->result();
             return $result;   
@@ -118,40 +119,15 @@ class M_Audit extends CI_Model {
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
-            $this->db->where('a.part_number', $id);
-            $this->db->where('a.kd_lokasi_rak', $rakbin);
-    
+            $this->db->where("a.part_number",$id);
+            $this->db->where("a.idjadwal_audit", $idjadwal_audit);
+            $this->db->where("a.qty", $qty);
+            $this->db->where("a.kd_lokasi_rak", $rakbin);
             
             $result = $this->db->get()->result();
             return $result;
         }   
     }
-    // public function GetListPart($id = null, $cabang = null, $idjadwal_audit = null, $qty = null, $rakbin = null)
-    // {
-    //     if ($id===null) {
-    //         $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
-    //         $this->db->from('temp_part a');
-    //         $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
-    //         $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
-            
-            
-    //         $result = $this->db->get()->result();
-    //         return $result;   
-    //     }else {
-    //         $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
-    //         $this->db->from('temp_part a');
-    //         $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
-    //         $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
-    //         $this->db->where('a.id_cabang', $cabang);
-    //         $this->db->where("a.part_number",$id);
-    //         $this->db->where("a.idjadwal_audit", $idjadwal_audit);
-    //         $this->db->where("a.qty", $qty);
-    //         $this->db->where("a.kd_lokasi_rak", $rakbin);
-            
-    //         $result = $this->db->get()->result();
-    //         return $result;
-    //     }   
-    // }
 
 public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = null)
     {
@@ -176,6 +152,8 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }   
     }
+
+
     public function AddList($data)
     {
         $this->db->insert('unit', $data);
@@ -194,7 +172,7 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
     }
     public function EditListPart($id,$data)
     {
-            $this->db->where("part_number = '$id'" );
+            $this->db->where("id_part = '$id'" );
             $this->db->update('part', $data);
         return $this->db->affected_rows(); 
     }
@@ -236,82 +214,50 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }
     }
-    public function GetAuListpart($id = null, $cabang = null, $idjadwal_audit, $rakbin = null)
+    public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null, $part_number = null, $qty = null)
     {
         if ($id === null) {
-            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rakbin,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
-            $this->db->join('cabang c', 'a.id_cabang = c.id_cabang', 'left');
-            $this->db->join('gudang d', 'a.id_lokasi = d.kd_gudang', 'left');
+            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
             $this->db->from('temp_part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
-            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
-            $this->db->where('a.kd_lokasi_rakbin', $rakbin);
-
+            $this->db->where('a.idjadwal_audit', $lokasi);
             
-
-            $result = $this->db->get()->result();
-
-            return $result;
-        }else {
-            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rakbin,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
-            $this->db->join('cabang c', 'a.id_cabang = c.id_cabang', 'left');
-            $this->db->join('gudang d', 'a.id_lokasi = d.kd_gudang', 'left');
+            return $this->db->get()->result();
+        }else{
+            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
             $this->db->from('temp_part a');
-            $this->db->where('a.part_number', $id);
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
-            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
-            $this->db->where('a.kd_lokasi_rakbin', $rakbin);
-
+            $this->db->where("a.part_number",$id );
+            if ($lokasi !=null) {
+                $this->db->where("a.id_lokasi",$lokasi );
+                
+            }
+            if ($rakbin !=null) {
+                $this->db->where("a.kd_lokasi_rak",$rakbin);
+                
+            }
+            // if ($kondisi !=null) {
+            //     $this->db->where("a.kondisi",$kondisi);
+                
+            // }
+            if ($idjadwal_audit !=null) {
+                $this->db->where("a.idjadwal_audit", $idjadwal_audit );
+                
+            }
+            if ($part_number !=null) {
+                $this->db->where("a.part_number", $part_number );
+            }
+            if ($qty !=null) {
+                $this->db->where("a.qty", $qty );
+            }
             $result = $this->db->get()->result();
-
             return $result;
         }
-
     }
-    // public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null, $part_number = null, $qty = null)
-    // {
-    //     if ($id === null) {
-    //         $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
-    //         $this->db->from('temp_part a');
-    //         $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
-    //         $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
-    //         $this->db->where('a.id_cabang', $cabang);
-    //         $this->db->where('a.idjadwal_audit', $lokasi);
-            
-    //         return $this->db->get()->result();
-    //     }else{
-    //         $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
-    //         $this->db->from('temp_part a');
-    //         $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
-    //         $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
-    //         $this->db->where('a.id_cabang', $cabang);
-    //         $this->db->where("a.part_number",$id );
-    //         if ($lokasi !=null) {
-    //             $this->db->where("a.id_lokasi",$lokasi );
-                
-    //         }
-    //         if ($rakbin !=null) {
-    //             $this->db->where("a.kd_lokasi_rak",$rakbin);
-                
-    //         }
-    //         // if ($kondisi !=null) {
-    //         //     $this->db->where("a.kondisi",$kondisi);
-                
-    //         // }
-    //         if ($idjadwal_audit !=null) {
-    //             $this->db->where("a.idjadwal_audit", $idjadwal_audit );
-                
-    //         }
-    //         if ($part_number !=null) {
-    //             $this->db->where("a.part_number", $part_number );
-    //         }
-    //         if ($qty !=null) {
-    //             $this->db->where("a.qty", $qty );
-    //         }
-    //         $result = $this->db->get()->result();
-    //         return $result;
-    //     }
-    // }
     public function GetListStatus($status = null,$cabang = null)
     {
         $this->db->select('
@@ -476,5 +422,9 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
                 return $result;
             }
         }
+
+    
+
+
 }
 ?>
