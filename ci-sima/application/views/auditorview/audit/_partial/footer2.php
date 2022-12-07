@@ -141,14 +141,14 @@
             })
         }
         get_data(1);
-        $('#doCariPart').click(function() {
-            var cari = $('#cari').val();
-            if (cari) {
-                scan_getdata();
-            } else {
-                $('#info').html("data Kosong");
-            }
-        });
+        // $('#doCariPart').click(function() {
+        //     var cari = $('#cari').val();
+        //     if (cari) {
+        //         scan_getdata();
+        //     } else {
+        //         $('#info').html("data Kosong");
+        //     }
+        // });
 
         // function get_data(page) {
         //     $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
@@ -257,8 +257,6 @@
             });
         }
 
-
-
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
             var rakbin = $('#rakbin_baru').val();
@@ -329,6 +327,7 @@
         function scan_getdata() {
             $('#manual').addClass('hidden');
             var cari = $('#cari').val();
+            var qty = $('#qty').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var rakbin = $('#rakbin').val();
             var kondisi = $('#kondisi').val();
@@ -352,6 +351,7 @@
                         idjadwal_audit: idjadwal_audit,
                         lokasi: lokasi,
                         kd_lokasi_rak: rakbin,
+                        qty: qty
                     },
                     success: function(data) {
                         $('#cari').val('');

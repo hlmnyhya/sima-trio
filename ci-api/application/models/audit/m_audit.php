@@ -236,7 +236,7 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }
     }
-    public function GetAuListpart($id = null,$cabang= null, $idjadwal_audit = null, $rakbin = null, $qty = null)
+    public function GetAuListpart($id = null,$lokasi=null,$cabang= null, $idjadwal_audit = null, $rakbin = null, $qty = null)
     {
         if ($id === null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
@@ -244,7 +244,11 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
+            $this->db->where('a.id_lokasi', $lokasi);
+            $this->db->where('a.part_number',$id );
             $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+            $this->db->where('a.kd_lokasi_rak', $rakbin);
+            $this->db->where('a.qty', $qty);
             
             return $this->db->get()->result();
         }else{

@@ -462,7 +462,7 @@ class M_Transaksi_Auditor extends CI_Model
     }
 
 
-    public function caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit)
+    public function caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit, $qty)
     {
         $respon =  $this->_client->request('GET', 'searchpart', [
             'query' => [
@@ -470,13 +470,14 @@ class M_Transaksi_Auditor extends CI_Model
                 'idjadwal_audit' => $idjadwal_audit,
                 'id_lokasi' => $lokasi,
                 'kd_lokasi_rak' => $rakbin,
-                'part_number' => $scanpart
+                'part_number' => $scanpart,
+                'qty' => $qty
             ]
         ]);
         // var_dump($scanpart);exit;
 
         $result = json_decode($respon->getBody()->getContents(), true);
-
+        // var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data'];
         } else {
@@ -566,7 +567,7 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function cekPart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit)
+    public function cekPart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit, $qty)
     {
         $respon =  $this->_client->request('GET', 'listpart', [
             'query' => [
@@ -575,11 +576,12 @@ class M_Transaksi_Auditor extends CI_Model
                 'idjadwal_audit' => $idjadwal_audit,
                 'id_lokasi' => $lokasi,
                 'kd_lokasi_rak' => $rakbin,
-                'id' => $scanpart
+                'part_number' => $scanpart,
+                'qty' => $qty
                 // 'qty' => $e, 
             ]
         ]);
-        // var_dump($scanpart);exit;
+        // var_dump($qty);exit;
         $result = json_decode($respon->getBody()->getContents(), true);
         // var_dump($result);exit;
         if ($result['status'] == true) {

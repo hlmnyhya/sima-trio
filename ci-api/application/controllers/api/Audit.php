@@ -565,21 +565,18 @@ function __construct() {
     }
     public function Listpart_get()
     {
-        $id = $this->get('part_number');
-        $cabang = $this->get('id_cabang');
-        $lokasi = $this->get('id_lokasi');
-        $rakbin = $this->get('kd_lokasi_rak');
-        $idjadwal_audit = $this->get('idjadwal_audit');
-        // $kd_lokasi_rak = $this->get('kd_lokasi_rak');
-        $qty = $this->get('qty');
+        $id= $this->get('id');
+        $offset = $this->get('offset');
+        $limit = $this->get('limit');
+        
+        if ($id===null) {
+            $list= $this->maudit->GetAuListpart(null,$offset, $limit);
             
-
-        if ($id=== null) {
-            $list= $this->maudit->GetAuListpart(null,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
+            
         }else{
-            $list= $this->maudit->GetAuListpart($id,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
+            $list= $this->maudit->GetAuListpart($id,$offset, $limit);
+
         }
-        // var_dump($list);exit;
         if ($list) {
             $this->response([
                 'status' => true,
@@ -592,6 +589,33 @@ function __construct() {
             ], REST_Controller::HTTP_OK);
             
         }
+        // $id = $this->get('part_number');
+        // $cabang = $this->get('id_cabang');
+        // $lokasi = $this->get('id_lokasi');
+        // $rakbin = $this->get('kd_lokasi_rak');
+        // $idjadwal_audit = $this->get('idjadwal_audit');
+        // // $kd_lokasi_rak = $this->get('kd_lokasi_rak');
+        // $qty = $this->get('qty');
+            
+
+        // if ($id=== null) {
+        //     $list= $this->maudit->GetAuListpart(null,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
+        // }else{
+        //     $list= $this->maudit->GetAuListpart($id,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
+        // }
+        // // var_dump($list);exit;
+        // if ($list) {
+        //     $this->response([
+        //         'status' => true,
+        //         'data' => $list
+        //     ], REST_Controller::HTTP_OK);
+        // }else{
+        //     $this->response([
+        //         'status' => false,
+        //         'data' => 'Data not found.'
+        //     ], REST_Controller::HTTP_OK);
+            
+        // }
     }
     //======================LIST AUDIT PART
     // public function ListPart_get()

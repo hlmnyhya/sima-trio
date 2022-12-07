@@ -36,6 +36,11 @@
                                                         <option value="Rusak">Rusak</option>
                                                     </select>
                                                 </div>
+                                                <label class="col-sm-3 control-label">Quantity</label>
+                                                <div class="col-sm-9">
+                                                    <input type="text" class="form-control" placeholder="quantity" id="qty">
+                                                    <span class="help-block m-b-none text-danger" id="info"></span>
+                                                </div>
                                             </div>
                                         </div>
                                         <div class="row">
@@ -46,6 +51,7 @@
                                                     <span class="help-block m-b-none text-danger" id="info"></span>
                                                 </div>
                                             </div>
+                                           
                                         </div>
                                     </div>
                                     <div class="row">
@@ -57,7 +63,7 @@
                                         </div>
                                     </div>
                                     <!-- Form Manual -->
-                                    <div id="manual" class="row p-h-sm">
+                                    <!-- <div id="manual" class="row p-h-sm">
                                         <div class="form-group col-sm-12">
                                             <label>Rakbin</label>
                                             <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbin_baru" required>
@@ -69,7 +75,7 @@
                                         <div class="form-group col-sm-12">
                                             <a id="auditPart" class="btn btn-primary">Audit</a>
                                         </div>
-                                    </div>
+                                    </div> -->
                                     <!-- Penutup Form manual -->
                                 </div>
                             </div>
