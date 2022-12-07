@@ -566,15 +566,16 @@ function __construct() {
     public function Listpart_get()
     {
         $id= $this->get('id');
-        $offset = $this->get('offset');
-        $limit = $this->get('limit');
+        $cabang = $this->get('id_cabang');
+        $idjadwal_audit = $this->get('idjadwal_audit');
+        $rakbin = $this->get('kd_lokasi_rak');
         
         if ($id===null) {
-            $list= $this->maudit->GetAuListpart(null,$offset, $limit);
+            $list= $this->maudit->GetAuListpart(null,$cabang, $idjadwal_audit, $rakbin);
             
             
         }else{
-            $list= $this->maudit->GetAuListpart($id,$offset, $limit);
+            $list= $this->maudit->GetAuListpart($id,$cabang, $idjadwal_audit, $rakbin);
 
         }
         if ($list) {

@@ -236,26 +236,37 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }
     }
-    public function GetAuListpart($id = null, $offset = null)
+    public function GetAuListpart($id = null, $cabang = null, $idjadwal_audit, $rakbin = null)
     {
         if ($id === null) {
-            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi, id_cabang, idjadwal_audit');
-            $this->db->from('part');
-            $this->db->limit(15);
-            $this->db->offset($offset);
+            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rakbin,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
+            $this->db->join('cabang c', 'a.id_cabang = c.id_cabang', 'left');
+            $this->db->join('gudang d', 'a.id_lokasi = d.kd_gudang', 'left');
+            $this->db->from('temp_part a');
+            $this->db->where('a.id_cabang', $cabang);
+            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+            $this->db->where('a.kd_lokasi_rakbin', $rakbin);
+
+            
 
             $result = $this->db->get()->result();
 
             return $result;
         }else {
-            $this->db->select('part_number, kd_lokasi_rak, qty, id_lokasi,id_cabang, idjadwal_audit');
-            $this->db->from('part');
-            $this->db->where('part_number',$id);
+            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rakbin,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
+            $this->db->join('cabang c', 'a.id_cabang = c.id_cabang', 'left');
+            $this->db->join('gudang d', 'a.id_lokasi = d.kd_gudang', 'left');
+            $this->db->from('temp_part a');
+            $this->db->where('a.part_number', $id);
+            $this->db->where('a.id_cabang', $cabang);
+            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+            $this->db->where('a.kd_lokasi_rakbin', $rakbin);
 
             $result = $this->db->get()->result();
 
             return $result;
         }
+
     }
     // public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null, $part_number = null, $qty = null)
     // {
