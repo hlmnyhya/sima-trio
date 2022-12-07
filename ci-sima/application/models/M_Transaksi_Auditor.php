@@ -462,16 +462,13 @@ class M_Transaksi_Auditor extends CI_Model
     }
 
 
-    public function caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit, $qty)
+    public function caripart($scanpart, $cabang, $rakbin)
     {
-        $respon =  $this->_client->request('GET', 'searchpart', [
+        $respon =  $this->_client->request('GET', 'listaudpart', [
             'query' => [
                 'id_cabang' => $cabang,
-                'idjadwal_audit' => $idjadwal_audit,
-                'id_lokasi' => $lokasi,
                 'kd_lokasi_rak' => $rakbin,
-                'part_number' => $scanpart,
-                'qty' => $qty
+                'id' => $scanpart,
             ]
         ]);
         // var_dump($scanpart);exit;
@@ -526,10 +523,12 @@ class M_Transaksi_Auditor extends CI_Model
     }
     public function editscanpart($data)
     {
+        // var_dump($data);exit;
         $respon =  $this->_client->request('PUT', 'listaudpart', [
             'form_params' => $data
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
 
         if ($result['status'] == true) {
             return $result['data'];
@@ -567,17 +566,17 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function cekPart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit, $qty)
+    public function cekPart($scanpart, $cabang, $rakbin, $idjadwal_audit)
     {
         $respon =  $this->_client->request('GET', 'listpart', [
             'query' => [
                 // 'id' => $a,
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit,
-                'id_lokasi' => $lokasi,
+                
                 'kd_lokasi_rak' => $rakbin,
                 'part_number' => $scanpart,
-                'qty' => $qty
+  
                 // 'qty' => $e, 
             ]
         ]);

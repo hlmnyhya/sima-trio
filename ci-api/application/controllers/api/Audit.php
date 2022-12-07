@@ -308,12 +308,11 @@ function __construct() {
     {
         $id = $this->get('id');
         $cabang = $this->get('id_cabang');
-        $qty   = $this->get('qty');
         $kd_lokasi_rak = $this->get('kd_lokasi_rak');
         if ($id===null) {
             $aud = $this->maudit->GetListpart();
         }else{
-            $aud = $this->maudit->GetListpart($id,$cabang,$qty,$kd_lokasi_rak);
+            $aud = $this->maudit->GetListpart($id,$cabang,$kd_lokasi_rak);
         }
 
         if ($aud) {
@@ -513,9 +512,8 @@ function __construct() {
     {
         $id = $this->put('id_part');
             $data =[
+                'id' => $this->put('part_number'),
                 'qty' =>$this->put('qty'),
-                'edit_by' => $this->put('user'),
-                'tanggal_edit' => $this->_tgl
             ];
         if ($id===null) {
             $this->response([
@@ -565,18 +563,17 @@ function __construct() {
     }
     public function Listpart_get()
     {
-        $id= $this->get('id');
-        $offset = $this->get('offset');
-        $limit = $this->get('limit');
-        
-        if ($id===null) {
-            $list= $this->maudit->GetAuListpart(null,$offset, $limit);
-            
+        $id = $this->get('id');
+        $cabang = $this->get('id_cabang');
+        $idjadwal_audit = $this->get('idjadwal_audit');
+        $rakbin = $this->get('kd_lokasi_rak');
+        if ($id=== null) {
+            $list= $this->maudit->GetAuListpart(null,$cabang,$idjadwal_audit,$rakbin);
             
         }else{
-            $list= $this->maudit->GetAuListpart($id,$offset, $limit);
-
+            $list= $this->maudit->GetAuListpart($id,$cabang,$idjadwal_audit,$rakbin);
         }
+        
         if ($list) {
             $this->response([
                 'status' => true,
@@ -589,33 +586,7 @@ function __construct() {
             ], REST_Controller::HTTP_OK);
             
         }
-        // $id = $this->get('part_number');
-        // $cabang = $this->get('id_cabang');
-        // $lokasi = $this->get('id_lokasi');
-        // $rakbin = $this->get('kd_lokasi_rak');
-        // $idjadwal_audit = $this->get('idjadwal_audit');
-        // // $kd_lokasi_rak = $this->get('kd_lokasi_rak');
-        // $qty = $this->get('qty');
-            
-
-        // if ($id=== null) {
-        //     $list= $this->maudit->GetAuListpart(null,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
-        // }else{
-        //     $list= $this->maudit->GetAuListpart($id,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
-        // }
-        // // var_dump($list);exit;
-        // if ($list) {
-        //     $this->response([
-        //         'status' => true,
-        //         'data' => $list
-        //     ], REST_Controller::HTTP_OK);
-        // }else{
-        //     $this->response([
-        //         'status' => false,
-        //         'data' => 'Data not found.'
-        //     ], REST_Controller::HTTP_OK);
-            
-        // }
+        // 
     }
     //======================LIST AUDIT PART
     // public function ListPart_get()
