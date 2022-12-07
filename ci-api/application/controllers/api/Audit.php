@@ -308,11 +308,11 @@ function __construct() {
     {
         $id = $this->get('id');
         $cabang = $this->get('id_cabang');
-        $kd_lokasi_rak = $this->get('kd_lokasi_rak');
+        $rakbin = $this->get('kd_lokasi_rak');
         if ($id===null) {
             $aud = $this->maudit->GetListpart();
         }else{
-            $aud = $this->maudit->GetListpart($id,$cabang,$kd_lokasi_rak);
+            $aud = $this->maudit->GetListpart($id,$cabang,$rakbin);
         }
 
         if ($aud) {
@@ -563,15 +563,18 @@ function __construct() {
     }
     public function Listpart_get()
     {
-        $id = $this->get('id');
+        $id= $this->get('id');
         $cabang = $this->get('id_cabang');
         $idjadwal_audit = $this->get('idjadwal_audit');
         $rakbin = $this->get('kd_lokasi_rak');
-        if ($id=== null) {
-            $list= $this->maudit->GetAuListpart(null,$cabang,$idjadwal_audit,$rakbin);
+        
+        if ($id===null) {
+            $list= $this->maudit->GetAuListpart(null,$cabang, $idjadwal_audit, $rakbin);
+            
             
         }else{
-            $list= $this->maudit->GetAuListpart($id,$cabang,$idjadwal_audit,$rakbin);
+            $list= $this->maudit->GetAuListpart($id,$cabang, $idjadwal_audit, $rakbin);
+
         }
         
         if ($list) {

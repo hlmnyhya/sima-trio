@@ -466,9 +466,9 @@ class M_Transaksi_Auditor extends CI_Model
     {
         $respon =  $this->_client->request('GET', 'listaudpart', [
             'query' => [
+                'id' => $scanpart,
                 'id_cabang' => $cabang,
                 'kd_lokasi_rak' => $rakbin,
-                'id' => $scanpart,
             ]
         ]);
         // var_dump($scanpart);exit;
@@ -573,7 +573,6 @@ class M_Transaksi_Auditor extends CI_Model
                 // 'id' => $a,
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit,
-                
                 'kd_lokasi_rak' => $rakbin,
                 'part_number' => $scanpart,
   
