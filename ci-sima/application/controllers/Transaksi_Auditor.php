@@ -1521,7 +1521,299 @@ public function doPart()
                 }
             }
         } else {
-            $info = 'Data Gagal diaudit';
+            if ($this->mtransauditor->addScanPart($data)) {
+                $info = 'Data Berhasil diaudit';
+                $output = '';
+                $count = $this->mtransauditor->countPart1($cabang, $idjadwal_audit);
+                $this->load->library('pagination');
+
+                $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';
+                $config['total_rows'] = $count;
+                $config['per_page'] = 15;
+                $config['uri_segment'] = 3;
+                $config['use_page_numbers'] = TRUE;
+                $config['num_links'] = 3;
+
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['first_link'] = 'First';
+                $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['first_tag_close'] = '</li>';
+                $config['last_link'] = 'Last';
+                $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['last_tag_close'] = '</li>';
+                $config['next_link'] = '&gt;';
+                $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['next_tag_close'] = '</li>';
+                $config['prev_link'] = '&lt;&nbsp;';
+                $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['prev_tag_close'] = '</li>';
+                $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['num_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['cur_tag_close'] = '</li>';
+
+                $this->pagination->initialize($config);
+
+                $page = floor($count / 15); //$this->uri->segment(3);
+                if ($page == null) {
+                    $page = 1;
+                }
+                $start = ($page - 1) * $config['per_page'];
+                $getPartValid = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
+                if ($getPartValid) {
+                    foreach ($getPartValid as $list) {
+                        $start++;
+                        $output .= '
+                                    <tr> 
+                                        <td class="text-center">' . $start . '</td>
+                                        <td></td>
+                                        <td class = "text-center>' . $list['nama_gudang'] . '</td>
+                                        <td class="text-center">' . $list['part_number'] . '</td>
+                                        <td  class="text-center">' . $list['deskripsi'] . '</td>
+                                        <td  class="text-center">' . $list['kd_lokasi_rak'] . '</td>
+                                        <td  class="text-center">' . $list['qty'] . '</td>
+                                        <td  class="text-center">' . $list['status'] . '</td>
+                                    </tr>     
+                                    ';
+                    }
+                }
+            } else {
+                $info = 'Data Gagal diaudit';
+                $output = '';
+                $count = $this->mtransauditor->countPart1($cabang, $idjadwal_audit);
+                $this->load->library('pagination');
+
+                $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';
+                $config['total_rows'] = $count;
+                $config['per_page'] = 15;
+                $config['uri_segment'] = 3;
+                $config['use_page_numbers'] = TRUE;
+                $config['num_links'] = 3;
+
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['first_link'] = 'First';
+                $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['first_tag_close'] = '</li>';
+                $config['last_link'] = 'Last';
+                $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['last_tag_close'] = '</li>';
+                $config['next_link'] = '&gt;';
+                $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['next_tag_close'] = '</li>';
+                $config['prev_link'] = '&lt;&nbsp;';
+                $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['prev_tag_close'] = '</li>';
+                $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['num_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['cur_tag_close'] = '</li>';
+
+                $this->pagination->initialize($config);
+
+                $page = floor($count / 15); //$this->uri->segment(3);
+                if ($page == null) {
+                    $page = 1;
+                }
+                $start = ($page - 1) * $config['per_page'];
+                $getPartValid = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
+                if ($getPartValid) {
+                    foreach ($getPartValid as $list) {
+                        $start++;
+                        $output .= '
+                                    <tr> 
+                                        <td class="text-center">' . $start . '</td>
+                                        <td></td>
+                                        <td class = "text-center>' . $list['nama_gudang'] . '</td>
+                                        <td class="text-center">' . $list['part_number'] . '</td>
+                                        <td  class="text-center">' . $list['deskripsi'] . '</td>
+                                        <td  class="text-center">' . $list['kd_lokasi_rak'] . '</td>
+                                        <td  class="text-center">' . $list['qty'] . '</td>
+                                        <td  class="text-center">' . $list['status'] . '</td>
+                                    </tr>     
+                                    ';
+                    }
+                }
+            }
+        }
+        $data = [
+            'info' => $info,
+            'output' => $output,
+            'manual' => $manual
+        ];
+        echo json_encode($data, true);
+    }
+
+    // 
+
+    public function scan_data_part()
+    {
+        $scanpart = $this->input->post('id');
+        $cabang = $this->input->post('cabang');
+        $lokasi = $this->input->post('lokasi');
+        $rakbin = $this->input->post('kd_lokasi_rak');
+        $kondisi = $this->input->post('kondisi');
+        $qty = $this->input->post('qty');
+        $idjadwal_audit = $this->input->post('idjadwal_audit');
+        // $qty = $this->input->post('qty');
+        $output = '';
+        $manual = false;
+        $base = base_url();
+        $info = '';
+        // var_dump($scanpart);exit;
+        // $param=array(
+        //     $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
+        // );
+        // var_dump($param);exit;
+
+        // if ($scanpart != null) {
+        $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $rakbin );
+        // } 
+        // var_dump($dataPart);exit;
+        if ($dataPart) {
+            $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $qty);
+            var_dump($cek);exit;
+            if ($cek) {
+                $info = 'Data diupdate';
+                $output = '';
+                $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $rakbin);
+                // var_dump($count);exit;
+                $this->load->library('pagination');
+
+                $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';
+                $config['total_rows'] = $count;
+                $config['per_page'] = 15;
+                $config['uri_segment'] = 3;
+                $config['use_page_numbers'] = TRUE;
+                $config['num_links'] = 3;
+
+                $config['full_tag_open'] = '<ul class="pagination">';
+                $config['full_tag_close'] = '</ul>';
+                $config['first_link'] = 'First';
+                $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['first_tag_close'] = '</li>';
+                $config['last_link'] = 'Last';
+                $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['last_tag_close'] = '</li>';
+                $config['next_link'] = '&gt;';
+                $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['next_tag_close'] = '</li>';
+                $config['prev_link'] = '&lt;&nbsp;';
+                $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['prev_tag_close'] = '</li>';
+                $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['num_tag_close'] = '</li>';
+                $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+                $config['cur_tag_close'] = '</li>';
+
+                $this->pagination->initialize($config);
+
+                $page = ceil($count / 15); //$this->uri->segment(3);
+                if ($page == null) {
+                    $page = 1;
+                }
+                $start = ($page - 1) * $config['per_page'];
+                $getpart = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
+                // var_dump($getpart);exit;
+                if ($getpart) {
+                    foreach ($getpart as $list) {
+                        $start++;
+                        $output .= '
+                                <tr> 
+                                    <td class="text-center">' . $start . '</td>
+                                    <td class="text-center">' . $list['nama_cabang'] . '</td>
+                                    <td class="text-center">' . $list['nama_gudang'] . '</td>
+                                    <td class="text-center">' . $list['part_number'] . '</td>
+                                    <td class="text-center">' . $list['qty'] . '</td>
+                                    <td class=a"text-center">' . $list['kd_lokasi_rak'] . '</td>
+                                    <td class="text-center">' . $list['status'] . '</td>
+                                    <td class="text-center">' . $list['kondisi'] . '</td>
+                                    <td class="text-center">' . $list['keterangan'] . '</td>
+                                </tr>     
+                                ';
+                    }
+                }
+            } else {
+                foreach ($dataPart as $part) {
+                    $data = [
+                        'id_cabang' => $cabang,
+                        'id_lokasi' => $lokasi,
+                        'part_number' => $scanpart,
+                        'kd_lokasi_rak' => $rakbin,
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => $qty,
+                        'kondisi' => $kondisi,
+                        'status' => 'valid',
+                        'idjadwal_audit' => $idjadwal_audit
+                    ];
+                }
+                // var_dump($data);exit;
+                $info = 'Data Ditambahkan';
+                if ($this->mtransauditor->addscanpart($data)) {
+                    $output = '';
+                    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit);
+                    $this->load->library('pagination');
+
+                    $config['base_url'] = base_url() . 'transaksi_auditor/ajax_partvalid';
+                    $config['total_rows'] = $count;
+                    $config['per_page'] = 15;
+                    $config['uri_segment'] = 3;
+                    $config['use_page_numbers'] = TRUE;
+                    $config['num_links'] = 3;
+
+                    $config['full_tag_open'] = '<ul class="pagination">';
+                    $config['full_tag_close'] = '</ul>';
+                    $config['first_link'] = 'First';
+                    $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+                    $config['first_tag_close'] = '</li>';
+                    $config['last_link'] = 'Last';
+                    $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+                    $config['last_tag_close'] = '</li>';
+                    $config['next_link'] = '&gt;';
+                    $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+                    $config['next_tag_close'] = '</li>';
+                    $config['prev_link'] = '&lt;&nbsp;';
+                    $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+                    $config['prev_tag_close'] = '</li>';
+                    $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+                    $config['num_tag_close'] = '</li>';
+                    $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+                    $config['cur_tag_close'] = '</li>';
+
+                    $this->pagination->initialize($config);
+
+                    $page = $this->uri->segment(3);
+                    if ($page == null) {
+                        $page = 1;
+                    }
+                    $start = ($page - 1) * $config['per_page'];
+                    $getpart = $this->mtransauditor->getPartValid($cabang, $start, $idjadwal_audit);
+                    // var_dump($getpart);exit;
+                    if ($getpart) {
+                        foreach ($getpart as $list) {
+                            $start++;
+                            $output .= '
+                                    <tr> 
+                                    <td>' . $start . '</td>
+                                    <td class="text-center">' . $list['nama_cabang'] . '</td>
+                                    <td class="text-center">' . $list['nama_gudang'] . '</td>
+                                    <td class="text-center">' . $list['part_number'] . '</td>
+                                    <td class="text-center">' . $list['deskripsi'] . '</td>
+                                    <td class="text-center">' . $list['qty'] . '</td>
+                                    <td class="text-center">' . $list['kd_lokasi_rak'] . '</td>
+                                    <td class="text-center">' . $list['status'] . '</td>
+                                    <td class="text-center">' . $list['kondisi'] . '</td>
+                                    <td class="text-center">' . $list['keterangan'] . '</td>
+                                    </tr>     
+                                    ';
+                        }
+                    }
+                }
+            }
+        }else {
+            $info = 'Data not found';
+            $manual = true;
             $output = '';
             $count = $this->mtransauditor->countPart1($cabang, $idjadwal_audit);
             $this->load->library('pagination');

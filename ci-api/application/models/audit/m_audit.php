@@ -102,7 +102,7 @@ class M_Audit extends CI_Model {
             return $result;
         }   
     }
-    public function GetListPart($id = null, $cabang = null, $idjadwal_audit = null, $qty = null, $rakbin = null)
+    public function GetListpart($id = null, $cabang = null, $rakbin=null)
     {
         if ($id===null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
@@ -119,10 +119,9 @@ class M_Audit extends CI_Model {
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
-            $this->db->where("a.part_number",$id);
-            $this->db->where("a.idjadwal_audit", $idjadwal_audit);
-            $this->db->where("a.qty", $qty);
-            $this->db->where("a.kd_lokasi_rak", $rakbin);
+            $this->db->where('a.part_number', $id);
+            $this->db->where('a.kd_lokasi_rak', $rakbin);
+            
             
             $result = $this->db->get()->result();
             return $result;
@@ -214,23 +213,46 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }
     }
+<<<<<<< HEAD
     public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null, $part_number = null, $qty = null)
     {
         if ($id === null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+=======
+    public function GetAuListpart($id = null, $cabang = null, $idjadwal_audit = null, $rakbin = null)
+    {
+        if ($id === null) {
+            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rak,a.status,a.kondisi,a.keterangan,c.nama_cabang, d.nama_gudang');
+            $this->db->join('cabang c', 'a.id_cabang = c.id_cabang', 'left');
+            $this->db->join('gudang d', 'a.id_lokasi = d.kd_gudang', 'left');
+>>>>>>> 1ed0278e5a09d07f600d637fd100327b2930fdc1
             $this->db->from('temp_part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
+<<<<<<< HEAD
             $this->db->where('a.idjadwal_audit', $lokasi);
             
             return $this->db->get()->result();
         }else{
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+=======
+            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+            $this->db->where('a.kd_lokasi_rak', $rakbin);
+
+            $result = $this->db->get()->result();
+
+            return $result;
+        }else {
+            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rak,a.status,a.kondisi,a.keterangan,c.nama_cabang, d.nama_gudang');
+            $this->db->join('cabang c', 'a.id_cabang = c.id_cabang', 'left');
+            $this->db->join('gudang d', 'a.id_lokasi = d.kd_gudang', 'left');
+>>>>>>> 1ed0278e5a09d07f600d637fd100327b2930fdc1
             $this->db->from('temp_part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
+<<<<<<< HEAD
             $this->db->where("a.part_number",$id );
             if ($lokasi !=null) {
                 $this->db->where("a.id_lokasi",$lokasi );
@@ -254,6 +276,11 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             if ($qty !=null) {
                 $this->db->where("a.qty", $qty );
             }
+=======
+            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+            $this->db->where('a.kd_lokasi_rak', $rakbin);
+
+>>>>>>> 1ed0278e5a09d07f600d637fd100327b2930fdc1
             $result = $this->db->get()->result();
             return $result;
         }

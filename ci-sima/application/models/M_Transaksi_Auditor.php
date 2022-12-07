@@ -459,18 +459,31 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
+<<<<<<< HEAD
     public function caripart($id, $cabang, $idjadwal_audit, $lokasi, $rakbin, $kondisi, $qty, $part_number )
     {
         $respon =  $this->_client->request('GET', 'listaudPart', [
+=======
+
+    public function caripart($scanpart, $cabang, $rakbin, )
+    {
+        $respon =  $this->_client->request('GET', 'listaudpart', [
+>>>>>>> 1ed0278e5a09d07f600d637fd100327b2930fdc1
             'query' => [
                 'id' => $id,
                 'id_cabang' => $cabang,
+<<<<<<< HEAD
                 'idjadwal_audit' => $idjadwal_audit,
                 'qty' => $qty,
                 'lokasi' => $lokasi,
                 'rakbin' => $rakbin,
                 'kondisi' => $kondisi,
                 'part_number' => $part_number
+=======
+                'kd_lokasi_rak' => $rakbin,
+                'part_number' => $scanpart,
+                
+>>>>>>> 1ed0278e5a09d07f600d637fd100327b2930fdc1
             ]
         ]);
 
@@ -565,6 +578,7 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
+<<<<<<< HEAD
     public function cekPart($a, $b, $c, $d, $e, $f, $g, $h)
     {
         $respon =  $this->_client->request('GET', 'listPart', [
@@ -577,6 +591,20 @@ class M_Transaksi_Auditor extends CI_Model
                 'idjadwal_audit' => $f,
                 'part_number' => $g,
                 'qty' => $h
+=======
+    public function cekPart($scanpart, $cabang, $rakbin, $lokasi, $qty)
+    {
+        $respon =  $this->_client->request('GET', 'checkqty', [
+            'query' => [
+                // 'id' => $a,
+                'id_cabang' => $cabang,
+                // 'idjadwal_audit' => $idjadwal_audit,
+                'id_lokasi' => $lokasi,
+                'kd_lokasi_rak' => $rakbin,
+                'id' => $scanpart,
+                'qty' => $qty
+                // 'qty' => $e, 
+>>>>>>> 1ed0278e5a09d07f600d637fd100327b2930fdc1
             ]
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
