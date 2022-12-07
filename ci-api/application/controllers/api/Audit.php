@@ -308,12 +308,12 @@ function __construct() {
     {
         $id = $this->get('id');
         $cabang = $this->get('id_cabang');
-        $qty   = $this->get('qty');
-        $kd_lokasi_rak = $this->get('kd_lokasi_rak');
+        // $qty   = $this->get('qty');
+        $rakbin = $this->get('kd_lokasi_rak');
         if ($id===null) {
             $aud = $this->maudit->GetListpart();
         }else{
-            $aud = $this->maudit->GetListpart($id,$cabang,$qty,$kd_lokasi_rak);
+            $aud = $this->maudit->GetListpart($id,$cabang, $rakbin);
         }
 
         if ($aud) {
@@ -2367,10 +2367,35 @@ function __construct() {
             
         }
 
-    } 
+    }
+    public function checkqty_get()
+    {
+        $id = $this->get('id');
+        $cabang = $this->get('id_cabang');
+        $lokasi = $this->get('id_lokasi');
+        $rakbin = $this->get('kd_lokasi_rak');
+        $qty = $this->get('qty');
 
-    
+        if ($id != null) {
+        $list= $this->mpart->updateqty($id, $qty, $rakbin, $cabang, $lokasi);
+        } else {
+        $list= $this->mpart->updateqty($id, $qty, $rakbin, $cabang, $lokasi);
+        }
+        // var_dump($list);exit;
+        if ($list) {
+            $this->response([
+                'status' => true,
+                'data' => $list
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
 }
+    }
 
 
 

@@ -1605,33 +1605,19 @@ class Transaksi_Auditor extends CI_Controller
         $manual = false;
         $base = base_url();
         $info = '';
-        // var_dump($rakbin);exit;
+        // var_dump($scanpart);exit;
         // $param=array(
         //     $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
         // );
         // var_dump($param);exit;
 
-        if ($scanpart != null) {
-        $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit, $qty);
-        } 
+        // if ($scanpart != null) {
+        $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $rakbin );
+        // } 
+        // var_dump($dataPart);exit;
         if ($dataPart) {
-            foreach ($dataPart as $part) {
-                if($part['part_number'] == $scanpart){
-                    $data = [
-                        'id_cabang' => $cabang,
-                        'id_lokasi' => $lokasi,
-                        'part_number' => $scanpart,
-                        'kd_lokasi_rak' => $rakbin,
-                        'deskripsi' => $part['deskripsi'],
-                        'qty' => 1,
-                        'kondisi' => $kondisi,
-                        'status' => 'valid',
-                        'idjadwal_audit' => $idjadwal_audit
-                    ];
-                }
-            }
-            $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit, $qty);
-            // var_dump($cek);exit;
+            $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $rakbin, $lokasi, $qty);
+            var_dump($cek);exit;
             if ($cek) {
                 $info = 'Data diupdate';
                 $output = '';
