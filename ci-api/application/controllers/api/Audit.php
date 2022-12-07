@@ -572,7 +572,7 @@ function __construct() {
         $idjadwal_audit = $this->get('idjadwal_audit');
         // $kd_lokasi_rak = $this->get('kd_lokasi_rak');
         $qty = $this->get('qty');
-            
+        
 
         if ($id=== null) {
             $list= $this->maudit->GetAuListpart(null,$cabang,$lokasi,$idjadwal_audit,$rakbin, $qty);
