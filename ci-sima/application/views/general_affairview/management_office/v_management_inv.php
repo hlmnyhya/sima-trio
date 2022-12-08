@@ -16,18 +16,6 @@
                     </div>
 
                     <div class="panel-body">
-                        <div class="row">
-                            <div class="col-sm-6">
-                                <div class="form-group"><label class="col-sm-3 control-label">ID Inventory</label>
-                                    <div class="col-sm-9"><input type="text" class="form-control" name="id_inventory" id="id_inventory" readonly /></div>
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="col-sm-3">
-                                    <a class="btn btn-warning" onclick="generate()">Generate </a><span id="load2"></span>
-                                </div>
-                            </div>
-                        </div>
 
                         <div class="col-sm-6">
                             <div class="form-group"><label class="col-sm-3 control-label">Status Inventory</label>
@@ -50,15 +38,22 @@
                                     </select>
                                 </div>
                             </div>
-                            <div class="form-group"><label class="col-sm-3 control-label">DDP</label>
+                            <div class="form-group"><label class="col-sm-3 control-label">ID Inventory</label>
+                                <div class="col-sm-7"><input type="text" class="form-control" name="id_inventory" id="id_inventory" readonly /></div>
+                                <div class="col-sm-2">
+                                    <a class="btn btn-warning" onclick="generate()">Generate </a><span id="load2"></span>
+                                </div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-3 control-label">DP</label>
                                 <div class="col-sm-9"><input type="text" class="form-control" name="ddp" id="dpp">
                                 </div>
                             </div>
 
                             <div class="form-group"><label class="col-sm-3 control-label">Nilai Asset</label>
-                                <div class="col-sm-6"><input type="text" class="form-control" name="nilai_asset" id="nilai_asset">
+                                <div class="col-sm-7"><input type="text" class="form-control" name="nilai_asset" id="nilai_asset">
                                 </div>
-                                <div class="col-sm-2"><a onclick="hitung()" class="btn btn-primary"> Hitung</a></div>
+                                <div class="col-sm-2"><a onclick="hitung()" class="btn btn-primary"> Hitung </a>
+                                </div>
                             </div>
 
                             <div class="form-group"><label class="col-sm-3 control-label">Nilai Awal</label>
@@ -70,9 +65,9 @@
                             <div class="form-group"><label class="col-sm-3 control-label">Nilai Total Keseluruhan</label>
                                 <div class="col-sm-9"><input type="text" class="form-control" name="nilai_total_keseluruhan">
                                 </div>
-                            </div>            
+                            </div>
 
-                            
+
                             <div class="form-group" id="data_1"><label class="col-sm-3 control-label">Tanggal Barang Terima</label>
                                 <div class="col-sm-9">
                                     <div class="input-group date">
@@ -168,13 +163,17 @@
                             </div>
 
 
-                            <div class="form-group"><label class="col-sm-3 control-label">PPn</label>
-                                <div class="col-sm-9"><input type="text" class="form-control" name="ppn" id="ppn">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label m-l">PPn</label>
+                                <div class=" input-group col-sm-8">
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon2">
+                                    <span class="input-group-addon" id="sizing-addon2">%</span>
                                 </div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-6 control-label">Apakah Menggunakan PPn atau Tidak?</label>
-                                <div class="col-sm-6"><select class="form-control m-b" name="ket_ppn" id="ket_ppn">
+
+                            <div class=" form-group"><label class="col-sm-7 control-label">Menggunakan PPn atau Tidak?</label>
+                                <div class="col-sm-5"><select class="form-control m-b" name="ket_ppn" id="ket_ppn">
                                         <option value="YA">YA</option>
                                         <option valuer="TIDAK">TIDAK</option>
                                     </select>
