@@ -218,7 +218,7 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
     {
         if ($id === null) {
             $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rak,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
-            $this->db->from('temp_part a');
+            $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
@@ -230,7 +230,7 @@ public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = nul
             return $result;
         }else {
             $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rak,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
-            $this->db->from('temp_part a');
+            $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.part_number', $id);

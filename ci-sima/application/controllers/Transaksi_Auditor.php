@@ -1611,30 +1611,29 @@ class Transaksi_Auditor extends CI_Controller
         //     $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
         // );
         // var_dump($param);exit;
-          if ($scanpart != null){
-              $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $idjadwal_audit);
-          }  
+         
+        $dataPart = $this->mtransauditor->caripart($scanpart, $cabang, $idjadwal_audit);
         // var_dump($dataPart);exit;
         if ($dataPart) {
             foreach ($dataPart as $part) {
-                if($part['lokasi']== $lokasi){
+                if($part['id_lokasi']== $lokasi){
                     $data = [
-                        'id_cabang' => $cabang,
-                        'id_lokasi' => $lokasi,
-                        'part_number' => $scanpart,
-                        'kd_lokasi_rak' => $rakbin,
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
                         'deskripsi' => $part['deskripsi'],
-                        'qty' => 1,
+                        'qty' => $part['qty'],
                         'kondisi' => $kondisi,
                         'status' => 'valid',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
                 } else {
                     $data = [
-                        'id_cabang' => $cabang,
-                        'id_lokasi' => $lokasi,
-                        'part_number' => $scanpart,
-                        'kd_lokasi_rak' => $rakbin,
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
@@ -1645,10 +1644,11 @@ class Transaksi_Auditor extends CI_Controller
             }
             // var_dump($data);exit;
                 $cek = $this->mtransauditor->cekPart($scanpart, $cabang, $idjadwal_audit); 
-                if ($cek) {
+                // var_dump($cek);exit;
+                if ($cek ) {
                     $info = 'Data diupdate';
                     $output = '';
-                    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $rakbin);
+                    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit);
                     // var_dump($count);exit;
                     $this->load->library('pagination');
     

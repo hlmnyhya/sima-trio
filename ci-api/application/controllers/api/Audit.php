@@ -1639,7 +1639,7 @@ function __construct() {
     {
         $a= $this->get('id_cabang');
         $b= $this->get('idjadwal_audit');
-        $c= $this->get('kd_lokasi_rak');
+        // $c= $this->get('kd_lokasi_rak');
             $count= $this->mcount->countpart1($a,$b);
         if ($count) {
             $this->response([
