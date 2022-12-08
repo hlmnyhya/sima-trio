@@ -22,6 +22,7 @@
 <!-- Custom and plugin javascript -->
 <script src="<?php echo base_url() ?>assets/js/inspinia.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/pace/pace.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/js/plugins/toastr/toastr.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/iCheck/icheck.min.js"></script>
@@ -87,7 +88,8 @@
         // rakbin();
         lokasi()
         $('#id_lokasi').change(function() {
-            var rak = "<?php echo $_GET['id'] ?>";
+            var rak = $(this).val();
+            $('#rakbin').html('');
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
@@ -97,11 +99,30 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {
                     $('#rakbin').html(data);
-                }
-            });
-        });
+                    $('#rakbin').select2();
 
-       
+                } 
+            });
+            console.log(rak);
+        });
+        
+        function lokasi() {
+        var cabang = "<?php echo $_GET['id'] ?>";
+        $.ajax({
+            type: 'POST',
+            dataType: 'JSON',
+            data: {
+                id_cabang: cabang
+            },
+            url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+            success: function(data) {
+                $('#id_lokasi').html(data);
+            }
+                
+        });
+        console.log(cabang);
+    }
+
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
             var idjadwal_audit = "<?php echo base64_decode($this->input->get('a')) ?>";
@@ -120,143 +141,86 @@
             })
         }
         get_data(1);
-        $('#doCariPart').click(function() {
-            var cari = $('#cari').val();
-            if (cari) {
-                scan_getdata();
-            } else {
-                $('#info').html("data Kosong");
-            }
-        });
+        // $('#doCariPart').click(function() {
+        //     var cari = $('#cari').val();
+        //     if (cari) {
+        //         scan_getdata();
+        //     } else {
+        //         $('#info').html("data Kosong");
+        //     }
+        // });
 
-        function get_data(page) {
-            $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
-            var cabang = "<?php echo $_GET['id'] ?>";
-            var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
-            var rakbin = $('#rakbin').val();
-            $.ajax({
-                type: "post",
-                dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
-                data: {
-                    cabang: cabang,
-                    rakbin: rakbin,
-                    idjadwal_audit: idjadwal_audit
-                },
-                success: function(data) {
-                    console.log(data);
-                    $('#pagination').html(data.pagination);
-                    $('#audit_part').html(data.output);
-                }
-            });
-        }
-        $(document).on('click', '.pagination li a', function(event) {
-            event.preventDefault();
-            var page = $(this).data('ci-pagination-page');
-            get_data(page);
+        // function get_data(page) {
+        //     $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
+        //     var cabang = "<?php echo $_GET['id'] ?>";
+        //     var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
+        //     var rakbin = $('#rakbin').val();
+        //     $.ajax({
+        //         type: "post",
+        //         dataType: 'JSON',
+        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_partvalid/" + page,
+        //         data: {
+        //             cabang: cabang,
+        //             rakbin: rakbin,
+        //             idjadwal_audit: idjadwal_audit
+        //         },
+        //         success: function(data) {
+        //             console.log(data);
+        //             $('#pagination').html(data.pagination);
+        //             $('#audit_part').html(data.output);
+        //         }
+        //     });
+        // }
+        // $(document).on('click', '.pagination li a', function(event) {
+        //     event.preventDefault();
+        //     var page = $(this).data('ci-pagination-page');
+        //     get_data(page);
 
-        });
+        // });
 
-        function scan_getdata() {
-            $('#manual').addClass('hidden');
-            var cari = $('#cari').val();
-            var lokasi = $('#id_lokasi').val();
-            var rakbin = $('#rakbin').val();
-            var kondisi = $('#kondisi').val();
-            var cabang = "<?php echo $_GET['id'] ?>";
-            var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
-            console.log(cari);
-            $('#audit_part').html('<tr> <td colspan="7" id="loading"></td></tr>');
-            if (cari != '') {
-                $.ajax({
-                    type: "post",
-                    dataType: 'JSON',
-                    url: "<?php echo base_url() ?>transaksi_auditor/scan_data_part",
-                    data: {
-                        id: cari,
-                        cabang: cabang,
-                        lokasi: lokasi,
-                        rakbin: rakbin,
-                        kondisi: kondisi,
-                        idjadwal_audit: idjadwal_audit
-                    },
-                    success: function(data) {
-                        $('#cari').val('');
-                        $('#info').html(data.info);
-                        $('#audit_part').html(data.output);
-                        $('#pagination').html(data.pagination);
-                    }
-                });
-            } else {
-                get_data(1);
-            }
-        }
-        $('#cari').keyup(function(e) {
-            if (e.keyCode == 13) {
-                if (cari) {
-                    scan_getdata();
-                } else {
-                    $('#info').html("Data Kosong");
-                } 
-            }
-        });
+
 
     });
 
-    function lokasi() 
-        {
-            var cabang = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    id_cabang: cabang
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-                success: function(data) {
-                    $('#id_lokasi').html(data);
-                }
-            });
+    // function lokasi() 
+    //     {
+    //         var cabang = "<?php echo $_GET['id'] ?>";
+    //         $.ajax({
+    //             type: 'POST',
+    //             dataType: 'JSON',
+    //             data: {
+    //                 id_cabang: cabang
+    //             },
+    //             url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+    //             success: function(data) {
+    //                 $('#id_lokasi').html(data);
+    //             }
+    //         });
 
-        }
+    //     }
        
-        function rakbin() 
-        {
-            var rak = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    kd_gudang: rak
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
-                success: function(data) {
-                    $('#rakbin').html(data);
-                }
-            });
-        }
+        // function rakbin() 
+        // {
+        //     var rak = "<?php echo $_GET['id'] ?>";
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'JSON',
+        //         data: {
+        //             kd_gudang: rak
+        //         },
+        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+        //         success: function(data) {
+        //             $('#rakbin').html(data);
+        //         }
+        //     });
+        // }
 
 
-    // function lokasi() {
-    //     var cabang = "<?php echo $_GET['id'] ?>";
-    //     $.ajax({
-    //         type: 'POST',
-    //         dataType: 'JSON',
-    //         data: {
-    //             id_cabang: cabang
-    //         },
-    //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-    //         success: function(data) {
-    //             $('#id_lokasi').html(data);
-    //         }
-
-    //     });
-
-    // }
-    // $('.i-checks').iCheck({
-    //     checkboxClass: 'icheckbox_square-green',
-    //     radioClass: 'iradio_square-green',
-    // });
+ 
+    $('.i-checks').iCheck({
+        checkboxClass: 'icheckbox_square-green',
+        radioClass: 'iradio_square-green',
+    });
 
  
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");
@@ -282,35 +246,32 @@
                 success: function(data) {
                     if (data.status == true) {
                         window.alert('Audit Scan Successful');
-                       indow.opener.location.reload(true);
-                        window.close();
-                    } else {
-                        window.alert('Audit Close Successful');
                         window.opener.location.reload(true);
                         window.close();
+                    } else {
+                        window.alert('Audit Close Failed');
+                      ;
                     }
 
                 }
             });
         }
+
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
-            var rakbin = $('#rakbin').val();
+            var rakbin = $('#rakbin_baru').val();
             var lokasi = $('#id_lokasi').val();
-            var keterangan = $('#keterangan').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             $('#Audit_Part').html('<tr> <td colspan="13" id="loading"></td></tr>');
-
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
                 data: {
                     part_number: part_number,
-                    rakbin: rakbin,
+                    kd_lokasi_rakbin: rakbin,
                     lokasi: lokasi,
                     cabang: cabang,
-                    keterangan: keterangan,
                     idjadwal_audit: idjadwal_audit
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/doPart",
@@ -323,6 +284,9 @@
                     $('#manual').addClass('hidden');
                 }
             });
+            console.log(part_number);
+            console.log(rakbin);
+            console.log(lokasi);
         });
         $('#doCariPart').click(function() {
             var cari = $('#cari').val();
@@ -358,16 +322,21 @@
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
             get_data(page);
-
         });  
 
         function scan_getdata() {
             $('#manual').addClass('hidden');
             var cari = $('#cari').val();
+            var qty = $('#qty').val();
             var cabang = "<?php echo $_GET['id'] ?>";
+            var rakbin = $('#rakbin').val();
+            var kondisi = $('#kondisi').val();
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             console.log("jadwal_audit scan_getdata : " + idjadwal_audit)
+            console.log(kondisi);
+            
             var lokasi = $('#id_lokasi').val();
+            var rakbin = $('#rakbin').val();
 
             $('#audit_part').html('<tr> <td colspan="13" id="loading"></td></tr>');
             if (cari != '') {
@@ -378,8 +347,11 @@
                     data: {
                         id: cari,
                         cabang: cabang,
+                        kondisi: kondisi,
                         idjadwal_audit: idjadwal_audit,
                         lokasi: lokasi,
+                        kd_lokasi_rak: rakbin,
+                        qty: qty
                     },
                     success: function(data) {
                         $('#cari').val('');
@@ -395,6 +367,7 @@
             } else {
                 get_data();
             }
+            console.log(rakbin);
         }
         $('#cari').keyup(function(e) {
             if (e.keyCode == 13) {

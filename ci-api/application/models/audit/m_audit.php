@@ -102,7 +102,34 @@ class M_Audit extends CI_Model {
             return $result;
         }   
     }
-    public function GetListPart($id = null, $cabang = null, $idjadwal_audit = null)
+    public function GetListpart($id = null, $cabang = null, $idjadwal_audit=null)
+    {
+        if ($id===null) {
+            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+            $this->db->from('temp_part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            
+            
+            $result = $this->db->get()->result();
+            return $result;   
+        }else {
+            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+            $this->db->from('temp_part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where('a.part_number', $id);
+            $this->db->where('a.id_cabang', $cabang);
+            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+            // $this->db->where('a.kd_lokasi_rak', $rakbin);
+            
+            
+            $result = $this->db->get()->result();
+            return $result;
+        }   
+    }
+
+public function GetListAudPart($id = null, $cabang = null, $idjadwal_audit = null)
     {
         if ($id===null) {
             $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
@@ -125,6 +152,7 @@ class M_Audit extends CI_Model {
             return $result;
         }   
     }
+
 
     public function AddList($data)
     {
@@ -186,40 +214,30 @@ class M_Audit extends CI_Model {
             return $result;
         }
     }
-    public function GetAuListPart($id = null,$cabang= null, $lokasi = null, $rakbin = null, $kondisi= null, $idjadwal_audit = null)
+    public function GetAuListpart($id = null, $cabang = null, $idjadwal_audit = null,)
     {
         if ($id === null) {
-            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rak,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
             $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where('a.id_cabang', $cabang);
-            $this->db->where('a.idjadwal_audit', $lokasi);
-            
-            return $this->db->get()->result();
-        }else{
-            $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+
+
+            $result = $this->db->get()->result();
+
+            return $result;
+        }else {
+            $this->db->select('a.id_part,a.id_cabang, a.id_lokasi,a.part_number,a.deskripsi,a.qty,a.kd_lokasi_rak,a.status,a.kondisi,a.keterangan,b.nama_cabang, c.nama_gudang');
             $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where('a.part_number', $id);
             $this->db->where('a.id_cabang', $cabang);
-            $this->db->where("a.part_number",$id );
-            if ($lokasi !=null) {
-                $this->db->where("a.id_lokasi",$lokasi );
-                
-            }
-            if ($rakbin !=null) {
-                $this->db->where("a.kd_lokasi_rak",$rakbin);
-                
-            }
-            if ($kondisi !=null) {
-                $this->db->where("a.kondisi",$kondisi);
-                
-            }
-            if ($idjadwal_audit !=null) {
-                $this->db->where("a.idjadwal_audit", $idjadwal_audit );
-                
-            }
+            $this->db->where('a.idjadwal_audit', $idjadwal_audit);
+ 
+
             $result = $this->db->get()->result();
             return $result;
         }

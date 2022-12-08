@@ -12,7 +12,7 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Lokasi</label>
+                                            <label class="col-sm-3 control-label">Lokasi</label>
                                             <div class="col-sm-9"><select class="form-control control-label m-b" name="id_lokasi" id="id_lokasi">
                                                 </select>
 
@@ -21,8 +21,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Data Unit</label>
-                                            <div class="col-sm-7">
+                                            <label class="col-sm-3 control-label">Data Unit</label>
+                                            <div class="col-sm-9">
                                                 <input type="text" class="form-control" placeholder="Cari Data Unit" id="cari">
                                                 <span class="help-block m-b-none text-danger" id="info"></span>
                                             </div>
