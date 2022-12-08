@@ -211,7 +211,7 @@ class M_Part extends CI_Model {
         return $this->db->affected_rows(); 
     }
     
-    }
+    
 
     public function updateqty($id, $qty, $rakbin, $cabang, $lokasi)
     {
