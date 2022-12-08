@@ -85,19 +85,20 @@
     $(document).ready(function() {
         download();
         get_data(1);
+        lokasi();
         
 
-        function downloadpart() {
+        function download() {
             var id = "<?php echo $this->input->get('id') ?>";
-            var idauditpart = "<?php echo base64_decode($this->input->get('a')) ?>";
+            var idaudit = "<?php echo base64_decode($this->input->get('a')) ?>";
             $('#info').html("<div id='loading'></div>");
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/downloadpart",
+                url: "<?php echo base_url() ?>transaksi_auditor/downloadunit",
                 data: {
                     id: id,
-                    idaudit: idauditpart
+                    idaudit: idaudit
                 },
                 success: function(data) {
                     $('#info').html(data);
@@ -190,7 +191,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                data: {
+                  data: {
                     id_cabang: cabang
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
@@ -202,23 +203,6 @@
 
         }
 
-        function rakbin() 
-        {
-            var rak = "<?php echo $_GET['id'] ?>";
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    kd_lokasi_rak: rak
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
-                success: function(data) {
-                    $('#rakbin').html(data);
-                }
-
-            });
-
-        }
 
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");
         $('#close').click(function() {

@@ -84,6 +84,28 @@
 <script>
     $(document).ready(function() {
         get_data(1);
+        download();
+        function download() {
+            var id = "<?php echo $this->input->get('id') ?>";
+            var idaudit = "<?php echo base64_decode($this->input->get('a')) ?>";
+            $('#info').html("<div id='loading'></div>");
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                url: "<?php echo base_url() ?>transaksi_auditor/downloadunit",
+                data: {
+                    id: id,
+                    idaudit: idaudit
+                },
+                success: function(data) {
+                    $('#info').html(data);
+                }
+            })
+            '<?php echo $_GET['id'] ?>'
+ '<?php echo base64_decode($_GET['a']) ?>'
+            '<?php echo $_GET['id']; ?>'
+            '<?php echo base_url() ?>transaksi_auditor/scan_data_unit';
+        }
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');

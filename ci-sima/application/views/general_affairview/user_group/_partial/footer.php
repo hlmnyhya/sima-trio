@@ -162,6 +162,7 @@
         });
     }
 
+
     function hide() {
         $('#add').attr('disabled', false);
         $('#data_input').html('');

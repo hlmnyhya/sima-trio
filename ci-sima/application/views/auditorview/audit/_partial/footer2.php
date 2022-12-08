@@ -84,8 +84,24 @@
     $(document).ready(function() {
         download();
         get_data(1);
-        lokasi();
+        // rakbin();
+        lokasi()
+        $('#id_lokasi').change(function() {
+            var rak = "<?php echo $_GET['id'] ?>";
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    kd_gudang: rak
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#rakbin').html(data);
+                }
+            });
+        });
 
+       
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
             var idjadwal_audit = "<?php echo base64_decode($this->input->get('a')) ?>";
@@ -181,11 +197,12 @@
                     scan_getdata();
                 } else {
                     $('#info').html("Data Kosong");
-                }
+                } 
             }
         });
 
     });
+
     function lokasi() 
         {
             var cabang = "<?php echo $_GET['id'] ?>";
@@ -199,11 +216,10 @@
                 success: function(data) {
                     $('#id_lokasi').html(data);
                 }
-
             });
 
         }
-
+       
         function rakbin() 
         {
             var rak = "<?php echo $_GET['id'] ?>";
@@ -211,15 +227,13 @@
                 type: 'POST',
                 dataType: 'JSON',
                 data: {
-                    kd_lokasi_rak: rak
+                    kd_gudang: rak
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {
                     $('#rakbin').html(data);
                 }
-
             });
-
         }
 
 
@@ -268,7 +282,7 @@
                 success: function(data) {
                     if (data.status == true) {
                         window.alert('Audit Scan Successful');
-                        window.opener.location.reload(true);
+                       indow.opener.location.reload(true);
                         window.close();
                     } else {
                         window.alert('Audit Close Successful');
@@ -368,7 +382,6 @@
                         lokasi: lokasi,
                     },
                     success: function(data) {
-
                         $('#cari').val('');
                         $('#info').html(data.info);
                         $('#pagination').html(data.pagination);

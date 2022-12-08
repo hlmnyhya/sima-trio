@@ -63,21 +63,48 @@ class Transaksi_Auditor extends CI_Controller
         }
         echo json_encode($output, true);
     }
-
     public function ajax_get_rakbin()
     {
         $output = '';
         $no = 0;
-        $listrak = $this->mmasdat->getLokasirak();
+        $id = $this->input->post('kd_gudang');
+        $key = $this->input->post('key');
+        $listrak = $this->mmasdat->getLokasirak($id);
+
+        $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
         foreach ($listrak as $list) {
-            $no++;
-            $output .= '
-				<option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . '</option>
-			';
+            $idlokasi = $list['kd_lokasi_rak'];
+            //$listlokasi = $this->mmasdat->getLokasiByid($idlokasi);
+            //foreach ($listlokasi as $list) {
+            //$no++;
+            if ($idlokasi == $key) {
+                $output .= '
+                        <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+                    ';
+            } else {
+                $output .= '
+                <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+                    ';
+            }
+            //}
         }
-        echo '<option value="">--- Pilih Rak Bin ---</option>';
-        echo $output;
+        echo json_encode($output, true);
     }
+
+    // public function ajax_get_rakbin()
+    // {
+    //     $output = '';
+    //     $no = 0;
+    //     $listrak = $this->mmasdat->getLokasirak();
+    //     foreach ($listrak as $list) {
+    //         $no++;
+    //         $output .= '
+	// 			<option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . '</option>
+	// 		';
+    //     }
+    //     echo '<option value="">--- Pilih Rak Bin ---</option>';
+    //     echo $output;
+    // }
 
     public function ajax_get_cabang2()
     {
@@ -127,7 +154,6 @@ public function downloadunit()
     } else {
         $output .= '<div class="text-danger"> Data Gagal Didownload</div>';
     }
-
     echo json_encode($output, true);
 }
 
@@ -398,7 +424,7 @@ public function ajax_get_jadwalaudit($idcabang = null)
         $output .= '
             <option value="' . $list['idjadwal_audit'] . '">' . $list['idjadwal_audit'] . ' (' . $list['tanggal'] . ')</option>
         ';
-    }
+    };
     echo '<option value="">--- Pilih ID Audit ---</option>';
     echo $output;
 }
@@ -1831,7 +1857,7 @@ public function ajax_temppart()
                     <tr> 
                             <td>' . $start . '</td>
                             <td></td>
-                            <td>' . $list['nama_gudang'] . '</td>
+                            <td>' . $list['id_lokasi'] . '</td>
                             <td>' . $list['part_number'] . '</td>
                             <td>' . $list['deskripsi'] . '</td>
                             <td>' . $list['kd_lokasi_rak'] . '</td>
@@ -1881,7 +1907,7 @@ public function previewpart($page)
     $idjadwal_audit = $this->input->post('idjadwal_audit');
     $status = $this->input->post('status');
 
-    $count = $this->mtransauditor->countpart($cabang, $idjadwal_audit, $status);
+    $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $status);
     $this->load->library('pagination');
 
     $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';

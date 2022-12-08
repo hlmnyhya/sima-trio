@@ -221,7 +221,7 @@ class Master_Data extends CI_Controller
                     $output .= "
                             <tr>
                                 <td class='text-center'>" . $start . "</td>
-                                <td >
+                                <td class='text-center' >
                                 <a href='" . $base . "master_data/edit_user?id=" . $list['nik'] . "&&usergroup=" . $list['id_usergroup'] . "&&perusahaan=" . $list['id_perusahaan'] . "&&lokasi=" . $list['id_lokasi'] . "&&cabang=" . $list['id_cabang'] . "' class='text-warning'><i class='fa fa-pencil'></i></a>
                                 " . $hapus . "
                                 </td>
@@ -248,7 +248,7 @@ class Master_Data extends CI_Controller
                         $output .= "
                                 <tr>
                                     <td class='text-center'>" . $start . "</td>
-                                    <td >
+                                    <td class='text-center' >
                                     <a href='" . $base . "master_data/edit_user?id=" . $list['nik'] . "&&usergroup=" . $list['id_usergroup'] . "&&perusahaan=" . $list['id_perusahaan'] . "&&lokasi=" . $list['id_lokasi'] . "&&cabang=" . $list['id_cabang'] . "' class='text-warning'><i class='fa fa-pencil'></i></a>
                                     " . $hapus . "
                                     </td>
@@ -1215,11 +1215,11 @@ class Master_Data extends CI_Controller
     public function post_usergroup()
     {
         $data = [
-            'id_usergroup' => $this->input->post('id_usergroup', true),
-            'user_group'   => $this->input->post('user_group', true),
+            'id_usergroup' => $this->input->post('id_usergroup', true, "UTF-8"),
+            'user_group'   => $this->input->post('user_group', true,"UTF-8"),
             'user'  => $this->session->userdata('username')
         ];
-
+        
         $id = $data['id_usergroup'];
 
         $cek = $this->mmasdat->getUserGroupById($id);
