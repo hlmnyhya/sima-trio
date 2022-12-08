@@ -1179,13 +1179,13 @@ class Master_Data extends CI_Controller
     public function post_user()
     {
         $data = [
-            'nik' => $this->input->post('nik', true),
-            'username' => $this->input->post('username'),
-            'nama' => $this->input->post('nama'),
-            'password' => $this->input->post('password'),
-            'id_perusahaan' => $this->input->post('id_perusahaan'),
-            'id_cabang' => $this->input->post('id_cabang'),
-            'id_lokasi' => $this->input->post('id_lokasi'),
+            'nik' => html_escape($this->input->post('nik', true)) ,
+            'username' => html_escape($this->input->post('username'))  ,
+            'nama' => html_escape( $this->input->post('nama')) ,
+            'password' => html_escape($this->input->post('password'))  ,
+            'id_perusahaan' =>html_escape($this->input->post('id_perusahaan'))  ,
+            'id_cabang' => html_escape( $this->input->post('id_cabang')) ,
+            'id_lokasi' =>html_escape($this->input->post('id_lokasi')) ,
             'id_usergroup' => $this->input->post('id_usergroup'),
             'user'  => $this->session->userdata('username')
 
@@ -1216,8 +1216,8 @@ class Master_Data extends CI_Controller
     {
         $data = [
             'id_usergroup' => $this->input->post('id_usergroup', true, "UTF-8"),
-            'user_group'   => $this->input->post('user_group', true,"UTF-8"),
-            'user'  => $this->session->userdata('username')
+            'user_group'   => html_escape($this->input->post('user_group', true,"UTF-8")),
+            'user'  => html_escape($this->session->userdata('username')),
         ];
         
         $id = $data['id_usergroup'];

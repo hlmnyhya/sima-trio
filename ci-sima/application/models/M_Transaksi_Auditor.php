@@ -87,11 +87,12 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
-    public function getPart()
+    public function getPart($cabang,$id)
     {
         $respon =  $this->_client->request('GET', 'part');
 
         $result = json_decode($respon->getBody()->getContents(), true);
+        var_dump($result);exit;
 
         if ($result['status'] == true) {
             return $result['data'];
@@ -108,6 +109,20 @@ class M_Transaksi_Auditor extends CI_Model
         $result = json_decode($respon->getBody()->getContents(), true);
 
         if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function getGudang()
+    {
+        $respon =  $this->_client->request('GET', 'gudang');
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+
             return $result['data'];
         } else {
             return false;
@@ -246,7 +261,8 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $res['keterangan'] . '</td>
                     <td>' . $res['is_ready'] . '</td>
                     <td>' . $res['tanggal_audit'] . '</td>
-                ';
+
+                    ';
             }
         } else {
             $output .= '
@@ -276,20 +292,22 @@ class M_Transaksi_Auditor extends CI_Model
             foreach ($result['data'] as $res) {
 
                 $aksi = '
-                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['nama_gudang']) . '&s=' . base64_encode($res['nama_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
                 $e++;
                 $output .= '
                     <tr>
                     <td>' . $e . '</td>
                     <td>' . $aksi . '</td>
+                    <td>' . $res['nama_cabang'] . '</td>
+                    <td>' . $res['nama_gudang'] . '</td>
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['kd_lokasi_rak'] . '</td>
+                    <td>' . $res['status'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
                     <td>' . $res['qty'] . '</td>
                     <td>' . $res['kondisi'] . '</td>
                     <td>' . $res['keterangan'] . '</td>
-                    <td>' . $res['idjadwal_audit'] . '</td>
                 ';
             }
         } else {
@@ -387,12 +405,13 @@ class M_Transaksi_Auditor extends CI_Model
             return 0;
         }
     }
-    public function countPart1($a = null, $b = null)
+    public function countPart1($id_cabang = null, $id_jadwal_audit = null)
     {
         $respon =  $this->_client->request('GET', 'countpart1', [
             'query' => [
-                'id_cabang' => $a,
-                'idjadwal_audit' => $b
+                'id_cabang' => $id_cabang,
+                'idjadwal_audit' => $id_jadwal_audit,
+                
             ]
         ]);
 
@@ -442,18 +461,20 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
-    public function caripart($id, $cabang, $idjadwal_audit)
+
+    public function caripart($scanpart, $cabang, $idjadwal_audit)
     {
-        $respon =  $this->_client->request('GET', 'listaudPart', [
+        $respon =  $this->_client->request('GET', 'listaudpart', [
             'query' => [
-                'id' => $id,
+                'id' => $scanpart,
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit
             ]
         ]);
+        // var_dump($scanpart);exit;
 
         $result = json_decode($respon->getBody()->getContents(), true);
-
+        // var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data'];
         } else {
@@ -543,26 +564,47 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function cekPart($a, $b, $c, $d, $e, $f, $g)
+    public function cekPart($scanpart, $cabang, $idjadwal_audit)
     {
-        $respon =  $this->_client->request('GET', 'listPart', [
+        $respon =  $this->_client->request('GET', 'listpart', [
             'query' => [
-                'id' => $a,
-                'id_cabang' => $b,
-                'id_lokasi' => $d,
-                'kd_lokasi_rak' => $c,
-                'kondisi' => $e,
-                'idjadwal_audit' => $f,
-                'part_number' => $g
+                // 'id' => $a,
+                'id' => $scanpart,
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                // 'kd_lokasi_rak' => $rakbin, 
             ]
         ]);
+        // var_dump($rakbin);exit;
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data'];
         } else {
             return false;
         }
     }
+    // public function cekPart($a, $b, $c, $d, $e, $f, $g, $h)
+    // {
+    //     $respon =  $this->_client->request('GET', 'listPart', [
+    //         'query' => [
+    //             'id' => $a,
+    //             'id_cabang' => $b,
+    //             'id_lokasi' => $d,
+    //             'kd_lokasi_rak' => $c,
+    //             'kondisi' => $e,
+    //             'idjadwal_audit' => $f,
+    //             'part_number' => $g,
+    //             'qty' => $h
+    //         ]
+    //     ]);
+    //     $result = json_decode($respon->getBody()->getContents(), true);
+    //     if ($result['status'] == true) {
+    //         return $result['data'];
+    //     } else {
+    //         return false;
+    //     }
+    // }
 
     public function counttempunit($a = null)
     {
