@@ -304,7 +304,6 @@
 
     public function Inv_post()
     {   
-        //belum fix
         $data=[
                 'idtransaksi_inv' => $this->post('idtransaksi_inv',true),
                 'idstatus_inventory' => $this->post('idstatus_inventory',true),

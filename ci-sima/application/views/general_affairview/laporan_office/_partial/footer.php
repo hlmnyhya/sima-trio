@@ -82,41 +82,49 @@
 </script>
 <script>
     $(document).ready(function() {
-        // $('#jenis_inv').load("<?php echo base_url() ?>master_data/ajax_get_jenis_inv");
+        // $('#inv_office').load("<?php echo base_url() ?>transaksi");
+        get_data(1);
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
-            get_data(page);
-
+            var inv = $('#inv').val();
+            if (inv) {
+                search(page);
+            } else {
+                get_data(page);
+            }
         });
-        get_data(1);
 
         function get_data(page) {
-            $("#jenis_inv").html('<tr> <td colspan="10" id="loading"> </td></tr>');
-
+            $('#inv_office').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
             $.ajax({
-                type: 'POST',
+                type: 'post',
+                url: "<?php echo base_url() ?>transaksi_ga/ajax_get_Inventory/" + page,
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>master_data/ajax_get_jenis_inv/" + page,
                 success: function(data) {
-                    $('#jenis_inv').html(data.output);
+                    $('#inv_office').html(data.output);
                     $('#pagination').html(data.pagination);
                 }
             })
+           
         }
+        console.log(get_data);
 
-        function search() {
-            var jenisinv = $('#Injenisinv').val();
-            $("#jenis_inv").html('<tr> <td colspan="10" id="loading"> </td></tr>');
+        
 
-            if (jenisinv != '') {
+        function search(page) {
+            var inv = $('#inv').val();
+            $('#inv_office').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
+
+            if (inv != '') {
                 $.ajax({
                     type: "post",
-                    url: "<?php echo base_url() ?>master_data/search_data_jenisinv",
-                    data: "id=" + jenisinv,
+                    dataType: 'JSON',
+                    url: "<?php echo base_url() ?>transaksi_ga/search/" + page,
+                    data: "id=" + inv,
                     success: function(data) {
-                        $("#jenis_inv").html(data);
-                        $("#search").val("");
+                        $('#inv_office').html(data.output);
+                        $('#pagination').html(data.pagination);
                     }
                 });
             } else {
@@ -124,13 +132,7 @@
             }
         }
         $('#caribtn').click(function() {
-            search();
-        });
-
-        $('#Injenisinv').keyup(function(e) {
-            if (e.keyCode == 13) {
-                search();
-            }
+            search(1);
         });
     });
 
@@ -153,7 +155,7 @@
     function show() {
         $('#add').attr('disabled', true);
         var $url = "<?php echo $this->uri->segment(1) ?>";
-        $.ajax({
+        $.ajax({s
             url: "<?php echo base_url() . $this->uri->segment(1) ?>/input_jenisinv",
             type: 'post',
             dataType: 'html',
