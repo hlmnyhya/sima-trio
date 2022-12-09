@@ -321,10 +321,18 @@ class M_Transaksi_GA extends CI_Model
             return 0;
         }
     }
-
-
-
+    public function getLokasiAsset($id)
+    {
+        $respon = $this->_client->request('GET', 'lokasiaset', [
+            'query' => [
+                'id_lokasi' => $id
+            ]
+            ]);
     
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        return $result['data'];
+    }
 }
 
 /* End of file M_Transaksi_GA.php */

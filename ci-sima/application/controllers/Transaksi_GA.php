@@ -539,6 +539,33 @@ class Transaksi_GA extends CI_Controller
         echo $output;
     }
 
+    public function ajax_get_aset()
+    {
+        $output = '';
+        $no = 0;
+        $id = $this->input->post('id_cabang');
+        $key = $this->input->post('key');
+        $listaset = $this->mtransga->getLokasiAsset($id);
+        // var_dump($listrak);exit;
+
+        $output .= '<option value="">--- Pilih Lokasi Aset ---</option>';
+
+        foreach ($listaset as $list) {
+            $idlokasi = $list['id_lokasi'];
+            // if ($idlokasi == $key) {
+            //     $output .= '
+            //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+            //         ';
+            // } else {
+            $output .= '
+                <option value="' . $list['id_lokasi'] . '" >' . $list['id_cabang'] . ' </option>
+                    ';
+            // }
+
+        }
+        echo json_encode($output, true);
+    }
+
     public function search()
     {
         $id = $this->input->post('id');

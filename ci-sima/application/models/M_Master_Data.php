@@ -252,7 +252,7 @@ class M_Master_Data extends CI_Model
 
         return $result['data'];
     }
-
+    
     public function getVendor($offset = null)
     {
         $respon =  $this->_client->request('GET', 'vendor', [
