@@ -244,14 +244,23 @@ class Transaksi_GA extends CI_Controller
         $config['allowed_types'] = 'gif|jpg|png';
         $config['overwrite'] = true;
         $config['file_name'] = $nama . ".jpg";
-        $config['max_size']  = '100';
-        $config['max_width']  = '1024';
-        $config['max_height']  = '768';
+        // $config['max_size']  = '100';
+        // $config['max_width']  = '1024';
+        // $config['max_height']  = '768';
 
         $this->load->library('upload', $config);
 
-        $this->upload->do_upload('foto');
-        // var_dump($this->upload->data('file_name'));die;
+        if (!empty($_FILES['foto']['name'])) {
+            $this->upload->do_upload('foto');
+            $res =  $this->upload->data('file_name');
+        } else {
+            $res = $this->input->post('foto_old');
+        }
+
+        // $this->upload->do_upload('foto');
+        // $res =  $this->upload->data('file_name');
+        // var_dump($this->upload->data('file_name'));
+        // exit;
 
         $data = [
             'idtransaksi_inv' => $this->input->post('id_inventory', true),
@@ -270,7 +279,7 @@ class Transaksi_GA extends CI_Controller
             'nama_pengguna' => $this->input->post('nama_pengguna', true),
             'keterangan' => $this->input->post('keterangan', true),
             'stok' => $this->input->post('stok', true),
-            'foto' => $this->upload->data('file_name'),
+            'foto' => $res,
             'asal_hadiah' => $this->input->post('asal_hadiah', true),
             'ppn' => $this->input->post('ppn', true),
             'ket_ppn' => $this->input->post('ket_ppn', true),

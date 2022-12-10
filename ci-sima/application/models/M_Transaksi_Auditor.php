@@ -18,7 +18,7 @@ class M_Transaksi_Auditor extends CI_Model
 
 
     public function getUnit($cabang, $offset, $idjadwal_audit)
-    {   
+    {
         $respon =  $this->_client->request('GET', 'unitvalid', [
             'query' => [
                 'id_cabang' => $cabang,
@@ -71,7 +71,7 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
-      public function getPartById($id)
+    public function getPartById($id)
     {
         $respon =  $this->_client->request('GET', 'auditpart', [
             'query' => [
@@ -87,12 +87,13 @@ class M_Transaksi_Auditor extends CI_Model
         }
     }
 
-    public function getPart($cabang,$id)
+    public function getPart($cabang, $id)
     {
         $respon =  $this->_client->request('GET', 'part');
 
         $result = json_decode($respon->getBody()->getContents(), true);
-        var_dump($result);exit;
+        var_dump($result);
+        exit;
 
         if ($result['status'] == true) {
             return $result['data'];
@@ -411,7 +412,7 @@ class M_Transaksi_Auditor extends CI_Model
             'query' => [
                 'id_cabang' => $id_cabang,
                 'idjadwal_audit' => $id_jadwal_audit,
-                
+
             ]
         ]);
 
