@@ -44,35 +44,53 @@
                                     <a class="btn btn-warning" onclick="generate()">Generate </a><span id="load2"></span>
                                 </div>
                             </div>
-                            <div class="form-group"><label class="col-sm-3 control-label">DP</label>
-                                <div class="col-sm-9"><input type="text" class="form-control" name="ddp" id="dpp">
+
+                            <div class="form-group"><label class="col-sm-3 control-label m-l">DDP</label>
+                                <div class="input-group col-sm-6">
+                                    <span class="input-group-addon" id="sizing-addon2">Rp.</span>
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" name="dpp" id="dpp">
                                 </div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Asset</label>
-                                <div class="col-sm-7"><input type="text" class="form-control" name="nilai_asset" id="nilai_asset">
+                            <div class="form-group"><label class="col-sm-3 control-label m-l">Nilai Asset</label>
+                                <div class="input-group col-sm-6">
+                                    <span class="input-group-addon" id="sizing-addon2">Rp.</span>
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" name="nilai_asset" id="nilai_asset">
                                 </div>
-                                <div class="col-sm-2"><a onclick="hitung()" class="btn btn-primary"> Hitung </a>
-                                </div>
-                            </div>
-
-                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Awal</label>
-                                <div class="col-sm-9"><input type="text" class="form-control" name="nilai_awal" id="nilai_awal" readonly>
-                                    <span class="help-block m-b-none">* Harga Sebelum PPn</span>
+                                <div class="col-sm-2">
+                                    <a onclick="hitung()" class="btn btn-primary">Hitung</a>
                                 </div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Total Keseluruhan</label>
-                                <div class="col-sm-9"><input type="text" class="form-control" name="nilai_total_keseluruhan">
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label m-l">Nilai Awal</label>
+                                <div class="input-group col-sm-6">
+                                    <span class="input-group-addon" id="sizing-addon2">Rp.</span>
+                                    <input type="text" class="form-control col-sm-5" aria-describedby="sizing-addon2" name="nilai_awal" id="nilai_awal" readonly>
                                 </div>
+                                <span class="help-block m-b-none">* Harga Sebelum PPn</span>
+
+                            </div>
+
+                            <div class="form-group"><label class="col-sm-3 control-label m-l">Nilai Total Keseluruhan</label>
+                                <div class="input-group col-sm-6">
+                                    <span class="input-group-addon" id="sizing-addon2">Rp.</span>
+                                    <input type="text" class="form-control col-sm-5" aria-describedby="sizing-addon2" name="nilai_total_keseluruhan" id="nilai_total_keseluruhan">
+                                </div>
+
+                                <!-- <div class="col-sm-9"><input type="text" class="form-control" name="nilai_total_keseluruhan">
+                                </div> -->
                             </div>
 
 
                             <div class="form-group" id="data_1"><label class="col-sm-3 control-label">Tanggal Barang Terima</label>
                                 <div class="col-sm-9">
                                     <div class="input-group date">
+                                        <?php
+                                        $tgl = date('d/m/Y');
+                                        ?>
                                         <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
-                                        <input type="text" class="form-control" name="tanggal_barang_terima" id="tanggal_barang_terima">
+                                        <input type="text" class="form-control" name="tanggal_barang_terima" id="tanggal_barang_terima" value="<?php echo $tgl; ?>">
                                     </div>
                                 </div>
                             </div>
@@ -148,7 +166,7 @@
                                     </div>
                                 </div>
                                 <div class="col-sm-9 pull-right">
-                                    <div class="img_preview">
+                                    <div class=" img_preview">
                                         <div id="image">
                                             <div id="loading"></div>
                                         </div>
