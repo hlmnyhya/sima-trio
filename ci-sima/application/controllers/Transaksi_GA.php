@@ -546,12 +546,13 @@ class Transaksi_GA extends CI_Controller
         $id = $this->input->post('id_cabang');
         $key = $this->input->post('key');
         $listaset = $this->mtransga->getLokasiAsset($id);
-        // var_dump($listrak);exit;
+        // var_dump($listaset);exit;
 
         $output .= '<option value="">--- Pilih Lokasi Aset ---</option>';
 
         foreach ($listaset as $list) {
             $idlokasi = $list['id_lokasi'];
+            // var_dump($idlokasi);exit;
             // if ($idlokasi == $key) {
             //     $output .= '
             //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>

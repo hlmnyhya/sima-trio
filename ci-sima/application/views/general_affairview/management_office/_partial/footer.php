@@ -248,7 +248,7 @@
                 $('#OptLokasi').prop('disabled', false);
                 $('#load').html('<span class="loading dots"></span>');
                 $.ajax({
-                    url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_lokasi2",
+                    url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_aset",
                     type: "POST",
                     data: {
                         'id_cabang': id_cabang
