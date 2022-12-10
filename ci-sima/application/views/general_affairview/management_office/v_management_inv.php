@@ -48,11 +48,11 @@
                             <div class="form-group"><label class="col-sm-3 control-label m-l">DDP</label>
                                 <div class="input-group col-sm-6">
                                     <span class="input-group-addon" id="sizing-addon2">Rp.</span>
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" name="dpp" id="dpp">
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" name="ddp" id="dpp">
                                 </div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-3 control-label m-l">Nilai Asset</label>
+                            <div class=" form-group"><label class="col-sm-3 control-label m-l">Nilai Asset</label>
                                 <div class="input-group col-sm-6">
                                     <span class="input-group-addon" id="sizing-addon2">Rp.</span>
                                     <input type="text" class="form-control" aria-describedby="sizing-addon2" name="nilai_asset" id="nilai_asset">
@@ -184,8 +184,8 @@
                             <div class="form-group">
                                 <label class="col-sm-3 control-label m-l">PPn</label>
                                 <div class=" input-group col-sm-8">
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon2">
-                                    <span class="input-group-addon" id="sizing-addon2">%</span>
+                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" id="ppn" name="ppn">
+                                    <span class=" input-group-addon" id="sizing-addon2">%</span>
                                 </div>
                             </div>
 
