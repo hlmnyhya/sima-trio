@@ -1947,8 +1947,9 @@ class Transaksi_Auditor extends CI_Controller
         $cabang = $this->input->post('id_cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $status = $this->input->post('status');
+        $kondisi = $this->input->post('kondisi');
 
-        $count = $this->mtransauditor->countpart1($cabang, $idjadwal_audit, $status);
+        $count = $this->mtransauditor->countpart($cabang, $idjadwal_audit, $status, $kondisi);
         $this->load->library('pagination');
 
         $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';
