@@ -43,8 +43,6 @@
                         </div>
                                  <!-- <div class="col-sm-1 text-center"><button class="btn btn-w-m btn-warning" id="caribtn">Cari Data</button> -->
                                     <div class="form-group">
-                                        </div>
-                                    </div>
                                 </div>
                                 
                             </div>
