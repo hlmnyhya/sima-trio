@@ -30,7 +30,7 @@
                     <span id="info_message"></span>
                 </div>
                 <div class="panel-body">
-                    <form id="FormLap" action="<?php echo base_url(); ?>laporan_ga/cetaklaporan" method="post">
+                    <form id="FormLap" method="post">
                         <div class="row">
                                 <div class="col-sm-2"><label>Cari Inventory Office</label></div>
                                  <div class="col-sm-7"><input type="text" class="form-control" id="inv"></div>
