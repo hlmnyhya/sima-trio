@@ -123,7 +123,7 @@
                 $.ajax({
                     type: "post",
                     dataType: 'JSON',
-                    url: "<?php echo base_url(); ?>transaksi_ga/search/" + page,
+                    url: "<?php echo base_url(); ?>transaksi_ga/search2/" + page,
                     data: "id=" + inv,
                     success: function(data) {
                         $('#inv_office').html(data.output);
