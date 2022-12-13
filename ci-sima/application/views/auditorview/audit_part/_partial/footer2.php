@@ -167,14 +167,14 @@
             //    console.log($('#FormUnit').serialize());
 
             //    $.ajax({
-            //        url: "<?php echo base_url() ?>transaksi_auditor/edit_audit_unit" ,
+            //        url: "<?php echo base_url(); ?>transaksi_auditor/edit_audit_unit" ,
             //        method: 'POST',
             //        data: $('#FormUnit').serialize(),
             //        success:function(data){
             //         console.log(data);
 
             //         //    alert(data);
-            //         //    window.location("<?php echo base_url() ?>transaksi/audit_unit");
+            //         //    window.location("<?php echo base_url(); ?>transaksi/audit_unit");
             //        }
 
             //    })
@@ -182,9 +182,9 @@
             lokasi();
 
             function lokasi() {
-                var id = "<?php echo base64_decode($_GET['a']) ?>";
+                var id = "<?php echo base64_decode($_GET['a']); ?>";
                 //var id = '2NG-GUD'; //document.getElementById("id_lokasi").val
-                var id_cabang = "<?php echo base64_decode($_GET['s']) ?>";
+                var id_cabang = "<?php echo base64_decode($_GET['s']); ?>";
                 //var id_cabang = '2NG';
                 $.ajax({
                     url: "<?php echo base_url(); ?>transaksi_auditor/ajax_get_lokasi2",
@@ -249,6 +249,7 @@
                 var action = 'previewpart';
                 var kondisi = $('#kondisi').val();
                 $('#audit_part').html('<tr><td colspan="20" id="loading"></td></tr>');
+                // console.log(cabang);
 
                 $.ajax({
                     method: 'post',
@@ -270,6 +271,7 @@
                     }
                 });
             }
+            
 
 
         })
@@ -286,7 +288,7 @@
         //             console.log(cabang,tgl_awal,tgl_akhir,status);
         //     $.ajax({
         //         type: 'post',
-        //         url :"<?php echo base_url() ?>transaksi_auditor/preview",
+        //         url :"<?php echo base_url(); ?>transaksi_auditor/preview",
         //         data : 'id_cabang='+cabang+'&&tgl_awal='+tgl_awal+'&&tgl_akhir='+tgl_akhir+'&&status='+status,
         //         success: function (data)
         //         {

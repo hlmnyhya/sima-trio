@@ -5,7 +5,7 @@
         </div>
     </div>
     <div>
-        &copy; <Strong> Trio Motor</strong> 2020 - <?php echo date("Y"); ?>
+        &copy; <Strong> Trio Motor</strong> 2020 - <?php echo date('Y'); ?>
     </div>
 </div>
 
@@ -13,17 +13,17 @@
 
 
 <!-- Mainly scripts -->
-<script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<?php echo base_url() ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery-3.1.1.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <!-- Idle Timer plugin -->
-<script src="<?php echo base_url() ?>assets/js/plugins/idle-timer/idle-timer.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/idle-timer/idle-timer.min.js"></script>
 <!-- Custom and plugin javascript -->
-<script src="<?php echo base_url() ?>assets/js/inspinia.js"></script>
-<script src="<?php echo base_url() ?>assets/js/plugins/pace/pace.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/inspinia.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/pace/pace.min.js"></script>
 
-<script src="<?php echo base_url() ?>assets/js/plugins/toastr/toastr.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/toastr/toastr.min.js"></script>
 
 
 <script>
@@ -37,7 +37,9 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.success('<?php echo $this->session->flashdata('berhasil') ?>', 'Status');
+                toastr.success('<?php echo $this->session->flashdata(
+                    'berhasil'
+                ); ?>', 'Status');
 
             }, 1300);
         <?php } ?>
@@ -50,7 +52,9 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.error('<?php echo $this->session->flashdata('gagal') ?>', 'Status');
+                toastr.error('<?php echo $this->session->flashdata(
+                    'gagal'
+                ); ?>', 'Status');
 
             }, 1300);
         <?php } ?>
@@ -63,7 +67,9 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.warning('<?php echo $this->session->flashdata('warning') ?>', 'Status');
+                toastr.warning('<?php echo $this->session->flashdata(
+                    'warning'
+                ); ?>', 'Status');
 
             }, 1300);
         <?php } ?>
@@ -82,7 +88,7 @@
 </script>
 <script>
     $(document).ready(function() {
-        // $('#jenis_inv').load("<?php echo base_url() ?>master_data/ajax_get_jenis_inv");
+        // $('#jenis_inv').load("<?php echo base_url(); ?>master_data/ajax_get_jenis_inv");
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
@@ -97,7 +103,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>master_data/ajax_get_jenis_inv/" + page,
+                url: "<?php echo base_url(); ?>master_data/ajax_get_jenis_inv/" + page,
                 success: function(data) {
                     $('#jenis_inv').html(data.output);
                     $('#pagination').html(data.pagination);
@@ -112,7 +118,7 @@
             if (jenisinv != '') {
                 $.ajax({
                     type: "post",
-                    url: "<?php echo base_url() ?>master_data/search_data_jenisinv",
+                    url: "<?php echo base_url(); ?>master_data/search_data_jenisinv",
                     data: "id=" + jenisinv,
                     success: function(data) {
                         $("#jenis_inv").html(data);
@@ -137,7 +143,8 @@
     function edit(id) {
         // var id = $(this).attr('data-id');
         $.ajax({
-            url: "<?php echo base_url() . $this->uri->segment(1) ?>/edit_jenisinv",
+            url: "<?php echo base_url() .
+                $this->uri->segment(1); ?>/edit_jenisinv",
             type: 'post',
             data: "id=" + id,
             dataType: 'html',
@@ -152,9 +159,10 @@
 
     function show() {
         $('#add').attr('disabled', true);
-        var $url = "<?php echo $this->uri->segment(1) ?>";
+        var $url = "<?php echo $this->uri->segment(1); ?>";
         $.ajax({
-            url: "<?php echo base_url() . $this->uri->segment(1) ?>/input_jenisinv",
+            url: "<?php echo base_url() .
+                $this->uri->segment(1); ?>/input_jenisinv",
             type: 'post',
             dataType: 'html',
             success: function(data) {
