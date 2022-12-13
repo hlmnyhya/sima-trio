@@ -1,18 +1,15 @@
 <?php
 
-
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use Fpdf\Fpdf;
 use PhpOffice\PhpSpreadsheet\Helper\Sample;
 use PhpOffice\PhpSpreadsheet\IOFactory;
-use PhpOffice\PhpSpreadsheet\Spreadsheet;;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class laporan_auditor extends CI_Controller
 {
-
-
     public function __construct()
     {
         parent::__construct();
@@ -22,10 +19,13 @@ class laporan_auditor extends CI_Controller
         $this->load->model('m_master_data', 'mmasdat');
 
         if (!$this->session->userdata('username')) {
-
             redirect('login/login');
         } else {
-            if ($this->session->userdata('usergroup') == 'UG002'  || $this->session->userdata('usergroup') == 'UG003' || $this->session->userdata('usergroup') == 'UG005') {
+            if (
+                $this->session->userdata('usergroup') == 'UG002' ||
+                $this->session->userdata('usergroup') == 'UG003' ||
+                $this->session->userdata('usergroup') == 'UG005'
+            ) {
             } else {
                 redirect('error');
             }
@@ -34,21 +34,22 @@ class laporan_auditor extends CI_Controller
 
     public function Laporan_Unit()
     {
-
         $data = [
-            'judul' => "Audit Data Unit",
-            'judul1' => 'Laporan Auditor'
+            'judul' => 'Audit Data Unit',
+            'judul1' => 'Laporan Auditor',
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_filter_kondisi.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_filter_kondisi.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
     }
     public function Laporan_Part()
     {
-
         $data = [
-            'judul' => "Audit Data Unit",
+            'judul' => 'Audit Data Part',
             'judul1' => 'Laporan Auditor',
             'tgl' => date('m/d/Y'),
         ];
@@ -67,7 +68,6 @@ class laporan_auditor extends CI_Controller
         $counter = $this->input->post('counter');
         $auditor = $this->input->post('auditor');
 
-
         $cab = $this->mlapaudit->getCabangbyId($cabang);
         foreach ($cab as $c) {
             $cab = $c['nama_cabang'];
@@ -75,8 +75,8 @@ class laporan_auditor extends CI_Controller
         $start = 0;
         $cetak = $this->mlapaudit->auditPdf($cabang, $idjadwal_audit, $start);
         if ($cetak != null) {
-            $tgl_awal = date("Y-m-d");
-            $tgl_akhir = "1900-01-01";
+            $tgl_awal = date('Y-m-d');
+            $tgl_akhir = '1900-01-01';
             foreach ($cetak as $c) {
                 if ($tgl_awal > $c['tanggal_audit']) {
                     $tgl_awal = $c['tanggal_audit'];
@@ -91,7 +91,7 @@ class laporan_auditor extends CI_Controller
             $pdf->setKriteria('report');
             $pdf->setNama($cab);
             $pdf->AliasNbPages();
-            $pdf->AddPage("P", "A4");
+            $pdf->AddPage('P', 'A4');
             $pdf->SetFont('Times', 'B', '16');
             $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
             $pdf->SetFont('Times', '', '10');
@@ -121,16 +121,20 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFont('Times', 'B', 10);
 
             $pdf->Cell(10, 5, 'Hasil Audit', 0, 1);
-            $pdf->Cell(8, 15, 'No', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'No Mesin', 1, 0, 'C', TRUE);
-            $pdf->Cell(28, 15, 'No Rangka', 1, 0, 'C', TRUE);
-            $pdf->Cell(27, 15, 'Type Unit', 1, 0, 'C', TRUE);
-            $pdf->Cell(20, 15, 'Umur Unit', 1, 0, 'C', TRUE);
-            $pdf->Cell(35, 15, 'Lokasi', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'Status Unit', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'Keterangan', 1, 1, 'C', TRUE);
+            $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'No Mesin', 1, 0, 'C', true);
+            $pdf->Cell(28, 15, 'No Rangka', 1, 0, 'C', true);
+            $pdf->Cell(27, 15, 'Type Unit', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'Umur Unit', 1, 0, 'C', true);
+            $pdf->Cell(35, 15, 'Lokasi', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'Status Unit', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'Keterangan', 1, 1, 'C', true);
             $start = null;
-            $cetak = $this->mlapaudit->auditPdf($cabang, $idjadwal_audit, $start);
+            $cetak = $this->mlapaudit->auditPdf(
+                $cabang,
+                $idjadwal_audit,
+                $start
+            );
             $no = 1;
             $pdf->SetFont('Times', '', 8);
             foreach ($cetak as $c) {
@@ -143,7 +147,12 @@ class laporan_auditor extends CI_Controller
                 $x = $pdf->GetX();
                 $pdf->myCell(27, 7, $x, $c['type']);
                 $x = $pdf->GetX();
-                $pdf->myCell(20, 7, $x, (($c['umur_unit'] == "") ? "-" : ($c['umur_unit'] . ' tahun')));
+                $pdf->myCell(
+                    20,
+                    7,
+                    $x,
+                    $c['umur_unit'] == '' ? '-' : $c['umur_unit'] . ' tahun'
+                );
                 $x = $pdf->GetX();
                 $pdf->myCell(35, 7, $x, $c['nama_gudang']);
                 $x = $pdf->GetX();
@@ -185,7 +194,6 @@ class laporan_auditor extends CI_Controller
             $pdf->Output('D', 'REPORTUNIT-' . $tgl . '.pdf');
             // $pdf->Output();
         } else {
-
             redirect('laporan_auditor/lap_audit_unit', 'refresh');
         }
     }
@@ -198,8 +206,8 @@ class laporan_auditor extends CI_Controller
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $status = $this->input->post('status');
 
-        $tgl_awal = date("Y-m-d");
-        $tgl_akhir = "1900-01-01";
+        $tgl_awal = date('Y-m-d');
+        $tgl_akhir = '1900-01-01';
         $cetak = $this->mlapaudit->cetakUnit($cabang, $idjadwal_audit, $status);
         if ($cetak) {
             foreach ($cetak as $c) {
@@ -215,116 +223,310 @@ class laporan_auditor extends CI_Controller
                 $style_col = [
                     'font' => ['bold' => true],
                     'alignment' => [
-                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                        'horizontal' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
-                    ]
-
+                        'top' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'right' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'left' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'bottom' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                    ],
                 ];
 
                 $style_row = [
                     'alignment' => [
-                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                        'horizontal' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
-                    ]
+                        'top' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'right' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'left' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'bottom' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                    ],
                 ];
                 $cab = $this->mlapaudit->getCabangbyId($cabang);
                 foreach ($cab as $c) {
                     $cab = $c['nama_cabang'];
                 }
-                $excel->getActiveSheet()->getPageSetup()->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
-                $excel->getActiveSheet()->getPageSetup()->setRowsToRepeatAtTop('A5');
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setPaperSize(
+                        \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4
+                    );
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setRowsToRepeatAtTop('A5');
 
-                $excel->setActiveSheetIndex(0)->setCellValue('A1', 'TEMUAN AUDIT ' . strtoupper($status));
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A1', 'TEMUAN AUDIT ' . strtoupper($status));
                 $excel->getActiveSheet()->mergeCells('A1:H1');
-                $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE);
-                $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getFont()
+                    ->setSize(14);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
 
-                $excel->setActiveSheetIndex(0)->setCellValue('A2', 'CABANG ' . $cab);
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A2', 'CABANG ' . $cab);
                 $excel->getActiveSheet()->mergeCells('A2:H2');
-                $excel->getActiveSheet()->getStyle('A2')->getFont()->setBold(TRUE);
-                $excel->getActiveSheet()->getStyle('A2')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getFont()
+                    ->setSize(14);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A5', 'NO.');
                 $excel->setActiveSheetIndex(0)->setCellValue('B5', 'NO. MESIN');
-                $excel->setActiveSheetIndex(0)->setCellValue('C5', 'NO. RANGKA');
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('C5', 'NO. RANGKA');
                 $excel->setActiveSheetIndex(0)->setCellValue('D5', 'KODE ITEM');
                 $excel->setActiveSheetIndex(0)->setCellValue('E5', 'TYPE UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('F5', 'USIA UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('G5', 'LOKASI');
                 $excel->setActiveSheetIndex(0)->setCellValue('H5', 'SFTATUS');
 
-                $excel->getActiveSheet()->getStyle('A5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('B5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('C5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('D5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('E5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('F5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('G5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('H5')->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('B5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('C5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('D5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('E5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('F5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('G5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('H5')
+                    ->applyFromArray($style_col);
 
                 $no = 1;
                 $seri = 6;
 
                 foreach ($cetak as $c) {
-                    $excel->setActiveSheetIndex(0)->setCellValue('A' . $seri, $no);
-                    $excel->setActiveSheetIndex(0)->setCellValue('B' . $seri, $c['no_mesin']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('C' . $seri, $c['no_rangka']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('D' . $seri, $c['kode_item']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('E' . $seri, $c['type']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('F' . $seri, $c['umur_unit']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('G' . $seri, $c['nama_gudang']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('H' . $seri, strtoupper($c['status_unit']));
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('A' . $seri, $no);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('B' . $seri, $c['no_mesin']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('C' . $seri, $c['no_rangka']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('D' . $seri, $c['kode_item']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('E' . $seri, $c['type']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('F' . $seri, $c['umur_unit']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('G' . $seri, $c['nama_gudang']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue(
+                            'H' . $seri,
+                            strtoupper($c['status_unit'])
+                        );
 
-                    $excel->getActiveSheet()->getStyle('A' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('B' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('C' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('D' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('E' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('F' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('G' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('H' . $seri)->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('A' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('B' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('C' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('D' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('E' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('F' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('G' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('H' . $seri)
+                        ->applyFromArray($style_row);
 
                     $no++;
                     $seri++;
                 }
 
-                $excel->setActiveSheetIndex(0)->setCellValue('A3', 'PERIODE ' . $tgl_awal . ' s/d ' . $tgl_akhir);
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue(
+                        'A3',
+                        'PERIODE ' . $tgl_awal . ' s/d ' . $tgl_akhir
+                    );
                 $excel->getActiveSheet()->mergeCells('A3:H3');
-                $excel->getActiveSheet()->getStyle('A3')->getFont()->setBold(TRUE);
-                $excel->getActiveSheet()->getStyle('A3')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setSize(14);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
 
-                $excel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
-                $excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
-                $excel->getActiveSheet()->getColumnDimension('C')->setWidth(25);
-                $excel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
-                $excel->getActiveSheet()->getColumnDimension('E')->setWidth(15);
-                $excel->getActiveSheet()->getColumnDimension('F')->setWidth(10);
-                $excel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
-                $excel->getActiveSheet()->getColumnDimension('H')->setWidth(25);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('A')
+                    ->setWidth(5);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('B')
+                    ->setWidth(20);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('C')
+                    ->setWidth(25);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('D')
+                    ->setWidth(15);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('E')
+                    ->setWidth(15);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('F')
+                    ->setWidth(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('G')
+                    ->setWidth(20);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('H')
+                    ->setWidth(25);
 
-                $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
+                $excel
+                    ->getActiveSheet()
+                    ->getDefaultRowDimension()
+                    ->setRowHeight(-1);
 
-                $excel->getActiveSheet()->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT);
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setOrientation(
+                        \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT
+                    );
                 $statu = strtoupper($status);
                 $excel->getActiveSheet(0)->setTitle($statu . $tgl);
                 $excel->setActiveSheetIndex(0);
-                header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-                header("Content-Disposition: attachment; filename=REPORT-UNIT" . $status . $tgl . ".xlsx");
+                header(
+                    'Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                );
+                header(
+                    'Content-Disposition: attachment; filename=REPORT-UNIT' .
+                        $status .
+                        $tgl .
+                        '.xlsx'
+                );
                 header('Cache-Control: max-age=0');
                 $write = new Xlsx($excel);
                 $write->save('php://output');
@@ -332,7 +534,7 @@ class laporan_auditor extends CI_Controller
                 $pdf = new reportProduct();
                 $pdf->setKriteria('status');
                 $pdf->AliasNbPages();
-                $pdf->AddPage("P", "A4");
+                $pdf->AddPage('P', 'A4');
                 $cab = $this->mlapaudit->getCabangbyId($cabang);
                 foreach ($cab as $c) {
                     $cab = $c['nama_cabang'];
@@ -342,7 +544,14 @@ class laporan_auditor extends CI_Controller
                 $pdf->SetFont('Arial', 'B', '12');
                 $pdf->Cell(190, 7, 'TEMUAN AUDIT ' . $stat, 0, 1, 'C');
                 $pdf->Cell(190, 7, 'CABANG ' . $cab, 0, 1, 'C');
-                $pdf->Cell(190, 7, 'PERIODE ' . $tgl_awal . ' s/d ' . $tgl_akhir, 0, 1, 'C');
+                $pdf->Cell(
+                    190,
+                    7,
+                    'PERIODE ' . $tgl_awal . ' s/d ' . $tgl_akhir,
+                    0,
+                    1,
+                    'C'
+                );
                 $pdf->Cell(10, 7, '', 0, 1);
 
                 $pdf->SetFont('Arial', 'B', 8);
@@ -374,7 +583,7 @@ class laporan_auditor extends CI_Controller
                 }
 
                 // $pdf->Output('D','REPORT-'.$stat.'.pdf');
-                header("Content-type: application/PDF");
+                header('Content-type: application/PDF');
                 $pdf->Output('D', 'REPORT-' . $stat . '.pdf');
                 // $pdf->Output();
             }
@@ -386,16 +595,19 @@ class laporan_auditor extends CI_Controller
     public function cetakexcelnotready()
     {
         $excel = new Spreadsheet();
-        $tgl = "";
+        $tgl = '';
         $type = $this->input->post('type');
         $cabang = $this->input->post('id_cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $is_ready = $this->input->post('ready');
-        $cetak = $this->mlapaudit->cetakUnitnotready($cabang, $idjadwal_audit, $is_ready);
+        $cetak = $this->mlapaudit->cetakUnitnotready(
+            $cabang,
+            $idjadwal_audit,
+            $is_ready
+        );
         if ($cetak) {
-
-            $tgl_awal = date("Y-m-d");
-            $tgl_akhir = "1900-01-01";
+            $tgl_awal = date('Y-m-d');
+            $tgl_akhir = '1900-01-01';
             foreach ($cetak as $c) {
                 if ($tgl_awal > $c['tanggal_audit']) {
                     $tgl_awal = $c['tanggal_audit'];
@@ -405,133 +617,320 @@ class laporan_auditor extends CI_Controller
                     $tgl_akhir = $c['tanggal_audit'];
                 }
             }
-            $tgl = $tgl_awal . " s/d " . $tgl_akhir;
+            $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
 
             if ($type == 'excel') {
                 $style_col = [
                     'font' => ['bold' => true],
                     'alignment' => [
-                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                        'horizontal' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
-                    ]
-
+                        'top' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'right' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'left' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'bottom' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                    ],
                 ];
 
                 $style_row = [
                     'alignment' => [
-                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
-                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                        'horizontal' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
-                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
-                    ]
+                        'top' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'right' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'left' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'bottom' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                    ],
                 ];
                 $cab = $this->mlapaudit->getCabangbyId($cabang);
                 foreach ($cab as $c) {
                     $cab = $c['nama_cabang'];
                 }
-                $excel->getActiveSheet()->getPageSetup()->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
-                $excel->getActiveSheet()->getPageSetup()->setRowsToRepeatAtTop('A5');
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setPaperSize(
+                        \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4
+                    );
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setRowsToRepeatAtTop('A5');
 
-                $excel->setActiveSheetIndex(0)->setCellValue('A1', 'TEMUAN AUDIT NOT READY');
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A1', 'TEMUAN AUDIT NOT READY');
                 $excel->getActiveSheet()->mergeCells('A1:H1');
-                $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE);
-                $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getFont()
+                    ->setSize(14);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
 
-                $excel->setActiveSheetIndex(0)->setCellValue('A2', 'CABANG ' . $cab);
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A2', 'CABANG ' . $cab);
                 $excel->getActiveSheet()->mergeCells('A2:H2');
-                $excel->getActiveSheet()->getStyle('A2')->getFont()->setBold(TRUE);
-                $excel->getActiveSheet()->getStyle('A2')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getFont()
+                    ->setSize(14);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
 
-                $excel->setActiveSheetIndex(0)->setCellValue('A3', 'PERIODE ' . $tgl);
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A3', 'PERIODE ' . $tgl);
                 $excel->getActiveSheet()->mergeCells('A3:H3');
-                $excel->getActiveSheet()->getStyle('A3')->getFont()->setBold(TRUE);
-                $excel->getActiveSheet()->getStyle('A3')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setSize(14);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A5', 'NO.');
                 $excel->setActiveSheetIndex(0)->setCellValue('B5', 'NO. MESIN');
-                $excel->setActiveSheetIndex(0)->setCellValue('C5', 'NO. RANGKA');
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('C5', 'NO. RANGKA');
                 $excel->setActiveSheetIndex(0)->setCellValue('D5', 'KODE ITEM');
                 $excel->setActiveSheetIndex(0)->setCellValue('E5', 'TYPE UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('F5', 'USIA UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('G5', 'LOKASI');
                 $excel->setActiveSheetIndex(0)->setCellValue('H5', 'READY');
 
-                $excel->getActiveSheet()->getStyle('A5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('B5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('C5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('D5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('E5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('F5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('G5')->applyFromArray($style_col);
-                $excel->getActiveSheet()->getStyle('H5')->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('B5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('C5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('D5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('E5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('F5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('G5')
+                    ->applyFromArray($style_col);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('H5')
+                    ->applyFromArray($style_col);
 
                 $no = 1;
                 $seri = 6;
 
                 foreach ($cetak as $c) {
                     // var_dump($c);die;
-                    $excel->setActiveSheetIndex(0)->setCellValue('A' . $seri, $no);
-                    $excel->setActiveSheetIndex(0)->setCellValue('B' . $seri, $c['no_mesin']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('C' . $seri, $c['no_rangka']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('D' . $seri, $c['kode_item']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('E' . $seri, $c['type']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('F' . $seri, $c['umur_unit']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('G' . $seri, $c['nama_gudang']);
-                    $excel->setActiveSheetIndex(0)->setCellValue('H' . $seri, $c['is_ready']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('A' . $seri, $no);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('B' . $seri, $c['no_mesin']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('C' . $seri, $c['no_rangka']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('D' . $seri, $c['kode_item']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('E' . $seri, $c['type']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('F' . $seri, $c['umur_unit']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('G' . $seri, $c['nama_gudang']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('H' . $seri, $c['is_ready']);
 
-                    $excel->getActiveSheet()->getStyle('A' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('B' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('C' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('D' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('E' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('F' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('G' . $seri)->applyFromArray($style_row);
-                    $excel->getActiveSheet()->getStyle('H' . $seri)->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('A' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('B' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('C' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('D' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('E' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('F' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('G' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('H' . $seri)
+                        ->applyFromArray($style_row);
 
                     $no++;
                     $seri++;
                 }
 
-                $excel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
-                $excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
-                $excel->getActiveSheet()->getColumnDimension('C')->setWidth(25);
-                $excel->getActiveSheet()->getColumnDimension('D')->setWidth(15);
-                $excel->getActiveSheet()->getColumnDimension('E')->setWidth(15);
-                $excel->getActiveSheet()->getColumnDimension('F')->setWidth(10);
-                $excel->getActiveSheet()->getColumnDimension('G')->setWidth(20);
-                $excel->getActiveSheet()->getColumnDimension('H')->setWidth(25);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('A')
+                    ->setWidth(5);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('B')
+                    ->setWidth(20);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('C')
+                    ->setWidth(25);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('D')
+                    ->setWidth(15);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('E')
+                    ->setWidth(15);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('F')
+                    ->setWidth(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('G')
+                    ->setWidth(20);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('H')
+                    ->setWidth(25);
 
-                $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
+                $excel
+                    ->getActiveSheet()
+                    ->getDefaultRowDimension()
+                    ->setRowHeight(-1);
 
-                $excel->getActiveSheet()->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT);
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setOrientation(
+                        \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT
+                    );
                 $ready = strtoupper($is_ready);
                 $excel->getActiveSheet(0)->setTitle($ready . $idjadwal_audit);
                 $excel->setActiveSheetIndex(0);
-                header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-                header("Content-Disposition: attachment; filename=REPORT-UNIT" . $ready . $idjadwal_audit . ".xlsx"); // Set nama file excel nya
+                header(
+                    'Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                );
+                header(
+                    'Content-Disposition: attachment; filename=REPORT-UNIT' .
+                        $ready .
+                        $idjadwal_audit .
+                        '.xlsx'
+                ); // Set nama file excel nya
                 header('Cache-Control: max-age=0');
                 $write = new Xlsx($excel);
                 // var_dump($write);die;
                 $write->save('php://output');
             } elseif ($type == 'pdf') {
-
                 $pdf = new reportProduct();
                 $pdf->setKriteria('status');
                 $pdf->AliasNbPages();
-                $pdf->AddPage("P", "A4");
+                $pdf->AddPage('P', 'A4');
                 $cab = $this->mlapaudit->getCabangbyId($cabang);
                 foreach ($cab as $c) {
                     $cab = $c['nama_cabang'];
@@ -573,7 +972,7 @@ class laporan_auditor extends CI_Controller
                     $start = $start + 15;
                 }
                 // $pdf->Output('D','REPORT-'.$stat.'.pdf');
-                header("Content-type: application/PDF");
+                header('Content-type: application/PDF');
                 $pdf->Output('D', 'REPORT-' . $rdy . '.pdf');
                 // $pdf->Output();
             }
@@ -593,26 +992,32 @@ class laporan_auditor extends CI_Controller
         $config['total_rows'] = $count;
         $config['per_page'] = 15;
         $config['uri_segment'] = 3;
-        $config['use_page_numbers'] = TRUE;
+        $config['use_page_numbers'] = true;
         $config['num_links'] = 3;
 
         $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
         $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['first_tag_close'] = '</li>';
         $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['last_tag_close'] = '</li>';
         $config['next_link'] = '&gt;';
-        $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['next_tag_close'] = '</li>';
         $config['prev_link'] = '&lt;&nbsp;';
-        $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['prev_tag_close'] = '</li>';
-        $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['cur_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['cur_tag_close'] = '</li>';
 
         $this->pagination->initialize($config);
@@ -623,13 +1028,20 @@ class laporan_auditor extends CI_Controller
         }
         $start = ($page - 1) * $config['per_page'];
 
-        $cetak = $this->mlapaudit->prevAksesoris($cabang, $idjadwal_audit, $start);
-        $row_entry = '
-                <div class=" label label-default">' . $count . '</div>
+        $cetak = $this->mlapaudit->prevAksesoris(
+            $cabang,
+            $idjadwal_audit,
+            $start
+        );
+        $row_entry =
+            '
+                <div class=" label label-default">' .
+            $count .
+            '</div>
             ';
         $output = [
-            'pagination_link'   => $this->pagination->create_links(),
-            'aksesoris'         => $cetak,
+            'pagination_link' => $this->pagination->create_links(),
+            'aksesoris' => $cetak,
             'row_entry' => $row_entry,
         ];
 
@@ -637,7 +1049,7 @@ class laporan_auditor extends CI_Controller
     }
     public function cetakperlokasi()
     {
-        $tgl = "";
+        $tgl = '';
         $cabang = $this->input->post('id_cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $kacab = $this->input->post('kacab');
@@ -650,11 +1062,14 @@ class laporan_auditor extends CI_Controller
             $cab = $c['nama_cabang'];
         }
         $start = null;
-        $cetak = $this->mlapaudit->prevAksesorisPdf($cabang, $idjadwal_audit, $start);
+        $cetak = $this->mlapaudit->prevAksesorisPdf(
+            $cabang,
+            $idjadwal_audit,
+            $start
+        );
         if ($cetak != null) {
-
-            $tgl_awal = date("Y-m-d");
-            $tgl_akhir = "1900-01-01";
+            $tgl_awal = date('Y-m-d');
+            $tgl_akhir = '1900-01-01';
             foreach ($cetak as $c) {
                 if ($tgl_awal > $c['tanggal_audit']) {
                     $tgl_awal = $c['tanggal_audit'];
@@ -664,13 +1079,13 @@ class laporan_auditor extends CI_Controller
                     $tgl_akhir = $c['tanggal_audit'];
                 }
             }
-            $tgl = $tgl_awal . " s/d " . $tgl_akhir;
+            $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
 
             $pdf = new reportProduct();
             $pdf->setKriteria('report');
             $pdf->setNama($cab);
             $pdf->AliasNbPages();
-            $pdf->AddPage("P", "A4");
+            $pdf->AddPage('P', 'A4');
             $pdf->SetFont('Times', 'B', '16');
             $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
             $pdf->SetFont('Times', '', '10');
@@ -697,11 +1112,11 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFont('Times', 'B', 10);
 
             $pdf->Cell(10, 5, 'Hasil Audit', 0, 1);
-            $pdf->Cell(30, 15, 'Jenis Kelengkapan', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'QTY Unit', 1, 0, 'C', TRUE);
-            $pdf->Cell(35, 15, 'QTY Fisik Aksesoris', 1, 0, 'C', TRUE);
-            $pdf->Cell(27, 15, 'Selisih', 1, 0, 'C', TRUE);
-            $pdf->Cell(20, 15, 'Keterangan', 1, 1, 'C', TRUE);
+            $pdf->Cell(30, 15, 'Jenis Kelengkapan', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'QTY Unit', 1, 0, 'C', true);
+            $pdf->Cell(35, 15, 'QTY Fisik Aksesoris', 1, 0, 'C', true);
+            $pdf->Cell(27, 15, 'Selisih', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'Keterangan', 1, 1, 'C', true);
             $start = null;
 
             $qty = $this->mtransaudit->countUnit1($cabang);
@@ -792,33 +1207,43 @@ class laporan_auditor extends CI_Controller
         // var_dump($this->input->post());die;
         $this->load->library('pagination');
         if ($is_ready != null) {
-
-            $count = $this->mlapaudit->countunitnotready($cabang, $idjadwal_audit, $is_ready);
+            $count = $this->mlapaudit->countunitnotready(
+                $cabang,
+                $idjadwal_audit,
+                $is_ready
+            );
             // $base= 'lap_belum_ditemukan';
-            $config['base_url'] = base_url() . 'laporan_auditor/previewnotready';
+            $config['base_url'] =
+                base_url() . 'laporan_auditor/previewnotready';
             $config['total_rows'] = $count;
             $config['per_page'] = 15;
             $config['uri_segment'] = 3;
-            $config['use_page_numbers'] = TRUE;
+            $config['use_page_numbers'] = true;
             $config['num_links'] = 3;
 
             $config['full_tag_open'] = '<ul class="pagination">';
             $config['full_tag_close'] = '</ul>';
             $config['first_link'] = 'First';
-            $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['first_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['first_tag_close'] = '</li>';
             $config['last_link'] = 'Last';
-            $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['last_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['last_tag_close'] = '</li>';
             $config['next_link'] = '&gt;';
-            $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['next_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['next_tag_close'] = '</li>';
             $config['prev_link'] = '&lt;&nbsp;';
-            $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['prev_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['prev_tag_close'] = '</li>';
-            $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['num_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['cur_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['cur_tag_close'] = '</li>';
 
             $this->pagination->initialize($config);
@@ -829,22 +1254,29 @@ class laporan_auditor extends CI_Controller
             }
             $start = ($page - 1) * $config['per_page'];
 
-            $cetak = $this->mlapaudit->previewUnitnotready($cabang, $idjadwal_audit, $is_ready, $start);
-            $row_entry = '
-                    <div class=" label label-default">' . $count . '</div>
+            $cetak = $this->mlapaudit->previewUnitnotready(
+                $cabang,
+                $idjadwal_audit,
+                $is_ready,
+                $start
+            );
+            $row_entry =
+                '
+                    <div class=" label label-default">' .
+                $count .
+                '</div>
                 ';
         }
 
         $output = [
             // 'pagination_link'   => $count,
-            'pagination_link'   => $this->pagination->create_links(),
-            'unit_list'         => $cetak,
+            'pagination_link' => $this->pagination->create_links(),
+            'unit_list' => $cetak,
             'row_entry' => $row_entry,
         ];
 
         echo json_encode($output);
     }
-
 
     public function preview()
     {
@@ -854,33 +1286,42 @@ class laporan_auditor extends CI_Controller
         // var_dump($this->input->post());die;
         $this->load->library('pagination');
         if ($status != null) {
-
-            $count = $this->mlapaudit->countunit($cabang, $idjadwal_audit, $status);
+            $count = $this->mlapaudit->countunit(
+                $cabang,
+                $idjadwal_audit,
+                $status
+            );
             // $base= 'lap_belum_ditemukan';
             $config['base_url'] = base_url() . 'laporan_auditor/preview';
             $config['total_rows'] = $count;
             $config['per_page'] = 15;
             $config['uri_segment'] = 3;
-            $config['use_page_numbers'] = TRUE;
+            $config['use_page_numbers'] = true;
             $config['num_links'] = 3;
 
             $config['full_tag_open'] = '<ul class="pagination">';
             $config['full_tag_close'] = '</ul>';
             $config['first_link'] = 'First';
-            $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['first_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['first_tag_close'] = '</li>';
             $config['last_link'] = 'Last';
-            $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['last_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['last_tag_close'] = '</li>';
             $config['next_link'] = '&gt;';
-            $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['next_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['next_tag_close'] = '</li>';
             $config['prev_link'] = '&lt;&nbsp;';
-            $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['prev_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['prev_tag_close'] = '</li>';
-            $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['num_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['cur_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['cur_tag_close'] = '</li>';
 
             $this->pagination->initialize($config);
@@ -891,9 +1332,17 @@ class laporan_auditor extends CI_Controller
             }
             $start = ($page - 1) * $config['per_page'];
 
-            $cetak = $this->mlapaudit->previewUnit($cabang, $idjadwal_audit, $status, $start);
-            $row_entry = '
-                    <div class=" label label-default">' . $count . '</div>
+            $cetak = $this->mlapaudit->previewUnit(
+                $cabang,
+                $idjadwal_audit,
+                $status,
+                $start
+            );
+            $row_entry =
+                '
+                    <div class=" label label-default">' .
+                $count .
+                '</div>
                 ';
         } elseif ($status == null) {
             $count = $this->mlapaudit->countunitvalid($cabang, $idjadwal_audit);
@@ -903,26 +1352,32 @@ class laporan_auditor extends CI_Controller
             $config['total_rows'] = $count;
             $config['per_page'] = 15;
             $config['uri_segment'] = 3;
-            $config['use_page_numbers'] = TRUE;
+            $config['use_page_numbers'] = true;
             $config['num_links'] = 3;
 
             $config['full_tag_open'] = '<ul class="pagination">';
             $config['full_tag_close'] = '</ul>';
             $config['first_link'] = 'First';
-            $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['first_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['first_tag_close'] = '</li>';
             $config['last_link'] = 'Last';
-            $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['last_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['last_tag_close'] = '</li>';
             $config['next_link'] = '&gt;';
-            $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['next_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['next_tag_close'] = '</li>';
             $config['prev_link'] = '&lt;&nbsp;';
-            $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['prev_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['prev_tag_close'] = '</li>';
-            $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['num_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+            $config['cur_tag_open'] =
+                '<li class="page-item"><span class="page-link">';
             $config['cur_tag_close'] = '</li>';
 
             $this->pagination->initialize($config);
@@ -933,16 +1388,23 @@ class laporan_auditor extends CI_Controller
             }
             $start = ($page - 1) * $config['per_page'];
 
-            $cetak = $this->mlapaudit->auditUnit($cabang, $idjadwal_audit, $start);
-            $row_entry = '
-                    <div class=" label label-default">' . $count . '</div>
+            $cetak = $this->mlapaudit->auditUnit(
+                $cabang,
+                $idjadwal_audit,
+                $start
+            );
+            $row_entry =
+                '
+                    <div class=" label label-default">' .
+                $count .
+                '</div>
                 ';
         }
 
         $output = [
             // 'pagination_link'   => $count,
-            'pagination_link'   => $this->pagination->create_links(),
-            'unit_list'         => $cetak,
+            'pagination_link' => $this->pagination->create_links(),
+            'unit_list' => $cetak,
             'row_entry' => $row_entry,
         ];
 
@@ -961,26 +1423,32 @@ class laporan_auditor extends CI_Controller
         $config['total_rows'] = $count;
         $config['per_page'] = 15;
         $config['uri_segment'] = 3;
-        $config['use_page_numbers'] = TRUE;
+        $config['use_page_numbers'] = true;
         $config['num_links'] = 3;
 
         $config['full_tag_open'] = '<ul class="pagination">';
         $config['full_tag_close'] = '</ul>';
         $config['first_link'] = 'First';
-        $config['first_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['first_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['first_tag_close'] = '</li>';
         $config['last_link'] = 'Last';
-        $config['last_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['last_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['last_tag_close'] = '</li>';
         $config['next_link'] = '&gt;';
-        $config['next_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['next_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['next_tag_close'] = '</li>';
         $config['prev_link'] = '&lt;&nbsp;';
-        $config['prev_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['prev_tag_close'] = '</li>';
-        $config['num_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['num_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['num_tag_close'] = '</li>';
-        $config['cur_tag_open'] = '<li class="page-item"><span class="page-link">';
+        $config['cur_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
         $config['cur_tag_close'] = '</li>';
 
         $this->pagination->initialize($config);
@@ -992,14 +1460,17 @@ class laporan_auditor extends CI_Controller
         $start = ($page - 1) * $config['per_page'];
 
         $cetak = $this->mlapaudit->auditPart($cabang, $idjadwal_audit, $start);
-        $row_entry = '
-                    <div class=" label label-default">' . $count . '</div>
+        $row_entry =
+            '
+                    <div class=" label label-default">' .
+            $count .
+            '</div>
                 ';
 
         $output = [
             // 'pagination_link'   => $count,
-            'pagination_link'   => $this->pagination->create_links(),
-            'part_list'         => $cetak,
+            'pagination_link' => $this->pagination->create_links(),
+            'part_list' => $cetak,
             'row_entry' => $row_entry,
         ];
 
@@ -1014,9 +1485,8 @@ class laporan_auditor extends CI_Controller
         $tempat = $this->input->post('tempat');
         $counter = $this->input->post('counter');
         $auditor = $this->input->post('auditor');
-        $tgl_awal = "";
-        $tgl_akhir = "";
-
+        $tgl_awal = '';
+        $tgl_akhir = '';
 
         $cab = $this->mlapaudit->getCabangbyId($cabang);
         foreach ($cab as $c) {
@@ -1026,8 +1496,8 @@ class laporan_auditor extends CI_Controller
         $cetak = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
 
         if ($cetak != null) {
-            $tgl_awal = date("Y-m-d");
-            $tgl_akhir = "1900-01-01";
+            $tgl_awal = date('Y-m-d');
+            $tgl_akhir = '1900-01-01';
             foreach ($cetak as $c) {
                 if ($tgl_awal > $c['tanggal_audit']) {
                     $tgl_awal = $c['tanggal_audit'];
@@ -1037,13 +1507,13 @@ class laporan_auditor extends CI_Controller
                     $tgl_akhir = $c['tanggal_audit'];
                 }
             }
-            $tgl = $tgl_awal . " s/d " . $tgl_akhir;
+            $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
 
             $pdf = new reportProduct();
             $pdf->setKriteria('report');
             $pdf->setNama($cab);
             $pdf->AliasNbPages();
-            $pdf->AddPage("P", "A4");
+            $pdf->AddPage('P', 'A4');
             $pdf->SetFont('Times', 'B', '16');
             $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
             $pdf->SetFont('Times', '', '10');
@@ -1070,12 +1540,12 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFont('Times', 'B', 10);
 
             $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
-            $pdf->Cell(8, 15, 'No', 1, 0, 'C', TRUE);
-            $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', TRUE);
-            $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', TRUE);
-            $pdf->Cell(50, 15, 'DESKRIPSI', 1, 0, 'C', TRUE);
-            $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', TRUE);
+            $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
+            $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
+            $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', true);
+            $pdf->Cell(50, 15, 'DESKRIPSI', 1, 0, 'C', true);
+            $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', true);
             $start = null;
 
             $no = 1;
@@ -1108,7 +1578,6 @@ class laporan_auditor extends CI_Controller
             // $pdf->Output('D','REPORTUNIT-'.$tgl.'.pdf');
             $pdf->Output();
         } else {
-
             redirect('laporan_auditor/lap_audit_part', 'refresh');
         }
     }
@@ -1116,44 +1585,52 @@ class laporan_auditor extends CI_Controller
     public function Filter_Cabang()
     {
         $data = [
-            'judul' => "Filter Cabang",
-            'judul1' => 'Laporan Auditor'
+            'judul' => 'Filter Cabang',
+            'judul1' => 'Laporan Auditor',
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_filter_cabang.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_filter_cabang.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
     }
 
     public function Filter_Kondisi()
     {
         $data = [
-            'judul' => "Filter Cabang",
-            'judul1' => 'Laporan Auditor'
+            'judul' => 'Filter Cabang',
+            'judul1' => 'Laporan Auditor',
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_filter_kondisi.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_filter_kondisi.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
     }
-
 
     public function Lap_Audit_unit()
     {
         $data = [
-            'judul' => "Laporan Audit Unit",
+            'judul' => 'Laporan Audit Unit',
             'judul1' => 'Laporan Auditor',
             'tgl' => date('m/d/Y'),
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_laporan_audit_unit.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_laporan_audit_unit.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
     }
     public function Lap_Audit_part()
     {
         $data = [
-            'judul' => "Laporan Audit Unit",
+            'judul' => 'Laporan Audit Part',
             'judul1' => 'Laporan Auditor',
             'tgl' => date('m/d/Y'),
         ];
@@ -1166,67 +1643,81 @@ class laporan_auditor extends CI_Controller
     public function Lap_Perlokasi()
     {
         $data = [
-            'judul' => "Laporan Perlokasi",
+            'judul' => 'Laporan Perlokasi',
             'judul1' => 'Laporan Auditor',
             'tgl' => date('m/d/Y'),
-
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_laporan_perlokasi.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_laporan_perlokasi.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer3.php');
     }
 
     public function Lap_sesuai()
     {
         $data = [
-            'judul' => "Laporan Data Sesuai",
+            'judul' => 'Laporan Data Sesuai',
             'judul1' => 'Laporan Auditor',
             'tgl' => date('m/d/Y'),
         ];
 
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_laporan_sesuai.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_laporan_sesuai.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
     }
 
     public function Lap_belum_sesuai()
     {
         $data = [
-            'judul' => "Laporan Data Belum Sesuai",
+            'judul' => 'Laporan Data Belum Sesuai',
             'judul1' => 'Laporan Auditor',
             'tgl' => date('m/d/Y'),
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_laporan_belum_sesuai.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_laporan_belum_sesuai.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
     }
 
     public function Lap_belum_ditemukan()
     {
         $data = [
-            'judul' => "Laporan Belum Ditemukan",
+            'judul' => 'Laporan Belum Ditemukan',
             'tgl' => date('m/d/Y'),
             'judul1' => 'Laporan Auditor',
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_laporan_belum_ditemukan.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_laporan_belum_ditemukan.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
     }
 
     public function Lap_not_ready()
     {
         $data = [
-            'judul' => "Laporan Not Ready",
+            'judul' => 'Laporan Not Ready',
             'judul1' => 'Laporan Auditor',
             'tgl' => date('m/d/Y'),
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_unit/v_laporan_not_ready.php', $data);
+        $this->load->view(
+            'auditorview/laporan_unit/v_laporan_not_ready.php',
+            $data
+        );
         $this->load->view('auditorview/laporan_unit/_partial/footer2.php');
     }
     //------------------GET DATA--------------//
@@ -1237,8 +1728,15 @@ class laporan_auditor extends CI_Controller
         $listcabang = $this->mlapaudit->getCabang();
         foreach ($listcabang as $list) {
             $no++;
-            $output .= '
-				<option value="' . $list['id_cabang'] . '">' . $list['id_cabang'] . ' - ' . $list['nama_cabang'] . '</option>
+            $output .=
+                '
+				<option value="' .
+                $list['id_cabang'] .
+                '">' .
+                $list['id_cabang'] .
+                ' - ' .
+                $list['nama_cabang'] .
+                '</option>
 			';
         }
         echo '<option value="">--- Pilih Cabang ---</option>';
@@ -1259,17 +1757,33 @@ class laporan_auditor extends CI_Controller
 
         if ($listUserGroup) {
             foreach ($listUserGroup as $list) {
-
                 $no++;
-                $output .= '
+                $output .=
+                    '
                 <tr> 
-                    <td>' . $no . '</td>
+                    <td>' .
+                    $no .
+                    '</td>
                     <td>
-                    <a id="' . $list['id_usergroup'] . '" class="text-warning"><i class="fa fa-pencil"></i></a>
-                    <a href="' . $base . 'master_data/delete_usergroup/' . $list['id_usergroup'] . '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' . $list['id_usergroup'] . ' - ' . $list['user_group'] . ' ? ");\'><i class="fa fa-trash"></i></a>
+                    <a id="' .
+                    $list['id_usergroup'] .
+                    '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="' .
+                    $base .
+                    'master_data/delete_usergroup/' .
+                    $list['id_usergroup'] .
+                    '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' .
+                    $list['id_usergroup'] .
+                    ' - ' .
+                    $list['user_group'] .
+                    ' ? ");\'><i class="fa fa-trash"></i></a>
                     </td>
-                    <td>' . $list['id_usergroup'] . '</td>
-                    <td>' . $list['user_group'] . '</td>
+                    <td>' .
+                    $list['id_usergroup'] .
+                    '</td>
+                    <td>' .
+                    $list['user_group'] .
+                    '</td>
                 </tr>
                 
                 ';

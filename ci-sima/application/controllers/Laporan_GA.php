@@ -36,7 +36,9 @@ class Laporan_GA extends CI_Controller
             'general_affairview/laporan_office/v_laporan_inv.php',
             $data
         );
-        $this->load->view('general_affairview/_partial/footer.php');
+        $this->load->view(
+            'general_affairview/laporan_office/_partial/footer.php'
+        );
     }
 
     public function filterCabang()
