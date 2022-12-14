@@ -30,7 +30,7 @@
                     <span id="info_message"></span>
                 </div>
                 <div class="panel-body">
-                    <form id="FormLap" method="post">
+                    <form id="FormLap" action="<?php echo base_url(); ?>laporan_ga/cetakInv" method="post">
                         <!-- <div class="row">
                                 <! <div class="col-sm-2"><label>Cari Inventory Office</label></div>
                                     <div class="col-sm-7"><input type="text" class="form-control" id="inv"></div>
@@ -48,7 +48,7 @@
                                         <input type="hidden" name="status" id="status" value="Belum Sesuai" />
                                             <a id="caribtn" class="btn btn-success">Cari Data</a>
                                             <button type="submit" class="btn btn-primary" id="type" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
-                                            <button type="submit" class="btn btn-danger" id="type" name="type" value="pdf" action="<?php echo base_url(); ?>laporan_ga/cetakInv"><i class="fa fa-fw fa-file-pdf-o"></i>Pdf</button>
+                                            <button type="submit" class="btn btn-danger" id="type" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Pdf</button>
                                     </div>
                                     <div class="form-group">
                                 </div>

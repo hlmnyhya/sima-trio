@@ -144,10 +144,10 @@ class laporan_auditor extends CI_Controller
                 $pdf->myCell(25, 7, $x, $c['no_mesin']);
                 $x = $pdf->GetX();
                 $pdf->myCell(28, 7, $x, $c['no_rangka']);
+                 = $pdf->GetX();
                 $x = $pdf->GetX();
                 $pdf->myCell(27, 7, $x, $c['type']);
-                $x = $pdf->GetX();
-                $pdf->myCell(
+                $x$pdf->myCell(
                     20,
                     7,
                     $x,

@@ -15,6 +15,9 @@ class Laporan_GA extends CI_Controller
         parent::__construct();
         ini_set('max_execution_time', 0);
         $this->load->model('m_laporan_GA', 'mlapga');
+        $this->load->model('m_laporan_auditor', 'mlapaudit');
+        $this->load->model('m_transaksi_auditor', 'mtransaudit');
+        $this->load->model('m_master_data', 'mmasdat');
         $_tgl = date('Y-m-d');
 
         if (!$this->session->userdata('username')) {
@@ -218,12 +221,15 @@ class Laporan_GA extends CI_Controller
     public function cetakInv()
     {
         $tgl = date('Ymd');
-        $cabang = $this->input->post('id_cabang');
+        $id = $this->input->post('idtransaksi_inv');
+        $cabang = $this->input->post('cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $kacab = $this->input->post('kacab');
         $tempat = $this->input->post('tempat');
         $counter = $this->input->post('counter');
         $auditor = $this->input->post('auditor');
+        $tgl_awal = '';
+        $tgl_akhir = '';
 
         $start = 0;
         $cetak = $this->mlapga->cetakga($cabang, $id, $start);
@@ -233,22 +239,24 @@ class Laporan_GA extends CI_Controller
             $tgl_awal = date('Y-m-d');
             $tgl_akhir = '1900-01-01';
             foreach ($cetak as $c) {
-                if ($tgl_awal > $c['tanggal_audit']) {
-                    $tgl_awal = $c['tanggal_audit'];
+                if ($tgl_awal > $c['tanggal_barang_diterima']) {
+                    $tgl_awal = $c['tanggal_barang_diterima'];
                 }
 
-                if ($tgl_akhir < $c['tanggal_audit']) {
-                    $tgl_akhir = $c['tanggal_audit'];
+                if ($tgl_akhir < $c['tanggal_barang_diterima']) {
+                    $tgl_akhir = $c['tanggal_barang_diterima'];
                 }
             }
+            // var_dump($cetak);
+            // exit();
             $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
 
             $pdf = new reportProduct();
             $pdf->setKriteria('report');
-            $pdf->setNama($cab);
+            $pdf->setNama('General Affair');
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');
-            $pdf->SetFont('Times', 'B', '16');
+            $pdf->SetFont('Times', 'B', '10');
             $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
             $pdf->SetFont('Times', '', '10');
             $pdf->SetXY(120, 34);
@@ -271,36 +279,45 @@ class Laporan_GA extends CI_Controller
             $pdf->SetY(55);
             $pdf->SetLineWidth(0.1);
             $pdf->SetFillColor(0, 186, 242);
-            $pdf->SetFont('Times', 'B', 10);
+            $pdf->SetFont('Times', 'B', 6);
 
             $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
             $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
-            $pdf->Cell(55, 15, 'TRANSAKSI', 1, 0, 'C', true);
-            $pdf->Cell(28, 15, 'JENIS', 1, 0, 'C', true);
-            $pdf->Cell(50, 15, 'SUB INVENTORY', 1, 0, 'C', true);
-            $pdf->Cell(30, 15, 'NILAI AWAL', 1, 0, 'C', true);
-            $pdf->Cell(25, 15, 'TANGGAL', 1, 1, 'C', true);
-            $pdf->Cell(25, 15, 'VENDOR', 1, 1, 'C', true);
-            $pdf->Cell(25, 15, 'PEMBAYARAN', 1, 1, 'C', true);
-            $pdf->Cell(25, 15, 'LOKASI', 1, 1, 'C', true);
-            $pdf->Cell(25, 15, 'AUDITOR', 1, 1, 'C', true);
-            $pdf->Cell(25, 15, 'KETERANGAN', 1, 1, 'C', true);
+            $pdf->Cell(30, 15, 'TRANSAKSI', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'JENIS', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'SUB INVENTORY', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'NILAI AWAL', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'TANGGAL', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'VENDOR', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'PEMBAYARAN', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'LOKASI', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'KETERANGAN', 1, 1, 'C', true);
             $start = null;
 
             $no = 1;
-            $pdf->SetFont('Times', '', 8);
+            $pdf->SetFont('Times', '', 6);
             foreach ($cetak as $c) {
-                $pdf->Cell(8, 6, $no, 1, 0, 'C');
-                $pdf->Cell(55, 6, $c['idtransaksi_inv'], 1, 0);
-                $pdf->Cell(28, 6, $c['jenis_inventory'], 1, 0);
-                $pdf->Cell(50, 6, $c['sub_inventory'], 1, 0);
-                $pdf->Cell(50, 6, $c['nilai_awal'], 1, 0);
-                $pdf->Cell(50, 6, $c['tanggal_barang_diterima'], 1, 0);
-                $pdf->Cell(50, 6, $c['nama_vendor'], 1, 0);
-                $pdf->Cell(50, 6, $c['jenis_pembayaran'], 1, 0);
-                $pdf->Cell(50, 6, $c['nama_lokasi'], 1, 0);
-                $pdf->Cell(50, 6, $c['nama_pengguna'], 1, 0);
-                $pdf->Cell(30, 6, $c['keterangan'], 1, 0, 'C');
+                $x = $pdf->GetX();
+                $pdf->myCell(8, 6, $x, $no, 'C');
+                $x = $pdf->GetX();
+                $pdf->myCell(30, 6, $x, $c['idtransaksi_inv']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['jenis_inventory']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['sub_inventory']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['nilai_awal']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['tanggal_barang_diterima']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['nama_vendor']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['jenis_pembayaran']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['nama_lokasi']);
+                $x = $pdf->GetX();
+                $pdf->myCell(20, 6, $x, $c['keterangan']);
+                $pdf->ln();
                 $no++;
             }
             $pdf->Ln(5);
@@ -319,7 +336,7 @@ class Laporan_GA extends CI_Controller
             $pdf->cell(50, 5, 'Auditor', 1, 0, 'C');
             $pdf->cell(50, 5, 'PDI/PIC Gudang', 1, 0, 'C');
             $pdf->cell(50, 5, 'Kepala Cabang', 1, 1, 'C');
-            $pdf->Output('D', 'REPORTUNIT-' . $tgl . '.pdf');
+            $pdf->Output('D', 'REPORTOFFICE-' . $tgl . '.pdf');
             $pdf->Output();
         } else {
             redirect('laporan_ga/lap_audit_ga', 'refresh');
