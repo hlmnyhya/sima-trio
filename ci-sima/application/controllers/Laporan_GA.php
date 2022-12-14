@@ -2,6 +2,12 @@
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
+use Fpdf\Fpdf;
+use PhpOffice\PhpSpreadsheet\Helper\Sample;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+
 class Laporan_GA extends CI_Controller
 {
     public function __construct()
@@ -40,7 +46,23 @@ class Laporan_GA extends CI_Controller
             'general_affairview/laporan_office/_partial/footer.php'
         );
     }
-
+    public function lap_audit_ga()
+    {
+        $data = [
+            'judul' => 'Laporan Audit GA',
+            'judul1' => 'Laporan GA',
+            'tgl' => date('m/d/Y'),
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view(
+            'general_affairview/laporan_office/v_laporan_inv.php',
+            $data
+        );
+        $this->load->view(
+            'general_affairview/laporan_office/_partial/footer.php'
+        );
+    }
     public function filterCabang()
     {
         $this->load->view(
@@ -192,6 +214,116 @@ class Laporan_GA extends CI_Controller
             'general_affairview/laporan_office/v_laporan_inv.php',
             $data
         );
+    }
+    public function cetakInv()
+    {
+        $tgl = date('Ymd');
+        $cabang = $this->input->post('id_cabang');
+        $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $kacab = $this->input->post('kacab');
+        $tempat = $this->input->post('tempat');
+        $counter = $this->input->post('counter');
+        $auditor = $this->input->post('auditor');
+
+        $start = 0;
+        $cetak = $this->mlapga->cetakga($cabang, $id, $start);
+        // var_dump($cetak);
+        // exit();
+        if ($cetak != null) {
+            $tgl_awal = date('Y-m-d');
+            $tgl_akhir = '1900-01-01';
+            foreach ($cetak as $c) {
+                if ($tgl_awal > $c['tanggal_audit']) {
+                    $tgl_awal = $c['tanggal_audit'];
+                }
+
+                if ($tgl_akhir < $c['tanggal_audit']) {
+                    $tgl_akhir = $c['tanggal_audit'];
+                }
+            }
+            $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
+
+            $pdf = new reportProduct();
+            $pdf->setKriteria('report');
+            $pdf->setNama($cab);
+            $pdf->AliasNbPages();
+            $pdf->AddPage('P', 'A4');
+            $pdf->SetFont('Times', 'B', '16');
+            $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
+            $pdf->SetFont('Times', '', '10');
+            $pdf->SetXY(120, 34);
+            $pdf->cell(0, 0, 'Auditee', 0, 1);
+            $pdf->SetXY(152, 34);
+            $pdf->cell(0, 0, ': Office', 0, 1);
+            $pdf->SetXY(120, 39);
+            $pdf->cell(0, 0, 'Periode Pelaksanaan', 0, 1);
+            $pdf->SetXY(152, 39);
+            $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            $pdf->SetXY(120, 44);
+            $pdf->cell(0, 0, 'Auditor', 0, 1);
+            $pdf->SetXY(152, 44);
+            $pdf->cell(0, 0, ': ' . $auditor, 0, 1);
+            $pdf->SetXY(120, 49);
+            $pdf->cell(0, 0, 'Di-review Oleh', 0, 1);
+            $pdf->SetXY(152, 49);
+            $pdf->cell(0, 0, ': ', 0, 1);
+            $pdf->ln();
+            $pdf->SetY(55);
+            $pdf->SetLineWidth(0.1);
+            $pdf->SetFillColor(0, 186, 242);
+            $pdf->SetFont('Times', 'B', 10);
+
+            $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
+            $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
+            $pdf->Cell(55, 15, 'TRANSAKSI', 1, 0, 'C', true);
+            $pdf->Cell(28, 15, 'JENIS', 1, 0, 'C', true);
+            $pdf->Cell(50, 15, 'SUB INVENTORY', 1, 0, 'C', true);
+            $pdf->Cell(30, 15, 'NILAI AWAL', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'TANGGAL', 1, 1, 'C', true);
+            $pdf->Cell(25, 15, 'VENDOR', 1, 1, 'C', true);
+            $pdf->Cell(25, 15, 'PEMBAYARAN', 1, 1, 'C', true);
+            $pdf->Cell(25, 15, 'LOKASI', 1, 1, 'C', true);
+            $pdf->Cell(25, 15, 'AUDITOR', 1, 1, 'C', true);
+            $pdf->Cell(25, 15, 'KETERANGAN', 1, 1, 'C', true);
+            $start = null;
+
+            $no = 1;
+            $pdf->SetFont('Times', '', 8);
+            foreach ($cetak as $c) {
+                $pdf->Cell(8, 6, $no, 1, 0, 'C');
+                $pdf->Cell(55, 6, $c['idtransaksi_inv'], 1, 0);
+                $pdf->Cell(28, 6, $c['jenis_inventory'], 1, 0);
+                $pdf->Cell(50, 6, $c['sub_inventory'], 1, 0);
+                $pdf->Cell(50, 6, $c['nilai_awal'], 1, 0);
+                $pdf->Cell(50, 6, $c['tanggal_barang_diterima'], 1, 0);
+                $pdf->Cell(50, 6, $c['nama_vendor'], 1, 0);
+                $pdf->Cell(50, 6, $c['jenis_pembayaran'], 1, 0);
+                $pdf->Cell(50, 6, $c['nama_lokasi'], 1, 0);
+                $pdf->Cell(50, 6, $c['nama_pengguna'], 1, 0);
+                $pdf->Cell(30, 6, $c['keterangan'], 1, 0, 'C');
+                $no++;
+            }
+            $pdf->Ln(5);
+            $pdf->SetLineWidth(0.15);
+            $tgl_now = date('d F Y');
+            $pdf->cell(0, 6, $tempat . ' , ' . $tgl_now, 0, 1);
+            $pdf->cell(50, 8, 'Diperiksa Oleh,', 1, 0, 'C');
+            $pdf->cell(50, 8, 'Diverifikasi oleh,', 1, 0, 'C');
+            $pdf->cell(50, 8, 'Diketahui oleh,', 1, 1, 'C');
+            $pdf->cell(50, 30, '', 1, 0, 'C');
+            $pdf->cell(50, 30, '', 1, 0, 'C');
+            $pdf->cell(50, 30, '', 1, 1, 'C');
+            $pdf->cell(50, 5, $auditor, 1, 0, 'C');
+            $pdf->cell(50, 5, $counter, 1, 0, 'C');
+            $pdf->cell(50, 5, $kacab, 1, 1, 'C');
+            $pdf->cell(50, 5, 'Auditor', 1, 0, 'C');
+            $pdf->cell(50, 5, 'PDI/PIC Gudang', 1, 0, 'C');
+            $pdf->cell(50, 5, 'Kepala Cabang', 1, 1, 'C');
+            $pdf->Output('D', 'REPORTUNIT-' . $tgl . '.pdf');
+            $pdf->Output();
+        } else {
+            redirect('laporan_ga/lap_audit_ga', 'refresh');
+        }
     }
 }
 

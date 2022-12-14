@@ -2357,7 +2357,8 @@ function __construct() {
             ], REST_Controller::HTTP_OK);
             
         }
-}
     }
+
+}
 
 /* End of file Audit.php */
