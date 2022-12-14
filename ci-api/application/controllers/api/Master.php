@@ -1939,9 +1939,8 @@ class Master extends REST_Controller
             $lokasset = $this->mlokasicabang->getLokasiAsset();
         } else {
             $lokasset = $this->mlokasicabang->getLokasiAsset($id);
-            // var_dump($lokaset);exit;
+            
         }
-
         if ($lokasset) {
             $this->response([
                 'status' => true,

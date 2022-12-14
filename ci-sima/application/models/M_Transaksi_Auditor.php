@@ -548,6 +548,19 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
+    public function editPart($data)
+    {
+        $respon =  $this->_client->request('PUT', 'listaudpart', [
+            'form_params' => $data
+        ]);
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
 
     public function cek($a, $b, $c)
     {

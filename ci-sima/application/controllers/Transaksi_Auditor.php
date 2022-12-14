@@ -474,6 +474,8 @@ class Transaksi_Auditor extends CI_Controller
             }
         }
     }
+
+
     public function edit_audit_unit()
     {
         $data = [
@@ -522,6 +524,29 @@ class Transaksi_Auditor extends CI_Controller
             redirect('transaksi/audit_unit', 'refresh');
         }
     }
+
+    public function edit_audit_part() {
+        $data = [
+            'part_number' => $this->input->post('part_number'),
+            'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak'),
+            'deskripsi' => $this->input->post('deskripsi'),
+            'id_cabang' => $this->input->post('id_cabang'),
+            'id_lokasi' => $this->input->post('id_lokasi'),
+            'kondisi' => $this->input->post('kondisi'),
+            'status' => 'Sesuai',
+            'penanggung_jawab' => $this->input->post('penanggung_jawab')
+        ];
+        if ($this->mtransauditor->editPart($data)) {
+            $this->session->set_flashdata('berhasil', 'Berhasil Diedit');
+
+            redirect('transaksi/audit_part', 'refresh');
+        } else {
+            $this->session->set_flashdata('gagal', 'Gagal Diedit');
+
+            redirect('transaksi/audit_part', 'refresh');
+        }
+    }
+
     public function doAudit()
     {
         $manual = false;

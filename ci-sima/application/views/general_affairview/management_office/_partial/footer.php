@@ -228,7 +228,7 @@
                     url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_subinv2",
                     type: "POST",
                     data: {
-                        'idjenis_inventory': idjenis_inventory
+                        idjenis_inventory: idjenis_inventory
                     },
                     success: function(data) {
                         $('#load1').html('');
@@ -239,9 +239,9 @@
         })
         $('#OptCabang').load("<?php echo base_url() ?>transaksi_ga/ajax_get_cabang2");
 
-        $('#OptCabang').on('change', function() {
+        $('#OptCabang').change(function(){
             var id_cabang = $('#OptCabang').val();
-
+            console.log(id_cabang);
             if (id_cabang == "") {
                 $('#OptLokasi').prop('disabled', true);
             } else {
@@ -250,9 +250,11 @@
                 $.ajax({
                     url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_aset",
                     type: "POST",
+                    dataType: 'JSON',
                     data: {
-                        'id_cabang': id_cabang
+                        id_lokasi: id_cabang
                     },
+                   
                     success: function(data) {
                         $('#OptLokasi').html(data);
                         $('#load').html('');

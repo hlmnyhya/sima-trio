@@ -414,6 +414,29 @@
         }
     }
 
+    public function lokasiaset_get()
+    {
+        $id = $this->get('id_lokasi');
+        // var_dump($id);exit;
+        if ($id === null) {
+            $lokasset = $this->mlokasicabang->getLokasiAsset();
+        } else {
+            $lokasset = $this->mlokasicabang->getLokasiAsset($id);
+            
+        }
+        if ($lokasset) {
+            $this->response([
+                'status' => true,
+                'data' => $lokasset
+            ], REST_Controller::HTTP_OK);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+        }
+    }
+
     public function countOffice_get()
     {
         $id= $this->get('id');

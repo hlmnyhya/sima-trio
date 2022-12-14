@@ -535,7 +535,7 @@ class Transaksi_GA extends CI_Controller
                 $no++;
                 if ($list['id_lokasi'] == $id2) {
                     $output .= '
-                        <option value="' . $list['id_lokasi'] . '" selected>' . $list['id_lokasi'] . ' - ' . $list['nama_lokasi'] . '</option>
+                       <option value="' . $list['id_lokasi'] . '" selected>' . $list['id_lokasi'] . ' - ' . $list['nama_lokasi'] . '</option>
                     ';
                 } else {
                     $output .= '
@@ -552,15 +552,15 @@ class Transaksi_GA extends CI_Controller
     {
         $output = '';
         $no = 0;
-        $id = $this->input->post('id_cabang');
+        $id = $this->input->post('id_lokasi');
         $key = $this->input->post('key');
         $listaset = $this->mtransga->getLokasiAsset($id);
-        // var_dump($listaset);exit;
+        // var_dump($id);exit;
 
         $output .= '<option value="">--- Pilih Lokasi Aset ---</option>';
 
         foreach ($listaset as $list) {
-            $idlokasi = $list['id_lokasi'];
+            $idlokasi = $list['id_cabang'];
             // var_dump($idlokasi);exit;
             // if ($idlokasi == $key) {
             //     $output .= '
@@ -568,7 +568,7 @@ class Transaksi_GA extends CI_Controller
             //         ';
             // } else {
             $output .= '
-                <option value="' . $list['id_lokasi'] . '" >' . $list['id_cabang'] . ' </option>
+                <option value="' . $list['id_cabang'] . '" >' . $list['id_lokasi'] . ' </option>
                     ';
             // }
 

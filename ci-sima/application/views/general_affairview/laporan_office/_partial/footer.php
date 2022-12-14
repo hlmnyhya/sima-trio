@@ -87,13 +87,10 @@
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
             get_data(page);
-
         });
         get_data(1);
-
         function get_data(page) {
             $("#jenis_inv").html('<tr> <td colspan="10" id="loading"> </td></tr>');
-
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
@@ -104,7 +101,6 @@
                 }
             })
         }
-
         function search() {
             var jenisinv = $('#Injenisinv').val();
             $("#jenis_inv").html('<tr> <td colspan="10" id="loading"> </td></tr>');
