@@ -18,7 +18,8 @@
 		"phpoffice/phpexcel": "^1.8",
 		"fpdf/fpdf": "^1.81",
 		"aferrandini/phpqrcode": "^1.0",
-		"phpoffice/phpspreadsheet": "^1.25"
+		"phpoffice/phpspreadsheet": "^1.25",
+		"endroid/qr-code-bundle": "^4.1"
 	},
 	"autoload": {
 		"classmap": [
@@ -29,5 +30,10 @@
 	"license": "MIT",
 	"support": {
 		"source": "https://github.com/chriskacerguis/codeigniter-restserver"
+	},
+	"config": {
+		"allow-plugins": {
+			"endroid/installer": true
+		}
 	}
 }

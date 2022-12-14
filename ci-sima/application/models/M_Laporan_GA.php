@@ -6,23 +6,22 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_Laporan_GA extends CI_Model
 {
-
     private $_client;
     public function __construct()
     {
         parent::__construct();
         $this->_client = new Client([
-            'base_uri' => SERVER_BASE . 'api/generalaffairs/'
+            'base_uri' => SERVER_BASE . 'api/transaksi/',
         ]);
     }
 
     public function getInv($start = null, $cabang = null)
     {
-        $respon =  $this->_client->request('GET', 'inv', [
+        $respon = $this->_client->request('GET', 'inv', [
             'query' => [
                 'offset' => $start,
-                'cabang' => $cabang
-            ]
+                'cabang' => $cabang,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -35,10 +34,10 @@ class M_Laporan_GA extends CI_Model
     }
     public function getInvbyId($id = null)
     {
-        $respon =  $this->_client->request('GET', 'inv', [
+        $respon = $this->_client->request('GET', 'inv', [
             'query' => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -47,11 +46,11 @@ class M_Laporan_GA extends CI_Model
     }
     public function cariinv($id = null, $offset = null)
     {
-        $respon =  $this->_client->request('GET', 'cariinv', [
+        $respon = $this->_client->request('GET', 'cariinv', [
             'query' => [
                 'id' => $id,
-                'offset' => $offset
-            ]
+                'offset' => $offset,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -64,10 +63,10 @@ class M_Laporan_GA extends CI_Model
 
     public function getInventoryById($id)
     {
-        $respon =  $this->_client->request('GET', 'inv', [
+        $respon = $this->_client->request('GET', 'inv', [
             'query' => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -80,8 +79,8 @@ class M_Laporan_GA extends CI_Model
 
     public function addInv($data)
     {
-        $respon =  $this->_client->request('POST', 'inv', [
-            'form_params' => $data
+        $respon = $this->_client->request('POST', 'inv', [
+            'form_params' => $data,
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -95,8 +94,8 @@ class M_Laporan_GA extends CI_Model
 
     public function EditInv($data)
     {
-        $respon =  $this->_client->request('PUT', 'inv', [
-            'form_params' =>  $data
+        $respon = $this->_client->request('PUT', 'inv', [
+            'form_params' => $data,
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -110,10 +109,10 @@ class M_Laporan_GA extends CI_Model
 
     public function delInv($id)
     {
-        $respon =  $this->_client->request('DELETE', 'inv', [
+        $respon = $this->_client->request('DELETE', 'inv', [
             'form_params' => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -130,7 +129,7 @@ class M_Laporan_GA extends CI_Model
 
     public function getJenisInv()
     {
-        $respon =  $this->_client->request('GET', 'jenisinv');
+        $respon = $this->_client->request('GET', 'jenisinv');
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -142,7 +141,7 @@ class M_Laporan_GA extends CI_Model
     }
     public function getSubInv($id)
     {
-        $respon =  $this->_client->request('GET', 'subinv');
+        $respon = $this->_client->request('GET', 'subinv');
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -155,7 +154,7 @@ class M_Laporan_GA extends CI_Model
 
     public function getStatusInv()
     {
-        $respon =  $this->_client->request('GET', 'statusinv');
+        $respon = $this->_client->request('GET', 'statusinv');
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -168,7 +167,7 @@ class M_Laporan_GA extends CI_Model
 
     public function getVendor()
     {
-        $respon =  $this->_client->request('GET', 'vendor');
+        $respon = $this->_client->request('GET', 'vendor');
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -181,7 +180,7 @@ class M_Laporan_GA extends CI_Model
 
     public function getCabang()
     {
-        $respon =  $this->_client->request('GET', 'cabang');
+        $respon = $this->_client->request('GET', 'cabang');
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -194,7 +193,7 @@ class M_Laporan_GA extends CI_Model
 
     public function getLokasi()
     {
-        $respon =  $this->_client->request('GET', 'lokasi');
+        $respon = $this->_client->request('GET', 'lokasi');
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
@@ -207,10 +206,10 @@ class M_Laporan_GA extends CI_Model
 
     public function getLokasiCabang($id)
     {
-        $respon =  $this->_client->request('GET', 'lokasicabang', [
+        $respon = $this->_client->request('GET', 'lokasicabang', [
             'query' => [
-                'id_cabang' => $id
-            ]
+                'id_cabang' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -226,10 +225,10 @@ class M_Laporan_GA extends CI_Model
 
     public function getCabangById($id)
     {
-        $respon =  $this->_client->request('GET', 'cabang', [
+        $respon = $this->_client->request('GET', 'cabang', [
             'query' => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -242,10 +241,10 @@ class M_Laporan_GA extends CI_Model
 
     public function getLokasiById($id)
     {
-        $respon =  $this->_client->request('GET', 'lokasi', [
+        $respon = $this->_client->request('GET', 'lokasi', [
             'query' => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -256,13 +255,12 @@ class M_Laporan_GA extends CI_Model
         }
     }
 
-
     public function getJenisInvById($id)
     {
-        $respon =  $this->_client->request('GET', 'jenisinv', [
+        $respon = $this->_client->request('GET', 'jenisinv', [
             'query' => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -275,10 +273,10 @@ class M_Laporan_GA extends CI_Model
 
     public function getSubInvById($id)
     {
-        $respon =  $this->_client->request('GET', 'subjenisinv', [
+        $respon = $this->_client->request('GET', 'subjenisinv', [
             'query' => [
-                'id' => $id
-            ]
+                'id' => $id,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -292,13 +290,12 @@ class M_Laporan_GA extends CI_Model
     //--------------------------------//
     public function cariJadwalAudit($auditor, $tanggal_audit, $jenis_audit)
     {
-
-        $respon =  $this->_client->request('GET', 'carijadwalaudit', [
+        $respon = $this->_client->request('GET', 'carijadwalaudit', [
             'query' => [
                 'auditor' => $auditor,
                 'tanggal_audit' => $tanggal_audit,
-                'jenis_audit' => $jenis_audit
-            ]
+                'jenis_audit' => $jenis_audit,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -306,11 +303,11 @@ class M_Laporan_GA extends CI_Model
 
     public function getCountInv($id = null, $cabang = null)
     {
-        $respon =  $this->_client->request('GET', 'countOffice', [
+        $respon = $this->_client->request('GET', 'countOffice', [
             'query' => [
                 'id' => $id,
-                'cabang' => $cabang
-            ]
+                'cabang' => $cabang,
+            ],
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
@@ -319,6 +316,25 @@ class M_Laporan_GA extends CI_Model
             return $result['data'];
         } else {
             return 0;
+        }
+    }
+    public function cetakGa($id, $cabang, $start)
+    {
+        $respon = $this->_client->request('GET', 'cetakga', [
+            'query' => [
+                'cabang' => $cabang,
+                'idtransaksi_inv' => $id,
+                'offset' => $start,
+            ],
+        ]);
+        // var_dump($respon);
+        // exit();
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
         }
     }
 }
