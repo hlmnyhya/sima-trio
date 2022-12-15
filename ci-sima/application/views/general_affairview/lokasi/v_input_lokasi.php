@@ -10,13 +10,12 @@
                         <div class="col-sm-6"><input type="text" class="form-control" name="id_lokasi" id="id_lokasi"></div>
                     </div>
                     <div class="form-group"><label class="col-sm-2 control-label">ID cabang </label>
-                        <div class="col-sm-6"><input type="text" class="form-control" name="id_cabang" id="id_cabang"></div>
+                        <div class="col-sm-6"><select type="text" class="form-control" name="id_cabang" id="id_cabang"></select></div>
                     </div>
 
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">Lokasi</label>
                             <div class="col-sm-6"><input type="text" class="form-control" name="nama_lokasi" id="nama_lokasi"></div>
-
                             <div class="col-sm-4 text-right">
                                 <input type="button" value="Cancel" class="btn btn-m btn-danger" id="batal" onclick="hide()">
                                 <input type="submit" class="btn btn-m btn-success" id="submit" name="submit" value="Submit">

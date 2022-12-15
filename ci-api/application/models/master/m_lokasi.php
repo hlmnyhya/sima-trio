@@ -63,7 +63,7 @@ class M_Lokasi extends CI_Model
         $query = "
         SELECT a.* FROM lokasi a
         WHERE a.id_lokasi LIKE '%$id%'
-        OR a.nama_lokasi LIKE '%$id%'
+        OR a.nama_lokasi LIKE '%$id%' OR a.id_cabang LIKE '%$id%'
         ";
         if ($offset != null) {
             $query .= "
