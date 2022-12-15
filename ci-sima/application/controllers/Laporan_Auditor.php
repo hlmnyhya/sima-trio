@@ -144,10 +144,10 @@ class laporan_auditor extends CI_Controller
                 $pdf->myCell(25, 7, $x, $c['no_mesin']);
                 $x = $pdf->GetX();
                 $pdf->myCell(28, 7, $x, $c['no_rangka']);
-                 = $pdf->GetX();
                 $x = $pdf->GetX();
                 $pdf->myCell(27, 7, $x, $c['type']);
-                $x$pdf->myCell(
+                $x = $pdf->GetX();
+                $pdf->myCell(
                     20,
                     7,
                     $x,
@@ -1552,7 +1552,9 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFont('Times', '', 8);
             foreach ($cetak as $c) {
                 $pdf->Cell(8, 6, $no, 1, 0, 'C');
-                $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
+                // $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
+                $x = $pdf->GetX();
+                $pdf->myCell(55, 6, $x, $c['nama_gudang']);
                 $pdf->Cell(28, 6, $c['part_number'], 1, 0);
                 $pdf->Cell(50, 6, $c['deskripsi'], 1, 0);
                 $pdf->Cell(30, 6, $c['kd_lokasi_rak'], 1, 0, 'C');
@@ -1575,7 +1577,7 @@ class laporan_auditor extends CI_Controller
             $pdf->cell(50, 5, 'Auditor', 1, 0, 'C');
             $pdf->cell(50, 5, 'PDI/PIC Gudang', 1, 0, 'C');
             $pdf->cell(50, 5, 'Kepala Cabang', 1, 1, 'C');
-            // $pdf->Output('D','REPORTUNIT-'.$tgl.'.pdf');
+            $pdf->Output('D', 'REPORTPART-' . $tgl . '.pdf');
             $pdf->Output();
         } else {
             redirect('laporan_auditor/lap_audit_part', 'refresh');
