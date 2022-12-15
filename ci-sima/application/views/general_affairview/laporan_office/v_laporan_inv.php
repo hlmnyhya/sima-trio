@@ -43,11 +43,11 @@
                                     </div>
                                 </div> -->
                             <div class="col-sm-2"><label>Cari Inventory Office</label></div>
-                                <div class="col-sm-7"><input type="text" class="form-control" id="inv"></div>
-                                    <div class="col-sm-3">
+                                <div class="col-sm-8"><input type="text" class="form-control" id="inv"></div>
+                                    <div class="col-sm-2    ">
                                         <input type="hidden" name="status" id="status" value="Belum Sesuai" />
                                             <a id="caribtn" class="btn btn-success">Cari Data</a>
-                                            <button type="submit" class="btn btn-primary" id="type" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
+                                            <!-- <button type="submit" class="btn btn-primary" id="type" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button> -->
                                             <button type="submit" class="btn btn-danger" id="type" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Pdf</button>
                                     </div>
                                     <div class="form-group">

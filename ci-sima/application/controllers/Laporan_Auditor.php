@@ -144,10 +144,10 @@ class laporan_auditor extends CI_Controller
                 $pdf->myCell(25, 7, $x, $c['no_mesin']);
                 $x = $pdf->GetX();
                 $pdf->myCell(28, 7, $x, $c['no_rangka']);
-                 = $pdf->GetX();
                 $x = $pdf->GetX();
                 $pdf->myCell(27, 7, $x, $c['type']);
-                $x$pdf->myCell(
+                $x = $pdf->GetX();
+                $pdf->myCell(
                     20,
                     7,
                     $x,
@@ -1543,20 +1543,27 @@ class laporan_auditor extends CI_Controller
             $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
             $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
             $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', true);
-            $pdf->Cell(50, 15, 'DESKRIPSI', 1, 0, 'C', true);
+            $pdf->Cell(40, 15, 'DESKRIPSI', 1, 0, 'C', true);
             $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', true);
             $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', true);
             $start = null;
 
             $no = 1;
-            $pdf->SetFont('Times', '', 8);
+            $pdf->SetFont('Times', '', 9);
             foreach ($cetak as $c) {
-                $pdf->Cell(8, 6, $no, 1, 0, 'C');
-                $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
-                $pdf->Cell(28, 6, $c['part_number'], 1, 0);
-                $pdf->Cell(50, 6, $c['deskripsi'], 1, 0);
-                $pdf->Cell(30, 6, $c['kd_lokasi_rak'], 1, 0, 'C');
-                $pdf->Cell(25, 6, $c['qty'], 1, 1);
+                $pdf->Cell(8, 8, $no, 1, 0, 'C');
+                // $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
+                $x = $pdf->GetX();
+                $pdf->myCell(55, 8, $x, $c['nama_gudang']);
+                $x = $pdf->GetX();
+                $pdf->myCell(28, 8, $x, $c['part_number']);
+                $x = $pdf->GetX();
+                $pdf->myCell(40, 8, $x, $c['deskripsi']);
+                $x = $pdf->GetX();
+                $pdf->myCell(30, 8, $x, $c['kd_lokasi_rak']);
+                $x = $pdf->GetX();
+                $pdf->myCell(25, 8, $x, $c['qty']);
+                $pdf->ln();
                 $no++;
             }
             $pdf->Ln(5);
@@ -1575,7 +1582,7 @@ class laporan_auditor extends CI_Controller
             $pdf->cell(50, 5, 'Auditor', 1, 0, 'C');
             $pdf->cell(50, 5, 'PDI/PIC Gudang', 1, 0, 'C');
             $pdf->cell(50, 5, 'Kepala Cabang', 1, 1, 'C');
-            // $pdf->Output('D','REPORTUNIT-'.$tgl.'.pdf');
+            $pdf->Output('D', 'REPORTPART-' . $tgl . '.pdf');
             $pdf->Output();
         } else {
             redirect('laporan_auditor/lap_audit_part', 'refresh');
