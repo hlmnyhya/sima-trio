@@ -1,84 +1,109 @@
-<?php 
+<?php
 
-defined('BASEPATH') OR exit('No direct script access allowed');
+defined('BASEPATH') or exit('No direct script access allowed');
 
-class M_Lokasi extends CI_Model {
-
-    public function getLokasi($id = null,$offset=null)
+class M_Lokasi extends CI_Model
+{
+    public function getLokasi($id = null, $offset = null)
     {
-        if ($id === null && $offset==null) {
-            $result = $this->db->get('lokasi')->result();
-            return $result;    
-        }elseif($id === null && $offset!=null) {
-            $result = $this->db->get('lokasi',15,$offset)->result();
-            return $result;    
-        }else{
-            $result = $this->db->get_where('lokasi',['id_lokasi' => $id])->result();
-            return $result;              
+        if ($id === null && $offset == null) {
+            $this->db->select(
+                'lokasi.id_lokasi, lokasi.nama_lokasi, cabang.id_cabang, cabang.nama_cabang'
+            );
+            $this->db->from('lokasi');
+            $this->db->join(
+                'cabang',
+                'lokasi.id_cabang = cabang.id_cabang',
+                'left'
+            );
+            $this->db->where('cabang.id_lokasi', $id);
+            $this->db->order_by('lokasi.id_lokasi', 'asc');
+            $result = $this->db->get()->result();
+            return $result;
+        } elseif ($id === null && $offset != null) {
+            $this->db->select(
+                'lokasi.id_lokasi, lokasi.nama_lokasi, cabang.id_cabang, cabang.nama_cabang'
+            );
+            $this->db->from('lokasi');
+            $this->db->join(
+                'cabang',
+                'lokasi.id_cabang = cabang.id_cabang',
+                'left'
+            );
+            $this->db->where('cabang.id_lokasi', $id);
+            $this->db->order_by('lokasi.id_lokasi', 'asc');
+            $result = $this->db->get()->result();
+            $result = $this->db->get('lokasi', 15, $offset)->result();
+            return $result;
+        } else {
+            $result = $this->db
+                ->get_where('lokasi', ['id_lokasi' => $id])
+                ->result();
+            return $result;
         }
     }
 
-    public function getGudang($id = null,$offset=null)
+    public function getGudang($id = null, $offset = null)
     {
-        if ($id === null && $offset==null) {
+        if ($id === null && $offset == null) {
             $result = $this->db->get('gudang')->result();
-            return $result;    
-        }elseif($id === null && $offset!=null) {
-            $result = $this->db->get('gudang',15,$offset)->result();
-            return $result;    
-        }else{
-            $result = $this->db->get_where('gudang',['kd_gudang' => $id])->result();
-            return $result;              
+            return $result;
+        } elseif ($id === null && $offset != null) {
+            $result = $this->db->get('gudang', 15, $offset)->result();
+            return $result;
+        } else {
+            $result = $this->db
+                ->get_where('gudang', ['kd_gudang' => $id])
+                ->result();
+            return $result;
         }
     }
-    public function CariLokasi($id = null,$offset=null)
+    public function CariLokasi($id = null, $offset = null)
     {
-        $query ="
+        $query = "
         SELECT a.* FROM lokasi a
         WHERE a.id_lokasi LIKE '%$id%'
         OR a.nama_lokasi LIKE '%$id%'
         ";
-        if ($offset!=null) {
-            $query .="
+        if ($offset != null) {
+            $query .= "
             ORDER BY a.id_lokasi ASC
             OFFSET $offset ROWS 
             FETCH NEXT 15 ROWS ONLY;
             ";
-
         }
         $result = $this->db->query($query);
-        return $result; 
+        return $result;
     }
 
-    public function CariGudang($id = null,$offset=null)
+    public function CariGudang($id = null, $offset = null)
     {
-        $query ="
+        $query = "
         SELECT ccount(1) FROM gudang
         WHERE kd_gudang LIKE '%$id%'
         OR nama_gudang LIKE '%$id%'
         ";
-        if ($offset!=null) {
-            $query .="
+        if ($offset != null) {
+            $query .= "
             ORDER BY kd_gudang ASC
             OFFSET $offset ROWS 
             FETCH NEXT 15 ROWS ONLY;
             ";
-
         }
         $result = $this->db->query($query);
-        return $result; 
+        return $result;
     }
 
     public function addLokasi($data)
     {
         $result = $this->db->insert('lokasi', $data);
-        return $result;   
+        return $result;
     }
 
     public function addGudang($data)
     {
         $result = $this->db->insert('gudang', $data);
-        return $result;   
+        return $result;
     }
 
     public function editLokasi($data, $id)
@@ -97,20 +122,19 @@ class M_Lokasi extends CI_Model {
 
     public function delLokasi($id)
     {
-       $this->db->where('id_Lokasi', $id);
-       $this->db->delete('lokasi');
-       return $this->db->affected_rows();
+        $this->db->where('id_Lokasi', $id);
+        $this->db->delete('lokasi');
+        return $this->db->affected_rows();
     }
 
     public function delGudang($id)
     {
-       $this->db->where('kd_gudang', $id);
-       $this->db->delete('gudang');
-       return $this->db->affected_rows();
+        $this->db->where('kd_gudang', $id);
+        $this->db->delete('gudang');
+        return $this->db->affected_rows();
     }
-
-
 }
 
 /* End of file Jenis_Inventory.php */
+
 ?>
