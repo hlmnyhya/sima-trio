@@ -88,17 +88,31 @@
     });
 </script>
 <script>
-    $(document).ready(function() {
+   $(document).ready(function() {
         // $('#inv_office').load("<?php echo base_url(); ?>transaksi");
         get_data(1);
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
+            var inv = $('#inv').val();
             if (inv) {
                 search(page);
             } else {
                 get_data(page);
             }
+        });
+
+        
+        function get_data(page) {
+            $('#inv_office').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
+            $.ajax({
+                type: 'post',
+                url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_Inventory2/" + page,
+                dataType: 'JSON',
+                success: function(data) {
+                    $('#inv_office').html(data.output);
+                    $('#pagination').html(data.pagination);
+                }
             })
         }
 
