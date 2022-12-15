@@ -332,7 +332,6 @@ class M_Transaksi_GA extends CI_Model
     
         $result = json_decode($respon->getBody()->getContents(), true);
             
-        // var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data'];
         } else {

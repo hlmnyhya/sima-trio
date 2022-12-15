@@ -838,20 +838,27 @@ class Transaksi_GA extends CI_Controller
         foreach ($listaset as $list) {
             $idlokasi = $list['id_cabang'];
             // var_dump($idlokasi);exit;
-            // if ($idlokasi == $key) {
-            //     $output .= '
-            //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
-            //         ';
-            // } else {
+            if ($idlokasi == $key) {
+                $output .= '
+                <option value="' .
+                $list['id_cabang'] .
+                '"selected>' .
+                $list['id_lokasi'] .
+                ' - ' .
+                $list['nama_lokasi'] .
+                '</option>                    ';
+            } else {
             $output .=
                 '
                 <option value="' .
-                $list['id_lokasi'] .
-                '" >' .
                 $list['id_cabang'] .
-                ' </option>
+                '">' .
+                $list['id_lokasi'] .
+                ' - ' .
+                $list['nama_lokasi'] .
+                '</option>
                     ';
-            // }
+            }
         }
         echo json_encode($output, true);
     }
