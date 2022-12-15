@@ -1230,7 +1230,6 @@ class Master extends REST_Controller
         $id = $this->get('id');
         $offset = $this->get('offset');
 
-
         if ($id === null) {
             $lokasi = $this->mlokasi->GetLokasi(null, $offset);
         } else {
@@ -1278,6 +1277,7 @@ class Master extends REST_Controller
         $data = [
             'id_lokasi' => $this->post('id_lokasi', true),
             'nama_lokasi' => $this->post('nama_lokasi', true),
+            'id_cabang' => $this->post('id_cabang', true),
             'input_by' => $this->post('user', true),
             'tanggal_input' => $this->_tgl
         ];

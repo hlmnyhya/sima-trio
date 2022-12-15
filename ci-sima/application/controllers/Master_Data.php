@@ -756,6 +756,7 @@ class Master_Data extends CI_Controller
                 <a href="' . $base . 'master_data/delete_lokasi/' . $list['id_lokasi'] . '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' . $list['id_lokasi'] . ' - ' . $list['nama_lokasi'] . ' ? ");\'><i class="fa fa-trash"></i></a>
                 </td>
                 <td>' . $list['id_lokasi'] . '</td>
+                <td>' . $list['id_cabang'] .  ' </td>
                 <td>' . $list['nama_lokasi'] . '</td>
             </tr>
             
@@ -1392,6 +1393,7 @@ class Master_Data extends CI_Controller
     {
         $data = [
             'id_lokasi' => $this->input->post('id_lokasi', true),
+            'id_cabang' => $this->input->post('id_cabang', true),
             'nama_lokasi' => $this->input->post('nama_lokasi', true),
             'user'  => $this->session->userdata('username')
         ];
@@ -2458,6 +2460,7 @@ class Master_Data extends CI_Controller
                 <a href="' . $base . 'master_data/delete_lokasi/' . $list['id_lokasi'] . '" class="text-danger" onclick=\'return confirm("Konfirmasi Menghapus Data ' . $list['id_lokasi'] . '?");\'><i class="fa fa-trash"></i></a>
                 </td>
                 <td>' . $list['id_lokasi'] . '</td>
+                <td>' . $list['id_cabang'] . '</td>
                 <td>' . $list['nama_lokasi'] . '</td>
                 </tr>
                 ';

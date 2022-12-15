@@ -42,7 +42,8 @@
                                     <tr class="red-bg">
                                         <th width="3%" class="text-center">No</th>
                                         <th width="5%" class="text-center">Aksi</th>
-                                        <th class="text-center">ID Lokasi</th>
+                                        <th class="text-center">ID Lokasi</th> 
+                                        <th class="text-center">ID Cabang</th> 
                                         <th class="text-center">Nama Lokasi</th>
                                     </tr>
                                 </thead>
@@ -54,6 +55,7 @@
                                     <th class="text-center">No</th>
                                     <th class="text-center">Aksi</th>
                                     <th class="text-center">ID Lokasi</th>
+                                    <th class="text-center">ID Cabang</th> 
                                     <th class="text-center">Nama Lokasi</th>
                                 </tr>
                             </tfoot>
