@@ -286,8 +286,8 @@ class laporan_auditor extends CI_Controller
                     );
                 $excel
                     ->getActiveSheet()
-                    ->getPageSetup()
-                    ->setRowsToRepeatAtTop('A5');
+                    ->getPageSetup();
+                    // ->setRowsToRepeatAtTop('A5');
 
                 $excel
                     ->setActiveSheetIndex(0)
