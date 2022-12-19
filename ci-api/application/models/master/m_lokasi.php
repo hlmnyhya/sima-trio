@@ -4,45 +4,19 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 class M_Lokasi extends CI_Model
 {
-    public function getLokasi($id = null, $offset = null)
+    public function getLokasi($id = null,$offset=null)
     {
-        if ($id === null && $offset == null) {
-            $this->db->select(
-                'lokasi.id_lokasi, lokasi.nama_lokasi, cabang.id_cabang, cabang.nama_cabang'
-            );
-            $this->db->from('lokasi');
-            $this->db->join(
-                'cabang',
-                'lokasi.id_cabang = cabang.id_cabang',
-                'left'
-            );
-            $this->db->where('cabang.id_lokasi', $id);
-            $this->db->order_by('lokasi.id_lokasi', 'asc');
-            $result = $this->db->get()->result();
-            return $result;
-        } elseif ($id === null && $offset != null) {
-            $this->db->select(
-                'lokasi.id_lokasi, lokasi.nama_lokasi, cabang.id_cabang, cabang.nama_cabang'
-            );
-            $this->db->from('lokasi');
-            $this->db->join(
-                'cabang',
-                'lokasi.id_cabang = cabang.id_cabang',
-                'left'
-            );
-            $this->db->where('cabang.id_lokasi', $id);
-            $this->db->order_by('lokasi.id_lokasi', 'asc');
-            $result = $this->db->get()->result();
-            $result = $this->db->get('lokasi', 15, $offset)->result();
-            return $result;
-        } else {
-            $result = $this->db
-                ->get_where('lokasi', ['id_lokasi' => $id])
-                ->result();
-            return $result;
+        if ($id === null && $offset==null) {
+            $result = $this->db->get('lokasi')->result();
+            return $result;    
+        }elseif($id === null && $offset!=null) {
+            $result = $this->db->get('lokasi',15,$offset)->result();
+            return $result;    
+        }else{
+            $result = $this->db->get_where('lokasi',['id_lokasi' => $id])->result();
+            return $result;              
         }
     }
-
     public function getGudang($id = null, $offset = null)
     {
         if ($id === null && $offset == null) {
