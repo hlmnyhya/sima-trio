@@ -477,6 +477,7 @@ class Transaksi_GA extends CI_Controller
             'no_rangka' => $this->input->post('no_rangka', true),
             'user' => $this->session->userdata('username'),
         ];
+        // var_dump($data);exit;
         $id = $this->input->post('id_inventory', true);
 
         $inventory = $this->mtransga->getInventoryById($id);
@@ -828,20 +829,20 @@ class Transaksi_GA extends CI_Controller
     {
         $output = '';
         $no = 0;
-        $id = $this->input->post('id_lokasi');
-        $key = $this->input->post('key');
+        $id = $this->input->post('id_cabang');
+        $key = $this->input->post('id');
         $listaset = $this->mtransga->getLokasiAsset($id);
-        // var_dump($id);exit;
+        // var_dump($id);exit
 
-        $output .= '<option value="">--- Pilih Lokasi Aset ---</option>';
-
+        $output .= '<option value="">--- Pilih Lokasi ---</option>';
         foreach ($listaset as $list) {
-            $idlokasi = $list['id_cabang'];
+            $no++;
+            $idlokasi = $list['id_lokasi'];
             // var_dump($idlokasi);exit;
             if ($idlokasi == $key) {
                 $output .= '
                 <option value="' .
-                $list['id_cabang'] .
+                $list['id_lokasi'] .
                 '"selected>' .
                 $list['id_lokasi'] .
                 ' - ' .
@@ -851,7 +852,7 @@ class Transaksi_GA extends CI_Controller
             $output .=
                 '
                 <option value="' .
-                $list['id_cabang'] .
+                $list['id_lokasi'] .
                 '">' .
                 $list['id_lokasi'] .
                 ' - ' .

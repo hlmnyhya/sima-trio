@@ -484,7 +484,7 @@ class Transaksi extends REST_Controller
 
     public function lokasiaset_get()
     {
-        $id = $this->get('id_lokasi');
+        $id = $this->get('id');
         // var_dump($id);exit;
         if ($id === null) {
             $lokasset = $this->mlokasicabang->getLokasiAsset();

@@ -29,11 +29,21 @@ class M_Lokasi_Cabang extends CI_Model
         return $result;
     }
     
-    public function getLokasiAsset($id)
+    public function getLokasiAsset($id = null)
     {
-        $result = $this->db->query("select * from lokasi where id_cabang = '" . $id . "'")->result();
+        if($id === null){
+            $result = $this->db->query("select * from lokasi")->result();
+            return $result;
+        }else{
+        $query = "select lokasi.id_lokasi, nama_lokasi, cabang.id_cabang 
+        from lokasi 
+        left join cabang 
+        on lokasi.id_cabang = cabang.id_cabang 
+        where cabang.id_cabang = '$id'";
+        // $this->db->where('id_cabang', $id);
+
+        $result = $this->db->query($query)->result();
         return $result;
+        }
     }
 }
-
-/* End of file M_Lokasi_Cabang.php */

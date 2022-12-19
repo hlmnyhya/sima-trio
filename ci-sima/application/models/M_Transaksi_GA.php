@@ -326,7 +326,7 @@ class M_Transaksi_GA extends CI_Model
     {
         $respon = $this->_client->request('GET', 'lokasiaset', [
             'query' => [
-                'id_lokasi' => $id
+                'id' => $id
                 ]
             ]);
     
