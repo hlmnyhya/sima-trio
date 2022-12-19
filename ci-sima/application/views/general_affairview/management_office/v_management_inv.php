@@ -120,7 +120,7 @@
 
 
                             <div class="form-group"><label class="col-sm-3 control-label">Lokasi Aset GA<span id="load"></span></label>
-                                <div class="col-sm-9"><select class="form-control m-b" name="id_lokasi" id="OptLokasi" disabled>
+                                <div class="col-sm-9"><select class="form-control m-b" name="id_lokasi" id="OptLokasi">
                                     </select>
 
                                 </div>
