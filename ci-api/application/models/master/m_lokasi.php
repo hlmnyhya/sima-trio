@@ -53,7 +53,7 @@ class M_Lokasi extends CI_Model
     public function CariGudang($id = null, $offset = null)
     {
         $query = "
-        SELECT ccount(1) FROM gudang
+        SELECT count(1) FROM gudang
         WHERE kd_gudang LIKE '%$id%'
         OR nama_gudang LIKE '%$id%'
         ";
