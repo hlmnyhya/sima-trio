@@ -1052,8 +1052,6 @@ class Master_Data extends CI_Controller
                 </td>
                 <td>' .
                 $list['id_cabang'] .
-                ' - ' .
-                $list['nama_cabang'] .
                 '</td>
                 <td>' .
                 $list['id_lokasi'] .
