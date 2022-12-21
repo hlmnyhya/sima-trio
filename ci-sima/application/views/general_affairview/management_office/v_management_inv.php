@@ -186,10 +186,6 @@
 
                             <div class="form-group">
                                 <label class="col-sm-3 control-label">PPn</label>
-                                <!-- <div class=" input-group col-sm-8">
-                                    <input type="text" class="form-control" aria-describedby="sizing-addon2" id="ppn" name="ppn">
-                                    <span class=" input-group-addon" id="sizing-addon2">%</span>
-                                </div> -->
                                  <div class="col-sm-9">
                                      <div class="input-group col-sm-12">
                                         <input type="text" class="form-control" id="ppn" name="ppn"/>

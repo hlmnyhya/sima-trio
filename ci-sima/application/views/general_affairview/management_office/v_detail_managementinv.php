@@ -17,63 +17,74 @@
                     <?php foreach ($edit as $e) { ?>
                         <div class="panel-body">
                             <div class="row">
-                                <div class="col-sm-6">
-                                    <div class="form-group"><label class="col-sm-3 control-label">ID Inventory</label>
-                                        <div class="col-sm-9"><input type="text" class="form-control" name="id_inventory" id="id_inventory" value="<?php echo $e['idtransaksi_inv'] ?>" disabled /></div>
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="col-sm-2">
-                                        <a class="btn btn-warning" onclick="generate()" disabled>Generate</a>
-                                    </div>
+                     
+                        <div class="col-sm-6">
+                            <div class="form-group"><label class="col-sm-3 control-label">Status Inventory</label>
+                                <div class="col-sm-9"><select class="form-control m-b" name="idstatus_inventory" id="OptStatusInv" disabled> 
+                                    </select>
                                 </div>
                             </div>
 
-                            <div class="col-sm-6">
-                                <div class="form-group"><label class="col-sm-3 control-label">Status Inventory</label>
-                                    <div class="col-sm-9"><select class="form-control m-b" name="idstatus_inventory" id="OptStatusInv" disabled>
+                            <div class="form-group"><label class="col-sm-3 control-label">Jenis Inventory</label>
+                                <div class="col-sm-9"><select class="form-control m-b" name="idjenis_inventory" id="OptJenisInv" disabled>
 
-                                        </select>
-                                    </div>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="form-group"><label class="col-sm-3 control-label">Jenis Inventory</label>
-                                    <div class="col-sm-9"><select class="form-control m-b" name="idjenis_inventory" id="OptJenisInv" disabled>
-
-                                        </select>
-                                    </div>
+                            <div class="form-group"><label class="col-sm-3 control-label">Sub Inventory</label>
+                                <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled readonly>
+                                    </select>
                                 </div>
+                            </div>
 
-                                <div class="form-group"><label class="col-sm-3 control-label">Sub Inventory</label>
-                                    <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled readonly>
-
-                                        </select>
-                                    </div>
+                            <div class="form-group"><label class="col-sm-3 control-label">ID Inventory</label>
+                                <div class="col-sm-7"><input type="text" class="form-control" name="id_inventory" id="id_inventory" value="<?php echo $e['idtransaksi_inv'] ?>" disabled /></div>
+                                <div class="col-sm-2">
+                                    <a class="btn btn-warning" onclick="generate()" disabled>Generate </a><span id="load2"></span>
                                 </div>
+                            </div>
 
-
-                                <div class="form-group"><label class="col-sm-3 control-label">Nilai Awal</label>
-                                    <div class="col-sm-9"><input type="text" class="form-control" name="nilai_awal" id="nilai_awal" value="<?php echo $e['nilai_awal'] ?>" readonly>
-                                        <span class="help-block m-b-none">* Harga Sebelum PPn</span>
-                                    </div>
+                            <div class="form-group"><label class="col-sm-3 control-label">DDP</label>
+                                  <div class="col-sm-9">
+                                     <div class="input-group col-sm-12">
+                                        <span class="input-group-addon" id="sizing-addon2">Rp.</span>    
+                                        <input type="text" class="form-control" name="ddp" id="dpp" value="<?php echo $e['ddp'] ?>" readonly/>
+                                     </div>
                                 </div>
-
-                                <div class="form-group"><label class="col-sm-3 control-label">DDP</label>
-                                    <div class="col-sm-9"><input type="text" class="form-control" name="ddp" id="dpp" value="<?php echo $e['ddp'] ?>" readonly>
-                                    </div>
+                            </div>
+                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Asset</label>
+                                <div class="col-sm-9">
+                                     <div class="input-group col-sm-12">
+                                        <span class="input-group-addon" id="sizing-addon2">Rp.</span>    
+                                        <input type="text" class="form-control" name="nilai_asset" id="nilai_asset" value="<?php echo $e['nilai_asset'] ?>" readonly/>
+                                     </div>
                                 </div>
-
-                                <div class="form-group"><label class="col-sm-3 control-label">Nilai Asset</label>
-                                    <div class="col-sm-6"><input type="text" class="form-control" name="nilai_asset" id="nilai_asset" value="<?php echo $e['nilai_asset'] ?>" readonly>
-                                    </div>
-                                    <div class="col-sm-2"><a onclick="hitung()" class="btn btn-primary" disabled> Hitung</a></div>
+                               
+                            </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">Nilai Awal</label>
+                                 <div class="col-sm-7">
+                                     <div class="input-group col-sm-12">
+                                        <span class="input-group-addon" id="sizing-addon2">Rp.</span>    
+                                        <input type="text" class="form-control" name="nilai_awal" id="nilai_awal" value="<?php echo $e['nilai_awal'] ?>" readonly/>
+                                     </div>
+                                     <span class="help-block m-b-none">* Harga Sebelum PPn</span>
                                 </div>
-
-                                <div class="form-group"><label class="col-sm-3 control-label">Nilai Total Keseluruhan</label>
-                                    <div class="col-sm-9"><input type="text" class="form-control" name="nilai_total_keseluruhan" value="<?php echo $e['nilai_total_keseluruhan'] ?>" readonly>
-                                    </div>
+                                 <div class="col-sm-2">
+                                    <a class="btn btn-primary m-l" onclick="hitung()" disabled>Hitung</a>
                                 </div>
+                            </div>
 
+                            <div class="form-group"><label class="col-sm-3 control-label">Nilai Total Keseluruhan</label>
+                                <div class="col-sm-9">
+                                     <div class="input-group col-sm-12">
+                                        <span class="input-group-addon" id="sizing-addon2">Rp.</span>    
+                                        <input type="text" class="form-control" name="nilai_total_keseluruhan"  id="nilai_total_keseluruhan" value="<?php echo $e['nilai_total_keseluruhan'] ?>" readonly/>
+                                     </div>
+                                </div>
+                            </div>
+                           
                                 <div class="form-group" id="data_1"><label class="col-sm-3 control-label">Tanggal Barang Terima</label>
                                     <div class="col-sm-9">
                                         <div class="input-group date">
@@ -155,19 +166,23 @@
                                     </div>
                                 </div>
 
-
-                                <div class="form-group"><label class="col-sm-3 control-label">PPn</label>
-                                    <div class="col-sm-9"><input type="text" class="form-control" name="ppn" id="ppn" value="<?php echo $e['ppn'] ?>" readonly>
-                                    </div>
+                            <div class="form-group">
+                                <label class="col-sm-3 control-label">PPn</label>
+                                 <div class="col-sm-9">
+                                     <div class="input-group col-sm-12">
+                                        <input type="text" class="form-control" id="ppn" name="ppn" value="<?php echo $e['ppn'] ?>" readonly/>
+                                        <span class="input-group-addon" id="sizing-addon2">%</span>
+                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="form-group"><label class="col-sm-6 control-label">Apakah Menggunakan PPn atau Tidak?</label>
-                                    <div class="col-sm-6"><select class="form-control m-b" name="ket_ppn" id="ket_ppn" readonly>
-                                            <option value="YA" <?php if ($e['ket_ppn'] == 'YA') echo 'selected'; ?>>YA</option>
-                                            <option valuer="TIDAK" <?php if ($e['ket_ppn'] == 'TIDAK') echo 'selected'; ?>>TIDAK</option>
-                                        </select>
-                                    </div>
+                              <div class=" form-group"><label class="col-sm-3 control-label m-t m-b">Apakah Menggunakan <br> PPn  atau Tidak?</label>
+                                <div class="col-sm-9 m-t"><select class="form-control" name="ket_ppn" id="ket_ppn" disabled>
+                                         <option value="YA" <?php if ($e['ket_ppn'] == 'YA') echo 'selected'; ?>>YA</option>
+                                        <option valuer="TIDAK" <?php if ($e['ket_ppn'] == 'TIDAK') echo 'selected'; ?>>TIDAK</option>
+                                    </select>
                                 </div>
+                            </div>
 
                                 <div class="form-group"><label class="col-sm-3 control-label">Merk</label>
                                     <div class="col-sm-9"><input type="text" class="form-control" name="merk" id="merk" value="<?php echo $e['merk'] ?>" readonly>
