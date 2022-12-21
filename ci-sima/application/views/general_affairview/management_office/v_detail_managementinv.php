@@ -34,10 +34,10 @@
 
                             <div class="form-group"><label class="col-sm-3 control-label">Sub Inventory</label>
                                 <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled readonly>
-
                                     </select>
                                 </div>
                             </div>
+
                             <div class="form-group"><label class="col-sm-3 control-label">ID Inventory</label>
                                 <div class="col-sm-7"><input type="text" class="form-control" name="id_inventory" id="id_inventory" value="<?php echo $e['idtransaksi_inv'] ?>" disabled /></div>
                                 <div class="col-sm-2">
@@ -176,13 +176,13 @@
                                 </div>
                             </div>
 
-                                <div class="form-group"><label class="col-sm-6 control-label">Apakah Menggunakan PPn atau Tidak?</label>
-                                    <div class="col-sm-6"><select class="form-control m-b" name="ket_ppn" id="ket_ppn" readonly>
-                                            <option value="YA" <?php if ($e['ket_ppn'] == 'YA') echo 'selected'; ?>>YA</option>
-                                            <option valuer="TIDAK" <?php if ($e['ket_ppn'] == 'TIDAK') echo 'selected'; ?>>TIDAK</option>
-                                        </select>
-                                    </div>
+                              <div class=" form-group"><label class="col-sm-3 control-label m-t m-b">Apakah Menggunakan <br> PPn  atau Tidak?</label>
+                                <div class="col-sm-9 m-t"><select class="form-control" name="ket_ppn" id="ket_ppn" disabled>
+                                         <option value="YA" <?php if ($e['ket_ppn'] == 'YA') echo 'selected'; ?>>YA</option>
+                                        <option valuer="TIDAK" <?php if ($e['ket_ppn'] == 'TIDAK') echo 'selected'; ?>>TIDAK</option>
+                                    </select>
                                 </div>
+                            </div>
 
                                 <div class="form-group"><label class="col-sm-3 control-label">Merk</label>
                                     <div class="col-sm-9"><input type="text" class="form-control" name="merk" id="merk" value="<?php echo $e['merk'] ?>" readonly>
