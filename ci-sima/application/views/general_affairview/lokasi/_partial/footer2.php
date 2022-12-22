@@ -8,12 +8,20 @@
                     maxlength: 5,
                     minlength: 3
                 },
+                id_cabang: {
+                    required: true,
+                    
+                },
                 nama_lokasi: {
                     required: true
                 }
 
             }
         });
+    </script>
+
+    <script>
+        $('#id_cabang').load("<?php echo base_url() ?>transaksi_ga/ajax_get_cabang2");
     </script>
 
 

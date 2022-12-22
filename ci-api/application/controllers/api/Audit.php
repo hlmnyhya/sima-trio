@@ -1654,6 +1654,27 @@ function __construct() {
             
         }
     }
+     public function countpart2_get()
+    {
+        $a= $this->get('id_cabang');
+        $b= $this->get('idjadwal_audit');
+        $c= $this->get('status');
+        $d= $this->get('kondisi');
+
+            $count= $this->mcount->countpart2($a,$b,$c,$d);
+        if ($count) {
+            $this->response([
+                'status' => true,
+                'data' => $count
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
     public function countpartvalid_get()
     {
         $a= $this->get('id_cabang');
@@ -1715,9 +1736,10 @@ function __construct() {
     {
         $cabang= $this->get('id_cabang');
         $idjadwal_audit= $this->get('idjadwal_audit');
+        $status = $this->get('status');
         $kondisi = $this->get('kondisi');
         $offset = $this->get('offset');
-        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit,$kondisi,$offset);
+        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit, $kondisi, $status, $offset);
         if ($tampil) {
             $this->response([
                 'status' => true,
@@ -2335,7 +2357,8 @@ function __construct() {
             ], REST_Controller::HTTP_OK);
             
         }
-}
     }
+
+}
 
 /* End of file Audit.php */
