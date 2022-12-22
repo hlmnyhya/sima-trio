@@ -2610,6 +2610,7 @@ class Transaksi_Auditor extends CI_Controller
         if ($page == null) {
             $page = 1;
         }
+        // tes
         $start = ($page - 1) * $config['per_page'];
         $getunit = $this->mtransauditor->getToPart($cabang, $start);
         if ($getunit) {
