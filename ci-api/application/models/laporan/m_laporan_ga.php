@@ -54,7 +54,7 @@ class m_laporan_ga extends CI_Model
                 'left'
             );
             $this->db->join('lokasi f', 'a.id_lokasi = f.id_lokasi', 'left');
-            $this->db->limit(15);
+            // $this->db->limit(15);
             $this->db->offset($offset);
         } else {
             $this->db->select('
