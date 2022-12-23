@@ -277,6 +277,8 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/doPart",
                 success: function(data) {
                     console.log(data);
+                    $('#rakbin_baru').val('');
+                    $('#part_number').val('');
                     $('#doCariPart').attr('disabled', false);
                     $('#pagination').html(data.pagination);
                     $('#Audit_Part').html(data.output);

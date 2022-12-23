@@ -76,6 +76,7 @@ class Laporan_GA extends CI_Controller
 
     public function search()
     {
+
         $id = $this->input->post('id');
         $count = $this->mtransga->getCountInv($id);
         $this->load->library('pagination');
@@ -199,6 +200,8 @@ class Laporan_GA extends CI_Controller
             'pagination' => $this->pagination->create_links(),
         ];
         echo json_encode($data, true);
+    }
+
     }
 
     public function cetaklaporan()

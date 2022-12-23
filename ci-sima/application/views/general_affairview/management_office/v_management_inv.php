@@ -218,7 +218,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div id="oto" class="hidden">
+                            <rdiv id="oto" class="hidden">
                                 <div class="form-group"><label class="col-sm-3 control-label">No. Mesin</label>
                                     <div class="col-sm-9"><input type="text" class="form-control" name="no_mesin" id="no_mesin">
                                     </div>
@@ -227,7 +227,7 @@
                                     <div class="col-sm-9"><input type="text" class="form-control" name="no_rangka" id="no_rangka">
                                     </div>
                                 </div>
-                            </div>
+                            </rdiv>
                             <div id="kredit" class="hidden">
                                 <div class="form-group"><label class="col-sm-3 control-label">Uang Muka</label>
                                     <div class="col-sm-9"><input type="text" class="form-control" name="uang_muka" id="uang_muka">
