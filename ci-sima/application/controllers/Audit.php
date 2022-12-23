@@ -53,7 +53,7 @@ class Audit extends CI_Controller
     }
 
     public function viewListAudit()
-    {   
+    {
         date_default_timezone_set('Asia/Makassar');
         $data = [
             'judul' => 'List Audit',
@@ -69,15 +69,18 @@ class Audit extends CI_Controller
                 $tanggal = $waktuaudit['tanggal'];
                 $waktu = $waktuaudit['waktu'];
                 $waktu = str_replace(':', '', $waktu);
-                if ($tglnow >= $tanggal && $wktnow >= $waktu && $waktuaudit['keterangan'] == 'waiting') 
-                {
+                if (
+                    $tglnow >= $tanggal &&
+                    $wktnow >= $waktu &&
+                    $waktuaudit['keterangan'] == 'waiting'
+                ) {
                     $up = [
                         'idjadwal_audit' => $waktuaudit['idjadwal_audit'],
                         'keterangan' => 'in progress',
                     ];
                     $this->maudit->updatejadwalaudit($up);
-                    
-                redirect('audit/list_audit', 'refresh');
+
+                    redirect('audit/list_audit', 'refresh');
                 }
 
                 // }elseif ($tanggal <= $tglnow && $wktnow <= $waktu && $waktuaudit['keterangan'] == 'in progress')
@@ -105,7 +108,6 @@ class Audit extends CI_Controller
             'judul' => 'Temporary Data Part',
             'judul1' => 'Audit',
         ];
-        
 
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
@@ -183,13 +185,13 @@ class Audit extends CI_Controller
         $hapus = '';
         $base = base_url();
         $config['base_url'] = base_url() . 'audit/list_audit';
-        $count =  $this->maudit->countjadwalaudit();
+        $count = $this->maudit->countjadwalaudit();
         $this->load->library('pagination');
 
         $config['total_rows'] = $count;
         $config['per_page'] = 15;
         $config['uri_segment'] = 3;
-        $config['use_page_numbers'] = TRUE;
+        $config['use_page_numbers'] = true;
         $config['num_links'] = 2;
 
         $config['full_tag_open'] =
@@ -217,21 +219,22 @@ class Audit extends CI_Controller
         $config['cur_tag_open'] =
             '<li class="page-item"><span class="page-link">';
         $config['cur_tag_close'] = '</li>';
-        $config["cur_page"] = $page;
+        $config['cur_page'] = $page;
 
         $this->pagination->initialize($config);
-       
+
         $page = $this->uri->segment(3);
         //echo $page;
         if ($page == null) {
             $page = 1;
         }
         $start = ($page - 1) * $config['per_page'];
-        $listJadwalAudit = $this->maudit->getAudit($start,$config['per_page']);
+        $listJadwalAudit = $this->maudit->getAudit($start, $config['per_page']);
         if ($listJadwalAudit) {
             foreach ($listJadwalAudit as $list) {
                 if ($list['keterangan'] == 'waiting') {
-                    $hapus =                        '
+                    $hapus =
+                        '
                     <a href="' .
                         $base .
                         'audit/delete_jadwalaudit/' .
@@ -320,8 +323,11 @@ class Audit extends CI_Controller
                 'audit/input_jadwal" class="btn btn-xs btn-success">Buat Jadwal</a></td>
             </tr>';
         }
-        $row_entry = '
-            <div class=" label label-default">' . $count . '</div>
+        $row_entry =
+            '
+            <div class=" label label-default">' .
+            $count .
+            '</div>
         ';
         $data = [
             'output' => $output,

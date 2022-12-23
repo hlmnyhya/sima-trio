@@ -82,6 +82,8 @@
     });
 </script>
 <script>
+
+
     $(document).ready(function() {
         // $('#lokasi').load("<?php echo base_url() ?>master_data/ajax_get_lokasi");
         $(document).on('click', '.pagination li a', function(event) {
@@ -110,6 +112,8 @@
                 }
             })
         }
+
+        
 
         function search(page) {
             var lokasi = $('#Inlokasi').val();

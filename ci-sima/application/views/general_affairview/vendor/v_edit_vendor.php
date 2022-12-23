@@ -9,14 +9,13 @@
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">ID Vendor</label>
                             <input type="hidden" class="form-control" name="id_vendor" id="id_vendor" value="<?php echo $e['id_vendor'] ?>">
-                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['id_vendor'] ?>" disabled></div>
+                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['id_vendor'] ?>"></div>
                         </div>
                     </div>
 
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">Vendor</label>
                             <div class="col-sm-6"><input type="text" class="form-control" name="nama_vendor" id="nama_vendor" value="<?php echo $e['nama_vendor'] ?>"></div>
-
 
                             <div class="col-sm-4 text-right">
                                 <input type="button" value="Cancel" class="btn btn-m btn-danger" id="batal" onclick="hide()">

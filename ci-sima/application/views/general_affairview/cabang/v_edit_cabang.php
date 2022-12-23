@@ -10,21 +10,21 @@
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">ID Cabang</label>
                             <input type="hidden" class="form-control" name="id_cabang" id="id_cabang" value="<?php echo $e['id_cabang'] ?>">
-                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['id_cabang'] ?>" disabled></div>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="form-group"><label class="col-sm-2 control-label">Cabang</label>
-                            <div class="col-sm-6"><input type="text" class="form-control" name="nama_cabang" id="nama_cabang" value="<?php echo $e['nama_cabang'] ?>"></div>
-
-
-                            <div class="col-sm-4 text-right">
-                                <input type="button" value="Cancel" class="btn btn-m btn-danger" id="batal" onclick="hide()">
-                                <input type="submit" class="btn btn-m btn-success" id="submit" name="submit" value="Submit">
+                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['id_cabang'] ?>" </div>
                             </div>
                         </div>
-                    <?php endforeach; ?>
+
+                        <div>
+                            <div class="form-group"><label class="col-sm-2 control-label">Cabang</label>
+                                <div class="col-sm-6"><input type="text" class="form-control" name="nama_cabang" id="nama_cabang" value="<?php echo $e['nama_cabang'] ?>"></div>
+
+
+                                <div class="col-sm-4 text-right">
+                                    <input type="button" value="Cancel" class="btn btn-m btn-danger" id="batal" onclick="hide()">
+                                    <input type="submit" class="btn btn-m btn-success" id="submit" name="submit" value="Submit">
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
             </form>
         </div>
     </div>
