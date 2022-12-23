@@ -58,11 +58,3 @@ class M_Lokasi_Cabang extends CI_Model
         }
     }
 }
-<<<<<<< HEAD
-
-
-/* End of file M_Lokasi_Cabang.php */
-
-?>
-=======
->>>>>>> 674093d30855b0a34e9d7a0e34a6e7b451cd22b7
