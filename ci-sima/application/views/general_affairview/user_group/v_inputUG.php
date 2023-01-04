@@ -14,7 +14,7 @@
             <form method="post" id="FormUsergroup" class="form-horizontal" action="<?php echo base_url() ?>master_data/post_usergroup">
                 <div>
                     <div class="form-group"><label class="col-sm-2 control-label">ID User Group</label>
-                        <div class="col-sm-4"><input type="text" class="form-control" name="id_usergroup" id="id_usergroup" value="<?php echo $id; ?>" readonly></div>
+                        <div class="col-sm-4"><input type="text" class="form-control" name="id_usergroup" id="id_usergroup" value="<?php echo $id; ?>"></div>
                     </div>
 
                     <div>

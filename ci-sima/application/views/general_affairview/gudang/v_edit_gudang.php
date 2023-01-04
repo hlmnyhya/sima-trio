@@ -10,7 +10,7 @@
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">Kode Gudang</label>
                             <input type="hidden" class="form-control" name="kd_gudang" id="kd_gudang" value="<?php echo $e['kd_gudang'] ?>">
-                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['kd_gudang'] ?>" disabled></div>
+                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['kd_gudang'] ?>"></div>
                         </div>
                     </div>
                     <div>

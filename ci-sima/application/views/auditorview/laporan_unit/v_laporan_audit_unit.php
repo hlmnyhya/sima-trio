@@ -87,6 +87,7 @@
                             </div>
                             <div class="col-sm-3">
                                 <a id="dataPreview" class="btn btn-primary">Preview</a>
+                                
                                 <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> Download Pdf</a>
 
                             </div>

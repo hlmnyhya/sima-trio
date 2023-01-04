@@ -15,5 +15,6 @@ return array(
     'HTML5_Tokenizer' => $vendorDir . '/dompdf/dompdf/lib/html5lib/Tokenizer.php',
     'HTML5_TreeBuilder' => $vendorDir . '/dompdf/dompdf/lib/html5lib/TreeBuilder.php',
     'Restserver\\Libraries\\REST_Controller' => $baseDir . '/application/libraries/REST_Controller.php',
+    'ReturnTypeWillChange' => $vendorDir . '/symfony/polyfill-php81/Resources/stubs/ReturnTypeWillChange.php',
     'Stringable' => $vendorDir . '/myclabs/php-enum/stubs/Stringable.php',
 );

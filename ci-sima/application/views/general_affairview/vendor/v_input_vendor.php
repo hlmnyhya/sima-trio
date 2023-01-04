@@ -13,7 +13,7 @@
             <form method="post" id="FormVendor" class="form-horizontal" action="<?php echo base_url() ?>master_data/post_vendor">
                 <div>
                     <div class="form-group"><label class="col-sm-2 control-label">ID Vendor</label>
-                        <div class="col-sm-4"><input type="text" class="form-control" name="id_vendor" id="id_vendor" value="<?php echo $id; ?>" readonly></div>
+                        <div class="col-sm-4"><input type="text" class="form-control" name="id_vendor" id="id_vendor" value="<?php echo $id; ?>"></div>
                     </div>
 
                     <div>
