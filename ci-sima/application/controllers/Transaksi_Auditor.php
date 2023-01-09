@@ -2270,7 +2270,7 @@ class Transaksi_Auditor extends CI_Controller
                 $cabang,
                 $idjadwal_audit
             );
-            // var_dump($cek);exit;
+            // var_dump($cek_part[0]["id_part"]);exit;
             if ($cek_part) {
                 $info = 'Data diupdate';
                 $output = '';
@@ -2280,10 +2280,10 @@ class Transaksi_Auditor extends CI_Controller
                 // var_dump($part);
                 // var_dump($qty_part);
                 // var_dump($qty_temppart);
-                exit;
+                // exit;
                 if($qty_part > $qty_temppart){
                     $data_edit = [
-                        'id_part' => $part['id_part'],
+                        'id_part' => $cek_part[0]["id_part"],
                         'id_cabang' => $part['id_cabang'],
                         'id_lokasi' => $part['id_lokasi'],
                         'part_number' => $part['part_number'],
@@ -2299,7 +2299,7 @@ class Transaksi_Auditor extends CI_Controller
                 $this->mtransauditor->editscanpart($data_edit);
                 } elseif ($qty_part < $qty_temppart){
                     $data_edit = [
-                        'id_part' => $part['id_part'],
+                        'id_part' => $cek_part[0]["id_part"],
                         'id_cabang' => $part['id_cabang'],
                         'id_lokasi' => $part['id_lokasi'],
                         'part_number' => $part['part_number'],
@@ -2313,9 +2313,10 @@ class Transaksi_Auditor extends CI_Controller
                     
                 // var_dump($data_edit);exit;
                 $this->mtransauditor->editscanpart($data_edit);
+                // exit;
                 } elseif ($qty_part == $qty_temppart){
                     $data_edit = [
-                        'id_part' => $part['id_part'],
+                        'id_part' => $cek_part[0]["id_part"],
                         'id_cabang' => $part['id_cabang'],
                         'id_lokasi' => $part['id_lokasi'],
                         'part_number' => $part['part_number'],

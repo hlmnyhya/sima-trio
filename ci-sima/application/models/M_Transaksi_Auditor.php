@@ -530,13 +530,14 @@ class M_Transaksi_Auditor extends CI_Model
     }
     public function editscanpart($data)
     {
+        // var_dump($data);exit;
         $respon =  $this->_client->request('PUT', 'listaudpart', [
             'form_params' => $data
         ]);
         // var_dump($respon->getBody()->getContents());
         // exit;
         $result = json_decode($respon->getBody()->getContents(), true);
-
+        
         if ($result['status'] == true) {
             return $result['data'];
         } else {

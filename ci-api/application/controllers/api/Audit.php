@@ -313,9 +313,11 @@ function __construct() {
         // var_dump($query);exit;
         // $qty   = $this->get('qty');
         if ($part_number===null) {
-            $aud = $this->maudit->GetListpartDataAudit();
+            // $aud = $this->maudit->GetListpartDataAudit();
+            $aud = $this->maudit->GetListpart();
         }else{
-            $aud = $this->maudit->GetListpartDataAudit($part_number,$cabang,$idjadwal_audit,$rakbin);
+            // $aud = $this->maudit->GetListpartDataAudit($part_number,$cabang,$idjadwal_audit,$rakbin);
+            $aud = $this->maudit->GetListpart($part_number,$cabang,$idjadwal_audit,$rakbin);
         }
         
         $this->response([
@@ -525,6 +527,8 @@ function __construct() {
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
+            // var_dump($data);exit;
+    
         if ($id===null) {
             $this->response([
                 'status' => false,
