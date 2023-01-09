@@ -14,7 +14,7 @@
             <form method="post" id="FormStatusInv" class="form-horizontal" action="<?php echo base_url() ?>master_data/post_status_inv">
                 <div>
                     <div class="form-group"><label class="col-sm-2 control-label">ID Status Inventory</label>
-                        <div class="col-sm-4"><input type="text" class="form-control" name="idstatus_inventory" id="idstatus_inventory" value="<?php echo $id; ?>" readonly></div>
+                        <div class="col-sm-4"><input type="text" class="form-control" name="idstatus_inventory" id="idstatus_inventory" value="<?php echo $id; ?>"></div>
                     </div>
 
                     <div>
