@@ -1822,7 +1822,7 @@ class Transaksi_Auditor extends CI_Controller
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/audit_part/v_audit_part.php', $data);
+        // $this->load->view('auditorview/audit_part/v_audit_part.php', $data);
         $this->load->view('auditorview/audit_part/_partial/footer.php');
     }
 
@@ -1906,6 +1906,7 @@ class Transaksi_Auditor extends CI_Controller
 
     public function doPart()
     {
+        var_dump("aaa");exit;
         $manual = false;
         $scanpart = $this->input->post('id');
         $cabang = $this->input->post('cabang');
@@ -2208,6 +2209,7 @@ class Transaksi_Auditor extends CI_Controller
 
     public function scan_data_part()
     {
+        // var_dump("tes123");exit;
         $scanpart = $this->input->post('id');
         $cabang = $this->input->post('cabang');
         $lokasi = $this->input->post('lokasi');
@@ -2222,15 +2224,16 @@ class Transaksi_Auditor extends CI_Controller
         $base = base_url();
         $info = '';
         // var_dump($lokasi);exit;
-        // $param=array(
-        //     $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
-        // );
-        // var_dump($param);exit;
+        $param=array(
+            $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
+        );
+        // var_dump($rakbin);exit;
 
         $dataPart = $this->mtransauditor->caripart(
             $scanpart,
             $cabang,
-            $idjadwal_audit
+            $idjadwal_audit,
+            $rakbin
         );
         // var_dump($dataPart);exit;
         if ($dataPart) {
@@ -2242,9 +2245,9 @@ class Transaksi_Auditor extends CI_Controller
                         'part_number' => $part['part_number'],
                         'kd_lokasi_rak' => $part['kd_lokasi_rak'],
                         'deskripsi' => $part['deskripsi'],
-                        'qty' => $part['qty'],
+                        'qty' => 1,
                         'kondisi' => $kondisi,
-                        'status' => $part['status'],
+                        // 'status' => $part['status'],
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 } else {
@@ -2262,20 +2265,79 @@ class Transaksi_Auditor extends CI_Controller
                 }
             }
             // var_dump($data);exit;
-            $cek = $this->mtransauditor->cekPart(
+            $cek_part = $this->mtransauditor->cekPart(
                 $scanpart,
                 $cabang,
                 $idjadwal_audit
             );
             // var_dump($cek);exit;
-            if ($cek) {
+            if ($cek_part) {
                 $info = 'Data diupdate';
                 $output = '';
+
+                $qty_temppart = $part['qty'];
+                $qty_part = $cek_part[0]['qty'] + 1;
+                // var_dump($part);
+                var_dump($qty_part);
+                var_dump($qty_temppart);
+                exit;
+                if($qty_part > $qty_temppart){
+                    $data_edit = [
+                        'id_part' => $part['id_part'],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => $qty_part,
+                        'kondisi' => $kondisi,
+                        'keterangan' => 'Part Lebih',
+                        'idjadwal_audit' => $idjadwal_audit
+                    ];
+                    
+                // var_dump($data_edit);exit;
+                $this->mtransauditor->editscanpart($data_edit);
+                } elseif ($qty_part < $qty_temppart){
+                    $data_edit = [
+                        'id_part' => $part['id_part'],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => $qty_part,
+                        'kondisi' => $kondisi,
+                        'keterangan' => 'Part Kurang',
+                        'idjadwal_audit' => $idjadwal_audit
+                    ];
+                    
+                // var_dump($data_edit);exit;
+                $this->mtransauditor->editscanpart($data_edit);
+                } elseif ($qty_part == $qty_temppart){
+                    $data_edit = [
+                        'id_part' => $part['id_part'],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => $qty_part,
+                        'kondisi' => $kondisi,
+                        'keterangan' => 'Part Sesuai',
+                        'idjadwal_audit' => $idjadwal_audit
+                    ];
+                    
+                // var_dump($data_edit);exit;
+                $this->mtransauditor->editscanpart($data_edit);
+                }
+
+                // exit;
                 $count = $this->mtransauditor->countpart1(
                     $cabang,
                     $idjadwal_audit
                 );
                 // var_dump($count);exit;
+               
                 $this->load->library('pagination');
 
                 $config['base_url'] =

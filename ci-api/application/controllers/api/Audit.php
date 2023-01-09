@@ -305,16 +305,23 @@ function __construct() {
     }
     public function listaudpart_get()
     {
-        $id = $this->get('id');
+        // $query = $this->get('query');
+        $part_number = $this->get('part_number');
         $cabang = $this->get('id_cabang');
         $idjadwal_audit = $this->get('idjadwal_audit');
+        $rakbin = $this->get('kd_lokasi_rak');
+        // var_dump($query);exit;
         // $qty   = $this->get('qty');
-        // $rakbin = $this->get('kd_lokasi_rak');
-        if ($id===null) {
-            $aud = $this->maudit->GetListpart();
+        if ($part_number===null) {
+            $aud = $this->maudit->GetListpartDataAudit();
         }else{
-            $aud = $this->maudit->GetListpart($id,$cabang,$idjadwal_audit);
+            $aud = $this->maudit->GetListpartDataAudit($part_number,$cabang,$idjadwal_audit,$rakbin);
         }
+        
+        $this->response([
+            'status' => true,
+            'data' => $rakbin
+        ], REST_Controller::HTTP_OK);
 
         if ($aud) {
             $this->response([
@@ -511,9 +518,10 @@ function __construct() {
     }
     public function listaudpart_put()
     {
-        $id= $this->put('id');
+        $id= $this->put('id_part');
             $data =[
                 'qty' =>$this->put('qty'),
+                'keterangan' =>$this->put('keterangan'),
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
