@@ -92,7 +92,7 @@
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/downloadunit",
+                url: "<?php echo base_url() ?>transaksi_auditor/downloadpart",
                 data: {
                     id: id,
                     idaudit: idaudit
@@ -104,7 +104,7 @@
             '<?php echo $_GET['id'] ?>'
  '<?php echo base64_decode($_GET['a']) ?>'
             '<?php echo $_GET['id']; ?>'
-            '<?php echo base_url() ?>transaksi_auditor/scan_data_unit';
+            '<?php echo base_url() ?>transaksi_auditor/scan_data_part';
         }
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
@@ -114,23 +114,23 @@
         });
 
         
-        function downloadpart() {
-            var id = "<?php echo $this->input->get('id') ?>";
-            var idauditpart = "<?php echo base64_decode($this->input->get('a')) ?>";
-            $('#info').html("<div id='loading'></div>");
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                url: "<?php echo base_url() ?>transaksi_auditor/downloadpart",
-                data: {
-                    id: id,
-                    idaudit: idauditpart
-                },
-                success: function(data) {
-                    $('#info').html(data);
-                }
-            })
-        }
+        // function downloadpart() {
+        //     var id = "<?php echo $this->input->get('id') ?>";
+        //     var idauditpart = "<?php echo base64_decode($this->input->get('a')) ?>";
+        //     $('#info').html("<div id='loading'></div>");
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'JSON',
+        //         url: "<?php echo base_url() ?>transaksi_auditor/downloadpart",
+        //         data: {
+        //             id: id,
+        //             idaudit: idauditpart
+        //         },
+        //         success: function(data) {
+        //             $('#info').html(data);
+        //         }
+        //     })
+        // }
 
         function get_data(page) {
             $('#audit_part').html('<tr> <td colspan="13" id="loading"></td></tr>');

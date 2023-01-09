@@ -35,6 +35,22 @@ class M_Cabang extends CI_Model {
         }
     }
 
+    public function getGudang($id = null,$offset=null)
+    {
+        if ($id === null&& $offset===null) {
+
+            $result = $this->db->get('gudang')->result();
+            return $result;    
+        }elseif ($id===null&& $offset!=null){
+            $result = $this->db->get('gudang',15,$offset)->result();
+            return $result;    
+        }else{
+
+            $result = $this->db->get_where('gudang',['kd_gudang' => $id])->result();
+            return $result;              
+        }
+    }
+
     public function getJadwalAudit($id = null,$offset=null, $jenis = null)
     {
         if($jenis != null){

@@ -71,7 +71,7 @@ class M_Barcode extends CI_Model
                     <tr>
                     <td>' . $d . '</td>
                     <td class="text-center">' . $aksi . '</td>
-                    <td>' . $res['nama_lokasi'] . '</td>
+                    <td>' . $res['nama_gudang'] . '</td>
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
                     <td>' . $res['kd_lokasi_rak'] . '</td>

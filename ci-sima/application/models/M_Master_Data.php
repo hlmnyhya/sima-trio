@@ -189,6 +189,7 @@ class M_Master_Data extends CI_Model
         }
     }
 
+
     public function getLokasi($offset)
     {
         $respon =  $this->_client->request('GET', 'lokasi', [
@@ -225,6 +226,7 @@ class M_Master_Data extends CI_Model
         }
     }
 
+
     public function getLokasiCabang($id)
     {
         $respon =  $this->_client->request('GET', 'lokasicabang', [
@@ -242,7 +244,7 @@ class M_Master_Data extends CI_Model
     {
         $respon = $this->_client->request('GET', 'lokasirak', [
             'query' => [
-                'kd_gudang' => $id
+                'id_lokasi' => $id
             ]
             ]);
     
@@ -250,7 +252,7 @@ class M_Master_Data extends CI_Model
 
         return $result['data'];
     }
-
+    
     public function getVendor($offset = null)
     {
         $respon =  $this->_client->request('GET', 'vendor', [
