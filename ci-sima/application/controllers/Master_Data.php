@@ -221,7 +221,7 @@ class Master_Data extends CI_Controller
                     $output .= "
                             <tr>
                                 <td class='text-center'>" . $start . "</td>
-                                <td >
+                                <td class='text-center' >
                                 <a href='" . $base . "master_data/edit_user?id=" . $list['nik'] . "&&usergroup=" . $list['id_usergroup'] . "&&perusahaan=" . $list['id_perusahaan'] . "&&lokasi=" . $list['id_lokasi'] . "&&cabang=" . $list['id_cabang'] . "' class='text-warning'><i class='fa fa-pencil'></i></a>
                                 " . $hapus . "
                                 </td>
@@ -248,7 +248,7 @@ class Master_Data extends CI_Controller
                         $output .= "
                                 <tr>
                                     <td class='text-center'>" . $start . "</td>
-                                    <td >
+                                    <td class='text-center' >
                                     <a href='" . $base . "master_data/edit_user?id=" . $list['nik'] . "&&usergroup=" . $list['id_usergroup'] . "&&perusahaan=" . $list['id_perusahaan'] . "&&lokasi=" . $list['id_lokasi'] . "&&cabang=" . $list['id_cabang'] . "' class='text-warning'><i class='fa fa-pencil'></i></a>
                                     " . $hapus . "
                                     </td>
@@ -1179,13 +1179,13 @@ class Master_Data extends CI_Controller
     public function post_user()
     {
         $data = [
-            'nik' => $this->input->post('nik', true),
-            'username' => $this->input->post('username'),
-            'nama' => $this->input->post('nama'),
-            'password' => $this->input->post('password'),
-            'id_perusahaan' => $this->input->post('id_perusahaan'),
-            'id_cabang' => $this->input->post('id_cabang'),
-            'id_lokasi' => $this->input->post('id_lokasi'),
+            'nik' => html_escape($this->input->post('nik', true)) ,
+            'username' => html_escape($this->input->post('username'))  ,
+            'nama' => html_escape( $this->input->post('nama')) ,
+            'password' => html_escape($this->input->post('password'))  ,
+            'id_perusahaan' =>html_escape($this->input->post('id_perusahaan'))  ,
+            'id_cabang' => html_escape( $this->input->post('id_cabang')) ,
+            'id_lokasi' =>html_escape($this->input->post('id_lokasi')) ,
             'id_usergroup' => $this->input->post('id_usergroup'),
             'user'  => $this->session->userdata('username')
 
@@ -1215,11 +1215,11 @@ class Master_Data extends CI_Controller
     public function post_usergroup()
     {
         $data = [
-            'id_usergroup' => $this->input->post('id_usergroup', true),
-            'user_group'   => $this->input->post('user_group', true),
-            'user'  => $this->session->userdata('username')
+            'id_usergroup' => $this->input->post('id_usergroup', true, "UTF-8"),
+            'user_group'   => html_escape($this->input->post('user_group', true,"UTF-8")),
+            'user'  => html_escape($this->session->userdata('username')),
         ];
-
+        
         $id = $data['id_usergroup'];
 
         $cek = $this->mmasdat->getUserGroupById($id);
@@ -2649,6 +2649,28 @@ class Master_Data extends CI_Controller
             }
         }
         echo '<option value="">--- Pilih Cabang ---</option>';
+        echo $output;
+    }
+
+    public function ajax_get_rakbin($id = null)
+    {
+        $output = '';
+        $no = 0;
+        $listrak = $this->mmasdat->getLokasirak();
+        foreach ($listrak as $list) {
+            $no++;
+            if ($list['kd_lokasi_rak'] == $id) {
+
+                $output .= '
+                    <option value="' . $list['kd_lokasi_rak'] . '" selected>' . $list['kd_lokasi_rak'] . ' - ' . $list['kd_rak'] . '</option>
+                ';
+            } else {
+                $output .= '
+                    <option value="' . $list['kd_lokasi_rak'] . '">' . $list['kd_lokasi_rak'] . ' - ' . $list['kd_rak'] . '</option>
+                ';
+            }
+        }
+        echo '<option value="">--- Pilih Rak Bin ---</option>';
         echo $output;
     }
 

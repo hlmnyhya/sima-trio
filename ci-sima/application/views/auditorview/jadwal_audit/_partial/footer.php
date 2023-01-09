@@ -15,6 +15,10 @@
 <script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
 <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment-with-locales.js"></script>
+<script src="<?php echo base_url() ?>assets/js/moment-timezone-with-data.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <!-- Idle Timer plugin -->
@@ -89,23 +93,23 @@
 </script>
 <script>
     $(document).ready(function() {
+        get_data(1);
         // $('#list_jadwal_audit').load("<?php echo base_url(); ?>audit/ajax_get_jadwal_audit");  
         $('#Optjenisaudit').load("<?php echo base_url(); ?>audit/ajax_get_jenis_audit2");
         $('#audit_part').load("<?php echo base_url() ?>transaksi_auditor/ajax_get_part");
         $('#OptCabang').load("<?php echo base_url() ?>audit/ajax_get_cabang2");
-        get_data(1);
+        function timezone(){
+   var time = document.getElementById('zone').value;
+   document.getElementById('waktu').value = time;
+   }
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
-            $('#list_jadwal_audit').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
-
-            preview(page);
-
+            get_data(page);
         });
 
         function get_data(page) {
             $('#list_jadwal_audit').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
-
             $.ajax({
                 type: 'post',
                 dataType: 'JSON',
@@ -114,6 +118,7 @@
                     console.log(res);
                     $('#list_jadwal_audit').html(res.output);
                     $('#pagination').html(res.pagination);
+                    $('#rows_entry').html(res.row_entry);
                 }
             });
         }
@@ -144,7 +149,7 @@
                     }
                 });
             } else {
-                get_data(1);
+                get_data(page);
             }
         }
         $('#caribtn').click(function() {
@@ -152,8 +157,19 @@
         });
 
     });
+    $("#tz").html(moment().format('MMMM Do YYYY, h:mm:ss a'))
 </script>
-
+<script>
+$(document).ready(function() {
+    $('.js-example-basic-single').select2();
+});
+</script>
+<script type="text/javascript">
+   function timezone(){
+   var time = document.getElementById('zone').value;
+   document.getElementById('waktu').value = time;
+   }
+</script>
 </body>
 
 </html>

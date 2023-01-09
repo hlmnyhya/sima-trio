@@ -88,7 +88,6 @@
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
             get_data(page);
-
         });
         get_data(1);
 
@@ -162,6 +161,7 @@
 
         });
     }
+
 
     function hide() {
         $('#add').attr('disabled', false);

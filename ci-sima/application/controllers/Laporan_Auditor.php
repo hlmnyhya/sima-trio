@@ -4,6 +4,10 @@
 defined('BASEPATH') or exit('No direct script access allowed');
 
 use Fpdf\Fpdf;
+use PhpOffice\PhpSpreadsheet\Helper\Sample;
+use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Spreadsheet;;
+use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
 
 class laporan_auditor extends CI_Controller
 {
@@ -122,7 +126,7 @@ class laporan_auditor extends CI_Controller
             $pdf->Cell(28, 15, 'No Rangka', 1, 0, 'C', TRUE);
             $pdf->Cell(27, 15, 'Type Unit', 1, 0, 'C', TRUE);
             $pdf->Cell(20, 15, 'Umur Unit', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'Lokasi', 1, 0, 'C', TRUE);
+            $pdf->Cell(35, 15, 'Lokasi', 1, 0, 'C', TRUE);
             $pdf->Cell(25, 15, 'Status Unit', 1, 0, 'C', TRUE);
             $pdf->Cell(25, 15, 'Keterangan', 1, 1, 'C', TRUE);
             $start = null;
@@ -141,7 +145,7 @@ class laporan_auditor extends CI_Controller
                 $x = $pdf->GetX();
                 $pdf->myCell(20, 7, $x, (($c['umur_unit'] == "") ? "-" : ($c['umur_unit'] . ' tahun')));
                 $x = $pdf->GetX();
-                $pdf->myCell(25, 7, $x, $c['nama_gudang']);
+                $pdf->myCell(35, 7, $x, $c['nama_gudang']);
                 $x = $pdf->GetX();
                 $pdf->myCell(25, 7, $x, $c['status_unit']);
                 $x = $pdf->GetX();
@@ -187,7 +191,7 @@ class laporan_auditor extends CI_Controller
     }
     public function cetakexcel()
     {
-        $excel = new PHPExcel();
+        $excel = new Spreadsheet();
         $tgl = date('Ymd');
         $type = $this->input->post('type');
         $cabang = $this->input->post('id_cabang');
@@ -211,48 +215,48 @@ class laporan_auditor extends CI_Controller
                 $style_col = [
                     'font' => ['bold' => true],
                     'alignment' => [
-                        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
-                        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'right' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'left' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'bottom' => ['style' => PHPExcel_Style_Border::BORDER_THIN]
+                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
                     ]
 
                 ];
 
                 $style_row = [
                     'alignment' => [
-                        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
-                        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'right' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'left' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'bottom' => ['style' => PHPExcel_Style_Border::BORDER_THIN]
+                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
                     ]
                 ];
                 $cab = $this->mlapaudit->getCabangbyId($cabang);
                 foreach ($cab as $c) {
                     $cab = $c['nama_cabang'];
                 }
-                $excel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+                $excel->getActiveSheet()->getPageSetup()->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
                 $excel->getActiveSheet()->getPageSetup()->setRowsToRepeatAtTop('A5');
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A1', 'TEMUAN AUDIT ' . strtoupper($status));
                 $excel->getActiveSheet()->mergeCells('A1:H1');
                 $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE);
                 $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A2', 'CABANG ' . $cab);
                 $excel->getActiveSheet()->mergeCells('A2:H2');
                 $excel->getActiveSheet()->getStyle('A2')->getFont()->setBold(TRUE);
                 $excel->getActiveSheet()->getStyle('A2')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $excel->getActiveSheet()->getStyle('A2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A5', 'NO.');
                 $excel->setActiveSheetIndex(0)->setCellValue('B5', 'NO. MESIN');
@@ -261,7 +265,7 @@ class laporan_auditor extends CI_Controller
                 $excel->setActiveSheetIndex(0)->setCellValue('E5', 'TYPE UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('F5', 'USIA UNIT');
                 $excel->setActiveSheetIndex(0)->setCellValue('G5', 'LOKASI');
-                $excel->setActiveSheetIndex(0)->setCellValue('H5', 'STATUS');
+                $excel->setActiveSheetIndex(0)->setCellValue('H5', 'SFTATUS');
 
                 $excel->getActiveSheet()->getStyle('A5')->applyFromArray($style_col);
                 $excel->getActiveSheet()->getStyle('B5')->applyFromArray($style_col);
@@ -302,7 +306,7 @@ class laporan_auditor extends CI_Controller
                 $excel->getActiveSheet()->mergeCells('A3:H3');
                 $excel->getActiveSheet()->getStyle('A3')->getFont()->setBold(TRUE);
                 $excel->getActiveSheet()->getStyle('A3')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A3')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $excel->getActiveSheet()->getStyle('A3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
                 $excel->getActiveSheet()->getColumnDimension('A')->setWidth(5);
                 $excel->getActiveSheet()->getColumnDimension('B')->setWidth(20);
@@ -315,14 +319,14 @@ class laporan_auditor extends CI_Controller
 
                 $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
 
-                $excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
+                $excel->getActiveSheet()->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT);
                 $statu = strtoupper($status);
                 $excel->getActiveSheet(0)->setTitle($statu . $tgl);
                 $excel->setActiveSheetIndex(0);
                 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
-                header("Content-Disposition: attachment; filename=REPORT-UNIT" . $statu . $tgl . ".xlsx"); // Set nama file excel nya
+                header("Content-Disposition: attachment; filename=REPORT-UNIT" . $status . $tgl . ".xlsx");
                 header('Cache-Control: max-age=0');
-                $write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
+                $write = new Xlsx($excel);
                 $write->save('php://output');
             } elseif ($type == 'pdf') {
                 $pdf = new reportProduct();
@@ -348,7 +352,7 @@ class laporan_auditor extends CI_Controller
                 $pdf->Cell(25, 6, 'KODE ITEM', 1, 0, 'C');
                 $pdf->Cell(27, 6, 'TYPE UNIT', 1, 0, 'C');
                 $pdf->Cell(25, 6, 'USIA UNIT', 1, 0, 'C');
-                $pdf->Cell(25, 6, 'LOKASI', 1, 0, 'C');
+                $pdf->Cell(50, 6, 'LOKASI', 1, 0, 'C');
                 $pdf->Cell(25, 6, 'STATUS', 1, 1, 'C');
 
                 $pdf->SetFont('Arial', 'B', 8);
@@ -363,7 +367,7 @@ class laporan_auditor extends CI_Controller
                     $pdf->Cell(25, 6, $c['kode_item'], 1, 0);
                     $pdf->Cell(27, 6, $c['type'], 1, 0);
                     $pdf->Cell(25, 6, $c['umur_unit'], 1, 0, 'C');
-                    $pdf->Cell(25, 6, $c['nama_gudang'], 1, 0);
+                    $pdf->Cell(50, 6, $c['nama_gudang'], 1, 0);
                     $pdf->Cell(25, 6, $c['status_unit'], 1, 1);
                     $no++;
                     $start = $start + 15;
@@ -381,7 +385,7 @@ class laporan_auditor extends CI_Controller
 
     public function cetakexcelnotready()
     {
-        $excel = new PHPExcel();
+        $excel = new Spreadsheet();
         $tgl = "";
         $type = $this->input->post('type');
         $cabang = $this->input->post('id_cabang');
@@ -407,54 +411,54 @@ class laporan_auditor extends CI_Controller
                 $style_col = [
                     'font' => ['bold' => true],
                     'alignment' => [
-                        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
-                        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'right' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'left' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'bottom' => ['style' => PHPExcel_Style_Border::BORDER_THIN]
+                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
                     ]
 
                 ];
 
                 $style_row = [
                     'alignment' => [
-                        'horizontal' => PHPExcel_Style_Alignment::HORIZONTAL_CENTER,
-                        'vertical' => PHPExcel_Style_Alignment::VERTICAL_CENTER,
+                        'horizontal' => \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' => \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
                     ],
                     'borders' => [
-                        'top' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'right' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'left' => ['style' => PHPExcel_Style_Border::BORDER_THIN],
-                        'bottom' => ['style' => PHPExcel_Style_Border::BORDER_THIN]
+                        'top' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'right' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'left' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN],
+                        'bottom' => ['style' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN]
                     ]
                 ];
                 $cab = $this->mlapaudit->getCabangbyId($cabang);
                 foreach ($cab as $c) {
                     $cab = $c['nama_cabang'];
                 }
-                $excel->getActiveSheet()->getPageSetup()->setPaperSize(PHPExcel_Worksheet_PageSetup::PAPERSIZE_A4);
+                $excel->getActiveSheet()->getPageSetup()->setPaperSize(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4);
                 $excel->getActiveSheet()->getPageSetup()->setRowsToRepeatAtTop('A5');
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A1', 'TEMUAN AUDIT NOT READY');
                 $excel->getActiveSheet()->mergeCells('A1:H1');
                 $excel->getActiveSheet()->getStyle('A1')->getFont()->setBold(TRUE);
                 $excel->getActiveSheet()->getStyle('A1')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $excel->getActiveSheet()->getStyle('A1')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A2', 'CABANG ' . $cab);
                 $excel->getActiveSheet()->mergeCells('A2:H2');
                 $excel->getActiveSheet()->getStyle('A2')->getFont()->setBold(TRUE);
                 $excel->getActiveSheet()->getStyle('A2')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A2')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $excel->getActiveSheet()->getStyle('A2')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A3', 'PERIODE ' . $tgl);
                 $excel->getActiveSheet()->mergeCells('A3:H3');
                 $excel->getActiveSheet()->getStyle('A3')->getFont()->setBold(TRUE);
                 $excel->getActiveSheet()->getStyle('A3')->getFont()->setSize(14);
-                $excel->getActiveSheet()->getStyle('A3')->getAlignment()->setHorizontal(PHPExcel_Style_Alignment::HORIZONTAL_CENTER);
+                $excel->getActiveSheet()->getStyle('A3')->getAlignment()->setHorizontal(\PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER);
 
                 $excel->setActiveSheetIndex(0)->setCellValue('A5', 'NO.');
                 $excel->setActiveSheetIndex(0)->setCellValue('B5', 'NO. MESIN');
@@ -512,14 +516,14 @@ class laporan_auditor extends CI_Controller
 
                 $excel->getActiveSheet()->getDefaultRowDimension()->setRowHeight(-1);
 
-                $excel->getActiveSheet()->getPageSetup()->setOrientation(PHPExcel_Worksheet_PageSetup::ORIENTATION_PORTRAIT);
+                $excel->getActiveSheet()->getPageSetup()->setOrientation(\PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT);
                 $ready = strtoupper($is_ready);
                 $excel->getActiveSheet(0)->setTitle($ready . $idjadwal_audit);
                 $excel->setActiveSheetIndex(0);
                 header('Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
                 header("Content-Disposition: attachment; filename=REPORT-UNIT" . $ready . $idjadwal_audit . ".xlsx"); // Set nama file excel nya
                 header('Cache-Control: max-age=0');
-                $write = PHPExcel_IOFactory::createWriter($excel, 'Excel2007');
+                $write = new Xlsx($excel);
                 // var_dump($write);die;
                 $write->save('php://output');
             } elseif ($type == 'pdf') {
@@ -1065,12 +1069,12 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFillColor(0, 186, 242);
             $pdf->SetFont('Times', 'B', 10);
 
-            $pdf->Cell(10, 5, 'Hasil Audit', 0, 1);
+            $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
             $pdf->Cell(8, 15, 'No', 1, 0, 'C', TRUE);
-            $pdf->Cell(25, 15, 'LOKASI', 1, 0, 'C', TRUE);
+            $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', TRUE);
             $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', TRUE);
-            $pdf->Cell(27, 15, 'DESKRIPSI', 1, 0, 'C', TRUE);
-            $pdf->Cell(20, 15, 'KD RAK BIN', 1, 0, 'C', TRUE);
+            $pdf->Cell(50, 15, 'DESKRIPSI', 1, 0, 'C', TRUE);
+            $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', TRUE);
             $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', TRUE);
             $start = null;
 
@@ -1078,15 +1082,15 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFont('Times', '', 8);
             foreach ($cetak as $c) {
                 $pdf->Cell(8, 6, $no, 1, 0, 'C');
-                $pdf->Cell(25, 6, $c['nama_gudang'], 1, 0);
+                $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
                 $pdf->Cell(28, 6, $c['part_number'], 1, 0);
-                $pdf->Cell(27, 6, $c['deskripsi'], 1, 0);
-                $pdf->Cell(20, 6, $c['kd_lokasi_rak'], 1, 0, 'C');
+                $pdf->Cell(50, 6, $c['deskripsi'], 1, 0);
+                $pdf->Cell(30, 6, $c['kd_lokasi_rak'], 1, 0, 'C');
                 $pdf->Cell(25, 6, $c['qty'], 1, 1);
                 $no++;
             }
             $pdf->Ln(5);
-            $pdf->SetLineWidth(0.05);
+            $pdf->SetLineWidth(0.15);
             $tgl_now = date('d F Y');
             $pdf->cell(0, 6, $tempat . ' , ' . $tgl_now, 0, 1);
             $pdf->cell(50, 8, 'Diperiksa Oleh,', 1, 0, 'C');
@@ -1105,7 +1109,7 @@ class laporan_auditor extends CI_Controller
             $pdf->Output();
         } else {
 
-            redirect('laporan_auditor/lap_audit_unit', 'refresh');
+            redirect('laporan_auditor/lap_audit_part', 'refresh');
         }
     }
 
@@ -1145,6 +1149,18 @@ class laporan_auditor extends CI_Controller
         $this->load->view('_partial/sidebar.php');
         $this->load->view('auditorview/laporan_unit/v_laporan_audit_unit.php', $data);
         $this->load->view('auditorview/laporan_unit/_partial/footer.php');
+    }
+    public function Lap_Audit_part()
+    {
+        $data = [
+            'judul' => "Laporan Audit Unit",
+            'judul1' => 'Laporan Auditor',
+            'tgl' => date('m/d/Y'),
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view('auditorview/laporan_part/v_laporan_part.php', $data);
+        $this->load->view('auditorview/laporan_part/_partial/footer.php');
     }
 
     public function Lap_Perlokasi()

@@ -282,19 +282,40 @@ class M_Count extends CI_Model {
             }
         }
         
-    public function CountPart1($a=null, $b=null)
+    public function CountPart1($a=null, $b=null, $c=null)
     {
-        if ($a!=null) {
-            $this->db->where('a.id_cabang', $a);
-            $this->db->where('a.idjadwal_audit', $b);
-        }
-        $count =$this->db->get('part a');
+        $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            if ($a !=null) {
+                $this->db->where('a.id_cabang', $a);
+            }
+            if ($b !=null) {
+                $this->db->where('a.idjadwal_audit', $b);
+            }
+            // $this->db->where('a.is_audit', $val);
+            
+            $count =$this->db->get();
 
-        if ($count->num_rows()>0) {
-            return $count->num_rows();
-        } else {
-            return false;
-        }
+            if ($count->num_rows()>0) {
+                return $count->num_rows();
+            } else {
+                return false;
+            }
+
+        // if ($a!=null) {
+        //     $this->db->where('a.id_cabang', $a);
+        //     $this->db->where('a.idjadwal_audit', $b);
+        //     $this->db->where('a.kd_lokasi_rak', $c);
+        // }
+        // $count =$this->db->get('part a');
+
+        // if ($count->num_rows()>0) {
+        //     return $count->num_rows();
+        // } else {
+        //     return false;
+        // }
         
     }
     public function CountPerusahaan()

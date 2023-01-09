@@ -372,6 +372,7 @@ function __construct() {
             ], REST_Controller::HTTP_OK);
         }
     }
+    
     public function Usergroup_put()
     {
         $id =$this->put('id');
@@ -1990,8 +1991,30 @@ function __construct() {
             
         }
     }
-
-
-
-}
+    public function lokasirak_get()
+    {
+        $id= $this->get('id_lokasi');
+        // var_dump($id);exit;
+        if ($id===null) {
+            $lokasirak= $this->mlokasicabang->getLokasiRak();
+            
+        }else{
+            $lokasirak= $this->mlokasicabang->getLokasiRak($id);
+            // var_dump($lokasirak);exit;
+        }
+        if ($lokasirak) {
+            $this->response([
+                'status' => true,
+                'data' => $lokasirak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+    
+    }
 /** End of file Master.php **/

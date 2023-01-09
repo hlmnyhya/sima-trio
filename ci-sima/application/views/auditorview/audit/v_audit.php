@@ -12,8 +12,8 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Lokasi</label>
-                                            <div class="col-sm-7"><select class="form-control m-b" name="id_lokasi" id="id_lokasi">
+                                            <label class="col-sm-3 control-label">Lokasi</label>
+                                            <div class="col-sm-9"><select class="form-control control-label m-b" name="id_lokasi" id="id_lokasi">
                                                 </select>
 
                                             </div>
@@ -21,8 +21,8 @@
                                     </div>
                                     <div class="row">
                                         <div class="form-group">
-                                            <label class="col-sm-2 control-label">Data Unit</label>
-                                            <div class="col-sm-7">
+                                            <label class="col-sm-3 control-label">Data Unit</label>
+                                            <div class="col-sm-9">
                                                 <input type="text" class="form-control" placeholder="Cari Data Unit" id="cari">
                                                 <span class="help-block m-b-none text-danger" id="info"></span>
                                             </div>
@@ -32,8 +32,7 @@
                                         <div class="from-group">
                                             <div class="col-sm-12">
                                                 <a id="doCari" class=" btn btn-primary">Scan Data</a>
-                                                <a href="<?php echo base_url() ?>transaksi_auditor/temp_unit?id=<?php echo $_GET['id'] ?>" class="btn btn-warning">Temporary Data</a>
-                                                <?php $id = $_GET['id']; ?>
+                                                <a onclick="window.open ('<?php echo base_url() ?>transaksi_auditor/temp_unit?id=<?php echo $_GET['id'] . "&&a=" . base64_encode('idjadwal_audit')?>')"   class="btn btn-warning">Temporary Data</a>
                                                 <a id="close" class="btn btn-danger">Close Audit</a>
                                             </div>
                                         </div>

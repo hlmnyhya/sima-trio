@@ -86,6 +86,7 @@
         download();
         get_data(1);
         lokasi();
+        
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
@@ -104,13 +105,13 @@
                 }
             })
         }
-
-        function lokasi() {
+        function lokasi() 
+        {
             var cabang = "<?php echo $_GET['id'] ?>";
             $.ajax({
                 type: 'POST',
                 dataType: 'JSON',
-                data: {
+                  data: {
                     id_cabang: cabang
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
@@ -121,6 +122,8 @@
             });
 
         }
+
+
         $('#jadwal_audit').load("<?php echo base_url() ?>audit/ajax_get_jadwal_audit");
         $('#close').click(function() {
             var confirmText = "Anda yakin ingin menghentikan proses audit?";
@@ -129,7 +132,7 @@
             }
             return false;
         })
-
+   
         function close_audit() {
             var id = "<?php echo $_GET['id'] ?>";
             var a = "<?php echo $_GET['a'] ?>";
@@ -143,16 +146,19 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/closeaudit",
                 success: function(data) {
                     if (data.status == true) {
-                        window.alert('Audit Scan Successful');
+                        window.alert('Audit Scan Succsessful');
                         window.opener.location.reload(true);
                         window.close();
                     } else {
-                        window.alert('Audit Close Failed');
+                        window.alert('Audit Close Failed');2
+                        window.opener.location.reload(true);
+                        window.close();
                     }
 
                 }
             });
         }
+
         $('#audit').click(function() {
             var no_mesin = $('#no_mesin').val();
             var no_rangka = $('#no_rangka').val();
@@ -187,7 +193,7 @@
             if (cari) {
                 scan_getdata();
             } else {
-                $('#info').html("data Kosong");
+                $('#info').html("Data Kosong");
             }
         });
 

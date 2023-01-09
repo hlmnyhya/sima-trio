@@ -22,6 +22,14 @@ class M_Lokasi_Cabang extends CI_Model {
         }
     }
 
+    public function getLokasiRak($id)
+    {
+        
+        $result = $this->db->query("select * from lokasi_rak_bin where id_lokasi = '".$id."'")->result();
+        return $result; 
+    }
+    
+
 }
 
 /* End of file M_Lokasi_Cabang.php */

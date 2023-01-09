@@ -9,6 +9,7 @@
     <title><?php echo SITE_NAME ?> | <?php echo $judul ?></title>
     <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>assets/images/icon.png" />
     <link href="<?php echo base_url() ?>assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
+     <!-- <link href="<?php echo base_url() ?>assets/css-4/bootstrap.min.css" rel="stylesheet"> -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/font-awesome/css/font-awesome.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
@@ -17,10 +18,14 @@
     <link href="<?php echo base_url() ?>assets/css/plugins/chosen/bootstrap-chosen.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/style.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style2.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style3.css" rel="stylesheet">
+    <link href="<?php echo base_url() ?>assets/css/style4.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/iCheck/custom.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/textSpinners/spinners.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/datapicker/datepicker3.css" rel="stylesheet">
     <link href="<?php echo base_url() ?>assets/css/plugins/clockpicker/clockpicker.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
 
     <script>
         function redirectCU(e) {
