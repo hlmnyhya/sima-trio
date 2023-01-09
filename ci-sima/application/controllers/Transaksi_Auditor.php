@@ -1906,7 +1906,7 @@ class Transaksi_Auditor extends CI_Controller
 
     public function doPart()
     {
-        var_dump("aaa");exit;
+        // var_dump("aaa");exit;
         $manual = false;
         $scanpart = $this->input->post('id');
         $cabang = $this->input->post('cabang');
@@ -2278,8 +2278,8 @@ class Transaksi_Auditor extends CI_Controller
                 $qty_temppart = $part['qty'];
                 $qty_part = $cek_part[0]['qty'] + 1;
                 // var_dump($part);
-                var_dump($qty_part);
-                var_dump($qty_temppart);
+                // var_dump($qty_part);
+                // var_dump($qty_temppart);
                 exit;
                 if($qty_part > $qty_temppart){
                     $data_edit = [
