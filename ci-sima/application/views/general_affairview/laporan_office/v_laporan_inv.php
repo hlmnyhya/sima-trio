@@ -30,14 +30,6 @@
                     <span id="info_message"></span>
                 </div>
                 <div class="panel-body">
-<<<<<<< HEAD
-                    <form id="FormLap" action="<?php echo base_url() ?>laporan_ga/cetaklaporan" method="post">
-                        <div class="row">
-                                <div class="col-sm-2"><label>Cari Inventory Office</label></div>
-                                 <div class="col-sm-8"><input type="text" class="form-control" id="inv"></div>
-                                 <div class="col-sm-2 text-center"><button class="btn btn-w-m btn-success" id="caribtn">Cari Data</button>
-                                    <div class="form-group">
-=======
                     <form id="FormLap" action="<?php echo base_url(); ?>laporan_ga/cetakInv" method="post">
                         <!-- <div class="row">
                                 <! <div class="col-sm-2"><label>Cari Inventory Office</label></div>
@@ -47,7 +39,6 @@
                                             <button class="btn btn-w-m btn-success" id="caribtn">Cari Data</button>
                                             <button class="btn btn-w-m btn-danger" id="caribtn"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</button>
                                             </div>
->>>>>>> adfcdb39f23d3621cc046ead6d6be3caf8ed67c8
                                         </div>
                                     </div>
                                 </div> -->

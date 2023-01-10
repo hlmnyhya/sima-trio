@@ -202,7 +202,7 @@ class Laporan_GA extends CI_Controller
         echo json_encode($data, true);
     }
 
-    }
+    
 
     public function cetaklaporan()
     {
