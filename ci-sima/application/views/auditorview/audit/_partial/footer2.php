@@ -85,7 +85,6 @@
     $(document).ready(function() {
         download();
         get_data(1);
-        // rakbin();
         lokasi()
         $('#id_lokasi').change(function() {
             var rak = $(this).val();
