@@ -2432,61 +2432,52 @@ class Master extends REST_Controller
             );
         }
     }
+
     public function lokasirak_get()
     {
-        $id = $this->get('id_lokasi');
-        // var_dump($id);exit;
-        if ($id === null) {
-            $lokasirak = $this->mlokasicabang->getLokasiRak();
+        $id =  $this->get('id');
+        if($id === null ) {
+            $lokasirak= $this->mlokasicabang->getLokasiRak();
         } else {
-            $lokasirak = $this->mlokasicabang->getLokasiRak($id);
-            // var_dump($lokasirak);exit;
+            $lokasirak= $this->mlokasicabang->getLokasiRak($id);
+            
         }
         if ($lokasirak) {
-            $this->response(
-                [
-                    'status' => true,
-                    'data' => $lokasirak,
-                ],
-                REST_Controller::HTTP_OK
-            );
+            $this->response([
+                'status' => true,
+                'data' => $lokasirak
+            ], REST_Controller::HTTP_OK);
         } else {
-            $this->response(
-                [
-                    'status' => false,
-                    'message' => 'Data not found.',
-                ],
-                REST_Controller::HTTP_OK
-            );
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
         }
     }
-    public function lokasiaset_get()
-    {
-        $id = $this->get('id_cabang');
-        // var_dump($id);exit;
-        if ($id === null) {
-            $lokasset = $this->mlokasicabang->getLokasiAsset();
-        } else {
-            $lokasset = $this->mlokasicabang->getLokasiAsset($id);
-        }
-        if ($lokasset) {
-            $this->response(
-                [
-                    'status' => true,
-                    'data' => $lokasset,
-                ],
-                REST_Controller::HTTP_OK
-            );
-        } else {
-            $this->response(
-                [
-                    'status' => false,
-                    'message' => 'Data not found.',
-                ],
-                REST_Controller::HTTP_OK
-            );
-        }
-    }
-}
 
-/** End of file Master.php **/
+    // public function lokasirak_get()
+    // {
+    //     $id= $this->get('id_lokasi');
+    //     // var_dump($id);exit;
+    //     if ($id===null) {
+    //         $lokasirak= $this->mlokasicabang->getLokasiRak();
+            
+    //     }else{
+    //         $lokasirak= $this->mlokasicabang->getLokasiRak($id);
+    //         // var_dump($lokasirak);exit;
+    //     }
+    //     if ($lokasirak) {
+    //         $this->response([
+    //             'status' => true,
+    //             'data' => $lokasirak
+    //         ], REST_Controller::HTTP_OK);
+    //     }else{
+    //         $this->response([
+    //             'status' => false,
+    //             'message' => 'Data not found.'
+    //         ], REST_Controller::HTTP_OK);
+            
+    //     }
+    // }
+    
+}

@@ -346,49 +346,43 @@ class Transaksi extends REST_Controller
     }
 
     public function Inv_post()
-    {
-        //belum fix
-        $data = [
-            'idtransaksi_inv' => $this->post('idtransaksi_inv', true),
-            'idstatus_inventory' => $this->post('idstatus_inventory', true),
-            'idjenis_inventory' => $this->post('idjenis_inventory', true),
-            'idsub_inventory' => $this->post('idsub_inventory', true),
-            'nilai_awal' => $this->post('nilai_awal', true),
-            'ddp' => $this->post('ddp', true),
-            'nilai_asset' => $this->post('nilai_asset', true),
-            'nilai_total_keseluruhan' => $this->post(
-                'nilai_total_keseluruhan',
-                true
-            ),
-            'tanggal_barang_diterima' => $this->post(
-                'tanggal_barang_diterima',
-                true
-            ),
-            'id_vendor' => $this->post('id_vendor', true),
-            'jenis_pembayaran' => $this->post('jenis_pembayaran', true),
-            'id_cabang' => $this->post('id_cabang', true),
-            'id_lokasi' => $this->post('id_lokasi', true),
-            'nama_pengguna' => $this->post('nama_pengguna', true),
-            'keterangan' => $this->post('keterangan', true),
-            'stok' => $this->post('stok', true),
-            'foto' => $this->post('foto', true),
-            'asal_hadiah' => $this->post('asal_hadiah', true),
-            'ppn' => $this->post('ppn', true),
-            'ket_ppn' => $this->post('ket_ppn', true),
-            'merk' => $this->post('merk', true),
-            'aksesoris_tambahan' => $this->post('aksesoris_tambahan', true),
-            'serial_number' => $this->post('serial_number', true),
-            'uang_muka' => $this->post('uang_muka', true),
-            'cicilan_perbulan' => $this->post('cicilan_perbulan', true),
-            'tenor' => $this->post('tenor', true),
-            'nilai_total' => $this->post('nilai_total', true),
-            'no_mesin' => $this->post('no_mesin', true),
-            'no_rangka' => $this->post('rangka', true),
-            // 'barcode' => $this->post('barcode',true),
-            // 'qrcode' => $this->post('qrcode',true),
-            'input_by' => $this->post('user', true),
-            'tanggal_input' => $this->_tgl,
-            'is_mutasi' => '0',
+    {   
+        $data=[
+                'idtransaksi_inv' => $this->post('idtransaksi_inv',true),
+                'idstatus_inventory' => $this->post('idstatus_inventory',true),
+                'idjenis_inventory' => $this->post('idjenis_inventory',true),
+                'idsub_inventory' => $this->post('idsub_inventory',true),
+                'nilai_awal' => $this->post('nilai_awal',true),
+                'ddp' => $this->post('ddp',true),
+                'nilai_asset' => $this->post('nilai_asset',true),
+                'nilai_total_keseluruhan' => $this->post('nilai_total_keseluruhan',true),
+                'tanggal_barang_diterima' => $this->post('tanggal_barang_diterima',true),
+                'id_vendor' => $this->post('id_vendor',true),
+                'jenis_pembayaran' => $this->post('jenis_pembayaran',true),
+                'id_cabang' => $this->post('id_cabang',true),
+                'id_lokasi' => $this->post('id_lokasi',true),
+                'nama_pengguna' => $this->post('nama_pengguna',true),              
+                'keterangan' => $this->post('keterangan',true),
+                'stok' => $this->post('stok',true),
+                'foto' => $this->post('foto',true),
+                'asal_hadiah' => $this->post('asal_hadiah',true),
+                'ppn' => $this->post('ppn',true),
+                'ket_ppn' => $this->post('ket_ppn',true),
+                'merk' => $this->post('merk',true),
+                'aksesoris_tambahan' => $this->post('aksesoris_tambahan',true),
+                'serial_number' => $this->post('serial_number',true),
+                'uang_muka' => $this->post('uang_muka',true),
+                'cicilan_perbulan' => $this->post('cicilan_perbulan',true),
+                'tenor' => $this->post('tenor',true),
+                'nilai_total' => $this->post('nilai_total',true),
+                'no_mesin' => $this->post('no_mesin',true),
+                'no_rangka' => $this->post('rangka',true),
+                // 'barcode' => $this->post('barcode',true),
+                // 'qrcode' => $this->post('qrcode',true),
+                'input_by'=> $this->post('user',true),
+                'tanggal_input' =>$this->_tgl,
+                'is_mutasi' => '0'
+                
         ];
         // var_dump($data);die;
         if ($this->minv->AddInv($data)) {

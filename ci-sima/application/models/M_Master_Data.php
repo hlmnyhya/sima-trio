@@ -244,15 +244,32 @@ class M_Master_Data extends CI_Model
     {
         $respon = $this->_client->request('GET', 'lokasirak', [
             'query' => [
-                'id_lokasi' => $id
-            ]
+                'id' => $id
+                ]
             ]);
     
         $result = json_decode($respon->getBody()->getContents(), true);
-
-        return $result['data'];
+            
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
     }
+
+    // public function getLokasirak($id)
+    // {
+    //     $respon = $this->_client->request('GET', 'lokasirak', [
+    //         'query' => [
+    //             'id_lokasi' => $id
+    //         ]
+    //         ]);
     
+    //     $result = json_decode($respon->getBody()->getContents(), true);
+
+    //     return $result['data'];
+    // }
+
     public function getVendor($offset = null)
     {
         $respon =  $this->_client->request('GET', 'vendor', [
