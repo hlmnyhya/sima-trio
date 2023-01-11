@@ -5,25 +5,26 @@
         </div>
     </div>
     <div>
-        &copy; <Strong> Trio Motor</strong> 2020 - <?php echo date("Y"); ?>
+        &copy; <Strong> Trio Motor</strong> 2020 - <?php echo date('Y'); ?>
     </div>
 </div>
 
 </div>
 
-
 <!-- Mainly scripts -->
-<script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
-<script src="<?php echo base_url() ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="<?php echo base_url() ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/jquery-3.1.1.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/bootstrap.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Upload js-->
+<script src="<?php echo base_url(); ?>assets/js/plugins/jasny/jasny-bootstrap.min.js"></script>
 <!-- Idle Timer plugin -->
-<script src="<?php echo base_url() ?>assets/js/plugins/idle-timer/idle-timer.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/idle-timer/idle-timer.min.js"></script>
 <!-- Custom and plugin javascript -->
-<script src="<?php echo base_url() ?>assets/js/inspinia.js"></script>
-<script src="<?php echo base_url() ?>assets/js/plugins/pace/pace.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/inspinia.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/pace/pace.min.js"></script>
 
-<script src="<?php echo base_url() ?>assets/js/plugins/toastr/toastr.min.js"></script>
+<script src="<?php echo base_url(); ?>assets/js/plugins/toastr/toastr.min.js"></script>
 
 
 <script>
@@ -37,7 +38,9 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.success('<?php echo $this->session->flashdata('berhasil') ?>', 'Status');
+                toastr.success('<?php echo $this->session->flashdata(
+                    'berhasil'
+                ); ?>', 'Status');
 
             }, 1300);
         <?php } ?>
@@ -50,7 +53,9 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.error('<?php echo $this->session->flashdata('gagal') ?>', 'Status');
+                toastr.error('<?php echo $this->session->flashdata(
+                    'gagal'
+                ); ?>', 'Status');
 
             }, 1300);
         <?php } ?>
@@ -63,7 +68,9 @@
                     showMethod: 'slideDown',
                     timeOut: 4000
                 };
-                toastr.warning('<?php echo $this->session->flashdata('warning') ?>', 'Status');
+                toastr.warning('<?php echo $this->session->flashdata(
+                    'warning'
+                ); ?>', 'Status');
 
             }, 1300);
         <?php } ?>
@@ -81,42 +88,47 @@
     });
 </script>
 <script>
-    $(document).ready(function() {
-        // $('#jenis_inv').load("<?php echo base_url() ?>master_data/ajax_get_jenis_inv");
+   $(document).ready(function() {
+        // $('#inv_office').load("<?php echo base_url(); ?>transaksi");
+        get_data(1);
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
-            get_data(page);
-
+            var inv = $('#inv').val();
+            if (inv) {
+                search(page);
+            } else {
+                get_data(page);
+            }
         });
-        get_data(1);
 
+        
         function get_data(page) {
-            $("#jenis_inv").html('<tr> <td colspan="10" id="loading"> </td></tr>');
-
+            $('#inv_office').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
             $.ajax({
-                type: 'POST',
+                type: 'post',
+                url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_Inventory2/" + page,
                 dataType: 'JSON',
-                url: "<?php echo base_url() ?>master_data/ajax_get_jenis_inv/" + page,
                 success: function(data) {
-                    $('#jenis_inv').html(data.output);
+                    $('#inv_office').html(data.output);
                     $('#pagination').html(data.pagination);
                 }
             })
         }
 
-        function search() {
-            var jenisinv = $('#Injenisinv').val();
-            $("#jenis_inv").html('<tr> <td colspan="10" id="loading"> </td></tr>');
+        function search(page) {
+            var inv = $('#inv').val();
+            $('#inv_office').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
 
-            if (jenisinv != '') {
+            if (inv != '') {
                 $.ajax({
                     type: "post",
-                    url: "<?php echo base_url() ?>master_data/search_data_jenisinv",
-                    data: "id=" + jenisinv,
+                    dataType: 'JSON',
+                    url: "<?php echo base_url(); ?>transaksi_ga/search2/" + page,
+                    data: "id=" + inv,
                     success: function(data) {
-                        $("#jenis_inv").html(data);
-                        $("#search").val("");
+                        $('#inv_office').html(data.output);
+                        $('#pagination').html(data.pagination);
                     }
                 });
             } else {
@@ -124,20 +136,15 @@
             }
         }
         $('#caribtn').click(function() {
-            search();
-        });
-
-        $('#Injenisinv').keyup(function(e) {
-            if (e.keyCode == 13) {
-                search();
-            }
+            search(1);
         });
     });
 
     function edit(id) {
         // var id = $(this).attr('data-id');
         $.ajax({
-            url: "<?php echo base_url() . $this->uri->segment(1) ?>/edit_jenisinv",
+            url: "<?php echo base_url() .
+                $this->uri->segment(1); ?>/edit_jenisinv",
             type: 'post',
             data: "id=" + id,
             dataType: 'html',
@@ -152,9 +159,10 @@
 
     function show() {
         $('#add').attr('disabled', true);
-        var $url = "<?php echo $this->uri->segment(1) ?>";
+        var $url = "<?php echo $this->uri->segment(1); ?>";
         $.ajax({
-            url: "<?php echo base_url() . $this->uri->segment(1) ?>/input_jenisinv",
+            url: "<?php echo base_url() .
+                $this->uri->segment(1); ?>/input_jenisinv",
             type: 'post',
             dataType: 'html',
             success: function(data) {

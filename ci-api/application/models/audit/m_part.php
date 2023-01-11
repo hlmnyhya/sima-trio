@@ -117,11 +117,11 @@ class M_Part extends CI_Model {
             WHERE kondisi is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
         ";
         $this->db->query($query2);
-        $query3 = "
-            UPDATE part
-            SET status = 'Belum Ditemukan'
-            WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'";
-        $this->db->query($query3);
+        // $query3 = "
+        //     UPDATE part
+        //     SET status = 'Belum Ditemukan'
+        //     WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'";
+        // $this->db->query($query3);
         $query4 = "
             DELETE FROM temp_part WHERE id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
         ";
@@ -194,6 +194,9 @@ class M_Part extends CI_Model {
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
 
             $this->db->where("a.id_cabang='$a' AND a.idjadwal_audit = '$b' ");
+            if ($c != "") {
+                $this->db->where('a.status', $c);
+            }
             if($d != ""){
                 $this->db->where('a.kondisi', $d);
             }
@@ -214,5 +217,21 @@ class M_Part extends CI_Model {
         return $this->db->affected_rows(); 
     }
     
+    
+
+    public function updateqty($id, $qty, $rakbin, $cabang, $lokasi)
+    {
+        $query = "SELECT COUNT(id_part) from part";
+        $this->db->query($query);
+
+        if ($id = null) {
+            $query1 = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, qty) VALUES ('$id', '$rakbin', '$cabang', '$lokasi', '$qty')";
+            $this->db->query($query1);
+        } else {
+            $query2= "UPDATE part SET qty = '$qty' + 1 WHERE part_number = '$id' AND kd_lokasi_rak = '$rakbin' AND id_cabang = '$cabang' AND id_lokasi = '$lokasi'";
+            $this->db->query($query2);
+        }
+        return $this->db->affected_rows();
+    }
 }
 /* End of file M_part.php */

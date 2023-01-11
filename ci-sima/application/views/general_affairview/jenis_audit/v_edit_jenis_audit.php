@@ -11,7 +11,7 @@
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">ID Jenis Audit</label>
                             <input type="hidden" class="form-control" name="idjenis_audit" id="idjenis_audit" value="<?php echo $e['idjenis_audit'] ?>">
-                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['idjenis_audit'] ?>" disabled></div>
+                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['idjenis_audit'] ?>"></div>
                         </div>
                     </div>
 

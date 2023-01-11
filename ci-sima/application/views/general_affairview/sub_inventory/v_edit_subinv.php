@@ -12,7 +12,7 @@
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">ID Sub Inventory</label>
                             <input type="hidden" class="form-control" name="idsub_inventory" id="idsub_inventory" value="<?php echo $e['idsub_inventory'] ?>">
-                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['idsub_inventory'] ?>" disabled></div>
+                            <div class="col-sm-4"><input type="text" class="form-control" value="<?php echo $e['idsub_inventory'] ?>"></div>
                         </div>
                     </div>
 

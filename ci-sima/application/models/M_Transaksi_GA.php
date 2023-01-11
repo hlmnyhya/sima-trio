@@ -273,7 +273,7 @@ class M_Transaksi_GA extends CI_Model
         }
     }
 
-    public function getSubInvById($id)
+   public function getSubInvById($id)
     {
         $respon =  $this->_client->request('GET', 'subjenisinv', [
             'query' => [
@@ -322,9 +322,23 @@ class M_Transaksi_GA extends CI_Model
         }
     }
 
-
-
+    public function getLokasiAsset($id)
+    {
+        $respon = $this->_client->request('GET', 'lokasiaset', [
+            'query' => [
+                'id' => $id
+                ]
+            ]);
     
+        $result = json_decode($respon->getBody()->getContents(), true);
+            
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
 }
 
 /* End of file M_Transaksi_GA.php */

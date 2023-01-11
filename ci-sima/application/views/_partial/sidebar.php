@@ -2,18 +2,20 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header text-white text-center">
-                    <img src="<?php echo base_url() ?>assets/images/icon.png" width="25px" height="25px"></img>
+                    <img src="<?php echo base_url(); ?>assets/images/icon.png" width="25px" height="25px"></img>
                     <h3>SIMA</h3>
                 </li>
-                <li class="<?php if ($this->uri->segment(1) == 'dashboard') echo 'active'; ?>">
-                    <a href="<?php echo base_url() ?>dashboard"><i class="fa fa-home fa-lg"></i> <span class="nav-label">
-                            <?php
-                            if ($this->session->userdata('usergroup') != 'UG005') {
-                                echo "Beranda";
+                <li class="<?php if ($this->uri->segment(1) == 'dashboard') {
+                    echo 'active';
+                } ?>">
+                    <a href="<?php echo base_url(); ?>dashboard"><i class="fa fa-home fa-lg"></i> <span class="nav-label">
+                            <?php if (
+                                $this->session->userdata('usergroup') != 'UG005'
+                            ) {
+                                echo 'Beranda';
                             } else {
-                                echo "Dashboard";
-                            }
-                            ?>
+                                echo 'Dashboard';
+                            } ?>
                         </span></a>
                 </li>
 
@@ -23,27 +25,33 @@
                 $menu = $this->mmenu->getMenu($userg);
 
                 foreach ($menu as $menus) {
-
                     $a = $menus['id_menu'];
                     $submenu = $this->mmenu->SubMenu($a);
                     echo "<li class='";
                     if ($judul1 == $menus['menu']) {
-                        echo "active";
+                        echo 'active';
                     }
-                    echo "'><a href='#'><i class='" . $menus['icon'] . " fa-fw'></i>" . $menus['menu'] . " <span class='fa arrow'></span></a>";
+                    echo "'><a href='#'><i class='" .
+                        $menus['icon'] .
+                        " fa-fw'></i>" .
+                        $menus['menu'] .
+                        " <span class='fa arrow'></span></a>";
 
                     echo "<ul class='nav nav-second-level collapse'>";
                     foreach ($submenu as $submenus) {
                         echo "<li class='";
                         if ($judul == $submenus['sub_menu']) {
-                            echo "active";
+                            echo 'active';
                         }
-                        echo "'><a href='" . base_url($submenus['url'])  . "'>";
-                        echo "<i class='" . $submenus['icon'] . " fa-fw'></i>" . $submenus['sub_menu'] . "</a></li>";
+                        echo "'><a href='" . base_url($submenus['url']) . "'>";
+                        echo "<i class='" .
+                            $submenus['icon'] .
+                            " fa-fw'></i>" .
+                            $submenus['sub_menu'] .
+                            '</a></li>';
                     }
-                    echo "</ul></li>";
+                    echo '</ul></li>';
                 }
-
                 ?>
                 <li>
                     <a href="index.html"><i class="fa fa-question-circle fa-lg"></i> <span class="nav-label">Help</span> </a>
@@ -71,13 +79,14 @@
                     </li>
                     <li class="">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
-                            <span class="text-white text-xs block"><i class="fa fa-user-circle-o"></i> <?php echo $this->session->userdata('nama');
-                                                                                                        ?> <b class="caret"></b></span></a>
+                            <span class="text-white text-xs block"><i class="fa fa-user-circle-o"></i> <?php echo $this->session->userdata(
+                                'nama'
+                            ); ?> <b class="caret"></b></span></a>
                         <ul class="dropdown-menu animated fadeInRight m-t-xs">
                             <li><a data-toggle="modal" data-target="#myModal">Profile</a></li>
-                            <li><a href="<?php echo base_url() ?>dashboard/change">Change Password</a></li>
+                            <li><a href="<?php echo base_url(); ?>dashboard/change">Change Password</a></li>
                             <li class="divider"></li>
-                            <li><a href="<?php echo base_url() ?>login/logout"> <i class="fa fa-sign-out"></i> <strong>Logout</strong> </a></li>
+                            <li><a href="<?php echo base_url(); ?>login/logout"> <i class="fa fa-sign-out"></i> <strong>Logout</strong> </a></li>
                         </ul>
                     </li>
 
@@ -100,9 +109,9 @@
                                         <label>:</label>
                                     </div>
                                     <div class="col-md-8 col-sm-8 col-lg-8 col-lg-8 col-xs-8">
-                                        <?php echo
-                                            $this->session->userdata('nik');
-                                        ?>
+                                        <?php echo $this->session->userdata(
+                                            'nik'
+                                        ); ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -113,9 +122,9 @@
                                         <label>:</label>
                                     </div>
                                     <div class="col-md-8 col-sm-8 col-lg-8 col-lg-8 col-xs-8">
-                                        <?php echo
-                                            $this->session->userdata('username');
-                                        ?>
+                                        <?php echo $this->session->userdata(
+                                            'username'
+                                        ); ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -126,9 +135,9 @@
                                         <label>:</label>
                                     </div>
                                     <div class="col-md-8 col-sm-8 col-lg-8 col-lg-8 col-xs-8">
-                                        <?php echo
-                                            $this->session->userdata('perusahaan');
-                                        ?>
+                                        <?php echo $this->session->userdata(
+                                            'perusahaan'
+                                        ); ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -139,9 +148,9 @@
                                         <label>:</label>
                                     </div>
                                     <div class="col-md-8 col-sm-8 col-lg-8 col-lg-8 col-xs-8">
-                                        <?php echo
-                                            $this->session->userdata('cabang');
-                                        ?>
+                                        <?php echo $this->session->userdata(
+                                            'cabang'
+                                        ); ?>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -152,9 +161,9 @@
                                         <label>:</label>
                                     </div>
                                     <div class="col-md-8 col-sm-8 col-lg-8 col-lg-8 col-xs-8">
-                                        <?php echo
-                                            $this->session->userdata('status');
-                                        ?>
+                                        <?php echo $this->session->userdata(
+                                            'status'
+                                        ); ?>
                                     </div>
                                 </div>
                             </div>
@@ -168,18 +177,31 @@
         </div>
         <div class="row wrapper border-bottom white-bg page-heading">
             <div class="col-sm-6">
-                <h2><?php echo strtoupper($judul) ?></h2>
+                <h2><?php echo strtoupper($judul); ?></h2>
                 <ol class="breadcrumb">
-                    <?php foreach ($this->uri->segments as $segment) : ?>
+                    <?php foreach ($this->uri->segments as $segment): ?>
                         <?php
-                        $url = substr($this->uri->uri_string, 0, strpos($this->uri->uri_string, $segment)) . $segment;
-                        $is_active =  $url == $this->uri->uri_string;
+                        $url =
+                            substr(
+                                $this->uri->uri_string,
+                                0,
+                                strpos($this->uri->uri_string, $segment)
+                            ) . $segment;
+                        $is_active = $url == $this->uri->uri_string;
                         ?>
-                        <li class="<?php echo $is_active ? 'active' : '' ?>">
-                            <?php if ($is_active) : ?>
-                                <?php echo str_replace("_", " ", ucwords($segment)) ?>
-                            <?php else : ?>
-                                <a href=""><?php echo str_replace("_", " ", ucfirst($segment)) ?></a>
+                        <li class="<?php echo $is_active ? 'active' : ''; ?>">
+                            <?php if ($is_active): ?>
+                                <?php echo str_replace(
+                                    '_',
+                                    ' ',
+                                    strtoupper($segment)
+                                ); ?>
+                            <?php else: ?>
+                                <a href=""><?php echo str_replace(
+                                    '_',
+                                    ' ',
+                                    strtoupper($segment)
+                                ); ?></a>
                             <?php endif; ?>
                         </li>
                     <?php endforeach; ?>
