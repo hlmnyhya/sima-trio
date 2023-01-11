@@ -237,7 +237,9 @@ class M_Transaksi_Auditor extends CI_Model
             foreach ($result['data'] as $res) {
 
                 $aksi = '
-                    <a href="' . $base . 'transaksi_auditor/edit_audit?id=' . base64_encode($res['id_unit']) . '&a=' . base64_encode($res['id_lokasi']) . '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="' . $base . 'transaksi_auditor/edit_audit?id=' . 
+                    base64_encode($res['id_unit']) . '&a=' . base64_encode($res['id_lokasi']) . 
+                    '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
                 $e++;
                 $output .= '
@@ -294,7 +296,9 @@ class M_Transaksi_Auditor extends CI_Model
             foreach ($result['data'] as $res) {
 
                 $aksi = '
-                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['nama_gudang']) . '&s=' . base64_encode($res['nama_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . 
+                    base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . 
+                    '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
                 $e++;
                 $output .= '

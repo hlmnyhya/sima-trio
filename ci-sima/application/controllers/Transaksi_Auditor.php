@@ -1822,7 +1822,7 @@ class Transaksi_Auditor extends CI_Controller
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        // $this->load->view('auditorview/audit_part/v_audit_part.php', $data);
+        $this->load->view('auditorview/audit_part/v_audit_part.php', $data);
         $this->load->view('auditorview/audit_part/_partial/footer.php');
     }
 
@@ -2238,8 +2238,9 @@ class Transaksi_Auditor extends CI_Controller
         // var_dump($dataPart);exit;
         if ($dataPart) {
             foreach ($dataPart as $part) {
-                if ($part['id_lokasi'] == $lokasi) {
+                if ($part['id_lokasi'] == $lokasi AND $part['kd_lokasi_rak'] == $rakbin) {
                     $data = [
+                        'id_part' => $part['id_part'],
                         'id_cabang' => $part['id_cabang'],
                         'id_lokasi' => $part['id_lokasi'],
                         'part_number' => $part['part_number'],
@@ -2247,19 +2248,46 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
-                        // 'status' => $part['status'],
+                        'status' => 'sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
-                } else {
+                }elseif($part['kd_lokasi_rak'] == $rakbin) {
                     $data = [
+                        'id_part' => $part['id_part'],
                         'id_cabang' => $part['id_cabang'],
                         'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $rakbin,
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => 1,
+                        'kondisi' => $kondisi,
+                        'status' => ' rakbin tidak sama',
+                        'idjadwal_audit' => $idjadwal_audit,
+                    ];
+                }elseif ($part['id_lokasi'] == $lokasi){
+                    $data = [
+                        'id_part' => $part['id_part'],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $lokasi,
                         'part_number' => $part['part_number'],
                         'kd_lokasi_rak' => $part['kd_lokasi_rak'],
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
-                        'status' => 'invalid',
+                        'status' => 'lokasi tidak sama',
+                        'idjadwal_audit' => $idjadwal_audit,
+                    ]; 
+                }else {
+                    $data = [
+                        'id_part' => $part['id_part'],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $lokasi,
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $rakbin,
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => 1,
+                        'kondisi' => $kondisi,
+                        'status' => 'belum sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }
@@ -2799,7 +2827,7 @@ class Transaksi_Auditor extends CI_Controller
         $this->pagination->initialize($config);
 
         //$page = floor($count / 15);
-        //$page = $this->uri->segment(3);
+        // $page = $this->uri->segment(3);
         if ($page == null) {
             $page = 1;
         }
