@@ -189,10 +189,12 @@ class Audit extends CI_Controller
         $this->load->library('pagination');
 
         $config['total_rows'] = $count;
-        $config['per_page'] = 15;
+        $config['per_page'] = 100;
         $config['uri_segment'] = 3;
         $config['use_page_numbers'] = true;
         $config['num_links'] = 2;
+
+
 
         $config['full_tag_open'] =
             '<div class="pagination"><nav><ul class="pagination">';
@@ -224,12 +226,17 @@ class Audit extends CI_Controller
         $this->pagination->initialize($config);
 
         $page = $this->uri->segment(3);
-        //echo $page;
-        if ($page == null) {
-            $page = 1;
-        }
+        
+        // var_dump($page);exit;
+        // if ($page == null) {
+        //     $page = 1;
+        // }
+        
         $start = ($page - 1) * $config['per_page'];
+
+        // var_dump($start);exit;
         $listJadwalAudit = $this->maudit->getAudit($start, $config['per_page']);
+        // var_dump($listJadwalAudit);exit;
         if ($listJadwalAudit) {
             foreach ($listJadwalAudit as $list) {
                 if ($list['keterangan'] == 'waiting') {

@@ -69,6 +69,17 @@
                                             <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbin_baru" required>
                                         </div>
                                         <div class="form-group col-sm-12">
+                                        <label>Kondisi</label>
+                                            <select class="form-control m-b" name="kondisi" id="kondisi_baru">
+                                                <option value="Bagus">Bagus</option>
+                                                <option value="Rusak">Rusak</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <label>Quantity</label>
+                                            <input type="text" class="form-control" placeholder="Quantity" id="qty_manual" required>
+                                        </div>
+                                        <div class="form-group col-sm-12">
                                             <label>Part Number</label>
                                             <input type="text" class="form-control" placeholder="Part Number" id="part_number" required>
                                         </div>

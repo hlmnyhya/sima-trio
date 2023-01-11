@@ -261,6 +261,8 @@
             var part_number = $('#part_number').val();
             var rakbin = $('#rakbin_baru').val();
             var lokasi = $('#id_lokasi').val();
+            var kondisi = $('#kondisi_baru').val();
+            var qty = $('#qty_manual').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             $('#Audit_Part').html('<tr> <td colspan="13" id="loading"></td></tr>');
@@ -270,6 +272,7 @@
                 data: {
                     part_number: part_number,
                     kd_lokasi_rakbin: rakbin,
+                    kondisi: kondisi,
                     lokasi: lokasi,
                     cabang: cabang,
                     idjadwal_audit: idjadwal_audit
@@ -289,6 +292,8 @@
             console.log(part_number);
             console.log(rakbin);
             console.log(lokasi);
+            console.log(kondisi);
+            console.log(qty);
         });
         $('#doCariPart').click(function() {
             var cari = $('#cari').val();
