@@ -254,7 +254,7 @@
                 $.ajax({
                     method: 'post',
                     dataType: 'JSON',
-                    url: '<?php echo base_url(); ?>transaksi_auditor/previewpart/' + page,
+                    url: '<?php echo base_url(); ?>transaksi_auditor/ajax_get_part/' + page,
                     data: {
                         id_cabang: cabang,
                         idjadwal_audit: idjadwal_audit,

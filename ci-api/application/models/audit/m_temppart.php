@@ -3,10 +3,12 @@
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_TempPart extends CI_Model {
+    private $_tgl;
     public $app_db;
     public function __construct()
     {
         parent::__construct();
+        $this->_tgl = date('Y-m-d H:i:s');
     }
     public function getTempPart($id=null, $id_cabang=null, $idjadwal_audit=null)
     {
@@ -82,7 +84,8 @@ class M_TempPart extends CI_Model {
 
     public function addTempPart($data)
     {
-        $this->db->insert('temp_part', $data);
+        $_tgl;
+        $this->db->insert('temp_part', $data, $_tgl);
         return $this->db->affected_rows(); 
     }
 

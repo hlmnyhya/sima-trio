@@ -69,6 +69,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Status</th>                                    
                                     <th>Deskripsi</th>
+                                    <th>Qty SIMANDE</th>
                                     <th>Qty</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>
@@ -86,6 +87,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Status</th>                                    
                                     <th>Deskripsi</th>
+                                    <th>Qty SIMANDE</th>
                                     <th>Qty</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>

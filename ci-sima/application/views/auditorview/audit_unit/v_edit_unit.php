@@ -70,7 +70,13 @@
                                     <option value="Terjual" <?php if ($edit['keterangan'] == 'Terjual') echo 'selected'; ?>>Terjual</option>
                                     <option value="Penjualan Antar Cabang" <?php if ($edit['keterangan'] == 'Penjualan Antar Cabang') echo 'selected'; ?>>Penjualan Antar Cabang</option>
                                     <option value="Mutasi Antar Cabang" <?php if ($edit['keterangan'] == 'Mutasi Antar Cabang') echo 'selected'; ?>>Mutasi Antar Cabang</option>
-                                </select></div>
+                                    <option value="Lainnya" >Lainnya</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Keterangan</label>
+                            <div class="col-sm-10"><input type="text" class="form-control" name="keterangan2" id="keterangan2" value="<?php 
+                            $keterangan ?>"></div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Kondisi Unit</label>
                             <div class="col-sm-10"><select name="is_ready" id="is_ready" class="form-control">

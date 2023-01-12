@@ -15,12 +15,12 @@
 
     <link href="<?php echo base_url(); ?>assets/css/animate.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/style.css" rel="stylesheet">
-    <!-- <link href="<?php echo base_url(); ?>assets/css/style2.css" rel="stylesheet"> -->
+    <link href="<?php echo base_url(); ?>assets/css/style2.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>assets/css/style5.css" rel="stylesheet">
 
 </head>
 
-<body class="sima-bg-wv white-bg">
+<body class="sima-bg white-bg">
     <div class="middle-box text-center  animated fadeInUp m-b-n">
         <div class="panel">
             <div class="white-bg">

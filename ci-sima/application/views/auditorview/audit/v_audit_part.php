@@ -101,7 +101,6 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <!-- <th class="text-center" width="3%">aksi</th> -->
                                             <th class="text-center">Gudang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
@@ -118,7 +117,6 @@
                                     <tfoot>
                                         <tr>
                                         <th class="text-center" width="3%">No</th>
-                                            <!-- <th class="text-center" width="3%">aksi</th> -->
                                             <th class="text-center">Gudang</th>
                                             <th class="text-center">Lokasi</th>
                                             <th class="text-center">PART NUMBER</th>
