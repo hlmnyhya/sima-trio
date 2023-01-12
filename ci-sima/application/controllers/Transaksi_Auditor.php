@@ -1038,7 +1038,7 @@ class Transaksi_Auditor extends CI_Controller
                         'foto' => null,
                         'type' => $unit['type'],
                         'kode_item' => $unit['kode_item'],
-                        'keterangan' => null,
+                        'keterangan' =>  'Lokasi Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 } else {
@@ -2185,7 +2185,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
-                        'status' => 'Belum Sesuai',
+                        'status' => ' Rakbin Belum Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ]; 
                 }else {
