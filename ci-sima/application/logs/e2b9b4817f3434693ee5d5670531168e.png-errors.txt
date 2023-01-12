@@ -1,10 +1,10 @@
-2022-12-22 08:43:21: 
+2022-12-09 08:54:09: 
 <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
 
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/frame_2.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/frame_3.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrspec.php</p>
 <p>Line Number: 568</p>
 
@@ -84,7 +84,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -194,7 +194,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -216,7 +216,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_0\mask_25_0.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_0\mask_29_0.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -304,7 +304,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -414,7 +414,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -436,7 +436,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_1\mask_25_1.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_1\mask_29_1.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -524,7 +524,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -634,7 +634,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -656,7 +656,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_2\mask_25_2.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_2\mask_29_2.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -744,7 +744,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -854,7 +854,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -876,7 +876,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_3\mask_25_3.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_3\mask_29_3.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -964,7 +964,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1074,7 +1074,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1096,7 +1096,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_4\mask_25_4.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_4\mask_29_4.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -1184,7 +1184,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1294,7 +1294,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1316,7 +1316,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_5\mask_25_5.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_5\mask_29_5.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -1404,7 +1404,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1514,7 +1514,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1536,7 +1536,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_6\mask_25_6.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_6\mask_29_6.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -1624,7 +1624,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1734,7 +1734,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1756,7 +1756,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_7\mask_25_7.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_7\mask_29_7.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -1844,7 +1844,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -1860,13 +1860,13 @@
 		
 	
 
-</div>2022-12-22 08:43:21: 
+</div>2022-12-09 08:54:21: 
 <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
 
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/frame_2.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/frame_3.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrspec.php</p>
 <p>Line Number: 568</p>
 
@@ -1946,7 +1946,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2056,7 +2056,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2078,7 +2078,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_0\mask_25_0.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_0\mask_29_0.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -2166,7 +2166,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2276,7 +2276,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2298,7 +2298,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_1\mask_25_1.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_1\mask_29_1.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -2386,7 +2386,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2496,7 +2496,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2518,7 +2518,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_2\mask_25_2.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_2\mask_29_2.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -2606,7 +2606,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2716,7 +2716,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2738,7 +2738,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_3\mask_25_3.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_3\mask_29_3.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -2826,7 +2826,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2936,7 +2936,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -2958,7 +2958,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_4\mask_25_4.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_4\mask_29_4.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -3046,7 +3046,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3156,7 +3156,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3178,7 +3178,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_5\mask_25_5.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_5\mask_29_5.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -3266,7 +3266,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3376,7 +3376,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3398,7 +3398,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_6\mask_25_6.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_6\mask_29_6.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -3486,7 +3486,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3596,7 +3596,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3618,7 +3618,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_7\mask_25_7.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_7\mask_29_7.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -3706,7 +3706,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3722,13 +3722,13 @@
 		
 	
 
-</div>2023-01-05 09:37:49: 
+</div>2022-12-09 08:58:13: 
 <div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
 
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/frame_2.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/frame_3.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrspec.php</p>
 <p>Line Number: 568</p>
 
@@ -3808,7 +3808,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3918,7 +3918,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -3940,7 +3940,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_0\mask_25_0.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_0\mask_29_0.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -4028,7 +4028,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4138,7 +4138,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4160,7 +4160,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_1\mask_25_1.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_1\mask_29_1.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -4248,7 +4248,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4358,7 +4358,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4380,7 +4380,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_2\mask_25_2.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_2\mask_29_2.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -4468,7 +4468,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4578,7 +4578,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4600,7 +4600,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_3\mask_25_3.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_3\mask_29_3.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -4688,7 +4688,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4798,7 +4798,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -4820,7 +4820,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_4\mask_25_4.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_4\mask_29_4.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -4908,7 +4908,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -5018,7 +5018,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -5040,7 +5040,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_5\mask_25_5.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_5\mask_29_5.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -5128,7 +5128,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -5238,7 +5238,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -5260,7 +5260,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_6\mask_25_6.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_6\mask_29_6.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -5348,7 +5348,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -5458,7 +5458,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		
@@ -5480,7 +5480,7 @@
 <h4>A PHP Error was encountered</h4>
 
 <p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_7\mask_25_7.dat): Failed to open stream: No such file or directory</p>
+<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_7\mask_29_7.dat): Failed to open stream: No such file or directory</p>
 <p>Filename: qrcode/qrmask.php</p>
 <p>Line Number: 155</p>
 
@@ -5568,1869 +5568,7 @@
 		
 			<p style="margin-left:10px">
 			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>2023-01-05 09:37:52: 
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/frame_2.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrspec.php</p>
-<p>Line Number: 568</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrspec.php<br />
-			Line: 568<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 178<br />
-			Function: newFrame			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_0\mask_25_0.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_1\mask_25_1.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_2\mask_25_2.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_3\mask_25_3.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_4\mask_25_4.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_5\mask_25_5.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_6\mask_25_6.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  mkdir(): No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 154</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 154<br />
-			Function: mkdir			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
-			Function: generate			</p>
-
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\index.php<br />
-			Line: 315<br />
-			Function: require_once			</p>
-
-		
-	
-
-</div>
-<div style="border:1px solid #990000;padding-left:20px;margin:0 0 10px 0;">
-
-<h4>A PHP Error was encountered</h4>
-
-<p>Severity: Warning</p>
-<p>Message:  file_put_contents(C:\xampp\htdocs\sima\ci-sima\application/cache/mask_7\mask_25_7.dat): Failed to open stream: No such file or directory</p>
-<p>Filename: qrcode/qrmask.php</p>
-<p>Line Number: 155</p>
-
-
-	<p>Backtrace:</p>
-	
-		
-	
-		
-	
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 155<br />
-			Function: file_put_contents			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrmask.php<br />
-			Line: 311<br />
-			Function: makeMaskNo			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 216<br />
-			Function: mask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 240<br />
-			Function: encodeMask			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 279<br />
-			Function: encodeInput			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 467<br />
-			Function: encodeString			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 485<br />
-			Function: encode			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\qrcode\qrencode.php<br />
-			Line: 286<br />
-			Function: encodePNG			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\libraries\Ciqrcode.php<br />
-			Line: 92<br />
-			Function: png			</p>
-
-		
-	
-		
-			<p style="margin-left:10px">
-			File: C:\xampp\htdocs\sima\ci-sima\application\controllers\Gudang.php<br />
-			Line: 322<br />
+			Line: 402<br />
 			Function: generate			</p>
 
 		

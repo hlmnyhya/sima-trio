@@ -397,7 +397,7 @@ class Gudang extends CI_Controller
 
         $params['data'] = $id2; //data yang akan di jadikan QR CODE
         $params['level'] = 'H'; //H=High
-        $params['size'] = 10;
+        $params['size'] = 9;
         $params['savename'] = FCPATH . $config['imagedir'] . $image_name; //simpan image QR CODE ke folder assets/images/
         $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
         $pdf = new reportProduct();
@@ -424,11 +424,11 @@ class Gudang extends CI_Controller
             }
         }
         $i = 1;
-        $pdf->Rect(13, 18, 106, 30);
-        $pdf->Rect(13, 18, 29, 30);
-        $pdf->Rect(70, 21.5, 47, 6);
-        $pdf->Rect(70, 30, 47, 6);
-        $pdf->Rect(70, 38, 47, 6);
+        $pdf->Rect(13, 18, 120, 30);
+        $pdf->Rect(13, 18, 35, 30);
+        $pdf->Rect(70, 21.5, 55, 6);
+        $pdf->Rect(70, 30, 55, 6);
+        $pdf->Rect(70, 38, 55, 6);
         $pdf->SetFont('Arial', '', 10);
         $pdf->SetXY(42, 25);
         $pdf->cell(0, 0, "Trio Asset Code  ", 0, 1);
@@ -446,7 +446,7 @@ class Gudang extends CI_Controller
         $pdf->Code128(15, 50, $id2, 100, 17);
         $pdf->SetFont('Arial', 'B', 13.5);
 
-        $pdf->Rect(13, 48, 106, 25);
+        $pdf->Rect(13, 48, 120, 25);
         $pdf->SetXY(14, 68);
         $pdf->Write(5, 'Trio Asset Code. ' . $id2);
         header("Content-type: application/PDF");

@@ -275,7 +275,7 @@ class M_Transaksi_Auditor extends CI_Model
         return $output;
     }
 
-    public function previewPart($a, $b, $c, $d, $e)
+    public function previewPart($a, $b,$c, $d, $e)
     {
         $respon =  $this->_client->request('GET', 'previewpart', [
             'query' => [
@@ -306,7 +306,7 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $e . '</td>
                     <td>' . $aksi . '</td>
                     <td>' . $res['nama_cabang'] . '</td>
-                    <td>' . $res['nama_gudang'] . '</td>
+                    <td>' . $res['nama_gudang' ] . '</td>
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['kd_lokasi_rak'] . '</td>
                     <td>' . $res['status'] . '</td>

@@ -560,9 +560,9 @@ class laporan_auditor extends CI_Controller
                 $pdf->Cell(28, 6, 'NO RANGKA', 1, 0, 'C');
                 $pdf->Cell(25, 6, 'KODE ITEM', 1, 0, 'C');
                 $pdf->Cell(27, 6, 'TYPE UNIT', 1, 0, 'C');
-                $pdf->Cell(25, 6, 'USIA UNIT', 1, 0, 'C');
-                $pdf->Cell(50, 6, 'LOKASI', 1, 0, 'C');
-                $pdf->Cell(25, 6, 'STATUS', 1, 1, 'C');
+                $pdf->Cell(20, 6, 'USIA UNIT', 1, 0, 'C');
+                $pdf->Cell(40, 6, 'LOKASI', 1, 0, 'C');
+                $pdf->Cell(20, 6, 'STATUS', 1, 1, 'C');
 
                 $pdf->SetFont('Arial', 'B', 8);
                 $start = 0;
@@ -575,9 +575,9 @@ class laporan_auditor extends CI_Controller
                     $pdf->Cell(28, 6, $c['no_rangka'], 1, 0);
                     $pdf->Cell(25, 6, $c['kode_item'], 1, 0);
                     $pdf->Cell(27, 6, $c['type'], 1, 0);
-                    $pdf->Cell(25, 6, $c['umur_unit'], 1, 0, 'C');
-                    $pdf->Cell(50, 6, $c['nama_gudang'], 1, 0);
-                    $pdf->Cell(25, 6, $c['status_unit'], 1, 1);
+                    $pdf->Cell(20, 6, $c['umur_unit'], 1, 0, 'C');
+                    $pdf->Cell(40, 6, $c['nama_gudang'], 1, 0);
+                    $pdf->Cell(20, 6, $c['status_unit'], 1, 1);
                     $no++;
                     $start = $start + 15;
                 }

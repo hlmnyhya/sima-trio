@@ -63,10 +63,21 @@
                                         </div>
                                     </div>
                                     <!-- Form Manual -->
-                                    <!-- <div id="manual" class="row p-h-sm">
+                                    <div id="manual" class="row p-h-sm">
                                         <div class="form-group col-sm-12">
                                             <label>Rakbin</label>
                                             <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbin_baru" required>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                        <label>Kondisi</label>
+                                            <select class="form-control m-b" name="kondisi" id="kondisi_baru">
+                                                <option value="Bagus">Bagus</option>
+                                                <option value="Rusak">Rusak</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <label>Quantity</label>
+                                            <input type="text" class="form-control" placeholder="Quantity" id="qty_manual" required>
                                         </div>
                                         <div class="form-group col-sm-12">
                                             <label>Part Number</label>
@@ -75,7 +86,7 @@
                                         <div class="form-group col-sm-12">
                                             <a id="auditPart" class="btn btn-primary">Audit</a>
                                         </div>
-                                    </div> -->
+                                    </div>
                                     <!-- Penutup Form manual -->
                                 </div>
                             </div>
