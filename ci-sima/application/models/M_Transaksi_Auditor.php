@@ -312,6 +312,7 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $res['status'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
                     <td>' . $res['qty'] . '</td>
+                    <td>' . $res['qty'] . '</td>
                     <td>' . $res['kondisi'] . '</td>
                     <td>' . $res['keterangan'] . '</td>
                 ';
