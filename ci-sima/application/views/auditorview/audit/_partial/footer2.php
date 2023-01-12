@@ -88,6 +88,7 @@
         // rakbin();
         lokasi()
         $('#id_lokasi').change(function() {
+ 
             var rak = $(this).val();
             $('#rakbin').html('');
             $.ajax({
@@ -271,10 +272,11 @@
                 dataType: 'JSON',
                 data: {
                     part_number: part_number,
-                    kd_lokasi_rakbin: rakbin,
+                    kd_lokasi_rak: rakbin,
                     kondisi: kondisi,
                     lokasi: lokasi,
                     cabang: cabang,
+                    qty: qty,
                     idjadwal_audit: idjadwal_audit
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/doPart",
@@ -282,6 +284,7 @@
                     console.log(data);
                     $('#rakbin_baru').val('');
                     $('#part_number').val('');
+                    $('#qty_manual').val('');
                     $('#doCariPart').attr('disabled', false);
                     $('#pagination').html(data.pagination);
                     $('#Audit_Part').html(data.output);
