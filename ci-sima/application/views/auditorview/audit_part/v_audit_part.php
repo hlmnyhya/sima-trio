@@ -24,7 +24,7 @@
                                                 <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
+                                        <!-- <div class="col-sm-2">
                                             <label>Status Part</label>
                                             <div class="form-group">
                                                 <select name="status" class="form-control" id="status">
@@ -44,9 +44,9 @@
                                                     <option value="Rusak" id="rusak">Rusak</option>
                                                 </select>
                                             </div>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <div class="form-group m-t-md">
+                                        </div> -->
+                                        <div class="col-sm-5">
+                                            <div class="form-group m-t-md ">
                                                 <a id="previewpart" class="btn btn-success">Preview</a>
                                             </div>
                                         </div>
