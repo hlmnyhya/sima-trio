@@ -69,7 +69,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Status</th>                                    
                                     <th>Deskripsi</th>
-                                    <th>Qty</th>u
+                                    <th>Qty</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>

@@ -276,7 +276,7 @@ class M_Count extends CI_Model
         }
     }
 
-    public function CountPart1($a = null, $b = null, $c = null)
+    public function CountPart1($a = null, $b = null)
     {
         $this->db->select('a.*, b.nama_cabang, c.nama_gudang');
         $this->db->from('part a');

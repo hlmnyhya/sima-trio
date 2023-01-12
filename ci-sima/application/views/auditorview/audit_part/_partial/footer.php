@@ -214,7 +214,7 @@
             var kondisi = $('#kondisi').val();
             var action = 'previewpart';
 
-            $('#audit_unit').html('<tr><td colspan="20" id="loading"></td></tr>');
+            $('#audit_part').html('<tr><td colspan="20" id="loading"></td></tr>');
 
             $.ajax({
                 method: 'post',

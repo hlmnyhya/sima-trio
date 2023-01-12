@@ -88,8 +88,8 @@
     });
 </script>
 <script>
-   $(document).ready(function() {
-        // $('#inv_office').load("<?php echo base_url(); ?>transaksi");
+    $(document).ready(function() {
+        // $('#inv_office').load("<?php echo base_url() ?>transaksi");
         get_data(1);
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
@@ -107,14 +107,18 @@
             $('#inv_office').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
             $.ajax({
                 type: 'post',
-                url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_Inventory2/" + page,
+                url: "<?php echo base_url() ?>transaksi_ga/ajax_get_Inventory/" + page,
                 dataType: 'JSON',
                 success: function(data) {
                     $('#inv_office').html(data.output);
                     $('#pagination').html(data.pagination);
                 }
             })
+           
         }
+        console.log(get_data);
+
+        
 
         function search(page) {
             var inv = $('#inv').val();
@@ -124,7 +128,7 @@
                 $.ajax({
                     type: "post",
                     dataType: 'JSON',
-                    url: "<?php echo base_url(); ?>transaksi_ga/search2/" + page,
+                    url: "<?php echo base_url() ?>transaksi_ga/search/" + page,
                     data: "id=" + inv,
                     success: function(data) {
                         $('#inv_office').html(data.output);
@@ -159,10 +163,9 @@
 
     function show() {
         $('#add').attr('disabled', true);
-        var $url = "<?php echo $this->uri->segment(1); ?>";
-        $.ajax({
-            url: "<?php echo base_url() .
-                $this->uri->segment(1); ?>/input_jenisinv",
+        var $url = "<?php echo $this->uri->segment(1) ?>";
+        $.ajax({s
+            url: "<?php echo base_url() . $this->uri->segment(1) ?>/input_jenisinv",
             type: 'post',
             dataType: 'html',
             success: function(data) {
