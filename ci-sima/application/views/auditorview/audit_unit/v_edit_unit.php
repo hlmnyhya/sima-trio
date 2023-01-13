@@ -70,19 +70,21 @@
                                     <option value="Terjual" <?php if ($edit['keterangan'] == 'Terjual') echo 'selected'; ?>>Terjual</option>
                                     <option value="Penjualan Antar Cabang" <?php if ($edit['keterangan'] == 'Penjualan Antar Cabang') echo 'selected'; ?>>Penjualan Antar Cabang</option>
                                     <option value="Mutasi Antar Cabang" <?php if ($edit['keterangan'] == 'Mutasi Antar Cabang') echo 'selected'; ?>>Mutasi Antar Cabang</option>
-                                    <option value="Lainnya" >Lainnya</option>
+                                    <option value="Lainnya" <?php if ($edit['keterangan'] == 'lainnya') echo 'selected'; ?> >Lainnya</option>
                                 </select>
                             </div>
                         </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">Keterangan</label>
-                            <div class="col-sm-10"><input type="text" class="form-control" name="keterangan2" id="keterangan2" value="<?php 
-                            $keterangan ?>"></div>
+                        <div id="keterangan_lainnya" class="hidden">
+                            <div class="form-group"><label class="col-sm-2 control-label">Keterangan Lainnya</label>
+                                <div class="col-sm-10"><input type="text" class="form-control" name="keterangan" id="keterangan" value="<?php 
+                                $keterangan ?>"></div>
+                            </div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Kondisi Unit</label>
                             <div class="col-sm-10"><select name="is_ready" id="is_ready" class="form-control">
                                     <option value="">--Kondisi Unit--</option>
                                     <option value="RFS" <?php if ($edit['is_ready'] == 'RFS') echo 'selected'; ?>>Ready For Sale</option>
-                                    <option value="NFRS" <?php if ($edit['is_ready'] == 'NFRS') echo 'selected'; ?>>Not Ready For Sale</option>
+                                    <option value="NFRS" >Not Ready For Sale</option>
                                 </select></div>
                         </div>
                         <div id="noready" class="hidden">
