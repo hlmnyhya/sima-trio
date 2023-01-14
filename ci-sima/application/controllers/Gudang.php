@@ -13,6 +13,7 @@ class Gudang extends CI_Controller
         parent::__construct();
         ini_set('max_execution_time', 0);
         $this->load->model('m_barcode', 'mbarcode');
+    
         $this->load->model('m_laporan_auditor', 'mlapaudit');
         $this->load->model('m_transaksi_auditor', 'mtransauditor');
         $this->load->model('m_transaksi_ga', 'mtransga');
@@ -429,7 +430,7 @@ class Gudang extends CI_Controller
         $pdf->Rect(70, 21.5, 55, 6);
         $pdf->Rect(70, 30, 55, 6);
         $pdf->Rect(70, 38, 55, 6);
-        $pdf->SetFont('Arial', '', 10);
+        $pdf->SetFont('Arial', '', 9);
         $pdf->SetXY(42, 25);
         $pdf->cell(0, 0, "Trio Asset Code  ", 0, 1);
         $pdf->SetXY(70, 25);
