@@ -26,9 +26,13 @@
                                                     <select type="text" class="form-control" name="rakbin" id="rakbin"></select>
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="form-group">
+                                            <div class="hidden" id="rakbin_baru">
+                                                <label class="col-sm-3 control-label">Rak Bin Baru </label>
+                                                <div class="col-sm-9">
+                                                    <select type="text" class="form-control" name="rakbin" id="optRakbin"></select>
+                                                </div>
+                                            </div>
+                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Kondisi</label>
                                                 <div class="col-sm-9">
                                                     <select class="form-control m-b" name="kondisi" id="kondisi">
@@ -36,14 +40,7 @@
                                                         <option value="Rusak">Rusak</option>
                                                     </select>
                                                 </div>
-                                                <!-- <label class="col-sm-3 control-label">Quantity</label>
-                                                <div class="col-sm-9">
-                                                    <input type="text" class="form-control" placeholder="quantity" id="qty">
-                                                    <span class="help-block m-b-none text-danger" id="info"></span>
-                                                </div> -->
                                             </div>
-                                        </div>
-                                        <div class="row">
                                             <div class="form-group">
                                                 <label class="col-sm-3 control-label">Part Number</label>
                                                 <div class="col-sm-9">
@@ -51,8 +48,7 @@
                                                     <span class="help-block m-b-none text-danger" id="info"></span>
                                                 </div>
                                             </div>
-                                           
-                                        </div>
+                                    </div>
                                     </div>
                                     <div class="row">
                                         <div class="col-sm-12">

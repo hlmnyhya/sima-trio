@@ -102,6 +102,7 @@ class Transaksi_Auditor extends CI_Controller
             //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
             //         ';
             // } else {
+         $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
             $output .=
                 '
                 <option value="' .

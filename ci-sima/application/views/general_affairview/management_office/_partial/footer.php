@@ -264,9 +264,6 @@
         //     }
         // })
 
-      
-
-
         $('#OptCabang').change(function() {
             var id_cabang = $(this).val();
             $('#OptLokasi').html('');
@@ -285,7 +282,6 @@
             });
             console.log(id_cabang);
         });
-
 
         function search() {
             var username = $('#username').val();
