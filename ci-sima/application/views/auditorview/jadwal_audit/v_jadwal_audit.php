@@ -61,7 +61,7 @@
                             </div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Waktu</label>
-                            <div class="col-sm-3">
+                            <div class="col-sm-3 m-r">
                                 <span id="date_time"></span>
                                 <?php
                                 date_default_timezone_set('Asia/Makassar');    

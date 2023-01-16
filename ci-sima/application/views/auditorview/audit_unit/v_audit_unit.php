@@ -37,11 +37,12 @@
                                                 </select>
                                             </div>
                                         </div>
-
-                                <div class="col-sm-3 m-t-md">
-                                    <a id="preview" class="btn btn-primary">Preview</a>
-                                    <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a>
-                                </div>
+                                        <div class="col-sm-5">
+                                            <div class="form-group m-t-md ">
+                                                <a id="preview" class="btn btn-success">Preview</a>
+                                            </div>
+                                        </div>
+                               
                                     </form>
 
                                 </div>

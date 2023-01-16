@@ -1623,11 +1623,12 @@ class Transaksi_Auditor extends CI_Controller
         $id = $this->input->post('id');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $output = '';
-        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit)) {
+        $time = date('Y-m-d H:i:s');
+        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit, $time)) {
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload</div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Gagal Didownload</div>';
+            $output .= '<div class="text-danger"> Data Diperbarui Pada </div>';
         }
 
         echo json_encode($output, true);

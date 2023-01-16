@@ -18,7 +18,7 @@
                                                 <select name="id_cabang" class="form-control" id="OptCabang"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4">
                                             <label>List Audit</label>
                                             <div class="form-group" id="data_5">
                                                 <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
@@ -45,11 +45,15 @@
                                                 </select>
                                             </div>
                                         </div> -->
-                                        <div class="col-sm-5">
+                                        <!-- <div class="col-sm-5">
                                             <div class="form-group m-t-md ">
                                                 <a id="previewpart" class="btn btn-success">Preview</a>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                <div class="col-sm-4 m-t-md">
+                                    <a id="previewpart" class="btn btn-success">Preview</a>
+                                    <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a>
+                                </div>
                                     </form>
 
                                 </div>
