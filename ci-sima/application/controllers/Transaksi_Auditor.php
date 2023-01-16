@@ -1630,9 +1630,9 @@ class Transaksi_Auditor extends CI_Controller
         if ($this->mtransauditor->downloadpart($id, $idjadwal_audit, $time)) {
             // buat output nya jadi ada waktu nya
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload pada <span>"'.$time.'"</span> </div>';
+                '<div class="text-success"> Data Berhasil Didownload pada <span>'.$time.'</span> </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Gagal Didownload <span>"'.$time.'"</span> </div>';
+            $output .= '<div class="text-danger"> Data Gagal Didownload <span>'.$time.'</span> </div>';
         }
 
         echo json_encode($output, true);
