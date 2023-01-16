@@ -46,6 +46,7 @@
                                                 <div class="col-sm-9">
                                                     <input type="text" class="form-control" placeholder="Cari Data Part" id="cari">
                                                     <span class="help-block m-b-none text-danger" id="info"></span>
+                                                    
                                                 </div>
                                             </div>
                                     </div>

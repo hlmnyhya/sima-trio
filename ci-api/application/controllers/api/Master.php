@@ -2454,7 +2454,54 @@ class Master extends REST_Controller
             ], REST_Controller::HTTP_OK);
         }
     }
+    
+    public function lokasiraksima_get()
+    {
+        $id =  $this->get('id');
+        if($id === null ) {
+            $lokasirak= $this->mlokasicabang->getrakbinsima();
+        } else {
+            $lokasirak= $this->mlokasicabang->getrakbinsima($id);
+            
+        }
+        if ($lokasirak) {
+            $this->response([
+                'status' => true,
+                'data' => $lokasirak
+            ], REST_Controller::HTTP_OK);
+        } else {
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+        }
+    }
 
+   public function rakbin_post()
+    {
+        $data = [
+            'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
+            'id_cabang' => $this->post('id_lokasi'),
+        ];
+        $menuakses = $this->mlokasicabang->addrakbin($data);
+        if ($menuakses) {
+            $this->response(
+                [
+                    'status' => true,
+                    'data' => $menuakses,
+                ],
+                REST_Controller::HTTP_OK
+            );
+        } else {
+            $this->response(
+                [
+                    'status' => false,
+                    'message' => 'Data not found.',
+                ],
+                REST_Controller::HTTP_OK
+            );
+        }
+    }
     // public function lokasirak_get()
     // {
     //     $id= $this->get('id_lokasi');

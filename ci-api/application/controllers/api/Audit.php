@@ -1281,6 +1281,7 @@ function __construct() {
         }else{
             $cabang = $this->get('id_cabang');
             $idjadwal_audit = $this->get('idjadwal_audit');
+            $time = date('Y-m-d H:i:s');
             // $cabang='T13';
             $list =$this->mtemppart->getTempPart(null,$cabang, $idjadwal_audit);
            if ($list!=false) {
@@ -1299,7 +1300,8 @@ function __construct() {
                        'part_number' => $res['PART_NUMBER'],
                        'deskripsi' => $res['PART_DESKRIPSI'],
                        'qty' => $res['STOCK_OH'],
-                       'idjadwal_audit'=> $idjadwal_audit
+                       'idjadwal_audit'=> $idjadwal_audit,
+                       'time' => $time
                    ];
                    $download = $this->mtemppart->addTemppart($data);
                }
