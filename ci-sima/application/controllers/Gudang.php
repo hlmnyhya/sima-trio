@@ -236,31 +236,26 @@ class Gudang extends CI_Controller
         $pdf->AliasNbPages();
         $pdf->AddPage("P", "A4");
 
-        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 15, 20, 25, 25);
-        // $detail = $this->mbarcode->getUnit($id);
-        // foreach ($detail as $d) {
-        //     $no_mesin = $d['no_mesin'];
-        //     $tipe = $d['type'];
-        //     $kode = $d['kode_item'];
-        //     $no_rangka = $d['no_rangka'];
-        // }
-        $pdf->Rect(13, 18, 85, 30);
-        $pdf->Rect(13, 18, 29, 30);
-        $pdf->Rect(60, 21.5, 35, 6);
-        $pdf->Rect(60, 30, 35, 6);
-        $pdf->Rect(60, 38, 35, 6);
-        $pdf->SetFont('Arial', '', 10);
-        $pdf->SetXY(42, 25);
-        $pdf->cell(0, 0, "No. Mesin  ", 0, 1);
-        $pdf->SetXY(62, 25);
+        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 40, 10, 14, 14);
+        
+     
+        $pdf->Rect(40, 8, 41, 16);
+        // $pdf->Rect(41, 10, 12, 13);
+        $pdf->Rect(63, 11.5, 17, 3);
+        $pdf->Rect(63, 16, 17, 3);
+        $pdf->Rect(63, 20, 17, 3);
+        $pdf->SetFont('Arial', '', 5);
+        $pdf->SetXY(53, 13);
+        $pdf->cell(12, 0, "No. Mesin  ", 16, 12);
+        $pdf->SetXY(63, 13);
         $pdf->cell(0, 0, $no_mesin, 0, 1);
-        $pdf->SetXY(42, 33);
+        $pdf->SetXY(53, 18);
         $pdf->cell(0, 0, "Tipe Unit ", 0, 1);
-        $pdf->SetXY(62, 33);
+        $pdf->SetXY(63, 17.6);
         $pdf->cell(0, 0, $tipe, 0, 1);
-        $pdf->SetXY(42, 41);
+        $pdf->SetXY(53, 22);
         $pdf->cell(0, 0, "Kode Item ", 0, 1);
-        $pdf->SetXY(62, 41);
+        $pdf->SetXY(63, 21.6);
         $pdf->cell(0, 0, $kode, 0, 1);
 
         //No Rangka
@@ -268,32 +263,34 @@ class Gudang extends CI_Controller
 
         $params['data'] = $no_rangka; //data yang akan di jadikan QR CODE
         $params['level'] = 'H'; //H=High
-        $params['size'] = 10;
+        $params['size'] = 5;
         $params['savename'] = FCPATH . $config['imagedir'] . $image_name1; //simpan image QR CODE ke folder assets/images/
         $this->ciqrcode->generate($params); // fungsi untuk generate QR CODE
-        $pdf->Image(FCPATH . 'assets/images/' . $image_name1, 108, 20, 25, 25);
-        $pdf->Rect(105, 18, 85, 30);
-        $pdf->SetFont('Arial', 'B', 12);
-        $pdf->SetXY(134, 25);
+        $pdf->Image(FCPATH . 'assets/images/' . $image_name1, 90, 10, 14, 14);
+        $pdf->Rect(90, 8, 41, 16);
+        $pdf->SetFont('Arial', 'B', 8 );
+        $pdf->SetXY(106, 13);
         $pdf->cell(0, 0, "No. Rangka", 0, 1);
-        $pdf->SetFont('Arial', 'B', 16);
-        $pdf->SetXY(134, 30);
+        $pdf->SetFont('Arial', 'B', 8);
+        $pdf->SetXY(104, 18);
         $pdf->cell(0, 0, $no_rangka, 0, 1);
 
         //BARCODE
-        $pdf->Code128(15, 55, $no_mesin, 65, 15);
-        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->SetFont('Arial', 'B', 6);
+        $pdf->Code128(39, 40, $no_mesin, 40, 12.5);
+        $pdf->SetFont('Arial', 'B', 8);
 
-        $pdf->Rect(13, 53, 70, 25);
-        $pdf->SetXY(14, 71);
+        $pdf->Rect(34, 35, 50, 18);
+        $pdf->SetXY(42, 35);
         $pdf->Write(5, 'No. Mesin. ' . $no_mesin);
 
-        $pdf->Code128(108, 55, $no_rangka, 65, 15);
-        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->SetFont('Arial', 'B', 6);
+        $pdf->Code128(96, 40, $no_rangka, 40, 12.5);
+        $pdf->SetFont('Arial', 'B', 8);
 
-        $pdf->Rect(105, 53, 70, 25);
-        $pdf->SetXY(108, 71);
-        $pdf->Write(5, 'No. Rangka. ' . $no_rangka);
+        $pdf->Rect(92, 35, 50, 18);
+        $pdf->SetXY(95, 34);
+        $pdf->Write(7, 'No. Rangka. ' . $no_rangka);
         // $pdf->Output('D','REPORT-'.$stat.'.pdf');
         header("Content-type: application/PDF");
         // $pdf->Output('D','QRCODE.pdf');
