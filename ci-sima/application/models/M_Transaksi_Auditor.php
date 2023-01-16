@@ -342,12 +342,13 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function downloadpart($id, $idjadwal_audit)
+    public function downloadpart($id, $idjadwal_audit, $time)
     {
         $respon =  $this->_client->request('GET', 'datapart', [
             'query' => [
                 'id_cabang' => $id,
-                'idjadwal_audit' => $idjadwal_audit
+                'idjadwal_audit' => $idjadwal_audit, 
+                'time' => $time
             ]
         ]);
 
