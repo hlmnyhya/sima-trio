@@ -17,7 +17,7 @@
                     </div>-
                     <div class="panel-body form-horizontal">
                         <div class="form-group">
-                            <div class="col-sm-10"><input type="hidden" class="form-control" name="id_part" id="id_part" readonly></input></div>
+                            <div class="col-sm-10"><input type="hidden" class="form-control" name="id_part" id="id_part"  readonly></input></div>
                         </div>
 
                         <div class="form-group"><label class="col-sm-2 control-label">Cabang</label>

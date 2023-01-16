@@ -642,6 +642,7 @@ class Transaksi_Auditor extends CI_Controller
                 'penanggung_jawab' => $_POST['penanggungjawab'][$i],
             ];
             if ($this->mtransauditor->addunitready($phar[$i])) {
+                
             } else {
                 $this->session->set_flashdata('gagal', 'Gagal Diedit');
 
@@ -1627,10 +1628,12 @@ class Transaksi_Auditor extends CI_Controller
         // var_dump($id, $idjadwal_audit, $time);exit;
         $output = '';
         // $time = date('Y-m-d H:i:s');
-        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit, $time)) {
-            // buat output nya jadi ada waktu nya
+        $data = $this->mtransauditor->downloadpart($id, $idjadwal_audit, $time);
+        // var_dump($data);exit;
+        if ($data) {
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload pada <span>'.$time.'</span> </div>';
+            '<div class="text-success"> Data Berhasil Didownload Pada ' . $data['time'] . ' </div>';
+           
         } else {
             $output .= '<div class="text-danger"> Data Gagal Didownload <span>'.$time.'</span> </div>';
         }
