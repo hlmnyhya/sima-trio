@@ -31,17 +31,6 @@
                 </div>
                 <div class="panel-body">
                     <form id="FormLap" action="<?php echo base_url(); ?>laporan_ga/cetakInv" method="post">
-                        <!-- <div class="row">
-                                <! <div class="col-sm-2"><label>Cari Inventory Office</label></div>
-                                    <div class="col-sm-7"><input type="text" class="form-control" id="inv"></div>
-                                        <div class="row">
-                                            <div class="col-1 text-center">
-                                            <button class="btn btn-w-m btn-success" id="caribtn">Cari Data</button>
-                                            <button class="btn btn-w-m btn-danger" id="caribtn"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> PDF</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
                             <div class="col-sm-2"><label>Cari Inventory Office</label></div>
                                 <div class="col-sm-8"><input type="text" class="form-control" id="inv"></div>
                                     <div class="col-sm-2    ">
@@ -57,30 +46,7 @@
                         
                     </form>
 
-                     <!-- <form action="<?php echo base_url(); ?>laporan_ga/cetaklaporan" method="post">
-
-                        <div class="col-sm-4">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">Cabang</label>
-                                <div class="col-sm-9"><select name="id_cabang" class="form-control" id="OptCabang"></select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-5 form-group">
-                            <div class="form-group">
-                                <label class="col-sm-3 control-label">List Audit</label>
-                                <div class="col-sm-9">
-                                    <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit" required></select>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-sm-3">
-                            <input type="hidden" name="status" id="status" value="Belum Sesuai" />
-                            <a id="preview" class="btn btn-primary">Preview</a>
-                            <button type="submit" class="btn btn-primary" id="type" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
-                            <button type="submit" class="btn btn-danger" id="type" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Pdf</button>
-                        </div>
-                    </form> -->
+                    
                     <hr size="100px">
                     <div class="row">
                         <div class="col-lg-12">

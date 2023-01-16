@@ -11,7 +11,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <form action="" method="post">
+                                <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakpart" method="post">
                                         <div class="col-sm-4">
                                             <label>Cabang</label>
                                             <div class="form-group">
@@ -24,35 +24,13 @@
                                                 <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
                                             </div>
                                         </div>
-                                        <!-- <div class="col-sm-2">
-                                            <label>Status Part</label>
-                                            <div class="form-group">
-                                                <select name="status" class="form-control" id="status">
-                                                    <option value="">--- ALL ---</option>
-                                                    <option value="Sesuai" id="sesuai">Sesuai</option>
-                                                    <option value="Belum Sesuai" id="belum_sesuai">Belum Sesuai</option>
-                                                    <option value="Belum ditemukan" id="belum_ditemukan">Belum Ditemukan</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <label>Kondisi Part</label>
-                                            <div class="form-group">
-                                                <select name="kondisi" class="form-control" id="kondisi">
-                                                    <option value="">--- ALL ---</option>
-                                                    <option value="Bagus" id="bagus">Bagus</option>
-                                                    <option value="Rusak" id="rusak">Rusak</option>
-                                                </select>
-                                            </div>
-                                        </div> -->
-                                        <!-- <div class="col-sm-5">
-                                            <div class="form-group m-t-md ">
-                                                <a id="previewpart" class="btn btn-success">Preview</a>
-                                            </div>
-                                        </div> -->
+                                    
                                 <div class="col-sm-4 m-t-md">
                                     <a id="previewpart" class="btn btn-success">Preview</a>
-                                    <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a>
+                                    <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a> -->
+                                    <div class="form-group">
+                                            <button type="submit" class="btn btn-danger btn-block" id="type" name="type" value="pdf">OK</button>
+                                        </div>
                                 </div>
                                     </form>
 
