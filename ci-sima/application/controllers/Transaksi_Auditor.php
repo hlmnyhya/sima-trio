@@ -204,13 +204,14 @@ class Transaksi_Auditor extends CI_Controller
     {
         $id = $this->input->post('id');
         $idaudit = $this->input->post('idaudit');
-        $tgl = $_tgl;
+        // $tgl = $_tgl;
+        $time = date('Y-m-d H:i');
         $output = '';
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
             $output .=
-                '<div class="text-success">Data Berhasil Didownload</div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Gagal Didownload</div>';
+            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>"'.$time.'"</span>   </div>';
         }
         echo json_encode($output, true);
     }
@@ -1632,17 +1633,14 @@ class Transaksi_Auditor extends CI_Controller
         $time = $this->input->post('time');
         // var_dump($id, $idjadwal_audit, $time);exit;
         $output = '';
-        // $time = date('Y-m-d H:i:s');
-        $data = $this->mtransauditor->downloadpart($id, $idjadwal_audit, $time);
-        // var_dump($data);exit;
-        if ($data) {
+        $time = date('Y-m-d H:i');
+        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit, $time)) {
             $output .=
-            '<div class="text-success"> Data Berhasil Didownload Pada ' . $data['time'] . ' </div>';
-           
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>"'.$time.'"</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Gagal Didownload <span>'.$time.'</span> </div>';
+             $output .=
+                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>"'.$time.'"</span>  </div>';
         }
-
         echo json_encode($output, true);
     }
     // punya nya temp part
@@ -2211,7 +2209,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
-                        'status' => 'belum sesuai',
+                        'status' => 'Belum Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }
