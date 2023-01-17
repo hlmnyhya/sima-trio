@@ -11,7 +11,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                   <form class="" action="<?php echo base_url()?>laporan_auditor/cetakexcel" method="post">
+                                   <form class="" action="<?php echo base_url()?>laporan_auditor/cetakunittemp" method="post">
 
                                         <div class="col-sm-4">
                                             <label>Cabang</label>
@@ -37,11 +37,17 @@
                                                 </select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-5">
+                                        <!-- <div class="col-sm-5">
                                             <div class="form-group m-t-md ">
                                                 <a id="preview" class="btn btn-success">Preview</a>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                         <div class="col-sm-3 m-t-md">
+                                    <a id="preview" class="btn btn-success">Preview</a>
+                                    <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a> -->
+                                    <button type="submit" class="btn btn-danger xshow" id="type" name="type" value="pdf" <i class="fa fa-fw fa-file-pdf-o"></i>Download PDF</button>
+                                </div>
+                               
                                
                                     </form>
 

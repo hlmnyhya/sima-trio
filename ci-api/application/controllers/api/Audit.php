@@ -602,7 +602,7 @@ function __construct() {
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
-            var_dump($data);exit;
+            // var_dump($data);exit;    
     
         if ($id===null) {
             $this->response([
