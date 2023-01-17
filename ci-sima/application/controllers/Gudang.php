@@ -398,7 +398,7 @@ class Gudang extends CI_Controller
         $pdf->AliasNbPages();
         $pdf->AddPage("P", "A4");
 
-        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 15, 20, 25, 25);
+        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 14, 20, 10, 10);
         // var_dump($detail);die;
         $detail = $this->mtransga->getinvbyid($id2);
 
@@ -417,30 +417,30 @@ class Gudang extends CI_Controller
             }
         }
         $i = 1;
-        $pdf->Rect(13, 18, 90, 30);
+        $pdf->Rect(13, 18, 70, 14);
         // $pdf->Rect(13, 18, 35, 30);
-        $pdf->Rect(64, 21.5, 35, 4);
-        $pdf->Rect(64, 30, 35, 4);
-        $pdf->Rect(64, 38, 35, 4);
-        $pdf->SetFont('Arial', '', 6);
-        $pdf->SetXY(42, 25);
+        $pdf->Rect(43, 20, 35, 3);
+        $pdf->Rect(43, 24, 35, 3);
+        $pdf->Rect(43, 28, 35, 3);
+        $pdf->SetFont('Arial', '', 5);
+        $pdf->SetXY(24, 21.4);
         $pdf->cell(0, 0, "Trio Asset Code  ", 0, 1);
-        $pdf->SetXY(65, 24);
+        $pdf->SetXY(44, 22);
         $pdf->cell(0, 0, $part, 0, 1);
-        $pdf->SetXY(42, 33);
+        $pdf->SetXY(24, 25);
         $pdf->cell(0, 0, "Type ", 0, 1);
-        $pdf->SetXY(65, 32);
+        $pdf->SetXY(44, 25.5);
         $pdf->cell(0, 0, $sub, 0, 1);
-        $pdf->SetXY(42, 41);
+        $pdf->SetXY(24, 29);
         $pdf->cell(0, 0, "Lokasi ", 0, 1);
-        $pdf->SetXY(65, 40);
+        $pdf->SetXY(44, 29.5);
         $pdf->cell(0, 0, $lokasi, 0, 1);
 
-        $pdf->Code128(15, 50, $id2, 86, 15);
+        $pdf->Code128(15, 34, $id2, 66, 8);
         // $pdf->SetFont('Arial', 'B', 13.5);
 
-        $pdf->Rect(13, 48, 90, 22);
-        $pdf->SetXY(14, 65);
+        $pdf->Rect(13, 32, 70, 14);
+        $pdf->SetXY(15, 41.4);
         $pdf->Write(5, 'Trio Asset Code. ' . $id2);
         header("Content-type: application/PDF");
         // $pdf->Output('D','QRCODE.pdf');
