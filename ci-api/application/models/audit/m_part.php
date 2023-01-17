@@ -12,7 +12,7 @@ class M_Part extends CI_Model {
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
-            $this->db->where('part_number', $id);
+            $this->db->where('id_part', $id);
              
             $result = $this->db->get()->result();
 
@@ -22,7 +22,7 @@ class M_Part extends CI_Model {
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
-            $this->db->where('part_number', $id);
+            $this->db->where('id_part', $id);
             
             
             
