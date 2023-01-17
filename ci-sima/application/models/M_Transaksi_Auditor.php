@@ -1,6 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
+use Symfony\Component\VarDumper\VarDumper;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -80,6 +81,7 @@ class M_Transaksi_Auditor extends CI_Model
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data']['0'];
         } else {
@@ -231,13 +233,17 @@ class M_Transaksi_Auditor extends CI_Model
         $result = json_decode($respon->getBody()->getContents(), true);
         $base = base_url();
 
+        // var_dump($result);exit;
+
         $output = '';
         $aksi = '';
         if ($result['status'] == true) {
             foreach ($result['data'] as $res) {
 
                 $aksi = '
-                    <a href="' . $base . 'transaksi_auditor/edit_audit?id=' . base64_encode($res['id_unit']) . '&a=' . base64_encode($res['id_lokasi']) . '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="' . $base . 'transaksi_auditor/edit_audit?id=' . 
+                    base64_encode($res['id_unit']) . '&a=' . base64_encode($res['id_lokasi']) . 
+                    '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
                 $e++;
                 $output .= '
@@ -286,6 +292,7 @@ class M_Transaksi_Auditor extends CI_Model
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
         $base = base_url();
 
         $output = '';
@@ -294,7 +301,9 @@ class M_Transaksi_Auditor extends CI_Model
             foreach ($result['data'] as $res) {
 
                 $aksi = '
-                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . base64_encode($res['id_part']) . '&a=' . base64_encode($res['nama_gudang']) . '&s=' . base64_encode($res['nama_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
+                    <a href="' . $base . 'transaksi_auditor/edit_part?id=' . 
+                    base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . 
+                    '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
                 $e++;
                 $output .= '
@@ -307,6 +316,7 @@ class M_Transaksi_Auditor extends CI_Model
                     <td>' . $res['kd_lokasi_rak'] . '</td>
                     <td>' . $res['status'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
+                    <td>' . $res['qty'] . '</td>
                     <td>' . $res['qty'] . '</td>
                     <td>' . $res['kondisi'] . '</td>
                     <td>' . $res['keterangan'] . '</td>
@@ -337,12 +347,13 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function downloadpart($id, $idjadwal_audit)
+    public function downloadpart($id, $idjadwal_audit, $time)
     {
         $respon =  $this->_client->request('GET', 'datapart', [
             'query' => [
                 'id_cabang' => $id,
-                'idjadwal_audit' => $idjadwal_audit
+                'idjadwal_audit' => $idjadwal_audit, 
+                'time' => $time
             ]
         ]);
 
@@ -563,6 +574,8 @@ class M_Transaksi_Auditor extends CI_Model
             'form_params' => $data
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
+        
+        // var_dump($result);exit;
 
         if ($result['status'] == true) {
             return $result['data'];

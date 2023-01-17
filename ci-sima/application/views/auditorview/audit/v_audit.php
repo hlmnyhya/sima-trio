@@ -64,7 +64,6 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
                                             <th class="text-center">No Mesin</th>
                                             <th class="text-center">No Rangka</th>
                                             <th class="text-center">Dealer</th>
@@ -82,7 +81,6 @@
                                     <tfoot>
                                         <tr>
                                             <th class="text-center" width="3%">No</th>
-                                            <th class="text-center" width="3%">Aksi</th>
                                             <th class="text-center">No Mesin</th>
                                             <th class="text-center">No Rangka</th>
                                             <th class="text-center">Dealer</th>

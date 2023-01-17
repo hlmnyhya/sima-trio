@@ -88,7 +88,6 @@
         // rakbin();
         lokasi()
         $('#id_lokasi').change(function() {
- 
             var rak = $(this).val();
             $('#rakbin').html('');
             $.ajax({
@@ -105,6 +104,20 @@
                 } 
             });
             console.log(rak);
+        });
+
+        $('#rakbin').change(function() {
+            var rakbin = $('#rakbin').val();
+            console.log(rakbin);
+            if (rakbin == 'RakbinBaru') {
+                console.log('berhasil')
+                $('#rakbin_baru').removeClass('hidden');
+                $('#rakbin_baru').addClass('form-group');   
+            }else {
+                $('#rakbin_baru').removeClass('form-group');
+                $('#rakbin_baru').addClass('hidden');
+                console.log('gagal')
+            }
         });
         
         function lokasi() {
@@ -123,6 +136,8 @@
         });
         console.log(cabang);
     }
+
+
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";

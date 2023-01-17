@@ -45,7 +45,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-3 control-label">DDP</label>
+                            <div class="form-group"><label class="col-sm-3 control-label">DPP</label>
                                   <div class="col-sm-9">
                                      <div class="input-group col-sm-12">
                                         <span class="input-group-addon" id="sizing-addon2">Rp.</span>    
