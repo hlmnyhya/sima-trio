@@ -11,7 +11,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakpart" method="post">
+                                <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakparttemp" method="post">
                                         <div class="col-sm-4">
                                             <label>Cabang</label>
                                             <div class="form-group">
