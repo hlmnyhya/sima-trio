@@ -598,11 +598,11 @@ function __construct() {
                 'keterangan' =>$this->put('keterangan'),
                 'qty' =>$this->put('qty'),
                 'status' => $this->put('status'),
-                'penanggung_jawab' => $this->put('penanggung_jawab'),
+                // 'penanggung_jawab' => $this->put('penanggung_jawab'),
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
-            var_dump($data);exit;
+            // var_dump($data);exit;
     
         if ($id===null) {
             $this->response([

@@ -674,8 +674,8 @@ class Transaksi_Auditor extends CI_Controller
             'kondisi' => $this->input->post('kondisi'),
             'keterangan' => $this->input->post('keterangan'),
             'qty' => $this->input->post('qty'),
-            'status' => $this->input->post('status'),
-            'penanggung_jawab' => $this->input->post('penanggung_jawab')
+            'status' => 'Sesuai'
+            // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
         ];
         // var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {

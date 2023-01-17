@@ -561,7 +561,6 @@ class M_Transaksi_Auditor extends CI_Model
             'form_params' => $data
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
-
         if ($result['status'] == true) {
             return $result['data'];
         } else {
@@ -575,7 +574,7 @@ class M_Transaksi_Auditor extends CI_Model
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
         
-        // var_dump($result);exit;
+        // var_dump($respon);exit;
 
         if ($result['status'] == true) {
             return $result['data'];
