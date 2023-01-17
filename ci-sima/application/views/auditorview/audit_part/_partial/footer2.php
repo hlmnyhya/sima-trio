@@ -1,5 +1,6 @@
     <script src="<?php echo base_url(); ?>assets/js/jquery-3.1.1.min.js"></script>
     <script src="<?php echo base_url(); ?>assets/js/jquery.validate.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <script>
         $('#Optcabang').load("<?php echo base_url(); ?>master_data/ajax_get_cabang2");
         $("#FormJadwalAudit").validate({
@@ -180,6 +181,39 @@
             //    })
             //    })
             lokasi();
+            rakbin();
+
+            function rakbin () {
+                var id = "<?php echo base64_decode($_GET['a']); ?>";
+                //var id = '2NG-GUD'; //document.getElementById("id_lokasi").val
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    'kd_gudang': id,
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#rakbin').html(data);
+                    $('#rakbin').select2();
+                } 
+            });
+            console.log(id);
+            }
+
+            $('#rakbin').change(function() {
+            var rakbin = $('#rakbin').val();
+            console.log(rakbin);
+            if (rakbin == 'RakbinBaru') {
+                console.log('berhasil')
+                $('#rakbin_baru').removeClass('hidden');
+                $('#rakbin_baru').addClass('form-group');   
+            }else {
+                $('#rakbin_baru').removeClass('form-group');
+                $('#rakbin_baru').addClass('hidden');
+                console.log('gagal')
+            }
+        });
 
             function lokasi() {
                 var id = "<?php echo base64_decode($_GET['a']); ?>";
