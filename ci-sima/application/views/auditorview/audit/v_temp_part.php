@@ -25,6 +25,7 @@
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
+                                            <!-- <th class="text-center">TIME</th> -->
                                         </tr>
                                     </thead>
                                     <tbody id="audit_part">
@@ -38,6 +39,7 @@
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
+                                            <!-- <th class="text-center">TIME</th> -->
                                         </tr>
                                     </tfoot>
                                 </table>
