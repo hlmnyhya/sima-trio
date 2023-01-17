@@ -235,10 +235,10 @@ function __construct() {
         $id= $this->get('id');
         
         if ($id===null) {
-            $part= $this->mpart->GetPart();
+            $part= $this->mpart->GetPartBarcode();
             
         }else{
-            $part= $this->mpart->GetPart($id);
+            $part= $this->mpart->GetPartBarcode($id);
 
         }
         if ($part) {
@@ -290,6 +290,34 @@ function __construct() {
             $aud = $this->maudit->GetList($id,$cabang);
         }
 
+        if ($aud) {
+            $this->response([
+                'status' => true,
+                'data' => $aud
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function testqty_get()
+    {
+        $part_number = $this->get('part_number');
+        $qty = $this->get('qty');
+        $idjadwal_audit = $this->get('idjadwal_audit');
+        $cabang = $this->get('id_cabang');
+        $lokasi = $this->get('id_lokasi');
+        $rakbin = $this->get('kd_lokasi_rak');
+
+         if ($part_number===null) {
+            $aud = $this->mpart->updateqty($part_number, $qty, $idjadwal_audit, $cabang, $lokasi, $rakbin);
+        }else{
+            $aud = $this->mpart->updateqty($part_number, $qty, $idjadwal_audit, $cabang, $lokasi, $rakbin);
+        }
         if ($aud) {
             $this->response([
                 'status' => true,
@@ -518,16 +546,63 @@ function __construct() {
         }
         
     }
+
+    public function listaudpartQty_post()
+    {
+        $id = $this->post('id_part');
+        $data =[
+            'id_cabang' => $this->post('id_cabang'),
+            'id_lokasi' => $this->post('id_lokasi'),
+            'part_number' => $this->post('part_number'),
+            'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
+            'deskripsi' => $this->post('deskripsi'),
+            'kondisi' => $this->post('kondisi'),
+            'status' => $this->post('status'),
+            'keterangan' => $this->post('keterangan'),
+            'qty' => $this->post('qty'),
+            'audit_by' => $this->post('user'),
+            'tanggal_audit' => $this->_tgl,
+            'idjadwal_audit' => $this->post('idjadwal_audit')
+        ];
+        // var_dump($data);exit;
+        if ($id===null) {
+            $listaud = null;
+        }else{
+            // harusnya masuk ke data part
+            $listaud = $this->mpart->AddListPart($data);
+        }
+        if ($listaud) {
+            $this->response([
+                'status' => true,
+                'data' => "Data Audit has been created"
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => "failed."
+            ], REST_Controller::HTTP_OK);
+        }
+        
+    }
+
     public function listaudpart_put()
     {
         $id= $this->put('id_part');
             $data =[
-                'qty' =>$this->put('qty'),
+                'part_number' => $this->put('part_number'),
+                'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
+                'deskripsi' => $this->put('deskripsi'),
+                'id_cabang' => $this->put('id_cabang'),
+                'id_lokasi' => $this->put('id_lokasi'),
+                'kondisi' => $this->put('kondisi'),
                 'keterangan' =>$this->put('keterangan'),
+                'qty' =>$this->put('qty'),
+                'status' => $this->put('status'),
+                // 'penanggung_jawab' => $this->put('penanggung_jawab'),
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
-            // var_dump($data);exit;
+            
     
         if ($id===null) {
             $this->response([
@@ -1214,6 +1289,7 @@ function __construct() {
         }else{
             $cabang = $this->get('id_cabang');
             $idjadwal_audit = $this->get('idjadwal_audit');
+            $time = date('Y-m-d H:i:s');
             // $cabang='T13';
             $list =$this->mtemppart->getTempPart(null,$cabang, $idjadwal_audit);
            if ($list!=false) {
@@ -1232,7 +1308,8 @@ function __construct() {
                        'part_number' => $res['PART_NUMBER'],
                        'deskripsi' => $res['PART_DESKRIPSI'],
                        'qty' => $res['STOCK_OH'],
-                       'idjadwal_audit'=> $idjadwal_audit
+                       'idjadwal_audit'=> $idjadwal_audit,
+                       'time' => $time
                    ];
                    $download = $this->mtemppart->addTemppart($data);
                }
@@ -2032,7 +2109,8 @@ function __construct() {
 
     // controller untuk audit part
     public function AuditPart_get(){
-        $id= $this->get('id');
+        $id= $this->get('id')
+        ;
         $offset = $this->get('offset');
         
         if ($id===null) {

@@ -103,6 +103,7 @@ class Transaksi_Auditor extends CI_Controller
             //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
             //         ';
             // } else {
+         $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
             $output .=
                 '
                 <option value="' .
@@ -230,12 +231,14 @@ class Transaksi_Auditor extends CI_Controller
     {
         $id = $this->input->post('id');
         $idaudit = $this->input->post('idaudit');
+        // $tgl = $_tgl;
+        $time = date('Y-m-d H:i');
         $output = '';
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
             $output .=
-                '<div class="text-success">Data Berhasil Didownload</div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Gagal Didownload</div>';
+            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>"'.$time.'"</span>   </div>';
         }
         echo json_encode($output, true);
     }
@@ -353,9 +356,9 @@ class Transaksi_Auditor extends CI_Controller
         $data = [
             'judul' => 'Audit Unit',
             'judul1' => 'Transaksi Auditor',
-            'edit' => $this->mtransauditor->getPartById($id),
+            'edit_part' => $this->mtransauditor->getPartById($id),
         ];
-        // var_dump($data['edit']);die;
+        // var_dump($data['edit_part']);exit;
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
         $this->load->view('auditorview/audit_part/v_edit_part.php', $data);
@@ -653,10 +656,11 @@ class Transaksi_Auditor extends CI_Controller
             'kode_item' => $this->input->post('kode_item'),
             'keterangan' => $this->input->post('keterangan'),
         ];
+        // var_dump($data);exit;
         // var_dump(count($this->input->post('ket')));die;
         $name = $_POST['part_number'];
         for ($i = 0; $i < count($name); $i++) {
-            $phar[$i] = [
+        $phar[$i] = [
                 'part_number' => $_POST['part_number'][$i],
                 'no_mesin' => $_POST['no_mesin'],
                 'no_rangka' => $_POST['no_rangka'],
@@ -667,6 +671,7 @@ class Transaksi_Auditor extends CI_Controller
                 'penanggung_jawab' => $_POST['penanggungjawab'][$i],
             ];
             if ($this->mtransauditor->addunitready($phar[$i])) {
+                
             } else {
                 $this->session->set_flashdata('gagal', 'Gagal Diedit');
 
@@ -687,15 +692,19 @@ class Transaksi_Auditor extends CI_Controller
 
     public function edit_audit_part() {
         $data = [
+            'id_part' => $this->input->post('id_part'),
             'part_number' => $this->input->post('part_number'),
             'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak'),
             'deskripsi' => $this->input->post('deskripsi'),
             'id_cabang' => $this->input->post('id_cabang'),
             'id_lokasi' => $this->input->post('id_lokasi'),
             'kondisi' => $this->input->post('kondisi'),
-            'status' => 'Sesuai',
-            'penanggung_jawab' => $this->input->post('penanggung_jawab')
+            'keterangan' => $this->input->post('keterangan'),
+            'qty' => $this->input->post('qty'),
+            'status' => 'Sesuai'
+            // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
         ];
+        // var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {
             $this->session->set_flashdata('berhasil', 'Berhasil Diedit');
 
@@ -1065,7 +1074,7 @@ class Transaksi_Auditor extends CI_Controller
                         'foto' => null,
                         'type' => $unit['type'],
                         'kode_item' => $unit['kode_item'],
-                        'keterangan' => null,
+                        'keterangan' =>  'Lokasi Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 } else {
@@ -1648,14 +1657,17 @@ class Transaksi_Auditor extends CI_Controller
     {
         $id = $this->input->post('id');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $time = $this->input->post('time');
+        // var_dump($id, $idjadwal_audit, $time);exit;
         $output = '';
-        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit)) {
+        $time = date('Y-m-d H:i');
+        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit, $time)) {
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload</div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>"'.$time.'"</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Gagal Didownload</div>';
+             $output .=
+                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>"'.$time.'"</span>  </div>';
         }
-
         echo json_encode($output, true);
     }
     // punya nya temp part
@@ -1933,12 +1945,15 @@ class Transaksi_Auditor extends CI_Controller
 
     public function doPart()
     {
+        // var_dump("aaa");exit;
         $manual = false;
         $scanpart = $this->input->post('id');
+        // $part_number = $this->input->post('part_number');
         $cabang = $this->input->post('cabang');
         $lokasi = $this->input->post('lokasi');
         $rakbin = $this->input->post('kd_lokasi_rak');
         $kondisi = $this->input->post('kondisi');
+        $qty = $this->input->post('qty');
         $status = $this->input->post('status');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $data = [
@@ -1947,10 +1962,11 @@ class Transaksi_Auditor extends CI_Controller
             'id_lokasi' => $lokasi,
             'kd_lokasi_rak' => $rakbin,
             'kondisi' => $kondisi,
-            'status' => 'Sesuai',
-            'keterangan' => 'RFS',
+            'status' => 'tidak diketahui',
+            'qty' => $qty,
+            'keterangan' => 'Tidak diketahui',
             'part_number' => $this->input->post('part_number'),
-            'deskripsi' => $this->input->post('deskripsi'),
+            'deskripsi' => "-",
             'idjadwal_audit' => $this->input->post('idjadwal_audit'),
         ];
 
@@ -1960,81 +1976,10 @@ class Transaksi_Auditor extends CI_Controller
             $idjadwal_audit
         );
         if ($cek) {
-            $info = 'Data Telah diaudit';
-            $output = '';
-            $count = $this->mtransauditor->countPart1($cabang, $idjadwal_audit);
-            $this->load->library('pagination');
-
-            $config['base_url'] =
-                base_url() . 'transaksi_auditor/ajax_partvalid';
-            $config['total_rows'] = $count;
-            $config['per_page'] = 15;
-            $config['uri_segment'] = 3;
-            $config['use_page_numbers'] = true;
-            $config['num_links'] = 3;
-
-            $config['full_tag_open'] = '<ul class="pagination">';
-            $config['full_tag_close'] = '</ul>';
-            $config['first_link'] = 'First';
-            $config['first_tag_open'] =
-                '<li class="page-item"><span class="page-link">';
-            $config['first_tag_close'] = '</li>';
-            $config['last_link'] = 'Last';
-            $config['last_tag_open'] =
-                '<li class="page-item"><span class="page-link">';
-            $config['last_tag_close'] = '</li>';
-            $config['next_link'] = '&gt;';
-            $config['next_tag_open'] =
-                '<li class="page-item"><span class="page-link">';
-            $config['next_tag_close'] = '</li>';
-            $config['prev_link'] = '&lt;&nbsp;';
-            $config['prev_tag_open'] =
-                '<li class="page-item"><span class="page-link">';
-            $config['prev_tag_close'] = '</li>';
-            $config['num_tag_open'] =
-                '<li class="page-item"><span class="page-link">';
-            $config['num_tag_close'] = '</li>';
-            $config['cur_tag_open'] =
-                '<li class="page-item"><span class="page-link">';
-            $config['cur_tag_close'] = '</li>';
-
-            $this->pagination->initialize($config);
-
-            $page = floor($count / 15); //$this->uri->segment(3);
-            if ($page == null) {
-                $page = 1;
-            }
-            $start = ($page - 1) * $config['per_page'];
-            $getPartValid = $this->mtransauditor->getPartValid(
-                $cabang,
-                $start,
-                $idjadwal_audit
-            );
-            if ($getPartValid) {
-                foreach ($getPartValid as $list) {
-                    $start++;
-                    $output .=
-                        '
-                                <tr> 
-                                <td class="text-center">' . $start . '</td>
-                                <td class="text-center">' . $list['nama_cabang'] . '</td>
-                                <td class="text-center">' . $list['nama_gudang'] . '</td>
-                                <td class="text-center">' . $list['part_number'] . '</td>
-                                <td class="text-center">' . $list['deskripsi'] . '</td>
-                                <td class="text-center">' . $list['qty'] . '</td>
-                                <td class=a"text-center">' . $list['kd_lokasi_rak'] . '</td>
-                                <td class="text-center">' . $list['status'] . '</td>
-                                <td class="text-center">' . $list['kondisi'] . '</td>
-                                <td class="text-center">' . $list['keterangan'] . '</td>
-                                </tr>     
-                                ';
-                }
-            }
-        } else {
-            if ($this->mtransauditor->addScanPart($data)) {
-                $info = 'Data Berhasil diaudit';
+            $info = 'Data Berhasil diaudit';
+            if ($this->mtransauditor->addScanPart($data)) {      
                 $output = '';
-                $count = $this->mtransauditor->countPart1(
+                $count = $this->mtransauditor->countpart1(
                     $cabang,
                     $idjadwal_audit
                 );
@@ -2090,25 +2035,45 @@ class Transaksi_Auditor extends CI_Controller
                         $start++;
                         $output .=
                             '
-                                    <tr> 
-                                    <td class="text-center">' . $start . '</td>
-                                    <td class="text-center">' . $list['nama_cabang'] . '</td>
-                                    <td class="text-center">' . $list['nama_gudang'] . '</td>
-                                    <td class="text-center">' . $list['part_number'] . '</td>
-                                    <td class="text-center">' . $list['deskripsi'] . '</td>
-                                    <td class="text-center">' . $list['qty'] . '</td>
-                                    <td class=a"text-center">' . $list['kd_lokasi_rak'] . '</td>
-                                    <td class="text-center">' . $list['status'] . '</td>
-                                    <td class="text-center">' . $list['kondisi'] . '</td>
-                                    <td class="text-center">' . $list['keterangan'] . '</td>
-                                    </tr>     
+                            <tr> 
+                            <td>' .
+                    $start .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['nama_cabang'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['nama_gudang'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['part_number'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['deskripsi'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['qty'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['kd_lokasi_rak'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['status'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['kondisi'] .
+                    '</td>
+                            <td class="text-center">' .
+                    $list['keterangan'] .
+                    '</td>
+                            </tr> 
                                     ';
                     }
                 }
             } else {
                 $info = 'Data Gagal diaudit';
                 $output = '';
-                $count = $this->mtransauditor->countPart1(
+                $count = $this->mtransauditor->countpart1(
                     $cabang,
                     $idjadwal_audit
                 );
@@ -2207,10 +2172,11 @@ class Transaksi_Auditor extends CI_Controller
         $base = base_url();
         $info = '';
         // var_dump($lokasi);exit;
-        // $param=array(
-        //     $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
-        // );
-        // var_dump($param);exit;
+        $param=array(
+            $scanpart, $cabang, $rakbin, $lokasi, $idjadwal_audit
+        );
+        // var_dump($rakbin);exit;
+        // var_dump($status);exit;
 
         $dataPart = $this->mtransauditor->caripart(
             $scanpart,
@@ -2220,28 +2186,43 @@ class Transaksi_Auditor extends CI_Controller
         // var_dump($dataPart);exit;
         if ($dataPart) {
             foreach ($dataPart as $part) {
-                if ($part['id_lokasi'] == $lokasi) {
+                if ($part['id_lokasi'] == $lokasi AND $part['kd_lokasi_rak'] == $rakbin) {
                     $data = [
+                        'id_part' => $part['id_part'],
                         'id_cabang' => $part['id_cabang'],
                         'id_lokasi' => $part['id_lokasi'],
                         'part_number' => $part['part_number'],
-                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'kd_lokasi_rak' => $rakbin,
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $part['qty'],
                         'kondisi' => $kondisi,
-                        'status' => $part['status'],
+                        'status' => 'Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
-                } else {
+                }elseif($part['kd_lokasi_rak'] == $rakbin) {
                     $data = [
+                        'id_part' => $part['id_part'],
                         'id_cabang' => $part['id_cabang'],
                         'id_lokasi' => $part['id_lokasi'],
                         'part_number' => $part['part_number'],
-                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'kd_lokasi_rak' => $rakbin,
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
-                        'status' => 'invalid',
+                        'status' => ' Rakbin Belum Sesuai',
+                        'idjadwal_audit' => $idjadwal_audit,
+                    ]; 
+                }else {
+                    $data = [
+                        'id_part' => $part['id_part'],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $lokasi,
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $rakbin,
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => 1,
+                        'kondisi' => $kondisi,
+                        'status' => 'Belum Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }
@@ -2256,6 +2237,68 @@ class Transaksi_Auditor extends CI_Controller
             if ($cek) {
                 $info = 'Data diupdate';
                 $output = '';
+
+                $qty_temppart = $part['qty'];
+                $qty_part = $cek_part[0]['qty'] + 1;
+                // var_dump($part);
+                // var_dump($qty_part);
+                // var_dump($qty_temppart);
+                // exit;
+                if($qty_part > $qty_temppart){
+                    $data_edit = [
+                        'id_part' => $cek_part[0]["id_part"],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => $qty_part,
+                        'kondisi' => $kondisi,
+                        'status' => $status,
+                        'keterangan' => 'Part Lebih',
+                        'idjadwal_audit' => $idjadwal_audit
+                    ];
+                    
+                // var_dump($data_edit);exit;
+                $this->mtransauditor->editscanpart($data_edit);
+                } elseif ($qty_part < $qty_temppart){
+                    $data_edit = [
+                        'id_part' => $cek_part[0]["id_part"],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => $qty_part,
+                        'kondisi' => $kondisi,
+                        'status' => $status,
+                        'keterangan' => 'Part Kurang',
+                        'idjadwal_audit' => $idjadwal_audit
+                    ];
+                    
+                // var_dump($data_edit);exit;
+                $this->mtransauditor->editscanpart($data_edit);
+                // exit;
+                } elseif ($qty_part == $qty_temppart){
+                    $data_edit = [
+                        'id_part' => $cek_part[0]["id_part"],
+                        'id_cabang' => $part['id_cabang'],
+                        'id_lokasi' => $part['id_lokasi'],
+                        'part_number' => $part['part_number'],
+                        'kd_lokasi_rak' => $part['kd_lokasi_rak'],
+                        'deskripsi' => $part['deskripsi'],
+                        'qty' => $qty_part,
+                        'kondisi' => $kondisi,
+                        'status' => $status,
+                        'keterangan' => 'Part Sesuai',
+                        'idjadwal_audit' => $idjadwal_audit
+                    ];
+                    
+                // var_dump($data_edit);exit;
+                $this->mtransauditor->editscanpart($data_edit);
+                }
+
+                // exit;
                 $count = $this->mtransauditor->countpart1(
                     $cabang,
                     $idjadwal_audit
@@ -2505,36 +2548,38 @@ class Transaksi_Auditor extends CI_Controller
                     $start++;
                     $output .=
                         '
-                                    <tr> 
-                                        <td>' .
-                        $start .
-                        '</td>
-                                        <td></td>
-                                        <td class="text-center">' .
-                        $list['nama_cabang'] .
-                        '</td>
-                                            <td class="text-center">' .
-                        $list['nama_gudang'] .
-                        '</td>
-                                            <td class="text-center">' .
-                        $list['part_number'] .
-                        '</td>
-                                            <td class="text-center">' .
-                        $list['qty'] .
-                        '</td>
-                                            <td class="text-center">' .
-                        $list['kd_lokasi_rak'] .
-                        '</td>
-                                            <td class="text-center">' .
-                        $list['status'] .
-                        '</td>
-                                            <td class="text-center">' .
-                        $list['kondisi'] .
-                        '</td>
-                                            <td class="text-center">' .
-                        $list['keterangan'] .
-                        '</td>
-                                    </tr>     
+                        <tr> 
+                        <td>' .
+                $start .
+                '</td>
+                        <td class="text-center">' .
+                $list['nama_cabang'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['nama_gudang'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['part_number'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['deskripsi'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['qty'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['kd_lokasi_rak'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['status'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['kondisi'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['keterangan'] .
+                '</td>
+                        </tr> 
                                     ';
                 }
             }
@@ -2685,6 +2730,8 @@ class Transaksi_Auditor extends CI_Controller
             $status,
             $kondisi
         );
+
+        // var_dump($count);exit;
         $this->load->library('pagination');
 
         $config['base_url'] = base_url() . 'transaksi_auditor/previewpart';
@@ -2722,7 +2769,7 @@ class Transaksi_Auditor extends CI_Controller
         $this->pagination->initialize($config);
 
         //$page = floor($count / 15);
-        //$page = $this->uri->segment(3);
+        // $page = $this->uri->segment(3);
         if ($page == null) {
             $page = 1;
         }
@@ -2735,6 +2782,8 @@ class Transaksi_Auditor extends CI_Controller
             $start,
             $kondisi
         );
+
+        // var_dump($cetak);exit;
         $row_entry =
             '
             <div class=" label label-default">' .

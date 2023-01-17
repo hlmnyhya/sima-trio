@@ -68,7 +68,7 @@
                                     </div>
                                     <div class="col-sm-5 ">
                                         <div class="form-group">
-                                            <label class="col-sm-3 control-label">Counter</label>
+                                            <label class="col-sm-3 control-label">PIC Part</label>
                                             <div class="col-sm-9"><input type="text" id="counter" class="form-control" name="counter" required></div>
                                         </div>
                                     </div>
@@ -105,7 +105,11 @@
                                             <th class="text-center">Part Number</th>
                                             <th class="text-center">Deskripsi</th>
                                             <th class="text-center">KD Rak Bin</th>
+                                            <th class="text-center">QTY SIMANDE</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">Kondisi</th>
+                                            <th class="text-center">Keterangan</th>
+                                            <th class="text-center">Status</th> 
                                             <th class="text-center">Tanggal Audit</th>
                                         </tr>
                                     </thead>
@@ -118,7 +122,11 @@
                                             <th class="text-center">Part Number</th>
                                             <th class="text-center">Deskripsi</th>
                                             <th class="text-center">KD Rak Bin</th>
+                                            <th class="text-center">QTY SIMANDE</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">Kondisi</th>
+                                            <th class="text-center">Keterangan</th>
+                                            <th class="text-center">Status</th>
                                             <th class="text-center">Tanggal Audit</th>
                                         </tr>
                                     </tfoot>

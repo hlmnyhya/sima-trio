@@ -159,6 +159,17 @@
             }
         });
 
+        $('#keterangan').change(function() {
+            var tes = $(this).val();
+            console.log(tes);
+
+            if (tes == 'Lainnya') {
+                $('#keterangan_lainnya').removeClass('hidden');
+            } else {
+                $('#keterangan_lainnya').addClass('hidden');
+            }
+        });
+
         $('#OptCabang').load("<?php echo base_url(); ?>transaksi_auditor/ajax_get_cabang2");
 
 

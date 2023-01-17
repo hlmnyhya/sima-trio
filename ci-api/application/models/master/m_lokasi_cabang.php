@@ -23,11 +23,22 @@ class M_Lokasi_Cabang extends CI_Model
         }
     }
 
-    public function getLokasiRak($id)
+    public function getLokasiRak($id = null ) 
     {
-        $result = $this->db->query("select * from lokasi_rak_bin where id_lokasi = '" . $id . "'")->result();
-        return $result;
+        if ($id === null ) {
+            $result =  $this -> db-> query("select * from lokasi_rak_bin")->result();
+            return $result;
+        }else {
+            $query = " select lokasi_rak_bin.*, gudang.nama_gudang
+            from lokasi_rak_bin 
+            LEFT JOIN gudang ON lokasi_rak_bin.id_lokasi = gudang.kd_gudang 
+            where gudang.kd_gudang = '$id'";
+
+            $result = $this->db->query($query)->result();
+            return $result;
+        }
     }
+        
     
     public function getLokasiAsset($id = null)
     {
@@ -45,5 +56,28 @@ class M_Lokasi_Cabang extends CI_Model
         $result = $this->db->query($query)->result();
         return $result;
         }
+    }
+     public function getrakbinsima($id = null)
+    {
+        if ($id === null ) {
+            $result =  $this -> db-> query("select * from rak_bin")->result();
+            return $result;
+        }else {
+            $query = " select rak_bin.*, gudang.nama_gudang
+            from rak_bin 
+            LEFT JOIN gudang ON rak_bin.id_lokasi = gudang.kd_gudang 
+            where gudang.kd_gudang = '$id'";
+
+            $result = $this->db->query($query)->result();
+            return $result;
+        }
+    }
+
+    public function addrakbin() 
+    {
+        
+       $this->db->insert('rak_bin', $data);
+       return $this->db->affected_rows(); 
+        
     }
 }

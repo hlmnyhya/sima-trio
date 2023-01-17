@@ -119,6 +119,17 @@
 
         });
 
+        $('#keterangan').change(function() {
+            var tes = $(this).val();
+            console.log(tes);
+
+            if (tes == 'lainnya') {
+                $('#keterangan_lainnya').removeClass('hidden');
+            } else {
+                $('#keterangan_lainnya').addClass('hidden');
+            }
+        });
+
         function preview(page) {
             var cabang = $('#OptCabang').val();
             var idjadwal_audit = $('#OptJadwalAudit').val();

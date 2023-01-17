@@ -105,6 +105,20 @@
             });
             console.log(rak);
         });
+
+        $('#rakbin').change(function() {
+            var rakbin = $('#rakbin').val();
+            console.log(rakbin);
+            if (rakbin == 'RakbinBaru') {
+                console.log('berhasil')
+                $('#rakbin_baru').removeClass('hidden');
+                $('#rakbin_baru').addClass('form-group');   
+            }else {
+                $('#rakbin_baru').removeClass('form-group');
+                $('#rakbin_baru').addClass('hidden');
+                console.log('gagal')
+            }
+        });
         
         function lokasi() {
         var cabang = "<?php echo $_GET['id'] ?>";
@@ -122,6 +136,8 @@
         });
         console.log(cabang);
     }
+
+
 
         function download() {
             var id = "<?php echo $this->input->get('id') ?>";
@@ -261,6 +277,8 @@
             var part_number = $('#part_number').val();
             var rakbin = $('#rakbin_baru').val();
             var lokasi = $('#id_lokasi').val();
+            var kondisi = $('#kondisi_baru').val();
+            var qty = $('#qty_manual').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             $('#Audit_Part').html('<tr> <td colspan="13" id="loading"></td></tr>');
@@ -269,14 +287,19 @@
                 dataType: 'JSON',
                 data: {
                     part_number: part_number,
-                    kd_lokasi_rakbin: rakbin,
+                    kd_lokasi_rak: rakbin,
+                    kondisi: kondisi,
                     lokasi: lokasi,
                     cabang: cabang,
+                    qty: qty,
                     idjadwal_audit: idjadwal_audit
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/doPart",
                 success: function(data) {
                     console.log(data);
+                    $('#rakbin_baru').val('');
+                    $('#part_number').val('');
+                    $('#qty_manual').val('');
                     $('#doCariPart').attr('disabled', false);
                     $('#pagination').html(data.pagination);
                     $('#Audit_Part').html(data.output);
@@ -287,6 +310,8 @@
             console.log(part_number);
             console.log(rakbin);
             console.log(lokasi);
+            console.log(kondisi);
+            console.log(qty);
         });
         $('#doCariPart').click(function() {
             var cari = $('#cari').val();

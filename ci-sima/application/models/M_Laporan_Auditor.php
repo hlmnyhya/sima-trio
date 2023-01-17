@@ -486,7 +486,12 @@ class M_Laporan_Auditor extends CI_Model
                     <td>' . $res['deskripsi'] . '</td>
                     <td>' . $res['kd_lokasi_rak'] . '</td>
                     <td>' . $res['qty'] . '</td>
+                    <td>' . $res['qty'] . '</td>
+                    <td>' . $res['status'] . '</td>
+                    <td>' . $res['kondisi'] . '</td>
+                    <td>' . $res['keterangan'] . '</td>
                     <td>' . $res['tanggal_audit'] . '</td>
+                   
                     </tr>
                 ';
             }

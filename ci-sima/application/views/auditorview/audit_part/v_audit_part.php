@@ -11,45 +11,25 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <form action="" method="post">
+                                <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakparttemp" method="post">
                                         <div class="col-sm-4">
                                             <label>Cabang</label>
                                             <div class="form-group">
                                                 <select name="id_cabang" class="form-control" id="OptCabang"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-4">
                                             <label>List Audit</label>
                                             <div class="form-group" id="data_5">
                                                 <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-2">
-                                            <label>Status Part</label>
-                                            <div class="form-group">
-                                                <select name="status" class="form-control" id="status">
-                                                    <option value="">--- ALL ---</option>
-                                                    <option value="Sesuai" id="sesuai">Sesuai</option>
-                                                    <option value="Belum Sesuai" id="belum_sesuai">Belum Sesuai</option>
-                                                    <option value="Belum ditemukan" id="belum_ditemukan">Belum Ditemukan</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-2">
-                                            <label>Kondisi Part</label>
-                                            <div class="form-group">
-                                                <select name="kondisi" class="form-control" id="kondisi">
-                                                    <option value="">--- ALL ---</option>
-                                                    <option value="Bagus" id="bagus">Bagus</option>
-                                                    <option value="Rusak" id="rusak">Rusak</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="col-sm-1">
-                                            <div class="form-group m-t-md">
-                                                <a id="previewpart" class="btn btn-success">Preview</a>
-                                            </div>
-                                        </div>
+                                    
+                                <div class="col-sm-4 m-t-md">
+                                    <a id="previewpart" class="btn btn-success">Preview</a>
+                                    <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a> -->
+                                    <button type="submit" class="btn btn-danger xshow" id="type" name="type" value="pdf" <i class="fa fa-fw fa-file-pdf-o"></i>Download PDF</button>
+                                </div>
                                     </form>
 
                                 </div>
@@ -69,7 +49,8 @@
                                     <th>KD Bin Box</th>
                                     <th>Status</th>                                    
                                     <th>Deskripsi</th>
-                                    <th>Qty</th>u
+                                    <th>Qty SIMANDE</th>
+                                    <th>Qty</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>
@@ -86,6 +67,7 @@
                                     <th>KD Bin Box</th>
                                     <th>Status</th>                                    
                                     <th>Deskripsi</th>
+                                    <th>Qty SIMANDE</th>
                                     <th>Qty</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>

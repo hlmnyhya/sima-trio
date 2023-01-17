@@ -5,7 +5,37 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Part extends CI_Model {
 
-    public function GetPart($id=null)
+    public function GetPart($id=null, $offset = null)
+    {
+        if ($id === null) {
+            $this->db->select('part.*,nama_cabang, nama_gudang');
+            $this->db->from('part');
+            $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
+            $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
+            $this->db->limit(15);
+            $this-> db->offset($offset);
+             
+            $result = $this->db->get()->result();
+
+            return $result;
+        }else {
+            $this->db->select('part.*,nama_cabang, nama_gudang');
+            $this->db->from('part');
+            $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
+            $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
+            $this->db->where('id_part', $id);
+            
+            
+            
+            $result = $this->db->get()->result();
+
+            return $result;
+        }
+    }
+
+    
+
+    public function GetPartBarcode($id=null)
     {
         if ($id === null) {
             $this->db->select('part.*,nama_cabang, nama_gudang');
@@ -96,7 +126,7 @@ class M_Part extends CI_Model {
 
     public function updatePart($data, $id)
     {
-        $this->db->update('part', $data, ['part_number' => $id]);
+        $this->db->update('part', $data, ['id_part' => $id]);
         return $this->db->affected_rows();
     }
 
@@ -111,17 +141,17 @@ class M_Part extends CI_Model {
         AND a.id_cabang='$cabang' AND idjadwal_audit = '$idjadwal_audit'        
         ";
         $this->db->query($query);
-        $query2 = "
-            UPDATE part
-            SET kondisi = 'Rusak'
-            WHERE kondisi is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
-        ";
-        $this->db->query($query2);
-        // $query3 = "
+        // $query2 = "
         //     UPDATE part
-        //     SET status = 'Belum Ditemukan'
-        //     WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'";
-        // $this->db->query($query3);
+        //     SET kondisi = 'Rusak'
+        //     WHERE kondisi is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
+        // ";
+        // $this->db->query($query2);
+        $query3 = "
+            UPDATE part
+            SET status = 'Belum Ditemukan'
+            WHERE status is null AND id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'";
+        $this->db->query($query3);
         $query4 = "
             DELETE FROM temp_part WHERE id_cabang = '$cabang' and idjadwal_audit = '$idjadwal_audit'
         ";
@@ -186,24 +216,14 @@ class M_Part extends CI_Model {
     public function previewpart($a,$b,$d,$e,$f)
     {
         $this->db->select('
-                a.id_part, a.part_number, a.deskripsi,
+                a.id_part, a.part_number, a.deskripsi, a.id_cabang, a.id_lokasi,
                 a.kd_lokasi_rak, a.deskripsi, a.qty, a.kondisi, a.keterangan, a.status, b.nama_cabang, c.nama_gudang
         ');
             $this->db->from('part a');
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
-
             $this->db->where("a.id_cabang='$a' AND a.idjadwal_audit = '$b' ");
-            if ($c != "") {
-                $this->db->where('a.status', $c);
-            }
-            if($d != ""){
-                $this->db->where('a.kondisi', $d);
-            }
-            if($f != ""){
-                $this->db->where('a.status', $f);
-            }
-            $this->db->limit(15);
+            // $this->db->limit(15);
             $this->db->offset($e);
 
             return $this->db->get()->result();
@@ -219,19 +239,41 @@ class M_Part extends CI_Model {
     
     
 
-    public function updateqty($id, $qty, $rakbin, $cabang, $lokasi)
-    {
-        $query = "SELECT COUNT(id_part) from part";
+    // public function updateqty($id, $qty, $rakbin, $cabang, $lokasi)
+    // {
+    //     $query = "SELECT COUNT(id_part) from part";
+    //     $this->db->query($query);
+
+    //     if ($id = null) {
+    //         $query1 = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, qty) VALUES ('$id', '$rakbin', '$cabang', '$lokasi', '$qty')";
+    //         $this->db->query($query1);
+    //     } else {
+    //         $query2= "UPDATE part SET qty = '$qty' + 1 WHERE part_number = '$id' AND kd_lokasi_rak = '$rakbin' AND id_cabang = '$cabang' AND id_lokasi = '$lokasi'";
+    //         $this->db->query($query2);
+    //     }
+    //     return $this->db->affected_rows();
+    // }
+
+    public function updateqty($part_number, $qty, $idjadwal_audit, $cabang, $lokasi, $rakbin)
+    {        
+        $query = "SELECT COUNT(id_part) from part_qty";
         $this->db->query($query);
 
-        if ($id = null) {
-            $query1 = "INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, qty) VALUES ('$id', '$rakbin', '$cabang', '$lokasi', '$qty')";
+        if ($part_number != null ) {
+            $query1 = "SELECT COUNT(id_part) from part_qty WHERE part_number = '$part_number' AND id_cabang = '$cabang' AND id_lokasi = '$lokasi' AND idjadwal_audit = '$idjadwal_audit' AND kd_lokasi_rak = '$rakbin'";
             $this->db->query($query1);
-        } else {
-            $query2= "UPDATE part SET qty = '$qty' + 1 WHERE part_number = '$id' AND kd_lokasi_rak = '$rakbin' AND id_cabang = '$cabang' AND id_lokasi = '$lokasi'";
-            $this->db->query($query2);
+            if ($part_number = null)
+            {
+                $query2 = "INSERT INTO part_qty (id_part, id_cabang, id_lokasi, part_number, deskripsi, status, kondisi, kd_lokasi_rak, qty,  idjadwal_audit, tanggal_audit) 
+                SELECT id_part, id_cabang, id_lokasi, part_number, deskripsi, status, kondisi, kd_lokasi_rak, qty=1, idjadwal_audit,        CONVERT(date,GETDATE()) as tanggal_audit 
+                FROM temp_part 
+                WHERE part_number = '$part_number' AND id_cabang = '$cabang' AND id_lokasi = '$lokasi' AND idjadwal_audit = '$idjadwal_audit' AND kd_lokasi_rak = '$rakbin'";
+                $this->db->query($query2);
+            } else {
+          $query3="UPDATE part_qty SET qty = qty+1 WHERE  part_number = '$part_number' AND id_cabang = '$cabang' AND id_lokasi = '$lokasi' AND idjadwal_audit = '$idjadwal_audit' AND kd_lokasi_rak = '$rakbin'";
+                $this->db->query($query3);
+            }
         }
-        return $this->db->affected_rows();
     }
 }
 /* End of file M_part.php */

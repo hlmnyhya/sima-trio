@@ -11,21 +11,22 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                    <form action="" method="post">
+                                   <form class="" action="<?php echo base_url()?>laporan_auditor/cetakunittemp" method="post">
+
                                         <div class="col-sm-4">
                                             <label>Cabang</label>
                                             <div class="form-group">
                                                 <select name="id_cabang" class="form-control" id="OptCabang"></select>
                                             </div>
                                         </div>
-                                        <div class="col-sm-4">
+                                        <div class="col-sm-3">
                                             <label>List Audit</label>
                                             <div class="form-group" id="data_5">
                                                 <select name="idjadwal_audit" class="form-control" id="OptJadwalAudit"></select>
                                             </div>
                                         </div>
 
-                                        <div class="col-sm-3">
+                                        <div class="col-sm-2">
                                             <label>Status Unit</label>
                                             <div class="form-group">
                                                 <select name="status_unit" class="form-control" id="status">
@@ -36,12 +37,18 @@
                                                 </select>
                                             </div>
                                         </div>
-
-                                        <div class="col-sm-1">
-                                            <div class="form-group m-t-md">
+                                        <!-- <div class="col-sm-5">
+                                            <div class="form-group m-t-md ">
                                                 <a id="preview" class="btn btn-success">Preview</a>
                                             </div>
-                                        </div>
+                                        </div> -->
+                                         <div class="col-sm-3 m-t-md">
+                                    <a id="preview" class="btn btn-success">Preview</a>
+                                    <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a> -->
+                                    <button type="submit" class="btn btn-danger xshow" id="type" name="type" value="pdf" <i class="fa fa-fw fa-file-pdf-o"></i>Download PDF</button>
+                                </div>
+                               
+                               
                                     </form>
 
                                 </div>

@@ -102,11 +102,16 @@
    var time = document.getElementById('zone').value;
    document.getElementById('waktu').value = time;
    }
+
+   get_data(1);
+
+   
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
             var page = $(this).data('ci-pagination-page');
             get_data(page);
         });
+        
 
         function get_data(page) {
             $('#list_jadwal_audit').html('<tr><td colspan="13" class="text-center" id="loading"></td></tr>');
