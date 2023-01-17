@@ -197,6 +197,113 @@ class laporan_auditor extends CI_Controller
             redirect('laporan_auditor/lap_audit_unit', 'refresh');
         }
     }
+
+    public function cetakunittemp()
+    {
+        $tgl = date('Ymd');
+        $cabang = $this->input->post('id_cabang');
+        $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $kacab = $this->input->post('kacab');
+        $tempat = $this->input->post('tempat');
+        $counter = $this->input->post('counter');
+        $auditor = $this->input->post('auditor');
+
+        $cab = $this->mlapaudit->getCabangbyId($cabang);
+        foreach ($cab as $c) {
+            $cab = $c['nama_cabang'];
+        }
+        $start = 0;
+        $cetak = $this->mlapaudit->auditPdf($cabang, $idjadwal_audit, $start);
+        if ($cetak != null) {
+            $tgl_awal = date('Y-m-d');
+            $tgl_akhir = '1900-01-01';
+            foreach ($cetak as $c) {
+                if ($tgl_awal > $c['tanggal_audit']) {
+                    $tgl_awal = $c['tanggal_audit'];
+                }
+
+                if ($tgl_akhir < $c['tanggal_audit']) {
+                    $tgl_akhir = $c['tanggal_audit'];
+                }
+            }
+
+            $pdf = new reportProduct();
+            $pdf->setKriteria('report');
+            $pdf->setNama($cab);
+            $pdf->AliasNbPages();
+            $pdf->AddPage('P', 'A4');
+            $pdf->SetFont('Times', 'B', '16');
+            $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
+            $pdf->SetFont('Times', '', '10');
+            $pdf->SetFont('Times', 'B', 10);
+            $pdf->ln();
+            $pdf->SetY(55);
+            $pdf->SetLineWidth(0.1);
+            $pdf->SetFillColor(0, 186, 242);
+            $pdf->SetFont('Times', 'B', 10);
+
+            $pdf->Cell(10, 5, 'Hasil Audit Sementara', 0, 1);
+            $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'No Mesin', 1, 0, 'C', true);
+            $pdf->Cell(28, 15, 'No Rangka', 1, 0, 'C', true);
+            $pdf->Cell(27, 15, 'Type Unit', 1, 0, 'C', true);
+            $pdf->Cell(20, 15, 'Umur Unit', 1, 0, 'C', true);
+            $pdf->Cell(35, 15, 'Lokasi', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'Status Unit', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'Keterangan', 1, 1, 'C', true);
+            $start = null;
+            $cetak = $this->mlapaudit->auditPdf(
+                $cabang,
+                $idjadwal_audit,
+                $start
+            );
+            $no = 1;
+            $pdf->SetFont('Times', '', 8);
+            foreach ($cetak as $c) {
+                $x = $pdf->GetX();
+                $pdf->myCell(8, 7, $x, $no);
+                $x = $pdf->GetX();
+                $pdf->myCell(25, 7, $x, $c['no_mesin']);
+                $x = $pdf->GetX();
+                $pdf->myCell(28, 7, $x, $c['no_rangka']);
+                $x = $pdf->GetX();
+                $pdf->myCell(27, 7, $x, $c['type']);
+                $x = $pdf->GetX();
+                $pdf->myCell(
+                    20,
+                    7,
+                    $x,
+                    $c['umur_unit'] == '' ? '-' : $c['umur_unit'] . ' tahun'
+                );
+                $x = $pdf->GetX();
+                $pdf->myCell(35, 7, $x, $c['nama_gudang']);
+                $x = $pdf->GetX();
+                $pdf->myCell(25, 7, $x, $c['status_unit']);
+                $x = $pdf->GetX();
+                $pdf->myCell(25, 7, $x, $c['keterangan']);
+                $pdf->ln();
+
+                $no++;
+            }
+            // foreach ($cetak as $c ) {
+            //         $pdf->Cell(8,7,$no,1,0, 'C');
+            //         $pdf->Cell(25,7,$c['no_mesin'],1,0);
+            //         $pdf->Cell(28,7,$c['no_rangka'],1,0);
+            //         $pdf->Cell(27,7,$c['type'],1,0);
+            //         $pdf->Cell(20,7,$c['umur_unit'],1,0,'C');
+            //         $pdf->Cell(25,7,$c['nama_lokasi'],1,0);
+            //         $pdf->Cell(25,7,$c['status_unit'],1,0);
+            //         $pdf->Cell(25,7,$c['keterangan'],1,1);
+
+            //         $no++;
+            //     }
+            $pdf->Output('D', 'REPORTUNIT-SEMENTARA-' . $tgl . '.pdf');
+            // $pdf->Output();
+        } else {
+            redirect('transaksi/audit_unit', 'refresh');
+        }
+    }
+
     public function cetakexcel()
     {
         $excel = new Spreadsheet();
@@ -1636,7 +1743,7 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFillColor(0, 186, 242);
             $pdf->SetFont('Times', 'B', 10);
 
-            $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
+            $pdf->Cell(40, 5, 'Hasil Audit Sementara', 0, 1);
             $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
             $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
             $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', true);
@@ -1666,7 +1773,7 @@ class laporan_auditor extends CI_Controller
             $pdf->Ln(5);
             $pdf->SetLineWidth(0.15);
             $tgl_now = date('d F Y');
-            $pdf->Output('D', 'REPORTPART-' . $tgl . '.pdf');
+            $pdf->Output('D', 'REPORTPART-SEMENTARA-' . $tgl . '.pdf');
             $pdf->Output();
         } else {
             redirect('transaksi/audit_part', 'refresh');

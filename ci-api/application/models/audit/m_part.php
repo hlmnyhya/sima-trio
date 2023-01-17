@@ -124,7 +124,7 @@ class M_Part extends CI_Model {
 
     public function updatePart($data, $id)
     {
-        $this->db->update('part', $data, ['part_number' => $id]);
+        $this->db->update('part', $data, ['id_part' => $id]);
         return $this->db->affected_rows();
     }
 
