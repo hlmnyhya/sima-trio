@@ -323,7 +323,7 @@ class Gudang extends CI_Controller
         $pdf->AliasNbPages();
         $pdf->AddPage("P", "A4");
 
-        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 15, 20, 20, 20);
+        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 13, 10, 18, 15);
         $detail = $this->mbarcode->getPart($id);
         foreach ($detail as $d) {
             $part = $d['part_number'];
@@ -331,43 +331,38 @@ class Gudang extends CI_Controller
         }
         $i = 1;
         // while($i= 1){
-        $pdf->Rect(13, 18, 70, 25);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->SetXY(35, 25);
+        $pdf->Rect(13, 10, 43, 15);
+        $pdf->SetFont('Arial', 'B', 6);
+        $pdf->SetXY(33, 15);
         $pdf->cell(0, 0, "Part Number", 0, 1);
-        $pdf->SetFont('Arial', 'B', 18);
-        $pdf->SetXY(35, 30);
+        $pdf->SetXY(33, 18);
         $pdf->cell(0, 0, $part, 0, 1);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->SetXY(35, 35);
+        $pdf->SetXY(33, 21);
         $pdf->cell(0, 0, $desc, 0, 1);
-        //     $i++;
-        // }
-        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 95, 20, 20, 20);
-        $pdf->Rect(93, 18, 70, 25);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->SetXY(115, 25);
+
+        $pdf->Image(FCPATH . 'assets/images/' . $image_name, 64, 10, 18, 15);
+        $pdf->Rect(64, 10, 43, 15);
+        $pdf->SetFont('Arial', 'B', 6);
+        $pdf->SetXY(84, 15);
         $pdf->cell(0, 0, "Part Number", 0, 1);
-        $pdf->SetFont('Arial', 'B', 18);
-        $pdf->SetXY(115, 30);
+        $pdf->SetXY(84, 18);
         $pdf->cell(0, 0, $part, 0, 1);
-        $pdf->SetFont('Arial', 'B', 10);
-        $pdf->SetXY(115, 35);
+        $pdf->SetXY(84, 21);
         $pdf->cell(0, 0, $desc, 0, 1);
 
         // $code='12345678901234567890';
-        $pdf->Code128(15, 45, $id, 65, 15);
-        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Code128(15, 27, $id, 37, 8);
+        $pdf->SetFont('Arial', 'B', 8);
 
-        $pdf->Rect(13, 43, 70, 25);
-        $pdf->SetXY(14, 62);
+        $pdf->Rect(13, 25, 43, 15);
+        $pdf->SetXY(14, 35);
         $pdf->Write(5, 'Part Number. ' . $id);
 
-        $pdf->Code128(95, 45, $id, 65, 15);
-        $pdf->SetFont('Arial', 'B', 14);
+        $pdf->Code128(66, 27, $id, 37, 8);
+        $pdf->SetFont('Arial', 'B', 8);
 
-        $pdf->Rect(93, 43, 70, 25);
-        $pdf->SetXY(94, 62);
+        $pdf->Rect(64, 25, 43, 15);
+        $pdf->SetXY(65, 35);
         $pdf->Write(5, 'Part Number. ' . $id);
         // $pdf->Output('D','REPORT-'.$stat.'.pdf');
         header("Content-type: application/PDF");
@@ -422,30 +417,30 @@ class Gudang extends CI_Controller
             }
         }
         $i = 1;
-        $pdf->Rect(13, 18, 120, 30);
-        $pdf->Rect(13, 18, 35, 30);
-        $pdf->Rect(70, 21.5, 55, 6);
-        $pdf->Rect(70, 30, 55, 6);
-        $pdf->Rect(70, 38, 55, 6);
-        $pdf->SetFont('Arial', '', 9);
+        $pdf->Rect(13, 18, 90, 30);
+        // $pdf->Rect(13, 18, 35, 30);
+        $pdf->Rect(64, 21.5, 35, 4);
+        $pdf->Rect(64, 30, 35, 4);
+        $pdf->Rect(64, 38, 35, 4);
+        $pdf->SetFont('Arial', '', 6);
         $pdf->SetXY(42, 25);
         $pdf->cell(0, 0, "Trio Asset Code  ", 0, 1);
-        $pdf->SetXY(70, 25);
+        $pdf->SetXY(65, 24);
         $pdf->cell(0, 0, $part, 0, 1);
         $pdf->SetXY(42, 33);
         $pdf->cell(0, 0, "Type ", 0, 1);
-        $pdf->SetXY(70, 33);
+        $pdf->SetXY(65, 32);
         $pdf->cell(0, 0, $sub, 0, 1);
         $pdf->SetXY(42, 41);
         $pdf->cell(0, 0, "Lokasi ", 0, 1);
-        $pdf->SetXY(70, 41);
+        $pdf->SetXY(65, 40);
         $pdf->cell(0, 0, $lokasi, 0, 1);
 
-        $pdf->Code128(15, 50, $id2, 100, 17);
-        $pdf->SetFont('Arial', 'B', 13.5);
+        $pdf->Code128(15, 50, $id2, 86, 15);
+        // $pdf->SetFont('Arial', 'B', 13.5);
 
-        $pdf->Rect(13, 48, 120, 25);
-        $pdf->SetXY(14, 68);
+        $pdf->Rect(13, 48, 90, 22);
+        $pdf->SetXY(14, 65);
         $pdf->Write(5, 'Trio Asset Code. ' . $id2);
         header("Content-type: application/PDF");
         // $pdf->Output('D','QRCODE.pdf');
