@@ -119,7 +119,7 @@
 
         });
 
-        $('keterangan').change(function() {
+        $('#keterangan').change(function() {
             var tes = $(this).val();
             console.log(tes);
 

@@ -2089,7 +2089,8 @@ function __construct() {
 
     // controller untuk audit part
     public function AuditPart_get(){
-        $id= $this->get('id');
+        $id= $this->get('id')
+        ;
         $offset = $this->get('offset');
         
         if ($id===null) {
