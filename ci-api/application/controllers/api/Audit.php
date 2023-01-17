@@ -587,7 +587,7 @@ function __construct() {
 
     public function listaudpart_put()
     {
-        $id= $this->put('id_part');
+        $id = $this->put('id_part');
             $data =[
                 'part_number' => $this->put('part_number'),
                 'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
@@ -598,11 +598,18 @@ function __construct() {
                 'keterangan' =>$this->put('keterangan'),
                 'qty' =>$this->put('qty'),
                 'status' => $this->put('status'),
+<<<<<<< HEAD
                 // 'penanggung_jawab' => $this->put('penanggung_jawab'),
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
             
+=======
+                'edit_by' => $this->put('user'),
+                'tanggal_edit' => $this->_tgl
+            ];
+            // var_dump($id);exit;
+>>>>>>> 655de491fcbfcc6054e96123869ba3e4be22f0bf
     
         if ($id===null) {
             $this->response([

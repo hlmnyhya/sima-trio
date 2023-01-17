@@ -14,19 +14,33 @@
                             <button type="submit" class="btn btn-success btn-m" id="btn-simpan">Simpan</button>
                         </div>
 
-                    </div>-
+                    </div>
                     <div class="panel-body form-horizontal">
                         <div class="form-group">
-                            <div class="col-sm-10"><input type="hidden" class="form-control" name="id_part" id="id_part"  value="<?php echo $edit_part['id_part'] ?>" readonly></input></div>
+                            <div class="col-sm-10">
+                                <input type="hidden" class="form-control" name="id_part" id="id_part"  value="<?php echo $edit_part['id_part'] ?>" readonly></input>
+                            </div>
                         </div>
 
                         <div class="form-group"><label class="col-sm-2 control-label">Cabang</label>
-                            <div class="col-sm-10"><input type="text" readonly class="form-control" name="id_cabang" id="id_cabang" value="<?php echo $edit_part['id_cabang'] ?>"></input>
+                            <div class="col-sm-10">
+                                <input type="text" readonly class="form-control" name="id_cabang" id="id_cabang" value="<?php echo $edit_part['id_cabang'] ?>">
+                            </input>
                             </div>
                         </div>
 
                         <div class="form-group"><label class="col-sm-2 control-label">LOKASI</label>
-                        <div class="col-sm-10"><select class="form-control" name="id_lokasi" id="OptLokasi"  value="<?php echo $edit_part['id_lokasi'] ?>"></select></div>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="id_lokasi" id="OptLokasi"  value="<?php echo $edit_part['id_lokasi'] ?>"> </select>
+                      </div>
+                        </div>
+
+                        
+
+                        <div class="form-group"><label class="col-sm-2 control-label">DESKRIPSI</label>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" name="deskripsi" id="deskripsi" value="<?php echo $edit_part['deskripsi'] ?>">
+                        </div>
                         </div>
 
                         <div class="form-group" ><label class="col-sm-2 control-label">PART NUMBER</label>
@@ -35,11 +49,34 @@
                         </div>
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">KD BIN BOX</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" name="kd_lokasi_rak" id="kd_lokasi_rak" value="<?php echo $edit_part['kd_lokasi_rak'] ?>"></div>
+                        <div class="col-sm-10">
+                            <select class="form-control" name="kd_lokasi_rak" id="rakbin" value="<?php  echo  $edit_part['kd_lokasi_rak'] ?>"></select>
                         </div>
+                        </div>
+                        <div class="hidden" id="rakbin_baru">
+                                                <label class="col-sm-2 control-label">Rak Bin Baru </label>
+                                                <div class="col-sm-10">
+                                                <input type="text" class="form-control" name="rakbin" id="optRakbin" >
+
+                                                </div>
+                                            </div>
 
                         <div class="form-group"><label class="col-sm-2 control-label">QTY</label>
-                            <div class="col-sm-10"><input type="text" class="form-control" name="qty" id="qty" value="<?php echo $edit_part['qty'] ?>"></div>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="qty" id="qty" value="<?php echo $edit_part['qty'] ?>">
+                            </div>
+                        </div>
+
+                        <div class="form-group "><label class="col-sm-2 control-label">KETERANGAN</label>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="keterangan" id="keterangan" >
+                                    <option value="">--Keterangan--</option>
+                                    <option value="Part Sesuai" <?php if ($edit_part['keterangan'] == 'Part Sesuai') echo 'selected' ?>>Part Sesuai</option>
+                                    <option value="Part Lebih" <?php if ($edit_part['keterangan'] == 'Part Lebih') echo 'selected' ?>>Part Lebih</option>
+                                    <option value="Part Kurang" <?php if ($edit_part['keterangan'] == 'Part Kurang') echo 'selected' ?>>Part Kurang</option>
+                                </select>
+                                <!-- <input type="text" class="form-control" name="keterangan" id="keterangan" value="<?php echo $edit_part['keterangan'] ?>"> -->
+                            </div>
                         </div>
 
                         <div class="form-group "><label class="col-sm-2 control-label">STATUS</label>
@@ -54,15 +91,15 @@
                             </div>
                         </div>
                         <div class="form-group "><label class="col-sm-2 control-label">KONDISI</label>
-                            <div class="col-sm-10"><input type="text" class="form-control" name="kondisi" id="kondisi" value="<?php echo $edit_part['kondisi'] ?>"></div>
+                            <div class="col-sm-10">
+                                <select class="form-control" name="kondisi" id="kondisi" >
+                                    <option value="">--Kondisi--</option>
+                                    <option value="Baik" <?php if ($edit_part['kondisi'] == 'Baik') echo 'selected' ?>>Baik</option>
+                                    <option value="Rusak" <?php if ($edit_part['kondisi'] == 'Rusak') echo 'selected' ?>>Rusak</option>
+                                </select>
+                                <!-- <input type="text" class="form-control" name="kondisi" id="kondisi" value="<?php echo $edit_part['kondisi'] ?>">
+                            </div> -->
                         </div>
-                        <div class="form-group "><label class="col-sm-2 control-label">KETERANGAN</label>
-                            <div class="col-sm-10"><input type="text" class="form-control" name="keterangan" id="keterangan" value="<?php echo $edit_part['keterangan'] ?>"></div>
-                        </div>
-
-                        <div class="form-group"><label class="col-sm-2 control-label">DESKRIPSI</label>
-                        <div class="col-sm-10"><input type="text" class="form-control" name="deskripsi" id="deskripsi" value="<?php echo $edit_part['deskripsi'] ?>"></div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
