@@ -235,10 +235,10 @@ function __construct() {
         $id= $this->get('id');
         
         if ($id===null) {
-            $part= $this->mpart->GetPart();
+            $part= $this->mpart->GetPartBarcode();
             
         }else{
-            $part= $this->mpart->GetPart($id);
+            $part= $this->mpart->GetPartBarcode($id);
 
         }
         if ($part) {

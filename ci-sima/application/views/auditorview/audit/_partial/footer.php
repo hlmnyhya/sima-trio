@@ -150,7 +150,7 @@
                         window.opener.location.reload(true);
                         window.close();
                     } else {
-                        window.alert('Audit Scan Succsessful');
+                        window.alert('Audit Scan Failed');
                         window.opener.location.reload(true);
                         window.close();
                     }
