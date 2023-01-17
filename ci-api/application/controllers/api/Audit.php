@@ -602,7 +602,7 @@ function __construct() {
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
-            // var_dump($data);exit;
+            
     
         if ($id===null) {
             $this->response([
@@ -2089,7 +2089,8 @@ function __construct() {
 
     // controller untuk audit part
     public function AuditPart_get(){
-        $id= $this->get('id');
+        $id= $this->get('id')
+        ;
         $offset = $this->get('offset');
         
         if ($id===null) {

@@ -65,7 +65,8 @@
                         </div>
 
                         <div class="form-group"><label class="col-sm-2 control-label">Keterangan</label>
-                            <div class="col-sm-10"><select name="keterangan" id="keterangan" class="form-control">
+                            <div class="col-sm-10">
+                                <select name="keterangan" id="keterangan" class="form-control">
                                     <option value="">--Keterangan--</option>
                                     <option value="Terjual" <?php if ($edit['keterangan'] == 'Terjual') echo 'selected'; ?>>Terjual</option>
                                     <option value="Penjualan Antar Cabang" <?php if ($edit['keterangan'] == 'Penjualan Antar Cabang') echo 'selected'; ?>>Penjualan Antar Cabang</option>
