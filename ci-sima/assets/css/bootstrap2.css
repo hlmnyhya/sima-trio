@@ -1785,12 +1785,12 @@ a.bg-warning:focus {
 }
 
 .bg-danger {
-  background-color: #323131;
+  background-color: #f5f4f4;
 }
 
 a.bg-danger:hover,
 a.bg-danger:focus {
-  background-color: #383737;
+  background-color: #f7f4f4;
 }
 
 .page-header {

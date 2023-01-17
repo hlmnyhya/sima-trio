@@ -11,7 +11,7 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-body">
-                                <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakpart" method="post">
+                                <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakparttemp" method="post">
                                         <div class="col-sm-4">
                                             <label>Cabang</label>
                                             <div class="form-group">
@@ -28,9 +28,7 @@
                                 <div class="col-sm-4 m-t-md">
                                     <a id="previewpart" class="btn btn-success">Preview</a>
                                     <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a> -->
-                                    <div class="form-group">
-                                            <button type="submit" class="btn btn-danger btn-block" id="type" name="type" value="pdf">OK</button>
-                                        </div>
+                                    <button type="submit" class="btn btn-danger xshow" id="type" name="type" value="pdf" <i class="fa fa-fw fa-file-pdf-o"></i>Download PDF</button>
                                 </div>
                                     </form>
 

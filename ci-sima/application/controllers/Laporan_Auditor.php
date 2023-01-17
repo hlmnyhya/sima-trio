@@ -1589,6 +1589,90 @@ class laporan_auditor extends CI_Controller
         }
     }
 
+    public function cetakparttemp()
+    {
+        $tgl = date('Ymd');
+        $cabang = $this->input->post('id_cabang');
+        $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $kacab = $this->input->post('kacab');
+        $tempat = $this->input->post('tempat');
+        $counter = $this->input->post('counter');
+        $auditor = $this->input->post('auditor');
+        $tgl_awal = '';
+        $tgl_akhir = '';
+
+        $cab = $this->mlapaudit->getCabangbyId($cabang);
+        foreach ($cab as $c) {
+            $cab = $c['nama_cabang'];
+        }
+        $start = 0;
+        $cetak = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
+
+        if ($cetak != null) {
+            $tgl_awal = date('Y-m-d');
+            $tgl_akhir = '1900-01-01';
+            foreach ($cetak as $c) {
+                if ($tgl_awal > $c['tanggal_audit']) {
+                    $tgl_awal = $c['tanggal_audit'];
+                }
+
+                if ($tgl_akhir < $c['tanggal_audit']) {
+                    $tgl_akhir = $c['tanggal_audit'];
+                }
+            }
+            $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
+
+            $pdf = new reportProduct();
+            $pdf->setKriteria('report');
+            $pdf->setNama($cab);
+            $pdf->AliasNbPages();
+            $pdf->AddPage('P', 'A4');
+            $pdf->SetFont('Times', 'B', '16');
+            $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
+            $pdf->SetFont('Times', '', '10');
+            $pdf->ln();
+            $pdf->SetY(55);
+            $pdf->SetLineWidth(0.1);
+            $pdf->SetFillColor(0, 186, 242);
+            $pdf->SetFont('Times', 'B', 10);
+
+            $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
+            $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
+            $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
+            $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', true);
+            $pdf->Cell(40, 15, 'DESKRIPSI', 1, 0, 'C', true);
+            $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', true);
+            $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', true);
+            $start = null;
+
+            $no = 1;
+            $pdf->SetFont('Times', '', 9);
+            foreach ($cetak as $c) {
+                $pdf->Cell(8, 8, $no, 1, 0, 'C');
+                // $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
+                $x = $pdf->GetX();
+                $pdf->myCell(55, 8, $x, $c['nama_gudang']);
+                $x = $pdf->GetX();
+                $pdf->myCell(28, 8, $x, $c['part_number']);
+                $x = $pdf->GetX();
+                $pdf->myCell(40, 8, $x, $c['deskripsi']);
+                $x = $pdf->GetX();
+                $pdf->myCell(30, 8, $x, $c['kd_lokasi_rak']);
+                $x = $pdf->GetX();
+                $pdf->myCell(25, 8, $x, $c['qty']);
+                $pdf->ln();
+                $no++;
+            }
+            $pdf->Ln(5);
+            $pdf->SetLineWidth(0.15);
+            $tgl_now = date('d F Y');
+            $pdf->Output('D', 'REPORTPART-' . $tgl . '.pdf');
+            $pdf->Output();
+        } else {
+            redirect('transaksi/audit_part', 'refresh');
+        }
+    }
+
     public function Filter_Cabang()
     {
         $data = [
@@ -1647,6 +1731,7 @@ class laporan_auditor extends CI_Controller
         $this->load->view('auditorview/laporan_part/_partial/footer.php');
     }
 
+    
     public function Lap_Perlokasi()
     {
         $data = [

@@ -1,6 +1,7 @@
 <?php
 
 use GuzzleHttp\Client;
+use Symfony\Component\VarDumper\VarDumper;
 
 defined('BASEPATH') or exit('No direct script access allowed');
 
@@ -80,6 +81,7 @@ class M_Transaksi_Auditor extends CI_Model
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data']['0'];
         } else {
@@ -231,6 +233,8 @@ class M_Transaksi_Auditor extends CI_Model
         $result = json_decode($respon->getBody()->getContents(), true);
         $base = base_url();
 
+        // var_dump($result);exit;
+
         $output = '';
         $aksi = '';
         if ($result['status'] == true) {
@@ -288,6 +292,7 @@ class M_Transaksi_Auditor extends CI_Model
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
         $base = base_url();
 
         $output = '';
@@ -569,6 +574,8 @@ class M_Transaksi_Auditor extends CI_Model
             'form_params' => $data
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
+        
+        // var_dump($result);exit;
 
         if ($result['status'] == true) {
             return $result['data'];
