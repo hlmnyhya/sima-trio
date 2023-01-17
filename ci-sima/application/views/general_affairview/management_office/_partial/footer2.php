@@ -226,6 +226,7 @@
         }
 
         var asal = "<?php echo $asal ?>";
+        console.log(asal);
 
         if (asal == 'ST004') {
             $('#hadiah').removeClass('hidden');

@@ -12,7 +12,7 @@ class M_Part extends CI_Model {
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
-            $this->db->where('part_number', $id);
+            $this->db->where('id_part', $id);
              
             $result = $this->db->get()->result();
 
@@ -22,7 +22,7 @@ class M_Part extends CI_Model {
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
-            $this->db->where('part_number', $id);
+            $this->db->where('id_part', $id);
             
             
             
@@ -193,7 +193,7 @@ class M_Part extends CI_Model {
             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
             $this->db->where("a.id_cabang='$a' AND a.idjadwal_audit = '$b' ");
-            $this->db->limit(15,$e);
+            $this->db->limit(15);
             $this->db->offset($e);
 
             return $this->db->get()->result();

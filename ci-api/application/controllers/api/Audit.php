@@ -589,12 +589,20 @@ function __construct() {
     {
         $id= $this->put('id_part');
             $data =[
-                'qty' =>$this->put('qty'),
+                'part_number' => $this->put('part_number'),
+                'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
+                'deskripsi' => $this->put('deskripsi'),
+                'id_cabang' => $this->put('id_cabang'),
+                'id_lokasi' => $this->put('id_lokasi'),
+                'kondisi' => $this->put('kondisi'),
                 'keterangan' =>$this->put('keterangan'),
+                'qty' =>$this->put('qty'),
+                'status' => $this->put('status'),
+                'penanggung_jawab' => $this->put('penanggung_jawab'),
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
-            // var_dump($data);exit;
+            var_dump($data);exit;
     
         if ($id===null) {
             $this->response([
