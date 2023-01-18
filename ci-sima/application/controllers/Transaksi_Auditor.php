@@ -769,7 +769,7 @@ class Transaksi_Auditor extends CI_Controller
                                     <td class="text-center">' .
                         $start .
                         '</td>
-                                    <td></td>
+                                   
                                     <td class="text-center">' .
                         $list['no_mesin'] .
                         '</td>
@@ -868,7 +868,7 @@ class Transaksi_Auditor extends CI_Controller
                                         <td class="text-center">' .
                             $start .
                             '</td>
-                                        <td></td>
+                
                                         <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -966,7 +966,7 @@ class Transaksi_Auditor extends CI_Controller
                                         <td class="text-center">' .
                             $start .
                             '</td>
-                                        <td></td>
+
                                         <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -1145,7 +1145,6 @@ class Transaksi_Auditor extends CI_Controller
                                     <td class="text-center">' .
                             $start .
                             '</td>
-                                    <td></td>
                                     <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -1244,7 +1243,6 @@ class Transaksi_Auditor extends CI_Controller
                                         <td>' .
                                 $start .
                                 '</td>
-                                        <td></td>
                                         <td>' .
                                 $list['no_mesin'] .
                                 '</td>
@@ -1340,8 +1338,7 @@ class Transaksi_Auditor extends CI_Controller
                             <tr> 
                                 <td>' .
                         $start .
-                        '</td>
-                                <td></td>
+                        '</td>`
                                 <td>' .
                         $list['no_mesin'] .
                         '</td>
@@ -1931,6 +1928,8 @@ class Transaksi_Auditor extends CI_Controller
         $qty = $this->input->post('qty');
         $status = $this->input->post('status');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $output = '';
+        $info = '';
         $data = [
             'id' => $this->input->post('id'),
             'id_cabang' => $cabang,
@@ -1945,14 +1944,16 @@ class Transaksi_Auditor extends CI_Controller
             'idjadwal_audit' => $this->input->post('idjadwal_audit'),
         ];
 
+        // VAR_DUMP($data);exit;
+
         $cek = $this->mtransauditor->cekPart(
             $scanpart,
             $cabang,
             $idjadwal_audit
         );
         if ($cek) {
-            $info = 'Data Berhasil diaudit';
-            if ($this->mtransauditor->addScanPart($data)) {      
+            if ($this->mtransauditor->addScanPart($data)) {    
+                $info = 'Data Berhasil diaudit';  
                 $output = '';
                 $count = $this->mtransauditor->countpart1(
                     $cabang,
