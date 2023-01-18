@@ -5,14 +5,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class M_Part extends CI_Model {
 
-    public function GetPart($id=null)
+    public function GetPart($id=null, $offset = null)
     {
         if ($id === null) {
             $this->db->select('part.*,nama_cabang, nama_gudang');
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
-            $this->db->where('id_part', $id);
+            $this->db->limit(15);
+            $this-> db->offset($offset);
              
             $result = $this->db->get()->result();
 
@@ -30,8 +31,9 @@ class M_Part extends CI_Model {
 
             return $result;
         }
-        
     }
+
+    
 
     public function GetPartBarcode($id=null)
     {

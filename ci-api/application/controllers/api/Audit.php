@@ -1288,7 +1288,9 @@ function __construct() {
         }else{
             $cabang = $this->get('id_cabang');
             $idjadwal_audit = $this->get('idjadwal_audit');
-            $time = date('Y-m-d H:i:s');
+            // $time = $this->get('time');
+            // var_dump($time);exit;
+
             // $cabang='T13';
             $list =$this->mtemppart->getTempPart(null,$cabang, $idjadwal_audit);
            if ($list!=false) {
