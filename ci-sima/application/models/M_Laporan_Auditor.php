@@ -464,7 +464,11 @@ class M_Laporan_Auditor extends CI_Model
     }
     public function auditPart($cabang, $idjadwal_audit, $start)
     {
+<<<<<<< HEAD
         $respon =  $this->_client->request('GET', 'previewpart2', [
+=======
+        $respon =  $this->_client->request('GET', 'previewpart', [
+>>>>>>> 9b51a95f6a931ced9f9d354156790baae31645e5
             'query' => [
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit,
@@ -480,7 +484,7 @@ class M_Laporan_Auditor extends CI_Model
                 $start++;
                 $output .= '
                     <tr>
-                    <td>' . $start. '</td>
+                    <td>' . $start . '</td>
                     <td>' . $res['nama_gudang'] . '</td>
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
