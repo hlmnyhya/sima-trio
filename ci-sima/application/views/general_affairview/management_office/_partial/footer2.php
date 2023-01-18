@@ -335,29 +335,27 @@
 
 
         })
-        $('#OptCabang').load("<?php echo base_url() ?>transaksi_ga/ajax_get_cabang2/<?php echo $cabang ?>");
+        $('#OptCabang').load("<?php echo base_url() ?>transaksi_ga/ajax_get_cabang2/<?php Echo $cabang ?>" );
+       
 
-        $('#OptCabang').on('change', function() {
-            var id_cabang = $('#OptCabang').val();
-            $('#load').html('<span class="loading dots"></span>');
-            if (id_cabang == "") {
-                $('#OptLokasi').prop('disabled', true);
-            } else {
-                $('#OptLokasi').prop('disabled', false);
-                $('#load').html('<span class="loading dots"></span>');
+        $('#OptCabang').change(function() {
+            var id_cabang = $(this).val();
+            $('#OptLokasi').html('');
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    id_cabang: id_cabang
+                },
+                url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_aset/ <?php echo $lokasi?>",
+                success: function(data) {
+                    $('#OptLokasi').html(data);
+                    // $('#Op').select2();
 
-                $.ajax({
-                    url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_lokasi2",
-                    type: "POST",
-                    data: {
-                        'id_cabang': id_cabang
-                    },
-                    success: function(data) {
-                        $('#OptLokasi').html(data);
-                    }
-                });
-            }
-        })
+                } 
+            });
+            console.log(id_cabang);
+        });
 
         function search() {
             var username = $('#username').val();

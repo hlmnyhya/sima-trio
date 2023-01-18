@@ -462,13 +462,13 @@ class M_Laporan_Auditor extends CI_Model
         }
         return $output;
     }
-    public function auditPart($a, $b, $d)
+    public function auditPart($cabang, $idjadwal_audit, $start)
     {
-        $respon =  $this->_client->request('GET', 'partvalid', [
+        $respon =  $this->_client->request('GET', 'previewpart2', [
             'query' => [
-                'id_cabang' => $a,
-                'idjadwal_audit' => $b,
-                'offset' => $d
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'offset' => $start
             ]
         ]);
 
@@ -477,10 +477,10 @@ class M_Laporan_Auditor extends CI_Model
         $output = '';
         if ($result['status'] == true) {
             foreach ($result['data'] as $res) {
-                $d++;
+                $start++;
                 $output .= '
                     <tr>
-                    <td>' . $d . '</td>
+                    <td>' . $start. '</td>
                     <td>' . $res['nama_gudang'] . '</td>
                     <td>' . $res['part_number'] . '</td>
                     <td>' . $res['deskripsi'] . '</td>
@@ -491,7 +491,6 @@ class M_Laporan_Auditor extends CI_Model
                     <td>' . $res['kondisi'] . '</td>
                     <td>' . $res['keterangan'] . '</td>
                     <td>' . $res['tanggal_audit'] . '</td>
-                   
                     </tr>
                 ';
             }

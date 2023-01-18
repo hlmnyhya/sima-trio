@@ -279,37 +279,32 @@ class M_Transaksi_Auditor extends CI_Model
         return $output;
     }
 
-    public function previewPart($a, $b,$c, $d, $e)
+    public function previewPart($cabang, $idjadwal_audit, $start)
     {
-        $respon =  $this->_client->request('GET', 'previewpart', [
+        $respon =  $this->_client->request('GET', 'previewpart2', [
             'query' => [
-                'id_cabang' => $a,
-                'idjadwal_audit' => $b,
-                'status' => $c,
-                'kondisi' => $d,
-                'status'=> $f,
-                'offset' => $e
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'offset' => $start
             ]
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
-        // var_dump($result);exit;
         $base = base_url();
 
         $output = '';
-        $aksi = '';
         if ($result['status'] == true) {
             foreach ($result['data'] as $res) {
-
+                $start++;
                 $aksi = '
                     <a href="' . $base . 'transaksi_auditor/edit_part?id=' . 
                     base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . 
                     '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
-                $e++;
+                
                 $output .= '
                     <tr>
-                    <td>' . $e . '</td>
+                    <td>' . $start . '</td>
                     <td>' . $aksi . '</td>
                     <td>' . $res['nama_cabang'] . '</td>
                     <td>' . $res['nama_gudang' ] . '</td>
@@ -325,7 +320,7 @@ class M_Transaksi_Auditor extends CI_Model
             }
         } else {
             $output .= '
-                <tr><td colspan="24" class="text-center">Data not found.</td></tr>
+                <tr><td colspan="8" class="text-center">Data not found.</td></tr>
             ';
         }
         return $output;
