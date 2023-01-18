@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title><?php echo SITE_NAME ?> | <?php echo $judul ?></title>
-    <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>assets/images/icon.png" />
+    <link rel="shortcut icon" type="image/png" href="<?php echo base_url() ?>assets/images/favicon.ico" />
     <link href="<?php echo base_url() ?>assets/css/plugins/awesome-bootstrap-checkbox/awesome-bootstrap-checkbox.css" rel="stylesheet">
      <!-- <link href="<?php echo base_url() ?>assets/css-4/bootstrap.min.css" rel="stylesheet"> -->
     <link href="<?php echo base_url() ?>assets/css/bootstrap.min.css" rel="stylesheet">

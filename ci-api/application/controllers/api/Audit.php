@@ -598,18 +598,10 @@ function __construct() {
                 'keterangan' =>$this->put('keterangan'),
                 'qty' =>$this->put('qty'),
                 'status' => $this->put('status'),
-<<<<<<< HEAD
-                // 'penanggung_jawab' => $this->put('penanggung_jawab'),
-                'edit_by' => $this->put('user'),
-                'tanggal_edit' => $this->_tgl
-            ];
-            
-=======
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
             // var_dump($id);exit;
->>>>>>> 655de491fcbfcc6054e96123869ba3e4be22f0bf
     
         if ($id===null) {
             $this->response([
@@ -1296,7 +1288,9 @@ function __construct() {
         }else{
             $cabang = $this->get('id_cabang');
             $idjadwal_audit = $this->get('idjadwal_audit');
-            $time = date('Y-m-d H:i:s');
+            // $time = $this->get('time');
+            // var_dump($time);exit;
+
             // $cabang='T13';
             $list =$this->mtemppart->getTempPart(null,$cabang, $idjadwal_audit);
            if ($list!=false) {

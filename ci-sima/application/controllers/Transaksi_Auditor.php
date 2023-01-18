@@ -677,12 +677,7 @@ class Transaksi_Auditor extends CI_Controller
             'kondisi' => $this->input->post('kondisi'),
             'keterangan' => $this->input->post('keterangan'),
             'qty' => $this->input->post('qty'),
-<<<<<<< HEAD
-            'status' => 'Sesuai'
-            // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
-=======
             'status' => $this->input->post('status')
->>>>>>> 655de491fcbfcc6054e96123869ba3e4be22f0bf
         ];
         // var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {
@@ -1150,7 +1145,6 @@ class Transaksi_Auditor extends CI_Controller
                                     <td class="text-center">' .
                             $start .
                             '</td>
-                                    <td></td>
                                     <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>

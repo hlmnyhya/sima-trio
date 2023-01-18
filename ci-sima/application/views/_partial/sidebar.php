@@ -2,7 +2,7 @@
         <div class="sidebar-collapse">
             <ul class="nav metismenu" id="side-menu">
                 <li class="nav-header text-white text-center">
-                    <img src="<?php echo base_url(); ?>assets/images/icon.png" width="25px" height="25px"></img>
+                    <img src="<?php echo base_url(); ?>assets/images/icon.png" width="50px" height="50px"></img>
                     <h3>SIMA</h3>
                 </li>
                 <li class="<?php if ($this->uri->segment(1) == 'dashboard') {
