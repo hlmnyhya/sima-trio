@@ -275,7 +275,7 @@
 
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
-            var rakbin = $('#rakbin_baru').val();
+            var rakbin = $('#rakbinBaru').val();
             var lokasi = $('#id_lokasi').val();
             var kondisi = $('#kondisi_baru').val();
             var qty = $('#qty_manual').val();
@@ -297,7 +297,7 @@
                 url: "<?php echo base_url() ?>transaksi_auditor/doPart",
                 success: function(data) {
                     console.log(data);
-                    $('#rakbin_baru').val('');
+                    $('#rakbinBaru').val('');
                     $('#part_number').val('');
                     $('#qty_manual').val('');
                     $('#doCariPart').attr('disabled', false);
@@ -361,7 +361,6 @@
             console.log(kondisi);
             
             var lokasi = $('#id_lokasi').val();
-            var rakbin = $('#rakbin').val();
 
             $('#audit_part').html('<tr> <td colspan="13" id="loading"></td></tr>');
             if (cari != '') {
