@@ -32,7 +32,7 @@
                                 </div>
                             </div>
 
-                            <div class="form-group"><label class="col-sm-3 control-label">Sub Inventory <span id="load1"></span></label>
+                            <div class="form-group"><label class="col-sm-3 control-label">Sub Inventory <span id=""></span></label>
                                 <div class="col-sm-9"><select class="form-control m-b" name="idsub_inventory" id="OptSubInv" disabled>
 
                                 </select>
@@ -120,7 +120,7 @@
                             </div>
 
 
-                            <div class="form-group"><label class="col-sm-3 control-label">Lokasi Aset GA<span id="load"></span></label>
+                            <div class="form-group"><label class="col-sm-3 control-label">Lokasi Aset GA<span id=""></span></label>
                                 <div class="col-sm-9"><select class="form-control m-b" name="id_lokasi" id="OptLokasi" disabled>
                                     </select>
 
