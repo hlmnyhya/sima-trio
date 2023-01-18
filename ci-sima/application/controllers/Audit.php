@@ -183,16 +183,18 @@ class Audit extends CI_Controller
     {
         $output = '';
         $hapus = '';
+        $id = $this->input->post('id');
+        $limit = $this->input->post('limit');
         $base = base_url();
         $config['base_url'] = base_url() . 'audit/list_audit';
         $count = $this->maudit->countjadwalaudit();
         $this->load->library('pagination');
 
         $config['total_rows'] = $count;
-        $config['per_page'] = 100;
+        $config['per_page'] = 15;
         $config['uri_segment'] = 3;
         $config['use_page_numbers'] = true;
-        $config['num_links'] = 2;
+        $config['num_links'] = 3;
 
 
 
@@ -235,7 +237,7 @@ class Audit extends CI_Controller
         $start = ($page - 1) * $config['per_page'];
 
         // var_dump($start);exit;
-        $listJadwalAudit = $this->maudit->getAudit($start, $config['per_page']);
+        $listJadwalAudit = $this->maudit->getAudit($start, $limit );
         // var_dump($listJadwalAudit);exit;
         if ($listJadwalAudit) {
             foreach ($listJadwalAudit as $list) {

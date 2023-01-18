@@ -73,11 +73,11 @@ function __construct() {
         $id= $this->get('id');
         $offset = $this->get('offset');
         
-        if ($id===null) {
+        if ($id===null && $offset===null) {
             $audit= $this->maudit->GetAudit(null,$offset);
             
         }else{
-            $audit= $this->maudit->GetAudit($id);
+            $audit= $this->maudit->GetAudit($id, $offset);
 
         }
         if ($audit) {
@@ -1826,10 +1826,8 @@ function __construct() {
     {
         $cabang= $this->get('id_cabang');
         $idjadwal_audit= $this->get('idjadwal_audit');
-        $status = $this->get('status');
-        $kondisi = $this->get('kondisi');
         $offset = $this->get('offset');
-        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit, $kondisi, $status, $offset);
+        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit, $offset);
         if ($tampil) {
             $this->response([
                 'status' => true,
@@ -1843,6 +1841,27 @@ function __construct() {
             
         }
     }
+
+    public function previewPart2_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $offset = $this->get('offset');
+        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit, $offset);
+        if ($tampil) {
+            $this->response([
+                'status' => true,
+                'data' => $tampil
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
     public function previewUnitNotReady_get()
     {
         $cabang= $this->get('id_cabang');
