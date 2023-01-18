@@ -587,7 +587,7 @@ function __construct() {
 
     public function listaudpart_put()
     {
-        $id= $this->put('id_part');
+        $id = $this->put('id_part');
             $data =[
                 'part_number' => $this->put('part_number'),
                 'kd_lokasi_rak' => $this->put('kd_lokasi_rak'),
@@ -602,7 +602,6 @@ function __construct() {
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
             ];
-            
     
         if ($id===null) {
             $this->response([

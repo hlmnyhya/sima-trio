@@ -575,7 +575,7 @@ class M_Transaksi_Auditor extends CI_Model
         ]);
         $result = json_decode($respon->getBody()->getContents(), true);
         
-        // var_dump($respon);exit;
+        // var_dump($data);exit;
 
         if ($result['status'] == true) {
             return $result['data'];

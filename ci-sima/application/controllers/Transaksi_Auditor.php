@@ -94,6 +94,14 @@ class Transaksi_Auditor extends CI_Controller
         $listrak = $this->mmasdat->getLokasirak($id);
         // var_dump($id);exit
 
+        // var_dump($listrak);exit;
+
+        // var_dump($id);exit;
+
+        $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
+        $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
+
+
         $output .= '<option value="">--- Pilih Lokasi ---</option>';
         foreach ($listrak as $list) {
             $no++;
@@ -103,7 +111,7 @@ class Transaksi_Auditor extends CI_Controller
             //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
             //         ';
             // } else {
-         $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
+      
             $output .=
                 '
                 <option value="' .
@@ -703,6 +711,7 @@ class Transaksi_Auditor extends CI_Controller
             'qty' => $this->input->post('qty'),
             'status' => 'Sesuai'
             // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
+            'status' => $this->input->post('status')
         ];
         // var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {
