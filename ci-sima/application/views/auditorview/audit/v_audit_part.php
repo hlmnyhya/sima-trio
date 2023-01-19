@@ -16,19 +16,6 @@
                                             <div class="col-sm-9">
                                                 <select class="form-control control-label m-b" name="id_lokasi" id="id_lokasi"></select>
                                             </div>
-                                            <div id="manual" class="row">
-                                        <div class="form-group col-sm-12">
-                                            <label>No. Mesin</label>
-                                            <input type="text" class="form-control" placeholder="No Mesin" id="no_mesin" required>
-                                        </div>
-                                        <div class="form-group col-sm-12">
-                                            <label>No. Rangka</label>
-                                            <input type="text" class="form-control" placeholder="No Rangka" id="no_rangka" required>
-                                        </div>
-                                        <div class="form-group col-sm-12">
-                                            <a id="audit" class="btn btn-primary">Audit</a>
-                                        </div>
-                                    </div>
                                         </div>
                                     </div>
                                     <div class="form-part" id="form-part">
@@ -76,7 +63,7 @@
                                     <div id="manual" class="row p-h-sm">
                                         <div class="form-group col-sm-12">
                                             <label>Rakbin</label>
-                                            <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbin_baru" required>
+                                            <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbinBaru" required>
                                         </div>
                                         <div class="form-group col-sm-12">
                                         <label>Kondisi</label>
