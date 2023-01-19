@@ -17,25 +17,8 @@
     </script>
 
 <script>
-        $('#id_cabang').load("<?php echo base_url() ?>transaksi_ga/ajax_get_cabang2");
-        lokasi();
-
-        function lokasi() {
-        var cabang = "<?php echo $_GET['id'] ?>";
-        $.ajax({
-            type: 'POST',
-            dataType: 'JSON',
-            data: {
-                id_cabang: cabang
-            },
-            url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
-            success: function(data) {
-                $('#id_lokasi').html(data);
-            }
-                
-        });
-        console.log(cabang);
-    }
+         $('#id_cabang').load("<?php echo base_url() ?>master_data/ajax_get_cabang2");
+         $('#id_lokasi').load("<?php echo base_url() ?>master_data/ajax_get_lokasi2");
     </script>
 </body>
 

@@ -83,6 +83,7 @@
     $(document).ready(function() {
         // $('#perusahaan').load("<?php echo base_url() ?>master_data/ajax_get_perusahaan");
         get_data(1);
+        
  
         $(document).on('click', '.pagination li a', function(event) {
             event.preventDefault();
@@ -108,6 +109,8 @@
                 }
             })
         }
+        $('#id_cabang').load("<?php echo base_url() ?>transaksi_ga/ajax_get_cabang2");
+
 
         function search(page) {
             var id = $('#inRakbin').val();
