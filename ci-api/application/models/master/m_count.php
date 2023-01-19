@@ -352,6 +352,17 @@ class M_Count extends CI_Model
             return false;
         }
     }
+
+    public function CountRakbin()
+    {
+        $count = $this->db->get('rak_bin');
+
+        if ($count->num_rows() > 0) {
+            return $count->num_rows();
+        } else {
+            return false;
+        }
+    }
     public function CountPartValid($a, $b)
     {
         $this->db->select('

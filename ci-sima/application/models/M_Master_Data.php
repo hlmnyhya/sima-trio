@@ -190,6 +190,24 @@ class M_Master_Data extends CI_Model
         }
     }
 
+    public function rakbincount($id = null)
+    {
+        $respon =  $this->_client->request('GET', 'countrakbin', [
+            'query' => [
+                'id' => $id
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
     public function getCabang($offset = null)
     {
         $respon =  $this->_client->request('GET', 'cabang', [

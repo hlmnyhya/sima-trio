@@ -904,6 +904,104 @@ class Master_Data extends CI_Controller
         echo json_encode($data, true);
     }
 
+    public function ajax_get_rakbinSima()
+    {
+        $output = '';
+        $base = base_url();
+        $no = 0;
+        // data['kodeunik'] = $this->musergroup->kode();
+        $count = $this->mmasdat->rakbincount();
+        $config['base_url'] =
+            base_url() . 'laporan_auditor/ajax_get_rakbinSima';
+        $config['total_rows'] = $count;
+        $config['per_page'] = 15;
+        $config['uri_segment'] = 3;
+        $config['use_page_numbers'] = true;
+        $config['num_links'] = 3;
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = '&gt;';
+        $config['next_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;&nbsp;';
+        $config['prev_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</li>';
+        $config['num_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['cur_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        $page = $this->uri->segment(3);
+        if ($page == null) {
+            $page = 1;
+        }
+        $start = ($page - 1) * $config['per_page'];
+        $listPerusahaan = $this->mmasdat->getRakbin($start);
+        if ($listPerusahaan) {
+            foreach ($listPerusahaan as $list) {
+                $no++;
+                $output .=
+                    '
+                <tr> 
+                   <td class="text-center">' .
+                    $no .
+                    '</td>
+                    <td class="text-center">
+                    <a onclick="edit(id=\'' .
+                    $list['id_cabang'] .
+                    '\')" class="text-warning" ><i class="fa fa-pencil"></i></a>
+                    <a href="' .
+                    $base .
+                    'master_data/delete_rakbin/' .
+                    $list['id_lokasi'] .
+                    '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' .
+                    $list['kd_lokasi_rak'] .
+                    ' - ' .
+                    $list['kd_lokasi_rak'] .
+                    ' ? ");\'><i class="fa fa-trash"></i></a>
+                    </td>
+                    <td class="text-center">' .
+                    $list['kd_rak'] .
+                    '</td>
+                    <td class="text-center">' .
+                    $list['kd_binbox'] .
+                    '</td>
+                </tr>
+                
+                ';
+            }
+        } else {
+            $output .= '
+            <tr>
+            <td colspan="4" class="text-center"> data not found</td>
+            </tr>
+            ';
+        }
+        $data = [
+            'output' => $output,
+            'pagination' => $this->pagination->create_links(),
+        ];
+        echo json_encode($data, true);
+    }
+
+
+
+
     public function ajax_get_cabang()
     {
         $output = '';
