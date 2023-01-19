@@ -240,6 +240,30 @@
         $('#OptCabang').load("<?php echo base_url() ?>transaksi_ga/ajax_get_cabang2");
        
 
+        // $('#OptCabang').change(function(){
+        //     var id_cabang = $(this).val();
+         
+        //     if (id_cabang == "") {
+        //         $('#OptLokasi').prop('disabled', true);
+        //     } else {
+        //         $('#OptLokasi').prop('disabled', false);
+        //         $('#load').html('<span class="loading dots"></span>');
+        //         $.ajax({
+        //             url: "<?php echo base_url(); ?>transaksi_ga/ajax_get_aset",
+        //             type: "POST",
+        //             dataType: 'JSON',
+        //             data: {
+        //                 id_cabang: id_cabang,
+        //             },
+                   
+        //             success: function(data) {
+        //                 $('#OptLokasi').html(data);
+        //                 $('#load').html('');
+        //             }
+        //         });
+        //     }
+        // })
+
         $('#OptCabang').change(function() {
             var id_cabang = $(this).val();
             $('#OptLokasi').html('');

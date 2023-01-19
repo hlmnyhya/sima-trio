@@ -207,14 +207,16 @@ class Transaksi_Auditor extends CI_Controller
     {
         $id = $this->input->post('id');
         $idaudit = $this->input->post('idaudit');
+        // $time = $this->get('time');
+        // $time = $this->_tgl;
         // $tgl = $_tgl;
-        $time = date('Y-m-d H:i');
+        // $time = date('Y-m-d H:i');
         $output = '';
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
             $output .=
                 '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>"'.$time.'"</span>   </div>';
+            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>'.$time.'</span>   </div>';
         }
         echo json_encode($output, true);
     }
@@ -496,7 +498,6 @@ class Transaksi_Auditor extends CI_Controller
             <td class="text-center">' .
                 $offset .
                 '</td>
-            <td class="text-center"></td>
             <td class="text-center">' .
                 $list['id_unit'] .
                 '</td>
@@ -1447,7 +1448,6 @@ class Transaksi_Auditor extends CI_Controller
                             <td>' .
                     $start .
                     '</td>
-                            <td></td>
                             <td>' .
                     $list['no_mesin'] .
                     '</td>
@@ -1629,16 +1629,18 @@ class Transaksi_Auditor extends CI_Controller
     {
         $id = $this->input->post('id');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
-        $time = $this->input->post('time');
+        // $time = $this->input->post('time');
+        $time = date('Y-m-d H:i');
         // var_dump($id, $idjadwal_audit, $time);exit;
         $output = '';
         $time = date('Y-m-d H:i');
+        // $this->mtransauditor->gettgltemppart();
         if ($this->mtransauditor->downloadpart($id, $idjadwal_audit, $time)) {
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload Pada <span>"'.$time.'"</span>  </div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
         } else {
              $output .=
-                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>"'.$time.'"</span>  </div>';
+                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>'.$time.'</span>  </div>';
         }
         echo json_encode($output, true);
     }

@@ -90,7 +90,7 @@ class M_TempUnit extends CI_Model {
     public function getTempUnit($id=null, $cabang=null, $offset=null)
     {
         
-        $this->db->select('a.id_unit, a.no_mesin, a.no_rangka, a.type, a.tahun, a.kode_item, a.id_cabang, a.id_lokasi, b.nama_cabang, c.nama_gudang');
+        $this->db->select('a.id_unit, a.no_mesin, a.no_rangka, a.type, a.tahun, a.kode_item, a.id_cabang, a.id_lokasi, a.time, b.nama_cabang, c.nama_gudang');
         $this->db->from('temp_unit a');
         $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
         $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
