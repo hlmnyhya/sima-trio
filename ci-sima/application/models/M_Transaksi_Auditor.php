@@ -301,7 +301,7 @@ class M_Transaksi_Auditor extends CI_Model
                     base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . 
                     '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
-                
+                $start++;
                 $output .= '
                     <tr>
                     <td>' . $start . '</td>
