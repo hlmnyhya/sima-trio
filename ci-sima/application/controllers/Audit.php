@@ -183,8 +183,8 @@ class Audit extends CI_Controller
     {
         $output = '';
         $hapus = '';
-        $limit = $this->input->post('limit');
         $id = $this->input->post('id');
+        $limit = $this->input->post('limit');
         $base = base_url();
         $config['base_url'] = base_url() . 'audit/list_audit';
         $count = $this->maudit->countjadwalaudit();
@@ -237,7 +237,7 @@ class Audit extends CI_Controller
         $start = ($page - 1) * $config['per_page'];
 
         // var_dump($start);exit;
-        $listJadwalAudit = $this->maudit->getAudit($start, $limit);
+        $listJadwalAudit = $this->maudit->getAudit($start, $limit );
         // var_dump($listJadwalAudit);exit;
         if ($listJadwalAudit) {
             foreach ($listJadwalAudit as $list) {

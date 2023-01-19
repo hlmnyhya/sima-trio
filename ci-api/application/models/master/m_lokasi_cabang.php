@@ -73,11 +73,35 @@ class M_Lokasi_Cabang extends CI_Model
         }
     }
 
-    public function addrakbin() 
+    public function getrakbinbaru()
     {
-        
-       $this->db->insert('rak_bin', $data);
-       return $this->db->affected_rows(); 
-        
+        if ($id===null) {
+            $result = $this->db->get('rak_bin')->result();
+            return $result;              
+        }else {
+            $result = $this->db->get_where('rak_bin',['kd_lokasi_Rak' => $id])->result();
+            return $result;               
+        }
+    }
+
+    public function addRakbin($data)
+    {
+        $this->db->insert('rak_bin',$data); 
+          return $this->db->affected_rows();   
+    }
+
+    public function editRakbin($data,$id)
+    {
+
+        $this->db->where('kd_lokasi_rak', $id);
+        $this->db->update('rak_bin', $data);
+        return $this->db->affected_rows();
+    }
+
+    public function delRakbin($id)
+    {
+       $this->db->where('kd_lokasi_rak', $id);
+       $this->db->delete('rak_bin');  
+       return $this->db->affected_rows();
     }
 }

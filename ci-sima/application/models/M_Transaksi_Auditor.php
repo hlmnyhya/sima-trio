@@ -281,7 +281,7 @@ class M_Transaksi_Auditor extends CI_Model
 
     public function previewPart($cabang, $idjadwal_audit, $start)
     {
-        $respon =  $this->_client->request('GET', 'previewpart2', [
+        $respon =  $this->_client->request('GET', 'previewpart', [
             'query' => [
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit,
@@ -290,18 +290,20 @@ class M_Transaksi_Auditor extends CI_Model
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
         $base = base_url();
 
         $output = '';
+        $aksi = '';
         if ($result['status'] == true) {
             foreach ($result['data'] as $res) {
-                $start++;
+
                 $aksi = '
                     <a href="' . $base . 'transaksi_auditor/edit_part?id=' . 
                     base64_encode($res['id_part']) . '&a=' . base64_encode($res['id_lokasi']) . 
                     '&s=' . base64_encode($res['id_cabang']) . '" class="text-warning"><i class="fa fa-pencil"></i></a>
                     ';
-                
+                $start++;
                 $output .= '
                     <tr>
                     <td>' . $start . '</td>
@@ -320,7 +322,7 @@ class M_Transaksi_Auditor extends CI_Model
             }
         } else {
             $output .= '
-                <tr><td colspan="8" class="text-center">Data not found.</td></tr>
+                <tr><td colspan="24" class="text-center">Data not found.</td></tr>
             ';
         }
         return $output;
@@ -355,6 +357,18 @@ class M_Transaksi_Auditor extends CI_Model
 
         $result = json_decode($respon->getBody()->getContents(), true);
 
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function gettgltemppart(){
+        $respon =  $this->_client->request('GET', 'datapart');
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+var_dump($result);exit;
         if ($result['status'] == true) {
             return $result['data'];
         } else {
