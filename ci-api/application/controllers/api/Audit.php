@@ -824,7 +824,7 @@ function __construct() {
         $cabang= $this->get('id_cabang');
         $offset= (($this->get('offset')) ? $this->get('offset') : null );
         $idjadwal_audit = (($this->get('idjadwal_audit')) ? $this->get('idjadwal_audit') : null );
-        if ($cabang===null) {
+        if ($cabang===null && $offset === null) {
             $part= null;
         }else{
             $part= $this->mpart->GetPartValid($cabang,$offset,$idjadwal_audit);
@@ -1288,7 +1288,7 @@ function __construct() {
         }else{
             $cabang = $this->get('id_cabang');
             $idjadwal_audit = $this->get('idjadwal_audit');
-            // $time = $this->get('time');
+            $time = $this->get('time');
             // var_dump($time);exit;
 
             // $cabang='T13';
@@ -1310,7 +1310,7 @@ function __construct() {
                        'deskripsi' => $res['PART_DESKRIPSI'],
                        'qty' => $res['STOCK_OH'],
                        'idjadwal_audit'=> $idjadwal_audit,
-                       'time' => $time
+                       'time' => $this->_tgl
                    ];
                    $download = $this->mtemppart->addTemppart($data);
                }
@@ -1364,7 +1364,8 @@ function __construct() {
                        'umur' => (($res['THN_PERAKITAN']=="") ?  0 : ((int)date("Y") - $res['THN_PERAKITAN'])),
                        'type' => $res['sub_kategori'],
                        'tahun' => $res['THN_PERAKITAN'],
-                       'idjadwal_audit' => $idaudit
+                       'idjadwal_audit' => $idaudit,
+                       'time' => $this->_tgl
                    ];
                    $download = $this->mtempunit->addTempUnit($data);
                }
@@ -1822,6 +1823,28 @@ function __construct() {
             
         }
     }
+
+    public function previewpart2_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $offset = $this->get('offset');
+        $tampil= $this->mpart->GetPreview1($cabang, $idjadwal_audit,$offset);
+        if ($tampil) {
+            $this->response([
+                'status' => true,
+                'data' => $tampil
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    
     public function previewPart_get()
     {
         $cabang= $this->get('id_cabang');
@@ -1842,25 +1865,25 @@ function __construct() {
         }
     }
 
-    public function previewPart2_get()
-    {
-        $cabang= $this->get('id_cabang');
-        $idjadwal_audit= $this->get('idjadwal_audit');
-        $offset = $this->get('offset');
-        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit, $offset);
-        if ($tampil) {
-            $this->response([
-                'status' => true,
-                'data' => $tampil
-            ], REST_Controller::HTTP_OK);
-        }else{
-            $this->response([
-                'status' => false,
-                'message' => 'Data not found.'
-            ], REST_Controller::HTTP_OK);
+    // public function previewPart2_get()
+    // {
+    //     $cabang= $this->get('id_cabang');
+    //     $idjadwal_audit= $this->get('idjadwal_audit');
+    //     $offset = $this->get('offset');
+    //     $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit, $offset);
+    //     if ($tampil) {
+    //         $this->response([
+    //             'status' => true,
+    //             'data' => $tampil
+    //         ], REST_Controller::HTTP_OK);
+    //     }else{
+    //         $this->response([
+    //             'status' => false,
+    //             'message' => 'Data not found.'
+    //         ], REST_Controller::HTTP_OK);
             
-        }
-    }
+    //     }
+    // }
 
     public function previewUnitNotReady_get()
     {
