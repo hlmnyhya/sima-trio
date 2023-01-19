@@ -1637,9 +1637,9 @@ class laporan_auditor extends CI_Controller
             $pdf->SetXY(152, 44);
             $pdf->cell(0, 0, ': ' . $auditor, 0, 1);
             $pdf->SetXY(120, 49);
-            $pdf->cell(0, 0, 'Di-review Oleh', 0, 1);
-            $pdf->SetXY(152, 49);
-            $pdf->cell(0, 0, ': ', 0, 1);
+            // $pdf->cell(0, 0, 'Di-review Oleh', 0, 1);
+            // $pdf->SetXY(152, 49);
+            // $pdf->cell(0, 0, ': ', 0, 1);
             $pdf->ln();
             $pdf->SetY(55);
             $pdf->SetLineWidth(0.1);
@@ -1647,29 +1647,29 @@ class laporan_auditor extends CI_Controller
             $pdf->SetFont('Times', 'B', 10);
 
             $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
-            $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
-            $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
-            $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', true);
-            $pdf->Cell(40, 15, 'DESKRIPSI', 1, 0, 'C', true);
-            $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', true);
-            $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', true);
+            $pdf->Cell(12, 15, 'No', 1, 0, 'C', true);
+            // $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
+            $pdf->Cell(50, 15, 'PART NUMBER', 1, 0, 'C', true);
+            $pdf->Cell(60, 15, 'DESKRIPSI', 1, 0, 'C', true);
+            // $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', true);
+            $pdf->Cell(50, 15, 'QTY', 1, 1, 'C', true);
             $start = null;
 
             $no = 1;
-            $pdf->SetFont('Times', '', 9);
+            $pdf->SetFont('Times', '', 10);
             foreach ($cetak as $c) {
-                $pdf->Cell(8, 8, $no, 1, 0, 'C');
+                $pdf->Cell(12, 8, $no, 1, 0, 'C');
                 // $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
+                // $x = $pdf->GetX();
+                // $pdf->myCell(55, 8, $x, $c['nama_gudang']);
                 $x = $pdf->GetX();
-                $pdf->myCell(55, 8, $x, $c['nama_gudang']);
+                $pdf->myCell(50, 8, $x, $c['part_number']);
                 $x = $pdf->GetX();
-                $pdf->myCell(28, 8, $x, $c['part_number']);
+                $pdf->myCell(60, 8, $x, $c['deskripsi']);
+                // $x = $pdf->GetX();
+                // $pdf->myCell(30, 8, $x, $c['kd_lokasi_rak']);
                 $x = $pdf->GetX();
-                $pdf->myCell(40, 8, $x, $c['deskripsi']);
-                $x = $pdf->GetX();
-                $pdf->myCell(30, 8, $x, $c['kd_lokasi_rak']);
-                $x = $pdf->GetX();
-                $pdf->myCell(25, 8, $x, $c['qty']);
+                $pdf->myCell(50, 8, $x, $c['qty']);
                 $pdf->ln();
                 $no++;
             }

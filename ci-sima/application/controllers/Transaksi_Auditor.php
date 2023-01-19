@@ -102,7 +102,7 @@ class Transaksi_Auditor extends CI_Controller
             //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
             //         ';
             // } else {
-         $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
+        //  $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
             $output .=
                 '
                 <option value="' .
@@ -205,7 +205,7 @@ class Transaksi_Auditor extends CI_Controller
         $id = $this->input->post('id');
         $idaudit = $this->input->post('idaudit');
         // $tgl = $_tgl;
-        $time = date('Y-m-d H:i');
+        $time = date('Y-m-d');
         $output = '';
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
             $output .=
@@ -493,7 +493,6 @@ class Transaksi_Auditor extends CI_Controller
             <td class="text-center">' .
                 $offset .
                 '</td>
-            <td class="text-center"></td>
             <td class="text-center">' .
                 $list['id_unit'] .
                 '</td>
@@ -767,7 +766,6 @@ class Transaksi_Auditor extends CI_Controller
                                     <td class="text-center">' .
                         $start .
                         '</td>
-                                    <td></td>
                                     <td class="text-center">' .
                         $list['no_mesin'] .
                         '</td>
@@ -866,7 +864,6 @@ class Transaksi_Auditor extends CI_Controller
                                         <td class="text-center">' .
                             $start .
                             '</td>
-                                        <td></td>
                                         <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -964,7 +961,7 @@ class Transaksi_Auditor extends CI_Controller
                                         <td class="text-center">' .
                             $start .
                             '</td>
-                                        <td></td>
+                                   
                                         <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -1143,7 +1140,6 @@ class Transaksi_Auditor extends CI_Controller
                                     <td class="text-center">' .
                             $start .
                             '</td>
-                                    <td></td>
                                     <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -1242,7 +1238,6 @@ class Transaksi_Auditor extends CI_Controller
                                         <td>' .
                                 $start .
                                 '</td>
-                                        <td></td>
                                         <td>' .
                                 $list['no_mesin'] .
                                 '</td>
@@ -1339,7 +1334,6 @@ class Transaksi_Auditor extends CI_Controller
                                 <td>' .
                         $start .
                         '</td>
-                                <td></td>
                                 <td>' .
                         $list['no_mesin'] .
                         '</td>
@@ -1448,7 +1442,6 @@ class Transaksi_Auditor extends CI_Controller
                             <td>' .
                     $start .
                     '</td>
-                            <td></td>
                             <td>' .
                     $list['no_mesin'] .
                     '</td>
