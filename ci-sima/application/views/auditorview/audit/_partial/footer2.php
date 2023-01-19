@@ -85,8 +85,10 @@
     $(document).ready(function() {
         download();
         get_data(1);
-        // rakbin();
         lokasi()
+        
+
+
         $('#id_lokasi').change(function() {
             var rak = $(this).val();
             $('#rakbin').html('');
@@ -119,6 +121,26 @@
                 console.log('gagal')
             }
         });
+
+        rakbin();
+        function rakbin() {
+            var rakbin = $('#id_lokasi').val();
+            $('#optRakbin').html('');
+            $.ajax({
+                type: 'POST',
+                dataType: 'JSON',
+                data: {
+                    kd_gudang: rakbin
+                },
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                success: function(data) {
+                    $('#optRakbin').html(data);
+                    $('#optRakbin').select2();
+
+                } 
+            });
+            console.log(rakbin);
+        }
         
         function lokasi() {
         var cabang = "<?php echo $_GET['id'] ?>";
@@ -275,7 +297,7 @@
 
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
-            var rakbin = $('#rakbinBaru').val();
+            var rakbin = $('#optRakbin').val();
             var lokasi = $('#id_lokasi').val();
             var kondisi = $('#kondisi_baru').val();
             var qty = $('#qty_manual').val();
@@ -355,6 +377,7 @@
             var qty = $('#qty').val();
             var cabang = "<?php echo $_GET['id'] ?>";
             var rakbin = $('#rakbin').val();
+            // var rakbin_baru = $('#optRakbin').val();
             var kondisi = $('#kondisi').val();
             var idjadwal_audit = "<?php echo base64_decode($_GET['a']) ?>";
             console.log("jadwal_audit scan_getdata : " + idjadwal_audit)
@@ -375,6 +398,7 @@
                         idjadwal_audit: idjadwal_audit,
                         lokasi: lokasi,
                         kd_lokasi_rak: rakbin,
+                        // kd_lokasi_rak_baru: rakbin_baru,
                         qty: qty
                     },
                     success: function(data) {

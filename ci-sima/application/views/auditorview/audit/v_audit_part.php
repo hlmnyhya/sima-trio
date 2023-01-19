@@ -63,7 +63,7 @@
                                     <div id="manual" class="row p-h-sm">
                                         <div class="form-group col-sm-12">
                                             <label>Rakbin</label>
-                                            <input type="text" class="form-control" placeholder="Rak bin Baru" id="rakbinBaru" required>
+                                            <select type="text" class="form-control" name="rakbin" id="optRakbin"></select>
                                         </div>
                                         <div class="form-group col-sm-12">
                                         <label>Kondisi</label>

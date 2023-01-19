@@ -96,7 +96,7 @@ class Transaksi_Auditor extends CI_Controller
         // var_dump($id);exit;
 
         $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
-        $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
+        // $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
 
         foreach ($listrak as $list) {
             $idlokasi = $list['kd_lokasi_rak'];
@@ -2151,6 +2151,7 @@ class Transaksi_Auditor extends CI_Controller
         $cabang = $this->input->post('cabang');
         $lokasi = $this->input->post('lokasi');
         $rakbin = $this->input->post('kd_lokasi_rak');
+        $rakbin_baru = $this->input->post(' kd_lokasi_rak_baru');
         $kondisi = $this->input->post('kondisi');
         $status = $this->input->post('status');
         $qty = $this->input->post('qty');
@@ -2186,7 +2187,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
-                        'status' => 'Sesuai',
+                        'status' => ' Lokasi Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }elseif($part['kd_lokasi_rak'] == $rakbin) {
@@ -2212,7 +2213,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => 1,
                         'kondisi' => $kondisi,
-                        'status' => 'Belum Sesuai',
+                        'status' => 'Lokasi Belum Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }
@@ -2234,7 +2235,7 @@ class Transaksi_Auditor extends CI_Controller
                 // var_dump($qty_part);
                 // var_dump($qty_temppart);
                 // exit;
-                if($qty_part > $qty_temppart AND $part['kd_lokasi_rak'] != $rakbin ){
+                if($qty_part > $qty_temppart){
                     $data_edit = [
                         'id_part' => $cek_part[0]["id_part"],
                         'id_cabang' => $part['id_cabang'],
@@ -2244,7 +2245,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $qty_part,
                         'kondisi' => $kondisi,
-                        'status' => 'rakbin tidak sesuai',
+                        'status' => 'Lokasi Sesuai',
                         'keterangan' => 'Part Lebih',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
@@ -2261,7 +2262,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $qty_part,
                         'kondisi' => $kondisi,
-                        'status' => 'sesuai',
+                        'status' => 'Lokasi Sesuai',
                         'keterangan' => 'Part Kurang',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
@@ -2269,7 +2270,7 @@ class Transaksi_Auditor extends CI_Controller
                 // var_dump($data_edit);exit;
                 $this->mtransauditor->editscanpart($data_edit);
                 // exit;
-                } elseif ($qty_part == $qty_temppart AND $part['id_lokasi'] == $lokasi AND $part['kd_lokasi_rak'] == $rakbin){
+                } elseif ($qty_part == $qty_temppart){
                     $data_edit = [
                         'id_part' => $cek_part[0]["id_part"],
                         'id_cabang' => $part['id_cabang'],
@@ -2279,7 +2280,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $qty_part,
                         'kondisi' => $kondisi,
-                        'status' => 'Sesuai',
+                        'status' => ' Lokasi Sesuai',
                         'keterangan' => 'Part Sesuai',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
@@ -2768,9 +2769,8 @@ class Transaksi_Auditor extends CI_Controller
         $cetak = $this->mtransauditor->previewPart(
             $cabang,
             $idjadwal_audit,
-            $status,
-            $start,
-            $kondisi
+            $start
+            
         );
 
         // var_dump($cetak);exit;
