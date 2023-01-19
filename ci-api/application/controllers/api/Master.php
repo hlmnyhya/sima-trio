@@ -1367,6 +1367,34 @@ class Master extends REST_Controller
         }
     }
 
+    public function countrakbin_get()
+    {
+        $id = $this->get('id');
+
+        if ($id === null) {
+            $rakbin = $this->mcount->countrakbin();
+        } else {
+            $rakbin = $this->mlokasicabang->cariRakbin($id)->num_rows();
+        }
+        if ($rakbin) {
+            $this->response(
+                [
+                    'status' => true,
+                    'data' => $rakbin,
+                ],
+                REST_Controller::HTTP_OK
+            );
+        } else {
+            $this->response(
+                [
+                    'status' => false,
+                    'message' => 'Data not found.',
+                ],
+                REST_Controller::HTTP_OK
+            );
+        }
+    }
+
     //------------------------------------------------------------CABANG------------------------------------------------------------//
     public function cabang_get()
     {

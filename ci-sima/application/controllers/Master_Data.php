@@ -904,6 +904,104 @@ class Master_Data extends CI_Controller
         echo json_encode($data, true);
     }
 
+    public function ajax_get_rakbinSima()
+    {
+        $output = '';
+        $base = base_url();
+        $no = 0;
+        // data['kodeunik'] = $this->musergroup->kode();
+        $count = $this->mmasdat->rakbincount();
+        $config['base_url'] =
+            base_url() . 'laporan_auditor/ajax_get_rakbinSima';
+        $config['total_rows'] = $count;
+        $config['per_page'] = 15;
+        $config['uri_segment'] = 3;
+        $config['use_page_numbers'] = true;
+        $config['num_links'] = 3;
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = '&gt;';
+        $config['next_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;&nbsp;';
+        $config['prev_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</li>';
+        $config['num_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['cur_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        $page = $this->uri->segment(3);
+        if ($page == null) {
+            $page = 1;
+        }
+        $start = ($page - 1) * $config['per_page'];
+        $listPerusahaan = $this->mmasdat->getRakbin($start);
+        if ($listPerusahaan) {
+            foreach ($listPerusahaan as $list) {
+                $no++;
+                $output .=
+                    '
+                <tr> 
+                   <td class="text-center">' .
+                    $no .
+                    '</td>
+                    <td class="text-center">
+                    <a onclick="edit(id=\'' .
+                    $list['id_cabang'] .
+                    '\')" class="text-warning" ><i class="fa fa-pencil"></i></a>
+                    <a href="' .
+                    $base .
+                    'master_data/delete_rakbin/' .
+                    $list['id_lokasi'] .
+                    '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' .
+                    $list['kd_lokasi_rak'] .
+                    ' - ' .
+                    $list['kd_lokasi_rak'] .
+                    ' ? ");\'><i class="fa fa-trash"></i></a>
+                    </td>
+                    <td class="text-center">' .
+                    $list['kd_rak'] .
+                    '</td>
+                    <td class="text-center">' .
+                    $list['kd_binbox'] .
+                    '</td>
+                </tr>
+                
+                ';
+            }
+        } else {
+            $output .= '
+            <tr>
+            <td colspan="4" class="text-center"> data not found</td>
+            </tr>
+            ';
+        }
+        $data = [
+            'output' => $output,
+            'pagination' => $this->pagination->create_links(),
+        ];
+        echo json_encode($data, true);
+    }
+
+
+
+
     public function ajax_get_cabang()
     {
         $output = '';
@@ -1818,6 +1916,38 @@ class Master_Data extends CI_Controller
         }
     }
 
+    public function post_rakbin()
+    {
+        $data = [
+            'id_cabang' => $this->input->post('id_cabang', true),
+            'id_lokasi' => $this->input->post('id_lokasi', true),
+            'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak', true),
+            'kd_rak' => $this->input->post('kd_rak', true),
+            'kd_binbox' => $this->input->post('kd_binbox', true),
+        ];
+
+        $id = $this->input->post('kd_lokasi_rak', true);
+
+        $rakbin = $this->mmasdat->getRakbinById($id);
+        if ($perusahaan) {
+            $this->session->set_flashdata('warning', 'sudah ada');
+
+            redirect('master_data/rakbin', 'refresh');
+        } else {
+            if ($result = $this->mmasdat->addRakbin($data)) {
+                $this->session->set_flashdata('berhasil', 'berhasil ditambah');
+
+                redirect('master_data/rakbin', 'refresh');
+            } else {
+                $this->session->set_flashdata('gagal', 'gagal ditambah');
+
+                redirect('master_data/rakbin', 'refresh');
+            }
+        }
+    }
+
+
+
     public function post_cabang()
     {
         $data = [
@@ -2079,6 +2209,29 @@ class Master_Data extends CI_Controller
         }
     }
 
+    public function put_rakbin()
+    {
+       
+        $data = [
+            'id_cabang' => $this->input->post('id_cabang', true),
+            'id_lokasi' => $this->input->post('id_lokasi', true),
+            'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak', true),
+            'kd_rak' => $this->input->post('kd_rak', true),
+            'kd_binbox' => $this->input->post('kd_binbox', true),
+        ];
+        // var_dump($data);die;
+
+        $exec = $this->mmasdat->UpdateRakbin($data);
+        if ($exec) {
+            $this->session->set_flashdata('berhasil', 'berhasil diupdate');
+            redirect('master_data/rakbin');
+        } else {
+            $this->session->set_flashdata('gagal', 'gagal diupdate');
+            redirect('master_data/rakbin');
+        }
+    }
+
+
     public function put_cabang()
     {
         $data = [
@@ -2293,6 +2446,26 @@ class Master_Data extends CI_Controller
                 $this->session->set_flashdata('gagal', 'Gagal dihapus');
 
                 redirect('master_data/perusahaan');
+            }
+        }
+    }
+
+    public function delete_rakbin($id = null)
+    {
+        if ($id === null) {
+            $this->session->set_flashdata('warning', 'tidak ada');
+
+            redirect('master_data/rakbin');
+        } else {
+            $result = $this->mmasdat->delRakbin($id);
+            if ($result) {
+                $this->session->set_flashdata('berhasil', 'Berhasil Dihapus');
+
+                redirect('master_data/rakbin');
+            } else {
+                $this->session->set_flashdata('gagal', 'Gagal dihapus');
+
+                redirect('master_data/rakbin');
             }
         }
     }
