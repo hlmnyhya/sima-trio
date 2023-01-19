@@ -102,7 +102,6 @@ class Transaksi_Auditor extends CI_Controller
             //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
             //         ';
             // } else {
-         $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
             $output .=
                 '
                 <option value="' .
@@ -205,13 +204,20 @@ class Transaksi_Auditor extends CI_Controller
         $id = $this->input->post('id');
         $idaudit = $this->input->post('idaudit');
         // $tgl = $_tgl;
-        $time = date('Y-m-d H:i');
+        // $time = date('Y-m-d H:i');
         $output = '';
+        $tgl =  $this->mtransauditor->gettgltempunit();
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
+            // $output .=
+            // $tgl =  $this->mtransauditor->gettgltempunit();
+        
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>"'.$tgl.'"</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>"'.$time.'"</span>   </div>';
+            // $tgl =  $this->mtransauditor->gettgltempunit();
+
+             $output .=
+                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>"'.$tgl.'"</span>  </div>';
         }
         echo json_encode($output, true);
     }
@@ -2770,9 +2776,7 @@ class Transaksi_Auditor extends CI_Controller
         $cetak = $this->mtransauditor->previewPart(
             $cabang,
             $idjadwal_audit,
-            $status,
-            $start,
-            $kondisi
+            $start
         );
 
         // var_dump($cetak);exit;
