@@ -1818,6 +1818,38 @@ class Master_Data extends CI_Controller
         }
     }
 
+    public function post_rakbin()
+    {
+        $data = [
+            'id_cabang' => $this->input->post('id_cabang', true),
+            'id_lokasi' => $this->input->post('id_lokasi', true),
+            'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak', true),
+            'kd_rak' => $this->input->post('kd_rak', true),
+            'kd_binbox' => $this->input->post('kd_binbox', true),
+        ];
+
+        $id = $this->input->post('kd_lokasi_rak', true);
+
+        $rakbin = $this->mmasdat->getRakbinById($id);
+        if ($perusahaan) {
+            $this->session->set_flashdata('warning', 'sudah ada');
+
+            redirect('master_data/rakbin', 'refresh');
+        } else {
+            if ($result = $this->mmasdat->addRakbin($data)) {
+                $this->session->set_flashdata('berhasil', 'berhasil ditambah');
+
+                redirect('master_data/rakbin', 'refresh');
+            } else {
+                $this->session->set_flashdata('gagal', 'gagal ditambah');
+
+                redirect('master_data/rakbin', 'refresh');
+            }
+        }
+    }
+
+
+
     public function post_cabang()
     {
         $data = [
@@ -2079,6 +2111,29 @@ class Master_Data extends CI_Controller
         }
     }
 
+    public function put_rakbin()
+    {
+       
+        $data = [
+            'id_cabang' => $this->input->post('id_cabang', true),
+            'id_lokasi' => $this->input->post('id_lokasi', true),
+            'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak', true),
+            'kd_rak' => $this->input->post('kd_rak', true),
+            'kd_binbox' => $this->input->post('kd_binbox', true),
+        ];
+        // var_dump($data);die;
+
+        $exec = $this->mmasdat->UpdateRakbin($data);
+        if ($exec) {
+            $this->session->set_flashdata('berhasil', 'berhasil diupdate');
+            redirect('master_data/rakbin');
+        } else {
+            $this->session->set_flashdata('gagal', 'gagal diupdate');
+            redirect('master_data/rakbin');
+        }
+    }
+
+
     public function put_cabang()
     {
         $data = [
@@ -2293,6 +2348,26 @@ class Master_Data extends CI_Controller
                 $this->session->set_flashdata('gagal', 'Gagal dihapus');
 
                 redirect('master_data/perusahaan');
+            }
+        }
+    }
+
+    public function delete_rakbin($id = null)
+    {
+        if ($id === null) {
+            $this->session->set_flashdata('warning', 'tidak ada');
+
+            redirect('master_data/rakbin');
+        } else {
+            $result = $this->mmasdat->delRakbin($id);
+            if ($result) {
+                $this->session->set_flashdata('berhasil', 'Berhasil Dihapus');
+
+                redirect('master_data/rakbin');
+            } else {
+                $this->session->set_flashdata('gagal', 'Gagal dihapus');
+
+                redirect('master_data/rakbin');
             }
         }
     }

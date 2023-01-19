@@ -153,6 +153,25 @@ class M_Master_Data extends CI_Model
             return false;
         }
     }
+
+    public function getRakbin($offset = null)
+    {
+        $respon =  $this->_client->request('GET', 'rakbin', [
+            'query' => [
+                'offset' => $offset
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
     public function perusahaancount($id = null)
     {
         $respon =  $this->_client->request('GET', 'countperusahaan', [
@@ -414,6 +433,23 @@ class M_Master_Data extends CI_Model
         }
     }
 
+    public function getRakbinById($id)
+    {
+        $respon =  $this->_client->request('GET', 'rakbin', [
+            'query' => [
+                'id' => $id
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+
     public function getCabangById($id)
     {
         $respon =  $this->_client->request('GET', 'cabang', [
@@ -585,6 +621,22 @@ class M_Master_Data extends CI_Model
         }
     }
 
+    public function addRakbin($data)
+    {
+        $respon =  $this->_client->request('POST', 'rakbin', [
+            'form_params' => $data
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+
     public function addCabang($data)
     {
         $respon =  $this->_client->request('POST', 'cabang', [
@@ -753,6 +805,21 @@ class M_Master_Data extends CI_Model
     public function UpdatePerusahaan($data)
     {
         $respon =  $this->_client->request('PUT', 'perusahaan', [
+            'form_params' =>  $data
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function UpdateRakbin($data)
+    {
+        $respon =  $this->_client->request('PUT', 'rakbin', [
             'form_params' =>  $data
         ]);
 
@@ -943,6 +1010,24 @@ class M_Master_Data extends CI_Model
             return false;
         }
     }
+
+    public function delRakbin($id)
+    {
+        $respon =  $this->_client->request('DELETE', 'rakbin', [
+            'form_params' => [
+                'id' => $id
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 
     public function delCabang($id)
     {
