@@ -66,6 +66,7 @@ $route['master_data/jenis_inventory'] = "master_data/viewJenisInv";
 $route['master_data/sub_inventory'] = "master_data/viewSubInv";
 $route['master_data/status_inventory'] = "master_data/viewStatusInv";
 $route['master_data/perusahaan'] = "master_data/viewPerusahaan";
+$route['master_data/rakbin'] = "master_data/viewRakbin";
 $route['master_data/cabang'] = "master_data/viewCabang";
 $route['master_data/lokasi'] = "master_data/viewLokasi";
 $route['master_data/vendor'] = "master_data/viewVendor";

@@ -2481,8 +2481,8 @@ class Master extends REST_Controller
 
     public function rakbin_get()
     {
-        $id = $this->get('kd_lokasi_rak');
-        $offset = $this->get('id');
+        $id = $this->get('id');
+        
 
         if ($id === null) {
             $rakbin = $this->mlokasicabang->getrakbinsima();

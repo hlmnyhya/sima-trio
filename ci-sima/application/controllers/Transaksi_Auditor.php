@@ -122,6 +122,44 @@ class Transaksi_Auditor extends CI_Controller
         }
         echo json_encode($output, true);
     }
+    public function ajax_get_rakbin2()
+    {
+        $output = '';
+        $no = 0;
+        $id = $this->input->post('kd_gudang');
+        $key = $this->input->post('key');
+        $listrak = $this->mmasdat->getLokasirak2($id);
+        // var_dump($listrak);exit;
+
+        // var_dump($id);exit;
+
+        $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
+        // $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
+
+        foreach ($listrak as $list) {
+            $idlokasi = $list['kd_lokasi_rak'];
+            // if ($idlokasi == $key) {
+            //     $output .= '
+            //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+            //         ';
+            // } else {
+      
+            $output .=
+                '
+                <option value="' .
+                $list['kd_lokasi_rak'] .
+                '" >' .
+                $list['id_lokasi'] .
+                ' - ' .
+                $list['kd_rak'] .
+                ' - ' .
+                $list['kd_binbox'] .
+                ' </option>
+                    ';
+            // }
+        }
+        echo json_encode($output, true);
+    }
 
     public function ajax_get_gudang()
     {

@@ -256,6 +256,22 @@ class M_Master_Data extends CI_Model
             return false;
         }
     }
+    public function getLokasirak2($id)
+    {
+        $respon = $this->_client->request('GET', 'rakbin', [
+            'query' => [
+                'id' => $id
+                ]
+            ]);
+    
+        $result = json_decode($respon->getBody()->getContents(), true);
+            
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
 
     // public function getLokasirak($id)
     // {

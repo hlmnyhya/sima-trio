@@ -132,7 +132,7 @@
                 data: {
                     kd_gudang: rakbin
                 },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
+                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin2",
                 success: function(data) {
                     $('#optRakbin').html(data);
                     $('#optRakbin').select2();
@@ -334,6 +334,7 @@
             console.log(lokasi);
             console.log(kondisi);
             console.log(qty);
+            console.log(cabang);
         });
         $('#doCariPart').click(function() {
             var cari = $('#cari').val();

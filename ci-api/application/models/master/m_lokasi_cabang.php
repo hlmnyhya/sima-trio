@@ -60,11 +60,11 @@ class M_Lokasi_Cabang extends CI_Model
      public function getrakbinsima($id = null)
     {
         if ($id === null ) {
-            $result =  $this -> db-> query("select * from rak_bin")->result();
+            $result =  $this -> db-> query("select * lokasi_rakbin_baru ")->result();
             return $result;
         }else {
             $query = " select rak_bin.*, gudang.nama_gudang
-            from rak_bin 
+            from lokasi_rakbin_baru 
             LEFT JOIN gudang ON rak_bin.id_lokasi = gudang.kd_gudang 
             where gudang.kd_gudang = '$id'";
 
@@ -76,17 +76,17 @@ class M_Lokasi_Cabang extends CI_Model
     public function getrakbinbaru()
     {
         if ($id===null) {
-            $result = $this->db->get('rak_bin')->result();
+            $result = $this->db->get('lokasi_rakbin_baru')->result();
             return $result;              
         }else {
-            $result = $this->db->get_where('rak_bin',['kd_lokasi_Rak' => $id])->result();
+            $result = $this->db->get_where('lokasi_rakbin_baru',['kd_lokasi_Rak' => $id])->result();
             return $result;               
         }
     }
 
     public function addRakbin($data)
     {
-        $this->db->insert('rak_bin',$data); 
+        $this->db->insert('lokasi_rakbin_baru',$data); 
           return $this->db->affected_rows();   
     }
 

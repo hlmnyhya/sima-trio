@@ -119,6 +119,21 @@ class Master_Data extends CI_Controller
         );
         $this->load->view('general_affairview/perusahaan/_partial/footer.php');
     }
+    public function viewRakbin()
+    {
+        $data = [
+            'judul' => 'Rakbin',
+            'judul1' => 'Master Data',
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view(
+            'general_affairview/rakbin/v_rakbin.php',
+            $data
+        );
+        $this->load->view('general_affairview/rakbin/_partial/footer.php');
+        $this->load->view('general_affairview/rakbin/_partial/footer2.php');
+    }
 
     public function viewCabang()
     {
@@ -1367,6 +1382,13 @@ class Master_Data extends CI_Controller
         );
         $this->load->view('general_affairview/perusahaan/_partial/footer2.php');
     }
+    public function input_rakbin()
+    {
+        $this->load->view(
+            'general_affairview/rakbin/v_input_rakbin.php'
+        );
+        $this->load->view('general_affairview/rakbin/_partial/footer2.php');
+    }
 
     public function input_cabang()
     {
@@ -1437,6 +1459,29 @@ class Master_Data extends CI_Controller
         $this->load->view('_partial/sidebar.php', $data);
         $this->load->view('general_affairview/user/v_edit_user.php', $data);
         $this->load->view('general_affairview/user/_partial/footer2.php');
+    }
+    public function edit_rakbin()
+    {
+        $id = $this->input->get('id');
+        $cabang = $this->input->get('cabang');
+        $lokasi = $this->input->get('lokasi');
+        $kd_rak = $this->input->get('kd_rak');
+        $kd_binbox = $this->input->get('kd_binbox');
+
+        $data = [
+            'judul' => 'Rakbin',
+            'judul1' => 'Master Data',
+            'user' => $this->mmasdat->getRakbinById($id),
+            'cabang' => $cabang,
+            'lokasi' => $lokasi,
+            'kd_rak' => $kd_rak,
+            'kd_binbox' => $kd_binbox,
+        ];
+
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php', $data);
+        $this->load->view('general_affairview/rakbin/v_edit_rakbin.php', $data);
+        $this->load->view('general_affairview/rakbin/_partial/footer2.php');
     }
 
     public function edit_usergroup()
