@@ -1842,12 +1842,10 @@ function __construct() {
     }
     public function previewPart_get()
     {
-        $a= $this->get('id_cabang');
-        $b= $this->get('idjadwal_audit');
-        $d = $this->get('kondisi');
-        $f = $this->get('status');
-        $e = $this->get('offset');
-        $tampil= $this->mpart->previewPart($a, $b, $d, $e, $f);
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $offset = $this ->get('offset');
+        $tampil= $this->mpart->previewPart($cabang, $idjadwal_audit, $offset);
         if ($tampil) {
             $this->response([
                 'status' => true,

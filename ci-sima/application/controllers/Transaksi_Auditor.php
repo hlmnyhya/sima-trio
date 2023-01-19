@@ -2768,9 +2768,7 @@ class Transaksi_Auditor extends CI_Controller
         $cetak = $this->mtransauditor->previewPart(
             $cabang,
             $idjadwal_audit,
-            $status,
-            $start,
-            $kondisi
+            $start
         );
 
         // var_dump($cetak);exit;
