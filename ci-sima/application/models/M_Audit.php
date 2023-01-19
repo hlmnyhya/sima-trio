@@ -12,8 +12,7 @@ class M_Audit extends CI_Model {
             ]);
         }
 
-        public function 
-        ($start=null, $id=null)
+        public function getAudit($start=null, $id =null)
         {
             $respon =  $this->_client->request('GET', 'audit',[
                 'query' => [
