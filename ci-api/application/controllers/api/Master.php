@@ -2477,18 +2477,23 @@ class Master extends REST_Controller
         }
     }
 
-   public function rakbin_post()
+    /* -----------------------------------------------RAKBIN----------------------------------- **/
+
+    public function rakbin_get()
     {
-        $data = [
-            'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
-            'id_cabang' => $this->post('id_lokasi'),
-        ];
-        $menuakses = $this->mlokasicabang->addrakbin($data);
-        if ($menuakses) {
+        $id = $this->get('kd_lokasi_rak');
+        $offset = $this->get('id');
+
+        if ($id === null) {
+            $rakbin = $this->mlokasicabang->getrakbinsima();
+        } else {
+            $rakbin = $this->mlokasicabang->getrakbinsima($id);
+        }
+        if ($rakbin) {
             $this->response(
                 [
                     'status' => true,
-                    'data' => $menuakses,
+                    'data' => $rakbin,
                 ],
                 REST_Controller::HTTP_OK
             );
@@ -2502,6 +2507,111 @@ class Master extends REST_Controller
             );
         }
     }
+
+
+   public function rakbin_post()
+    {
+        $data = [
+        'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
+            'id_cabang' => $this->post('id_cabang'),
+            'id_lokasi' => $this->post('id_lokasi'),
+            'kd_rak' => $this->post('kd_rak'),
+            'kd_binbox' => $this->post('kd_binbox'),
+        ];
+
+        if ($this->mlokasicabang->addRakbin($data)) {
+            $this->response(
+                [
+                    'status' => true,
+                    'data' => 'Rakbin has been created',
+                ],
+                REST_Controller::HTTP_OK
+            );
+        } else {
+            $this->response(
+                [
+                    'status' => false,
+                    'data' => 'failed.',
+                ],
+                REST_Controller::HTTP_OK
+            );
+        }
+    }
+
+    public function rakbin_put()
+    {
+        $id = $this->put('kd_lokasi_rak');
+
+       $data = [
+        'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
+            'id_cabang' => $this->post('id_cabang'),
+            'id_lokasi' => $this->post('id_lokasi'),
+            'kd_rak' => $this->post('kd_rak'),
+            'kd_binbox' => $this->post('kd_binbox'),
+        ];
+
+        if ($id === null) {
+            $this->response(
+                [
+                    'status' => false,
+                    'data' => 'need id',
+                ],
+                REST_Controller::HTTP_OK
+            );
+        } else {
+            if ($this->mlokasicabang->editRakbin($data, $id)) {
+                $this->response(
+                    [
+                        'status' => true,
+                        'data' => 'Rakbin has been modified',
+                    ],
+                    REST_Controller::HTTP_OK
+                );
+            } else {
+                $this->response(
+                    [
+                        'status' => false,
+                        'data' => 'failed.',
+                    ],
+                    REST_Controller::HTTP_OK
+                );
+            }
+        }
+    }
+
+    public function rakbin_delete()
+    {
+        $id = $this->delete('kd_lokasi_rak');
+        if ($id === null) {
+            $this->response(
+                [
+                    'status' => false,
+                    'message' => 'need id',
+                ],
+                REST_Controller::HTTP_OK
+            );
+        } else {
+            if ($this->mlokasicabang->delRakbin($id)) {
+                $this->response(
+                    [
+                        'status' => true,
+                        'id' => $id,
+                        'message' => 'deleted.',
+                    ],
+                    REST_Controller::HTTP_OK
+                );
+            } else {
+                $this->response(
+                    [
+                        'status' => false,
+                        'message' => 'ID not found.',
+                    ],
+                    REST_Controller::HTTP_OK
+                );
+            }
+        }
+    }
+    
     // public function lokasirak_get()
     // {
     //     $id= $this->get('id_lokasi');
