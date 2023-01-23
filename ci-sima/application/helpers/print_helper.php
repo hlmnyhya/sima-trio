@@ -365,7 +365,7 @@ class reportProduct extends FPDF
 
     function Header()
     {
-        setlocale(LC_TIME, 'id_ID.utf8');
+        // setlocale(LC_TIME, 'id_ID.utf8');
         $bulan = date('F Y');
         
         if ($this->kriteria == 'report') {
