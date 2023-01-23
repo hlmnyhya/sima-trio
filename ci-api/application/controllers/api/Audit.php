@@ -522,6 +522,10 @@ function __construct() {
             'status' => $this->post('status'),
             'keterangan' => $this->post('keterangan'),
             'qty' => $this->post('qty'),
+            'qty_fsk' => $this->post('qty_fsk'),
+            'selisih' => $this->post('selisih'),
+            'amount' => $this->post('amount'),
+            'harga_jual' => $this->post('harga_jual'),
             'audit_by' => $this->post('user'),
             'tanggal_audit' => $this->_tgl,
             'idjadwal_audit' => $this->post('idjadwal_audit')
@@ -597,6 +601,10 @@ function __construct() {
                 'kondisi' => $this->put('kondisi'),
                 'keterangan' =>$this->put('keterangan'),
                 'qty' =>$this->put('qty'),
+                'qty_fsk' =>$this->put('qty_fsk'),
+                'selisih' =>$this->put('selisih'),
+                'amount' =>$this->put('amount'),
+                'harga_jual' =>$this->put('harga_jual'),
                 'status' => $this->put('status'),
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl
@@ -1309,6 +1317,10 @@ function __construct() {
                        'part_number' => $res['PART_NUMBER'],
                        'deskripsi' => $res['PART_DESKRIPSI'],
                        'qty' => $res['STOCK_OH'],
+                       'qty_fsk' => 0,
+                       'selisih' => 0,
+                       'amount' => 0,
+                       'harga_jual' => $res['HARGA_JUAL'],
                        'idjadwal_audit'=> $idjadwal_audit,
                        'time' => $this->_tgl
                    ];

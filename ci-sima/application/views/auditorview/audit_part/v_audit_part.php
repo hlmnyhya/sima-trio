@@ -51,6 +51,9 @@
                                     <th>Deskripsi</th>
                                     <th>Qty SIMANDE</th>
                                     <th>Qty</th>
+                                    <th>SELISIH</th>
+                                    <th>HET</th>
+                                    <th>AMOUNT</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>
@@ -69,6 +72,9 @@
                                     <th>Deskripsi</th>
                                     <th>Qty SIMANDE</th>
                                     <th>Qty</th>
+                                    <th>SELISIH</th>
+                                    <th>HET</th>
+                                    <th>AMOUNT</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>

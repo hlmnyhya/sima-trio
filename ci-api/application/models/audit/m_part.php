@@ -148,8 +148,8 @@ class M_Part extends CI_Model {
     public function PartEnd($cabang, $idjadwal_audit)
     { 
         $query = "
-        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, tanggal_audit, idjadwal_audit)
-        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, kondisi, status, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
+        INSERT INTO part (part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, qty_fsk, selisih, amount, harga_jual, kondisi, status, tanggal_audit, idjadwal_audit)
+        SELECT part_number, kd_lokasi_rak, id_cabang, id_lokasi, deskripsi, qty, qty_fsk, selisih, amount, harga_jual, kondisi, status, CONVERT(date,GETDATE()) as tanggal_audit, idjadwal_audit
         FROM temp_part a 
         WHERE a.part_number NOT IN (
         SELECT part_number FROM part WHERE idjadwal_audit = '$idjadwal_audit')

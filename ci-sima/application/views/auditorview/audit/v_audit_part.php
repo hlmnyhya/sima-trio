@@ -117,6 +117,10 @@
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">QTY FISIK</th>
+                                            <th class="text-center">SELISIH</th>
+                                            <th class="text-center">HET</th>
+                                            <th class="text-center">AMOUNT</th>
                                             <th class="text-center">KD RAKBIN</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Kondisi</th>
@@ -133,6 +137,10 @@
                                             <th class="text-center">PART NUMBER</th>
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">QTY FISIK</th>
+                                            <th class="text-center">SELISIH</th>
+                                            <th class="text-center">HET</th>
+                                            <th class="text-center">AMOUNT</th>
                                             <th class="text-center">KD RAKBIN</th>
                                             <th class="text-center">Status</th>
                                             <th class="text-center">Kondisi</th>
