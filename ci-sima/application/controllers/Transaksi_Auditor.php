@@ -1958,6 +1958,8 @@ class Transaksi_Auditor extends CI_Controller
     {
         // var_dump("aaa");exit;
         $manual = false;
+        $output = '';
+        $info = '';
         $scanpart = $this->input->post('id');
         // $part_number = $this->input->post('part_number');
         $cabang = $this->input->post('cabang');
@@ -1967,6 +1969,8 @@ class Transaksi_Auditor extends CI_Controller
         $qty = $this->input->post('qty');
         $status = $this->input->post('status');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
+
+        // var_dump($rakbin);exit;
         $data = [
             'id' => $this->input->post('id'),
             'id_cabang' => $cabang,
@@ -2193,6 +2197,7 @@ class Transaksi_Auditor extends CI_Controller
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         // $qty = $this->input->post('qty');
         $output = '';
+        // $info = '';
         $manual = false;
         $base = base_url();
         $info = '';
