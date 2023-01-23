@@ -245,11 +245,18 @@ class Transaksi_Auditor extends CI_Controller
         // $tgl = $_tgl;
         $time = date('Y-m-d');
         $output = '';
+        $tgl =  $this->mtransauditor->gettgltempunit();
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
+            // $output .=
+            // $tgl =  $this->mtransauditor->gettgltempunit();
+        
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>"'.$tgl.'"</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>"'.$time.'"</span>   </div>';
+            // $tgl =  $this->mtransauditor->gettgltempunit();
+
+             $output .=
+                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>"'.$tgl.'"</span>  </div>';
         }
         echo json_encode($output, true);
     }

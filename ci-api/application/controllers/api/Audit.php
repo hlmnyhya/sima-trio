@@ -1352,6 +1352,30 @@ function __construct() {
            
         }
     }
+    public function tanggalunit_get()
+    {
+        $this->mtempunit->app_db = $this->load->database($this->_getconfig(),TRUE);
+        $cekConfig = $this->mtempunit->app_db->initialize();
+        if (!$cekConfig) {
+            $this->response([
+                'status' => false,
+                'data' => "Database not connected!"
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $cabang = $this->get('id_cabang');
+            $idjadwal_audit = $this->get('idjadwal_audit');
+            $time = $this->get('time');
+            // var_dump($time);exit;
+
+            // $cabang='T13';
+            $list =$this->mtemppart->getTgl();
+            $this->response([
+                'status' => true,
+                'data' => $list
+            ], REST_Controller::HTTP_OK);
+           
+        }
+    }
 
 
     public function dataunit_get()
