@@ -1,6 +1,8 @@
 <?php
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Psr7;
+use GuzzleHttp\Exception\ClientException;
 use Symfony\Component\VarDumper\VarDumper;
 
 defined('BASEPATH') or exit('No direct script access allowed');
@@ -12,9 +14,16 @@ class M_Transaksi_Auditor extends CI_Model
     public function __construct()
     {
         parent::__construct();
-        $this->_client = new Client([
-            'base_uri' => SERVER_BASE . 'api/audit/'
-        ]);
+        try {
+            $this->_client = new Client([
+                'base_uri' => SERVER_BASE . 'api/audit/'
+            ]);
+        }
+        catch (GuzzleHttp\Exception\ClientException $e) {
+            $response = $e->getResponse();
+            $responseBodyAsString = $response->getBody()->getContents();
+        }
+        
     }
 
 
@@ -345,18 +354,17 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
-    public function downloadpart($id, $idjadwal_audit, $time)
+    public function downloadpart($id, $idjadwal_audit)
     {
         $respon =  $this->_client->request('GET', 'datapart', [
             'query' => [
                 'id_cabang' => $id,
-                'idjadwal_audit' => $idjadwal_audit, 
-                'time' => $time
+                'idjadwal_audit' => $idjadwal_audit
             ]
         ]);
 
         $result = json_decode($respon->getBody()->getContents(), true);
-
+        // var_dump($result);
         if ($result['status'] == true) {
             return $result['data'];
         } else {
@@ -365,12 +373,12 @@ class M_Transaksi_Auditor extends CI_Model
     }
 
     public function gettgltemppart(){
-        $respon =  $this->_client->request('GET', 'datapart');
+        $respon =  $this->_client->request('GET', 'tanggal');
 
         $result = json_decode($respon->getBody()->getContents(), true);
-var_dump($result);exit;
+        // var_dump($result);exit;
         if ($result['status'] == true) {
-            return $result['data'];
+            return $result['data'][0]['time'];
         } else {
             return false;
         }

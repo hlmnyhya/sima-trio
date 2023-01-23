@@ -88,7 +88,7 @@ class laporan_auditor extends CI_Controller
             }
 
             $pdf = new reportProduct();
-            $pdf->setKriteria('report');
+            $pdf->setKriteria('report2');
             $pdf->setNama($cab);
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');
@@ -228,7 +228,7 @@ class laporan_auditor extends CI_Controller
             }
 
             $pdf = new reportProduct();
-            $pdf->setKriteria('report');
+            $pdf->setKriteria('report2');
             $pdf->setNama($cab);
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');
@@ -1189,7 +1189,7 @@ class laporan_auditor extends CI_Controller
             $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
 
             $pdf = new reportProduct();
-            $pdf->setKriteria('report');
+            $pdf->setKriteria('report2');
             $pdf->setNama($cab);
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');
@@ -1622,54 +1622,76 @@ class laporan_auditor extends CI_Controller
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');
             $pdf->SetFont('Times', 'B', '16');
-            $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
+            // $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
             $pdf->SetFont('Times', '', '10');
-            $pdf->SetXY(120, 34);
-            $pdf->cell(0, 0, 'Auditee', 0, 1);
-            $pdf->SetXY(152, 34);
-            $pdf->cell(0, 0, ': Part', 0, 1);
-            $pdf->SetXY(120, 39);
-            $pdf->cell(0, 0, 'Periode Pelaksanaan', 0, 1);
-            $pdf->SetXY(152, 39);
-            $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
-            $pdf->SetXY(120, 44);
-            $pdf->cell(0, 0, 'Auditor', 0, 1);
-            $pdf->SetXY(152, 44);
-            $pdf->cell(0, 0, ': ' . $auditor, 0, 1);
-            $pdf->SetXY(120, 49);
-            $pdf->cell(0, 0, 'Di-review Oleh', 0, 1);
-            $pdf->SetXY(152, 49);
-            $pdf->cell(0, 0, ': ', 0, 1);
+            $pdf->SetXY(150, 34);
+            $pdf->cell(0, 0, 'CEK I        SYAIFUL BAHRI', 0, 1);
+
+            // $pdf->SetXY(152, 34);
+            // $pdf->cell(0, 0, ': Part', 0, 1);
+            // $pdf->SetXY(120, 39);
+            // $pdf->cell(0, 0, 'Periode Pelaksanaan', 0, 1);
+            // $pdf->SetXY(152, 39);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            
+            // $pdf->SetXY(154, 44);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            // $pdf->Rect(140, 34, 30, 10);
+            // $pdf->SetXY(154, 44);
+            $pdf->SetXY(150, 42);            
+            $pdf->cell(0, 0, 'TTD', 0, 1);
+            $pdf->Rect(165, 37, 30, 10);
+
+            $pdf->SetXY(150, 50);
+            $pdf->cell(0, 0, 'CEK II      AGUS ZAINUDDIN', 0, 1);
+
+            $pdf->SetXY(150, 59);            
+            $pdf->cell(0, 0, 'TTD', 0, 1);
+            $pdf->Rect(165, 54, 30, 10);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            // $pdf->SetXY(120, 44);
+            // $pdf->cell(0, 0, 'Auditor', 0, 1);
+            // $pdf->SetXY(152, 44);
+            // $pdf->cell(0, 0, ': ' . $auditor, 0, 1);
+            // $pdf->SetXY(120, 49);
+            // $pdf->cell(0, 0, 'Di-review Oleh', 0, 1);
+            // $pdf->SetXY(152, 49);
+            // $pdf->cell(0, 0, ': ', 0, 1);
             $pdf->ln();
-            $pdf->SetY(55);
+        
+            $pdf->SetY(70);
             $pdf->SetLineWidth(0.1);
-            $pdf->SetFillColor(0, 186, 242);
+            $pdf->SetFillColor(186, 185, 184);
             $pdf->SetFont('Times', 'B', 10);
 
-            $pdf->Cell(40, 5, 'Hasil Audit', 0, 1);
-            $pdf->Cell(8, 15, 'No', 1, 0, 'C', true);
-            $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
-            $pdf->Cell(28, 15, 'PART NUMBER', 1, 0, 'C', true);
-            $pdf->Cell(40, 15, 'DESKRIPSI', 1, 0, 'C', true);
-            $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', true);
-            $pdf->Cell(25, 15, 'QTY', 1, 1, 'C', true);
+            $pdf->Cell(40, 5, '1. STOCK OPNAME SPARE PART / HGP.', 0, 1);
+            $pdf->ln(0.5);
+            $pdf->Cell(40, 5, 'A. SELISIH KURANG SPARE PART (QUANTITY FISIK ADA, QUANTITY SISTEM ADA)							
+', 0, 1);
+            
+            $pdf->Cell(12, 15, 'No', 1, 0, 'C', true);
+            // $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
+            $pdf->Cell(50, 15, 'PART NUMBER', 1, 0, 'C', true);
+            $pdf->Cell(60, 15, 'DESKRIPSI', 1, 0, 'C', true);
+            // $pdf->Cell(30, 15, 'KD RAK BIN', 1, 0, 'C', true);
+            $pdf->Cell(50, 15, 'QTY', 1, 1, 'C', true);
             $start = null;
 
             $no = 1;
-            $pdf->SetFont('Times', '', 9);
+            $pdf->SetFont('Times', '', 10);
             foreach ($cetak as $c) {
-                $pdf->Cell(8, 8, $no, 1, 0, 'C');
+                $pdf->Cell(12, 8, $no, 1, 0, 'C');
                 // $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
+                // $x = $pdf->GetX();
+                // $pdf->myCell(55, 8, $x, $c['nama_gudang']);
                 $x = $pdf->GetX();
-                $pdf->myCell(55, 8, $x, $c['nama_gudang']);
+                $pdf->myCell(50, 8, $x, $c['part_number']);
                 $x = $pdf->GetX();
-                $pdf->myCell(28, 8, $x, $c['part_number']);
+                $pdf->myCell(60, 8, $x, $c['deskripsi']);
+                // $x = $pdf->GetX();
+                // $pdf->myCell(30, 8, $x, $c['kd_lokasi_rak']);
                 $x = $pdf->GetX();
-                $pdf->myCell(40, 8, $x, $c['deskripsi']);
-                $x = $pdf->GetX();
-                $pdf->myCell(30, 8, $x, $c['kd_lokasi_rak']);
-                $x = $pdf->GetX();
-                $pdf->myCell(25, 8, $x, $c['qty']);
+                $pdf->myCell(50, 8, $x,  $c['qty']);
                 $pdf->ln();
                 $no++;
             }
@@ -1730,7 +1752,7 @@ class laporan_auditor extends CI_Controller
             $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
 
             $pdf = new reportProduct();
-            $pdf->setKriteria('report');
+            $pdf->setKriteria('report2');
             $pdf->setNama($cab);
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');

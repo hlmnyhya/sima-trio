@@ -8,9 +8,9 @@ class M_TempPart extends CI_Model {
     {
         parent::__construct();
     }
-    public function getTempPart($id=null, $id_cabang=null, $idjadwal_audit=null)
+    public function getTempPart($id=null, $id_cabang=null, $idjadwal_audit=null ,$tanggal=null)
     {
-       
+
         $this->db->select('temp_part.*,nama_cabang, nama_gudang');
         $this->db->from('temp_part');
         $this->db->join('cabang', 'temp_part.id_cabang = cabang.id_cabang', 'left');
@@ -28,7 +28,16 @@ class M_TempPart extends CI_Model {
         $result = $this->db->get()->result();
 
         return $result;
-        
+
+    }
+
+    public function gettgl()
+    {
+        $this->db->select('time');
+        $this->db->from('temp_part a');
+        $this->db->limit(1);
+        $result = $this->db->get()->result();
+        return $result;
     }
 
     public function GetToPart($cabang =null,$offset=null)
@@ -56,7 +65,7 @@ class M_TempPart extends CI_Model {
 			$resultcek = $this->db->query($sqlcek)->result_array();
 			if($resultcek[0]['ada'] == 0){
 				$lokasi = explode("-",$res['KD_RAKBIN']);
-				if(count($lokasi) < 2){
+				if(count($lokasi) < 4){
 					$lokasi[1] = "";
 				}
 				$data =[
@@ -74,7 +83,7 @@ class M_TempPart extends CI_Model {
     public function getDataPart($cabang)
     {
         $kd_dealer = $cabang;
-        $query ="SELECT * FROM TRANS_PARTSTOCK_VIEW WHERE KD_DEALER='$kd_dealer' AND (KD_RAKBIN != '' OR KD_RAKBIN!=NULL) and ID = 59 ";
+        $query ="SELECT * FROM TRANS_PARTSTOCK_VIEW WHERE KD_DEALER='2NG' AND (KD_RAKBIN != '' OR KD_RAKBIN!=NULL)";
         // $this->db2->limit(1);
         $result = $this->app_db->query($query)->result_array();
         return $result;
@@ -85,5 +94,15 @@ class M_TempPart extends CI_Model {
         $this->db->insert('temp_part', $data);
         return $this->db->affected_rows(); 
     }
+
+    public function getTanggalTemp()
+    {
+        $query ="SELECT TOP 1 time FROM temp_part tp ";
+        // $this->db2->limit(1);
+        $result = $this->app_db->query($query)->result_array();
+        return $result;
+    }
+
+
 
 }

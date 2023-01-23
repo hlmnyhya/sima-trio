@@ -48,6 +48,20 @@
                                         </div>
                                     </div>
                                 </div>
+                                <!-- <div class="col-sm-5 form-group">
+                                    <div class="form-group">
+                                        <label class="col-sm-3 control-label">Status</label>
+                                        <div class="col-sm-9">
+                                            <select name="idjadwal_audit" class="form-control" id="status" required>
+                                                <option value="--Pilih Status--">--Pilih Status--</option>    
+                                                <option value="Sesuai">Sesuai</option>
+                                                <option value="Belum Sesuai">Belum Sesuai</option>
+                                                <option value="Belum Ditemukan">Belum Ditemukan</option>
+                                            </select>
+                                            
+                                        </div>
+                                    </div>
+                                </div> -->
                                 <span id="change" class="hidden">
                                     <div class="col-sm-5">
                                         <div class="form-group">

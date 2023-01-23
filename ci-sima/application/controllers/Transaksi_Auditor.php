@@ -131,10 +131,7 @@ class Transaksi_Auditor extends CI_Controller
         $listrak = $this->mmasdat->getLokasirak($id);
         // var_dump($listrak);exit;
 
-        // var_dump($id);exit;
-
         $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
-        // $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
 
         foreach ($listrak as $list) {
             $idlokasi = $list['kd_lokasi_rak'];
@@ -143,45 +140,7 @@ class Transaksi_Auditor extends CI_Controller
             //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
             //         ';
             // } else {
-      
-            $output .=
-                '
-                <option value="' .
-                $list['kd_lokasi_rak'] .
-                '" >' .
-                $list['id_lokasi'] .
-                ' - ' .
-                $list['kd_rak'] .
-                ' - ' .
-                $list['kd_binbox'] .
-                ' </option>
-                    ';
-            // }
-        }
-        echo json_encode($output, true);
-    }
-    public function ajax_get_rakbin2()
-    {
-        $output = '';
-        $no = 0;
-        $id = $this->input->post('kd_gudang');
-        $key = $this->input->post('key');
-        $listrak = $this->mmasdat->getLokasirak2($id);
-        // var_dump($listrak);exit;
-
-        // var_dump($id);exit;
-
-        $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
-        // $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
-
-        foreach ($listrak as $list) {
-            $idlokasi = $list['kd_lokasi_rak'];
-            // if ($idlokasi == $key) {
-            //     $output .= '
-            //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
-            //         ';
-            // } else {
-      
+        //  $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
             $output .=
                 '
                 <option value="' .
@@ -283,16 +242,14 @@ class Transaksi_Auditor extends CI_Controller
     {
         $id = $this->input->post('id');
         $idaudit = $this->input->post('idaudit');
-        // $time = $this->get('time');
-        // $time = $this->_tgl;
         // $tgl = $_tgl;
-        $time = date('Y-m-d H:i');
+        $time = date('Y-m-d');
         $output = '';
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
             $output .=
                 '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>'.$time.'</span>   </div>';
+            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>"'.$time.'"</span>   </div>';
         }
         echo json_encode($output, true);
     }
@@ -755,7 +712,8 @@ class Transaksi_Auditor extends CI_Controller
             'kondisi' => $this->input->post('kondisi'),
             'keterangan' => $this->input->post('keterangan'),
             'qty' => $this->input->post('qty'),
-            'status' => $this->input->post('status')
+            'status' => 'Sesuai'
+            // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
         ];
         // var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {
@@ -847,7 +805,6 @@ class Transaksi_Auditor extends CI_Controller
                                     <td class="text-center">' .
                         $start .
                         '</td>
-                                   
                                     <td class="text-center">' .
                         $list['no_mesin'] .
                         '</td>
@@ -946,7 +903,6 @@ class Transaksi_Auditor extends CI_Controller
                                         <td class="text-center">' .
                             $start .
                             '</td>
-                
                                         <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -1044,7 +1000,7 @@ class Transaksi_Auditor extends CI_Controller
                                         <td class="text-center">' .
                             $start .
                             '</td>
-
+                                   
                                         <td class="text-center">' .
                             $list['no_mesin'] .
                             '</td>
@@ -1416,7 +1372,7 @@ class Transaksi_Auditor extends CI_Controller
                             <tr> 
                                 <td>' .
                         $start .
-                        '</td>`
+                        '</td>
                                 <td>' .
                         $list['no_mesin'] .
                         '</td>
@@ -1706,18 +1662,21 @@ class Transaksi_Auditor extends CI_Controller
     {
         $id = $this->input->post('id');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
-        // $time = $this->input->post('time');
-        $time = date('Y-m-d H:i');
+        $time = $this->input->post('time');
         // var_dump($id, $idjadwal_audit, $time);exit;
         $output = '';
-        $time = date('Y-m-d H:i');
-        // $this->mtransauditor->gettgltemppart();
-        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit, $time)) {
+        // $time = date('Y-m-d H:i');
+        if ($this->mtransauditor->downloadpart($id, $idjadwal_audit)) {
+
+            $tgl =  $this->mtransauditor->gettgltemppart();
+        
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>"'.$tgl.'"</span>  </div>';
         } else {
+            $tgl =  $this->mtransauditor->gettgltemppart();
+
              $output .=
-                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>'.$time.'</span>  </div>';
+                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>"'.$tgl.'"</span>  </div>';
         }
         echo json_encode($output, true);
     }
@@ -2008,8 +1967,6 @@ class Transaksi_Auditor extends CI_Controller
         $qty = $this->input->post('qty');
         $status = $this->input->post('status');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
-        $output = '';
-        $info = '';
         $data = [
             'id' => $this->input->post('id'),
             'id_cabang' => $cabang,
@@ -2024,16 +1981,14 @@ class Transaksi_Auditor extends CI_Controller
             'idjadwal_audit' => $this->input->post('idjadwal_audit'),
         ];
 
-        VAR_DUMP($data);exit;
-
         $cek = $this->mtransauditor->cekPart(
             $scanpart,
             $cabang,
             $idjadwal_audit
         );
         if ($cek) {
-            if ($this->mtransauditor->addScanPart($data)) {    
-                $info = 'Data Berhasil diaudit';  
+            $info = 'Data Berhasil diaudit';
+            if ($this->mtransauditor->addScanPart($data)) {      
                 $output = '';
                 $count = $this->mtransauditor->countpart1(
                     $cabang,
@@ -2325,14 +2280,14 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $qty_part,
                         'kondisi' => $kondisi,
-                        'status' => 'Lokasi Sesuai',
+                        'status' => $status,
                         'keterangan' => 'Part Lebih',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
                     
                 // var_dump($data_edit);exit;
                 $this->mtransauditor->editscanpart($data_edit);
-                } elseif ($qty_part < $qty_temppart ){
+                } elseif ($qty_part < $qty_temppart){
                     $data_edit = [
                         'id_part' => $cek_part[0]["id_part"],
                         'id_cabang' => $part['id_cabang'],
@@ -2342,7 +2297,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $qty_part,
                         'kondisi' => $kondisi,
-                        'status' => 'Lokasi Sesuai',
+                        'status' => $status,
                         'keterangan' => 'Part Kurang',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
@@ -2360,7 +2315,7 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $qty_part,
                         'kondisi' => $kondisi,
-                        'status' => ' Lokasi Sesuai',
+                        'status' => $status,
                         'keterangan' => 'Part Sesuai',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
