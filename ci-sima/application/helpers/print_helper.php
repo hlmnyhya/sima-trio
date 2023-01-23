@@ -365,24 +365,24 @@ class reportProduct extends FPDF
 
     function Header()
     {
+        setlocale(LC_TIME, 'id_ID.utf8');
+        $bulan = date('F Y');
+        
         if ($this->kriteria == 'report') {
+            $this->image(
+                base_url() . 'assets/images/logo-print.png', 10, 40, 45, 16
+            );
             //   $this->SetX(0);
             $nama = strtolower($this->nama);
-            $this->image(
-                base_url() . 'assets/images/logo-print.png',
-                160,
-                10,
-                35,
-                13
-            );
             $this->SetFont('Times', 'B', '11');
-            $this->Cell(0, 4, 'Main Dealer ', 0, 1, 'L');
-            $this->Cell(0, 5, 'Departement Audit Trio Motor ', 0, 1, 'L');
-            $this->Cell(0, 5, 'Cabang ' . ucwords($nama), 0, 1, 'L');
-            $this->SetLineWidth(0.3);
+            $this->Cell(0, 4, 'LHA STOCK OPNAME SPAREPART OLI ', 0, 1, 'C');
+            $this->Cell(0, 5, 'TRIO MOTOR ' . strtoupper($nama), 0, 1, 'C');
+            $this->Cell(0, 5, 'PERIODE  ' . strtoupper($bulan), 0, 1, 'C');
+            
+            // $this->SetLineWidth(0.3);
             $this->line(10, 25, 200, 25);
-            $this->ln(5);
-            //     if ($this->PageNo() >= 2) {
+            $this->ln(10);
+            // if ($this->PageNo() >= 2) {
             //         $this->Cell(8, 15, 'No', 1, 0, 'C', true);
             //         $this->Cell(25, 15, 'No Mesin', 1, 0, 'C', true);
             //         $this->Cell(28, 15, 'No Rangka', 1, 0, 'C', true);
@@ -404,8 +404,53 @@ class reportProduct extends FPDF
             //         $this->Cell(25, 6, 'LOKASI', 1, 0, 'C');
             //         $this->Cell(25, 6, 'STATUS', 1, 1, 'C');
             //     }
+        
+        } elseif ($this->kriteria == 'report2') {
+            //   $this->SetX(0);
+            $nama = strtolower($this->nama);
+            $this->image(
+                base_url() . 'assets/images/logo-print.png',
+                160,
+                8,
+                35,
+                16
+            );
+            $this->SetFont('Times', 'B', '11');
+            $this->Cell(0, 4, 'Main Dealer ', 0, 1, 'L');
+            $this->Cell(0, 5, 'Departement Audit Trio Motor ', 0, 1, 'L');
+            $this->Cell(0, 5, 'Cabang ' . ucwords($nama), 0, 1, 'L');
+            $this->SetLineWidth(0.3);
+            $this->line(10, 25, 200, 25);
+            $this->ln(5);
+
         }
+            //     if ($this->PageNo() >= 2) {
+            //         $this->Cell(8, 15, 'No', 1, 0, 'C', true);
+            //         $this->Cell(25, 15, 'No Mesin', 1, 0, 'C', true);
+            //         $this->Cell(28, 15, 'No Rangka', 1, 0, 'C', true);
+            //         $this->Cell(27, 15, 'Type Unit', 1, 0, 'C', true);
+            //         $this->Cell(20, 15, 'Umur Unit', 1, 0, 'C', true);
+            //         $this->Cell(25, 15, 'Lokasi', 1, 0, 'C', true);
+            //         $this->Cell(25, 15, 'Status Unit', 1, 0, 'C', true);
+            //         $this->Cell(25, 15, 'Keterangan', 1, 1, 'C', true);
+            //     }
+        //     } elseif ($this->kriteria == 'status') {
+        //         if ($this->PageNo() >= 2) {
+        //             $this->SetFont('Arial', 'B', 8);
+        //             $this->Cell(8, 6, 'NO', 1, 0, 'C');
+        //             $this->Cell(25, 6, 'NO MESIN', 1, 0, 'C');
+        //             $this->Cell(28, 6, 'NO RANGKA', 1, 0, 'C');
+        //             $this->Cell(25, 6, 'KODE ITEM', 1, 0, 'C');
+        //             $this->Cell(27, 6, 'TYPE UNIT', 1, 0, 'C');
+        //             $this->Cell(25, 6, 'USIA UNIT', 1, 0, 'C');
+        //             $this->Cell(25, 6, 'LOKASI', 1, 0, 'C');
+        //             $this->Cell(25, 6, 'STATUS', 1, 1, 'C');
+        //         }
+        // }
+        
     }
+
+    
 
     function Footer()
     {
