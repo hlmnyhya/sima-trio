@@ -2191,6 +2191,8 @@ class Transaksi_Auditor extends CI_Controller
         $status = $this->input->post('status');
         $qty = $this->input->post('qty');
         $qty2 = $this->input->post('qty_fsk');
+        // $selish = $this->input->post('selisih');
+        $het = $this->input->post('harga_jual');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         // $qty = $this->input->post('qty');
         $output = '';
@@ -2223,6 +2225,9 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty_fsk' => 1,
                         'qty' => $part['qty'],
+                        'selisih' => 1,
+                        'harga_jual' => $part['harga_jual'],
+                        'amount' => $part['harga_jual'],
                         'kondisi' => $kondisi,
                         'status' => ' Lokasi Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
@@ -2237,6 +2242,9 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty_fsk' => 1,
                         'qty' => $part['qty'],
+                        'selisih' => 1,
+                        'harga_jual' => $part['harga_jual'],
+                        'amount' => '',                        
                         'kondisi' => $kondisi,
                         'status' => ' Rakbin Belum Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
@@ -2250,7 +2258,9 @@ class Transaksi_Auditor extends CI_Controller
                         'kd_lokasi_rak' => $rakbin,
                         'deskripsi' => $part['deskripsi'],
                         'qty_fsk' => 1,
-                        'qty' => $part['qty'],
+                        'selisih' => 1,
+                        'harga_jual' => $part['harga_jual'],
+                        'amount' => '',   
                         'kondisi' => $kondisi,
                         'status' => 'Lokasi Belum Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
@@ -2270,6 +2280,8 @@ class Transaksi_Auditor extends CI_Controller
 
                 $qty_temppart = $part['qty'];
                 $qty_part = $cek_part[0]['qty_fsk'] + 1;
+                $selisih = $qty_part - $qty_temppart;
+                $amount = $selisih * $part['harga_jual'];
                 // var_dump($part);
                 // var_dump($qty_part);
                 // var_dump($qty_temppart);
@@ -2284,6 +2296,9 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $part['qty'],
                         'qty_fsk' => $qty_part,
+                        'selisih' => $selisih,
+                        'harga_jual' => $part['harga_jual'],
+                        'amount' => $amount,
                         'kondisi' => $kondisi,
                         'status' => $status,
                         'keterangan' => 'Part Lebih',
@@ -2302,6 +2317,9 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $part['qty'],
                         'qty_fsk' => $qty_part,
+                        'selisih' => $selisih,
+                        'harga_jual' => $part['harga_jual'],
+                        'amount' => $amount,
                         'kondisi' => $kondisi,
                         'status' => $status,
                         'keterangan' => 'Part Kurang',
@@ -2321,6 +2339,9 @@ class Transaksi_Auditor extends CI_Controller
                         'deskripsi' => $part['deskripsi'],
                         'qty' => $part['qty'],
                         'qty_fsk' => $qty_part,
+                        'selisih' => $selisih,
+                        'harga_jual' => $part['harga_jual'],
+                        'amount' => $amount,
                         'kondisi' => $kondisi,
                         'status' => $status,
                         'keterangan' => 'Part Sesuai',
@@ -2413,6 +2434,15 @@ class Transaksi_Auditor extends CI_Controller
                                         <td class="text-center">' .
                             $list['qty_fsk'] .
                             '</td>
+                                        <td class="text-center">' .
+                            $list['selisih'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['harga_jual'] .
+                            '</td>
+                            <td class="text-center">' .
+                $list['amount'] .
+                '</td>
                                         <td class=a"text-center">' .
                             $list['kd_lokasi_rak'] .
                             '</td>
@@ -2513,6 +2543,15 @@ class Transaksi_Auditor extends CI_Controller
                                  $list['qty_fsk'] .
                                 '</td>
                                         <td class="text-center">' .
+                                $list['selisih'] .
+                                '</td>
+                                        <td class="text-center">' .
+                                $list['harga_jual'] .
+                                '</td>
+                                <td class="text-center">' .
+                $list['amount'] .
+                '</td>
+                                        <td class="text-center">' .
                                 $list['kd_lokasi_rak'] .
                                 '</td>
                                         <td class="text-center">' .
@@ -2611,7 +2650,16 @@ class Transaksi_Auditor extends CI_Controller
                 $list['qty_fsk'] .
                 '</td>
                         <td class="text-center">' .
+                $list['selisih'] .
+                '</td>
+                        <td class="text-center">' .
+                $list['harga_jual'] .
+                '</td>
+                        <td class="text-center">' .
                 $list['kd_lokasi_rak'] .
+                '</td>
+                <td class="text-center">' .
+                $list['amount'] .
                 '</td>
                         <td class="text-center">' .
                 $list['status'] .
