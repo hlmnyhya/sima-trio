@@ -84,6 +84,44 @@ class Transaksi_Auditor extends CI_Controller
         }
         echo json_encode($output, true);
     }
+    public function ajax_get_rakbinBaru()
+    {
+        $output = '';
+        $no = 0;
+        $id = $this->input->post('kd_gudang');
+        $key = $this->input->post('key');
+        $listrakBaru = $this->mmasdat->getLokasirakBaru($id);
+        // var_dump($listrak);exit;
+
+        // var_dump($id);exit;
+
+        $output .= '<option value="">--- Pilih Lokasi Rak ---</option>';
+        // $output .= '<option value="RakbinBaru">Pilih Rakbin Baru</option>';
+
+        foreach ($listrakBaru as $list) {
+            $idlokasi = $list['kd_lokasi_rak_Baru'];
+            // if ($idlokasi == $key) {
+            //     $output .= '
+            //     <option value="' . $list['kd_lokasi_rak'] . '"selected>' . $list['id_lokasi'] . ' - '  . $list['kd_rak'] . ' - ' . $list['kd_binbox'] . ' </option>
+            //         ';
+            // } else {
+      
+            $output .=
+                '
+                <option value="' .
+                $list['kd_lokasi_rak_Baru'] .
+                '" >' .
+                $list['id_lokasi'] .
+                ' - ' .
+                $list['kd_rak'] .
+                ' - ' .
+                $list['kd_binbox'] .
+                ' </option>
+                    ';
+            // }
+        }
+        echo json_encode($output, true);
+    }
     public function ajax_get_rakbin()
     {
         $output = '';
@@ -399,6 +437,7 @@ class Transaksi_Auditor extends CI_Controller
         $this->load->view('auditorview/audit_unit/v_audit_unit.php', $data);
         $this->load->view('auditorview/audit_unit/_partial/footer.php');
     }
+    
     public function preview($page)
     {
         $cabang = $this->input->post('id_cabang');
@@ -1651,6 +1690,7 @@ class Transaksi_Auditor extends CI_Controller
         $this->load->view('_partial/header.php', $data);
         $this->load->view('auditorview/audit/v_audit_part.php', $data);
         $this->load->view('auditorview/audit/_partial/footer2.php');
+        $this->load->view('auditorview/audit/_partial/footer5.php');
     }
     public function ajax_partvalid($page)
     {

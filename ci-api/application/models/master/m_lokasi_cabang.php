@@ -38,6 +38,21 @@ class M_Lokasi_Cabang extends CI_Model
             return $result;
         }
     }
+    public function getLokasiRakBaru($id = null ) 
+    {
+        if ($id === null ) {
+            $result =  $this -> db-> query("select * from lokasi_rakbin_baru")->result();
+            return $result;
+        }else {
+            $query = " select lokasi_rakbin_baru.*, gudang.nama_gudang
+            from lokasi_rakbin_baru 
+            LEFT JOIN gudang ON lokasi_rakbin_baru.id_lokasi = gudang.kd_gudang 
+            where gudang.kd_gudang = '$id'";
+
+            $result = $this->db->query($query)->result();
+            return $result;
+        }
+    }
         
     
     public function getLokasiAsset($id = null)
@@ -57,19 +72,16 @@ class M_Lokasi_Cabang extends CI_Model
         return $result;
         }
     }
-     public function getrakbinsima($id = null)
-    {
-        if ($id === null ) {
-            $result =  $this -> db-> query("select * from rak_bin")->result();
-            return $result;
-        }else {
-            $query = " select rak_bin.*, gudang.nama_gudang
-            from rak_bin 
-            LEFT JOIN gudang ON rak_bin.id_lokasi = gudang.kd_gudang 
-            where gudang.kd_gudang = '$id'";
+  
 
-            $result = $this->db->query($query)->result();
-            return $result;
+    public function getRakbin($id= null)
+    {
+        if ($id===null) {
+            $result = $this->db->get('lokasi_rakbin_baru')->result();
+            return $result;              
+        }else {
+            $result = $this->db->get_where('lokasi_rakbin_baru',['kd_lokasi_rak_baru' => $id])->result();
+            return $result;               
         }
     }
 
@@ -86,7 +98,7 @@ class M_Lokasi_Cabang extends CI_Model
 
     public function addRakbin($data)
     {
-        $this->db->insert('rak_bin',$data); 
+        $this->db->insert('lokasi_rakbin_baru',$data); 
           return $this->db->affected_rows();   
     }
 
@@ -94,21 +106,21 @@ class M_Lokasi_Cabang extends CI_Model
     {
 
         $this->db->where('kd_lokasi_rak', $id);
-        $this->db->update('rak_bin', $data);
+        $this->db->update('lokasi_rakbin_baru', $data);
         return $this->db->affected_rows();
     }
 
     public function delRakbin($id)
     {
        $this->db->where('kd_lokasi_rak', $id);
-       $this->db->delete('rak_bin');  
+       $this->db->delete('lokasi_rakbin_baru');  
        return $this->db->affected_rows();
     }
 
     public function cariRakbin($id = null,$offset=null)
       {
         $query ="
-        SELECT a.* FROM rak_bin a
+        SELECT a.* FROM lokasi_rakbin_baru a
         WHERE a.kd_lokasi_rak LIKE '%$id%'
         OR a.kd_rak LIKE '%$id%'
         OR a.kd_binbox LIKE '%$id%'

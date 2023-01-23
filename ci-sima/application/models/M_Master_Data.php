@@ -226,6 +226,24 @@ class M_Master_Data extends CI_Model
         }
     }
 
+    public function getRakbinBaru($offset = null)
+    {
+        $respon =  $this->_client->request('GET', 'rakbinBaru', [
+            'query' => [
+                'offset' => $offset
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
 
     public function getLokasi($offset)
     {
@@ -280,6 +298,22 @@ class M_Master_Data extends CI_Model
     public function getLokasirak($id)
     {
         $respon = $this->_client->request('GET', 'lokasirak', [
+            'query' => [
+                'id' => $id
+                ]
+            ]);
+    
+        $result = json_decode($respon->getBody()->getContents(), true);
+            
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+    public function getLokasirakBaru($id)
+    {
+        $respon = $this->_client->request('GET', 'lokasirakBaru', [
             'query' => [
                 'id' => $id
                 ]
@@ -459,6 +493,7 @@ class M_Master_Data extends CI_Model
             ]
         ]);
 
+        // var_dump($id);exit;
         $result = json_decode($respon->getBody()->getContents(), true);
         if ($result['status'] == true) {
             return $result['data'];
@@ -644,6 +679,8 @@ class M_Master_Data extends CI_Model
         $respon =  $this->_client->request('POST', 'rakbin', [
             'form_params' => $data
         ]);
+
+        // var_dump($data);exit;
 
         $result = json_decode($respon->getBody()->getContents(), true);
 

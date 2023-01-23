@@ -86,11 +86,15 @@
         download();
         get_data(1);
         lokasi()
+        // lokasi2()
+        // rakbin();
         
 
+        // $('#optRakbin').load("<?php echo base_url() ?>master_data/ajax_get_rakbinBaru");
 
         $('#id_lokasi').change(function() {
             var rak = $(this).val();
+            // var rakbinBaru = $('#id_lokasi').val();
             $('#rakbin').html('');
             $.ajax({
                 type: 'POST',
@@ -106,7 +110,28 @@
                 } 
             });
             console.log(rak);
+            // console.log(rakbinBaru);
         });
+
+        // $('#id_lokasi2').change(function() {
+        //     var rakbinBaru = $(this).val();
+        //     $('#optRakbin').html('');
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'JSON',
+        //         data: {
+        //             kd_gudang: rakbinBaru
+        //         },
+        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbinBaru",
+        //         success: function(data) {
+        //             $('#optRakbin').html(data);
+        //             $('#optRakbin').select2();
+
+        //         } 
+        //     });
+        //     console.log(rakbinBaru);
+        //     // console.log(rakbinBaru);
+        // });
 
         $('#rakbin').change(function() {
             var rakbin = $('#rakbin').val();
@@ -122,25 +147,25 @@
             }
         });
 
-        rakbin();
-        function rakbin() {
-            var rakbin = $('#id_lokasi').val();
-            $('#optRakbin').html('');
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                data: {
-                    kd_gudang: rakbin
-                },
-                url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin2",
-                success: function(data) {
-                    $('#optRakbin').html(data);
-                    $('#optRakbin').select2();
+      
+        // function rakbin() {
+        //     var rakbinBaru = $(this).val();
+        //     $('#optRakbin').html('');
+        //     $.ajax({
+        //         type: 'POST',
+        //         dataType: 'JSON',
+        //         data: {
+        //             kd_gudang: rakbinBaru
+        //         },
+        //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbinBaru",
+        //         success: function(data) {
+        //             $('#optRakbin').html(data);
+        //             $('#optRakbin').select2();
 
-                } 
-            });
-            console.log(rakbin);
-        }
+        //         } 
+        //     });
+        //     console.log(rakbinBaru);
+        // }
         
         function lokasi() {
         var cabang = "<?php echo $_GET['id'] ?>";
@@ -158,6 +183,22 @@
         });
         console.log(cabang);
     }
+    //     function lokasi2() {
+    //     var cabang = "<?php echo $_GET['id'] ?>";
+    //     $.ajax({
+    //         type: 'POST',
+    //         dataType: 'JSON',
+    //         data: {
+    //             id_cabang: cabang
+    //         },
+    //         url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_lokasi2",
+    //         success: function(data) {
+    //             $('#id_lokasi2').html(data);
+    //         }
+                
+    //     });
+    //     console.log(cabang);
+    // }
 
 
 
@@ -297,7 +338,7 @@
 
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
-            var rakbin = $('#optRakbin').val();
+            var rakbin = $('#id_rakbin').val();
             var lokasi = $('#id_lokasi').val();
             var kondisi = $('#kondisi_baru').val();
             var qty = $('#qty_manual').val();

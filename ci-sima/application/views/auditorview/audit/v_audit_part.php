@@ -61,9 +61,23 @@
                                     </div>
                                     <!-- Form Manual -->
                                     <div id="manual" class="row p-h-sm">
+                                    <!-- <div class="form-group">
+                                            <label class="col-sm-3 control-label">Lokasi </label>
+                                            <div class="col-sm-9">
+                                                <select class="form-control control-label m-b" name="id_lokasi2" id="id_lokasi2"></select>
+                                            </div>
+                                        </div> -->
                                         <div class="form-group col-sm-12">
                                             <label>Rakbin</label>
-                                            <select type="text" class="form-control" name="rakbin" id="optRakbin"></select>
+                                            <select type="text" class="form-control" name="id_rakbin" id="id_rakbin"></select>
+                                        </div>
+                                        <div class="form-group col-sm-12">
+                                            <?php 
+                                                $link = base_url("master_data/viewRakbinBaru"); 
+                                            ?>
+                                            <a id="add" class="btn btn-primary" onclick="
+                                            myWindow = window.open('<?php echo $link ?>', 'myWindow', 'width=800, height=600');
+                                            " >Tambah Rakbin</a>
                                         </div>
                                         <div class="form-group col-sm-12">
                                         <label>Kondisi</label>

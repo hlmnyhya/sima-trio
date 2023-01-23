@@ -134,6 +134,20 @@ class Master_Data extends CI_Controller
         $this->load->view('general_affairview/rakbin/_partial/footer.php');
         $this->load->view('general_affairview/rakbin/_partial/footer2.php');
     }
+    public function  ViewRakbinBaru()
+    {
+        $data = [
+            'judul' => 'Rakbin',
+            'judul1' => 'Master Data',
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view(
+            'general_affairview/rakbin/v_input_rakbin.php',
+            $data
+        );
+        $this->load->view('general_affairview/rakbin/_partial/footer.php');
+        $this->load->view('general_affairview/rakbin/_partial/footer2.php');
+    }
 
     public function viewCabang()
     {
@@ -951,9 +965,9 @@ class Master_Data extends CI_Controller
             $page = 1;
         }
         $start = ($page - 1) * $config['per_page'];
-        $listPerusahaan = $this->mmasdat->getRakbin($start);
-        if ($listPerusahaan) {
-            foreach ($listPerusahaan as $list) {
+        $listRakbin = $this->mmasdat->getRakbin($start);
+        if ($listRakbin) {
+            foreach ($listRakbin as $list) {
                 $no++;
                 $output .=
                     '
@@ -970,18 +984,21 @@ class Master_Data extends CI_Controller
                     'master_data/delete_rakbin/' .
                     $list['id_lokasi'] .
                     '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' .
-                    $list['kd_lokasi_rak'] .
+                    $list['kd_lokasi_rak_baru'] .
                     ' - ' .
-                    $list['kd_lokasi_rak'] .
+                    $list['kd_lokasi_rak_baru'] .
                     ' ? ");\'><i class="fa fa-trash"></i></a>
-                    </td>
+                   
                     <td class="text-center">' .
-                    $list['kd_rak'] .
+                    $list['id_lokasi'] .
                     '</td>
                     <td class="text-center">' .
-                    $list['kd_binbox'] .
+                    $list['id_cabang'] .
                     '</td>
-                </tr>
+                    <td class="text-center">' .
+                    $list['kd_lokasi_rak_baru'] .
+                    '</td>
+                    </tr>
                 
                 ';
             }
@@ -1921,21 +1938,29 @@ class Master_Data extends CI_Controller
         $data = [
             'id_cabang' => $this->input->post('id_cabang', true),
             'id_lokasi' => $this->input->post('id_lokasi', true),
-            'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak', true),
+            'kd_lokasi_rak_baru' => $this->input->post('kd_lokasi_rak', true),
             'kd_rak' => $this->input->post('kd_rak', true),
             'kd_binbox' => $this->input->post('kd_binbox', true),
+            'user' => $this->session->userdata('username'),
         ];
 
-        $id = $this->input->post('kd_lokasi_rak', true);
+        $id = $data['kd_lokasi_rak_baru'];
+
+        // var_dump($data);exit;
+        // $result = $this->mmasdat->addRakbin($data);
+        // var_dump($result);exit;
+        
 
         $rakbin = $this->mmasdat->getRakbinById($id);
-        if ($perusahaan) {
+        if ($rakbin) {
             $this->session->set_flashdata('warning', 'sudah ada');
 
             redirect('master_data/rakbin', 'refresh');
         } else {
             if ($result = $this->mmasdat->addRakbin($data)) {
                 $this->session->set_flashdata('berhasil', 'berhasil ditambah');
+
+              
 
                 redirect('master_data/rakbin', 'refresh');
             } else {
@@ -3534,6 +3559,40 @@ class Master_Data extends CI_Controller
                     $list['kd_lokasi_rak'] .
                     ' - ' .
                     $list['kd_rak'] .
+                    '</option>
+                ';
+            }
+        }
+        echo '<option value="">--- Pilih Rak Bin ---</option>';
+        echo $output;
+    }
+    public function ajax_get_rakbinBaru($id = null)
+    {
+        $output = '';
+        $no = 0;
+        $listrak = $this->mmasdat->getRakbinBaru();
+        foreach ($listrak as $list) {
+            $no++;
+            if ($list['kd_lokasi_rak_baru'] == $id) {
+                $output .=
+                    '
+                    <option value="' .
+                    $list['kd_lokasi_rak_baru'] .
+                    '" selected>' .
+                    $list['id_lokasi'] .
+                    ' - ' .
+                    $list['kd_lokasi_rak_baru'] .
+                    '</option>
+                ';
+            } else {
+                $output .=
+                    '
+                    <option value="' .
+                    $list['kd_lokasi_rak_baru'] .
+                    '" selected>' .
+                    $list['id_lokasi'] .
+                    ' - ' .
+                    $list['kd_lokasi_rak_baru'] .
                     '</option>
                 ';
             }
