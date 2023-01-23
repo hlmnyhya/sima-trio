@@ -14,10 +14,10 @@
                         <div class="col-sm-6"><select type="text" class="form-control" name="id_cabang" id="id_cabang"></select></div>
                     </div>
                 <div class="form-group"><label class="col-sm-2 control-label">KD Rak</label>
-                        <div class="col-sm-4"><input type="text" class="form-control" name="id_rakbin" id="id_rakbin"></div>
+                        <div class="col-sm-4"><input type="text" class="form-control" name="kd_rak" id="kd_rak"></div>
                     </div>
                     <div class="form-group"><label class="col-sm-2 control-label">KD Binbox</label>
-                        <div class="col-sm-4"><input type="text" class="form-control" name="id_rakbin" id="id_rakbin"></div>
+                        <div class="col-sm-4"><input type="text" class="form-control" name="kd_binbox" id="kd_binbox"></div>
                     </div>
 
                     <div>

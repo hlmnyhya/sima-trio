@@ -24,13 +24,13 @@ class M_Cabang extends CI_Model {
     {
         if ($id === null&& $offset===null) {
 
-            $result = $this->db->get('lokasi_rak_bin')->result();
+            $result = $this->db->get('lokasi_rakbin_baru')->result();
             return $result;    
         }elseif ($id===null&& $offset!=null){
-            $result = $this->db->get('lokasi_rak_bin',15,$offset)->result();
+            $result = $this->db->get('lokasi_rakbin_baru',15,$offset)->result();
             return $result;    
         }else{
-            $result = $this->db->get_where('lokasi_rak_bin',['kd_gudang' => $id])->result();
+            $result = $this->db->get_where('lokasi_rakbin_baru',['kd_gudang' => $id])->result();
             return $result;              
         }
     }

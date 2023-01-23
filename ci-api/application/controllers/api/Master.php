@@ -1425,6 +1425,35 @@ class Master extends REST_Controller
             );
         }
     }
+    public function rakbinBaru_get()
+    {
+        $id = $this->get('id');
+        $offset = $this->get('offset');
+        if ($id === null && $offset === null) {
+            $rakbin = $this->mcabang->GetRak(null);
+        } elseif ($id === null && $offset != null) {
+            $rakbin = $this->mcabang->GetRak(null, $offset);
+        } else {
+            $rakbin = $this->mcabang->GetRak($id);
+        }
+        if ($rakbin) {
+            $this->response(
+                [
+                    'status' => true,
+                    'data' => $rakbin,
+                ],
+                REST_Controller::HTTP_OK
+            );
+        } else {
+            $this->response(
+                [
+                    'status' => false,
+                    'message' => 'Data not found.',
+                ],
+                REST_Controller::HTTP_OK
+            );
+        }
+    }
 
     public function cabang_post()
     {
@@ -2482,14 +2511,14 @@ class Master extends REST_Controller
             ], REST_Controller::HTTP_OK);
         }
     }
-    
-    public function lokasiraksima_get()
+    public function lokasirakBaru_get()
     {
         $id =  $this->get('id');
+        // var_dump($id);exit;
         if($id === null ) {
-            $lokasirak= $this->mlokasicabang->getrakbinsima();
+            $lokasirak= $this->mlokasicabang->getRakbin();
         } else {
-            $lokasirak= $this->mlokasicabang->getrakbinsima($id);
+            $lokasirak= $this->mlokasicabang->getRakbin($id);
             
         }
         if ($lokasirak) {
@@ -2504,18 +2533,20 @@ class Master extends REST_Controller
             ], REST_Controller::HTTP_OK);
         }
     }
+    
+ 
 
     /* -----------------------------------------------RAKBIN----------------------------------- **/
 
     public function rakbin_get()
     {
         $id = $this->get('id');
-        
+        $offset = $this->get('id');
 
         if ($id === null) {
-            $rakbin = $this->mlokasicabang->getrakbinsima();
+            $rakbin = $this->mlokasicabang->getRakbin($id, $offset);
         } else {
-            $rakbin = $this->mlokasicabang->getrakbinsima($id);
+            $rakbin = $this->mlokasicabang->getRakbin($id);
         }
         if ($rakbin) {
             $this->response(
@@ -2540,12 +2571,14 @@ class Master extends REST_Controller
    public function rakbin_post()
     {
         $data = [
-        'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
+            'kd_lokasi_rak_baru' => $this->post('kd_lokasi_rak_baru'),
             'id_cabang' => $this->post('id_cabang'),
             'id_lokasi' => $this->post('id_lokasi'),
             'kd_rak' => $this->post('kd_rak'),
             'kd_binbox' => $this->post('kd_binbox'),
         ];
+
+        // var_dump($data);exit;
 
         if ($this->mlokasicabang->addRakbin($data)) {
             $this->response(

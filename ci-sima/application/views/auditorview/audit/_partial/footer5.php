@@ -11,6 +11,7 @@
 
 </div>
 
+
 <!-- Mainly scripts -->
 <script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
 <script src="<?php echo base_url() ?>assets/js/bootstrap.min.js"></script>
@@ -21,8 +22,10 @@
 <!-- Custom and plugin javascript -->
 <script src="<?php echo base_url() ?>assets/js/inspinia.js"></script>
 <script src="<?php echo base_url() ?>assets/js/plugins/pace/pace.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
 <script src="<?php echo base_url() ?>assets/js/plugins/toastr/toastr.min.js"></script>
+<script src="<?php echo base_url() ?>assets/js/plugins/iCheck/icheck.min.js"></script>
 
 
 <script>
@@ -71,7 +74,6 @@
 
     $(document).on("idle.idleTimer", function(event, elem, obj) {
         document.getElementById("stat").innerHTML = "<span class='label label-danger'> <span class='text-warning'><i class='fa fa-circle'></i></span> Offline</span>";
-
     });
 
     $(document).on("active.idleTimer", function(event, elem, obj, triggerevent) {
@@ -80,106 +82,13 @@
     });
 </script>
 <script>
-    $(document).ready(function() {
-        // $('#perusahaan').load("<?php echo base_url() ?>master_data/ajax_get_perusahaan");
-        get_data(1);
-        
- 
-        $(document).on('click', '.pagination li a', function(event) {
-            event.preventDefault();
-            var page = $(this).data('ci-pagination-page');
-            var id = $('#inRakbin').val();
-            if (id) {
-                search(page);
-            } else {
-                get_data(page);
-            }
-        });
 
-        function get_data(page) {
-            $("#rakbin").html('<tr> <td colspan="4" id="loading"> </td></tr>');
+$('#id_rakbin').html('');
+$('#id_rakbin').load("<?php echo base_url() ?>master_data/ajax_get_rakbinBaru");
 
-            $.ajax({
-                type: 'POST',
-                dataType: 'JSON',
-                url: "<?php echo base_url() ?>master_data/ajax_get_rakbinSima/" + page,
-                success: function(data) {
-                    $("#rakbin").html(data.output);
-                    $("#pagination").html(data.pagination);
-                }
-            })
-        }
-       
+$('#id_rakbin').select2();
 
 
-        function search(page) {
-            var id = $('#inRakbin').val();
-            $("#rakbin").html('<tr> <td colspan="10" id="loading"> </td></tr>');
-
-            if (id != '') {
-                $.ajax({
-                    type: "post",
-                    dataType: 'JSON',
-                    url: "<?php echo base_url() ?>master_data/search_data_rakbinSima/" + page,
-                    data: "id=" + id,
-                    success: function(data) {
-                        console.log(data);
-
-                        $("#rakbin").html(data.output);
-                        $("#pagination").html(data.pagination);
-                    }
-                });
-            } else {
-                get_data(1);
-            }
-        }
-        $('#caribtn').click(function() {
-            search(1);
-        });
-        $('#inRakbin').keyup(function(e) {
-            if (e.keyCode == 13) {
-                search(1);
-            }
-        });
-
-
-    });
-
-   
-
-    function edit(id) {
-        // var id = $(this).attr('data-id');
-        $.ajax({
-            url: "<?php echo base_url() . $this->uri->segment(1) ?>/edit_rakbin",
-            type: 'post',
-            data: "id=" + id,
-            dataType: 'html',
-            success: function(data) {
-                $('#data_input').html(data);
-            }
-
-        });
-    }
-
-
-    function show() {
-        $('#add').attr('disabled', true);
-        var $url = "<?php echo $this->uri->segment(1) ?>";
-        $.ajax({
-            url: "<?php echo base_url() . $this->uri->segment(1) ?>/input_rakbin",
-            type: 'post',
-            dataType: 'html',
-            success: function(data) {
-                $('#data_input').html(data);
-            }
-
-        })
-    }
-
-    function hide() {
-        $('#add').attr('disabled', false);
-        $('#data_input').html('');
-    }
 </script>
 
 </body>

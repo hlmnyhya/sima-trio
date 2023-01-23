@@ -355,7 +355,7 @@ class M_Count extends CI_Model
 
     public function CountRakbin()
     {
-        $count = $this->db->get('rak_bin');
+        $count = $this->db->get('lokasi_rakbin_baru');
 
         if ($count->num_rows() > 0) {
             return $count->num_rows();

@@ -183,6 +183,11 @@
             lokasi();
             rakbin();
 
+            $('#id_rakbin').html('');
+$('#id_rakbin').load("<?php echo base_url() ?>master_data/ajax_get_rakbinBaru");
+
+$('#id_rakbin').select2();
+
             function rakbin () {
                 var id = "<?php echo base64_decode($_GET['a']); ?>";
                 //var id = '2NG-GUD'; //document.getElementById("id_lokasi").val

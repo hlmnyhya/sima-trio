@@ -48,18 +48,26 @@
                             <input type="text" class="form-control" name="part_number" id="part_number" value="<?php echo $edit_part['part_number'] ?>">
                         </div>
                         </div>
-                        <div class="form-group"><label class="col-sm-2 control-label">KD BIN BOX</label>
+                        <div class="form-group"><label class="col-sm-2 control-label">Rak Bin Lama</label>
                         <div class="col-sm-10">
                             <select class="form-control" name="kd_lokasi_rak" id="rakbin" value="<?php  echo  $edit_part['kd_lokasi_rak'] ?>"></select>
                         </div>
                         </div>
-                        <div class="hidden" id="rakbin_baru">
-                                                <label class="col-sm-2 control-label">Rak Bin Baru </label>
-                                                <div class="col-sm-10">
-                                                <input type="text" class="form-control" name="rakbin" id="optRakbin" >
-
-                                                </div>
-                                            </div>
+                        <div class="form-group" id="rakbin_baru">
+                                <label class="col-sm-2 control-label">Rak Bin Baru </label>
+                                 <div class="col-sm-6">
+                                     <select  class="form-control" name="id-rakbin" id="id_rakbin" ></select>
+                                </div>
+                                 <div class="col-sm-4">
+                                            <?php 
+                                                $link = base_url("master_data/viewRakbinBaru"); 
+                                            ?>
+                                         <a id="add" class="btn btn-primary" onclick="
+                                            myWindow = window.open('<?php echo $link ?>', 'myWindow', 'width=800, height=600');
+                                            " >Tambah Rakbin</a>
+                                    </div>
+                                 </div>
+                                            
 
                         <div class="form-group"><label class="col-sm-2 control-label">QTY</label>
                             <div class="col-sm-10">
