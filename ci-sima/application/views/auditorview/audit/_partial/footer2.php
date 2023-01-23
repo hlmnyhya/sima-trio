@@ -338,7 +338,7 @@
 
         $('#auditPart').click(function() {
             var part_number = $('#part_number').val();
-            var rakbin = $('#optRakbin').val();
+            var rakbin = $('#id_rakbin').val();
             var lokasi = $('#id_lokasi').val();
             var kondisi = $('#kondisi_baru').val();
             var qty = $('#qty_manual').val();
