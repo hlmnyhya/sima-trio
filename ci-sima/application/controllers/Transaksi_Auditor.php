@@ -2657,6 +2657,9 @@ class Transaksi_Auditor extends CI_Controller
                             <td>' .
                     $list['qty'] .
                     '</td>
+                    <td>' .
+                    $list['harga_jual'] .
+                    '</td>
                         </tr>    
                         ';
             }

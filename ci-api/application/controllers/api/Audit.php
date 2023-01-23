@@ -1309,6 +1309,7 @@ function __construct() {
                        'part_number' => $res['PART_NUMBER'],
                        'deskripsi' => $res['PART_DESKRIPSI'],
                        'qty' => $res['STOCK_OH'],
+                       'harga_jual' => $res['HARGA_JUAL'],
                        'idjadwal_audit'=> $idjadwal_audit,
                        'time' => $this->_tgl
                    ];

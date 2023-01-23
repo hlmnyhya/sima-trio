@@ -25,6 +25,7 @@
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text_center">HET</th>
                                             <!-- <th class="text-center">TIME</th> -->
                                         </tr>
                                     </thead>
@@ -39,6 +40,7 @@
                                             <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">RAK BIN</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text_center">HET</th>
                                             <!-- <th class="text-center">TIME</th> -->
                                         </tr>
                                     </tfoot>

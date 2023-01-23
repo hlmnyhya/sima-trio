@@ -83,7 +83,7 @@ class M_TempPart extends CI_Model {
     public function getDataPart($cabang)
     {
         $kd_dealer = $cabang;
-        $query ="SELECT * FROM TRANS_PARTSTOCK_VIEW WHERE KD_DEALER='2NG' AND (KD_RAKBIN != '' OR KD_RAKBIN!=NULL)";
+        $query ="SELECT * FROM TRANS_PARTSTOCK_VIEW WHERE KD_DEALER='$cabang' AND (KD_RAKBIN != '' OR KD_RAKBIN!=NULL)";
         // $this->db2->limit(1);
         $result = $this->app_db->query($query)->result_array();
         return $result;
