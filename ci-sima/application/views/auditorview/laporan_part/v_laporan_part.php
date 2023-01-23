@@ -121,6 +121,7 @@
                                             <th class="text-center">KD Rak Bin</th>
                                             <th class="text-center">QTY SIMANDE</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">HARGA JUAL</th>
                                             <th class="text-center">Kondisi</th>
                                             <th class="text-center">Keterangan</th>
                                             <th class="text-center">Status</th> 
@@ -138,6 +139,7 @@
                                             <th class="text-center">KD Rak Bin</th>
                                             <th class="text-center">QTY SIMANDE</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">HARGA JUAL</th>
                                             <th class="text-center">Kondisi</th>
                                             <th class="text-center">Keterangan</th>
                                             <th class="text-center">Status</th>

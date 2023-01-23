@@ -65,7 +65,7 @@ class M_TempPart extends CI_Model {
 			$resultcek = $this->db->query($sqlcek)->result_array();
 			if($resultcek[0]['ada'] == 0){
 				$lokasi = explode("-",$res['KD_RAKBIN']);
-				if(count($lokasi) < 4){
+				if(count($lokasi) < 2){
 					$lokasi[1] = "";
 				}
 				$data =[

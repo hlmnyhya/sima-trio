@@ -597,6 +597,7 @@ function __construct() {
                 'kondisi' => $this->put('kondisi'),
                 'keterangan' =>$this->put('keterangan'),
                 'qty' =>$this->put('qty'),
+                'qty_fsk' =>$this->put('qty_fsk'),
                 'status' => $this->put('status'),
                 'edit_by' => $this->put('user'),
                 'tanggal_edit' => $this->_tgl

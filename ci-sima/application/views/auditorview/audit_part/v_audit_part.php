@@ -51,6 +51,7 @@
                                     <th>Deskripsi</th>
                                     <th>Qty SIMANDE</th>
                                     <th>Qty</th>
+                                    <th>HARGA JUAL</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>
@@ -69,6 +70,7 @@
                                     <th>Deskripsi</th>
                                     <th>Qty SIMANDE</th>
                                     <th>Qty</th>
+                                    <th>HARGA JUAL</th>
                                     <th>Kondisi</th>
                                     <th>Keterangan</th>
                                 </tr>
