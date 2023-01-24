@@ -1878,7 +1878,7 @@ function __construct() {
         $idjadwal_audit= $this->get('idjadwal_audit');
         $keterangan = $this->get('keterangan');
         
-            $cetak= $this->mlapdat->cetakPartkurang($cabang, $idjadwal_audit,$keterangan);
+            $cetak= $this->mlapdat->cetakPartlebih($cabang, $idjadwal_audit,$keterangan);
         if ($cetak) {
             $this->response([
                 'status' => true,

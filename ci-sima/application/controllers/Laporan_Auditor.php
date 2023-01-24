@@ -2470,7 +2470,7 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
 
                  $excel
                     ->setActiveSheetIndex(0)
-                    ->setCellValue('A3', 'PERIODE ' . $tgl2);
+                    ->setCellValue('A3', 'PERIODE ' . strtoupper($tgl2));
                 $excel->getActiveSheet()->mergeCells('A3:H2');
                 $excel
                     ->getActiveSheet()
@@ -2681,6 +2681,7 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                     
                         
                         
+                
                     $excel
                         ->getActiveSheet()
                         ->getStyle('A' . $seri)
@@ -2720,25 +2721,29 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                 }
 
 
-            
+// //matikan
                
-                // BELUM DITEMUKAN REPORT
+//                 // BELUM DITEMUKAN REPORT
                 $cetak2 = $this->mlapaudit->cetakPartbelumditemukan($cabang, $idjadwal_audit, $status, $keterangan);
+                // var_dump($cetak2);exit;
                 $lastrow = $this->mlapaudit->Countpartkurang($cabang, $idjadwal_audit, $status, $keterangan);
-                
-                var_dump($lastrow);exit;
-                // $tes = str_replace('A', $lastrow +2, 'A');
-                // $wktnow = str_replace(':', '', $wktnow);
-                // var_dump($tes);exit;
+//                 // var_dump($lastrow);die;
+//                 // $tes = str_replace('A', $lastrow +2, 'A');
+//                 // $wktnow = str_replace(':', '', $wktnow);
+//                 // var_dump($tes);exit;
 
                 // kondisi part
-                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow++.'', 'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
-                // $excel->getActiveSheet()->mergeCells('A'.$lastrow++.':H'.$lastrow++.);
+                $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow+17.,'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A'.$lastrow+17.)
+                    ->applyFromArray($bold);
+                // $excel->getActiveSheet()->mergeCells('A'($lastrow+17)':H'($lastrow+17));
 
                 
 
                 $no = 1;
-                $seri = $lastrow+3;
+                $seri = $lastrow+18;
 
                 foreach ($cetak2 as $c) {
                     $excel
@@ -2770,7 +2775,7 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                         
                     $excel
                         ->getActiveSheet()
-                        ->getStyle('A' . $seri)
+                        ->getStyle(('A'.$lastrow+17.). $seri)
                         ->applyFromArray($style_row);
                     $excel
                         ->getActiveSheet()
@@ -2805,18 +2810,20 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                     $seri++;
                 }
 
-                // BELUM DITEMUKAN
-                // $cetak3 = $this->mlapaudit->cetakPartSesuai($cabang, $idjadwal_audit, $status, $keterangan);
-                // $lastrow3 = $this->mlapaudit->countbelumditemukan($cabang, $idjadwal_audit, $status, $keterangan);
+//                 // BELUM DITEMUKAN
+                $cetak3 = $this->mlapaudit->cetakPartSesuai($cabang, $idjadwal_audit, $status, $keterangan);
+                $lastrow3 = $this->mlapaudit->countbelumditemukan($cabang, $idjadwal_audit, $status, $keterangan);
+                // var_dump($lastrow3);die;
 
-                // kondisi part
-//                 $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow3++.'', 'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)');
-// $excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
-//                 $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow3++.'', 'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)');
-// $excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
+                $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow3+$lastrow+19.,'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A'.$lastrow3+$lastrow+19.)
+                    ->applyFromArray($bold);
 
                 $no = 1;
-                $seri = $lastrow3+3;
+                $seri = $lastrow3+$lastrow+20;
+                // var_dump($seri);exit;
 
                 foreach ($cetak3 as $c) {
                     $excel
@@ -2883,18 +2890,18 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                     $seri++;
                 }
 
-                //LEBIH REPORT
-                // $cetak4 = $this->mlapaudit->cetakPartLebih($cabang, $idjadwal_audit, $status, $keterangan);
-                // $lastrow4 = $this->mlapaudit->countlebih($cabang, $idjadwal_audit, $status, $keterangan);
+//                 //LEBIH REPORT
+                $cetak4 = $this->mlapaudit->cetakPartLebih($cabang, $idjadwal_audit, $status, $keterangan);
+                $lastrow4 = $this->mlapaudit->countpartsesuai($cabang, $idjadwal_audit, $status, $keterangan);
 
-                // kondisi part
-                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow4++.'', 'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)');
-                // $excel->getActiveSheet()->mergeCells('A'.$lastrow4++.':H'.$lastrow4++.);
-                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow4++.'', 'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)');
-                // $excel->getActiveSheet()->mergeCells('A'.$lastrow4++.':H'.$lastrow4++.);
+                $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow4+$lastrow3+$lastrow+21.,'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A'.$lastrow4+$lastrow3+$lastrow+21.)
+                    ->applyFromArray($bold);
 
                 $no = 1;
-                $seri = $lastrow4+3;
+                $seri = $lastrow4+$lastrow3+$lastrow+22;
 
                 foreach ($cetak4 as $c) {
                     $excel
@@ -2961,83 +2968,83 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                     $seri++;
                 }
 
-                //MANUAL REPORT
-                // $cetak5 = $this->mlapaudit->cetakPartManual($cabang, $idjadwal_audit, $status, $keterangan);
-                // $lastrow5 = $this->mlapaudit->countmanual($cabang, $idjadwal_audit, $status, $keterangan);
+// //                 //MANUAL REPORT
+//                 $cetak5 = $this->mlapaudit->cetakPartbelumditemukan($cabang, $idjadwal_audit, $status, $keterangan);
+//                 $lastrow5 = $this->mlapaudit->countpartlebih($cabang, $idjadwal_audit, $status, $keterangan);
 
-                // kondisi part
-                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
-                // $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
-                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
-                // $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
+//                 // kondisi part
+//                 // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
+//                 // $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
+//                 // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
+//                 // $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
 
-                $no = 1;
-                $seri = $lastrow5+3;
+                // $no = 1;
+                // $seri = $lastrow5+$lastrow4+$lastrow3+$lastrow+20;
 
-                foreach ($cetak5 as $c) {
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('A' . $seri, $no);
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('B' . $seri, $c['part_number']);
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('C' . $seri, $c['deskripsi']);
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('D' . $seri, $c['harga_jual']);
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('E' . $seri, $c['qty']);
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('F' . $seri, $c['qty_fsk']);
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('G' . $seri, $c['selisih']);
-                    $excel
-                        ->setActiveSheetIndex(0)
-                        ->setCellValue('H' . $seri, $c['amount'] );
+                // foreach ($cetak5 as $c) {
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('A' . $seri, $no);
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('B' . $seri, $c['part_number']);
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('C' . $seri, $c['deskripsi']);
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('D' . $seri, $c['harga_jual']);
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('E' . $seri, $c['qty']);
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('F' . $seri, $c['qty_fsk']);
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('G' . $seri, $c['selisih']);
+                //     $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('H' . $seri, $c['amount'] );
                     
                         
                         
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('A' . $seri)
-                        ->applyFromArray($style_row);
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('B' . $seri)
-                        ->applyFromArray($style_row);
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('C' . $seri)
-                        ->applyFromArray($style_row);
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('D' . $seri)
-                        ->applyFromArray($style_row);
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('E' . $seri)
-                        ->applyFromArray($style_row);
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('F' . $seri)
-                        ->applyFromArray($style_row);
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('G' . $seri)
-                        ->applyFromArray($style_row);
-                    $excel
-                        ->getActiveSheet()
-                        ->getStyle('H' . $seri)
-                        ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('A' . $seri)
+                //         ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('B' . $seri)
+                //         ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('C' . $seri)
+                //         ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('D' . $seri)
+                //         ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('E' . $seri)
+                //         ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('F' . $seri)
+                //         ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('G' . $seri)
+                //         ->applyFromArray($style_row);
+                //     $excel
+                //         ->getActiveSheet()
+                //         ->getStyle('H' . $seri)
+                //         ->applyFromArray($style_row);
 
-                    $no++;
-                    $seri++;
-                }
+                //     $no++;
+                //     $seri++;
+                // }
 
 
 
@@ -3166,5 +3173,6 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
         }
     
     }
+}
 
 /* End of file laporan_auditor.php */
