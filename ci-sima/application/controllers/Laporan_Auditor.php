@@ -2367,7 +2367,7 @@ class laporan_auditor extends CI_Controller
                     );
 
 
-                    // logo
+                // logo
 
                 $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
                 $drawing->setName('Paid');
@@ -2594,12 +2594,28 @@ class laporan_auditor extends CI_Controller
                     $no++;
                     $seri++;
                 }
+            }
+
                 
                 // kondisi part
                 $excel->setActiveSheetIndex(0)->setCellValue('A12', '1. STOCK OPNAME SPARE PART / HGP.');
                 $excel->getActiveSheet()->mergeCells('A12:H12');
                 $excel->setActiveSheetIndex(0)->setCellValue('A13', 'B. B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
                 $excel->getActiveSheet()->mergeCells('A13:H13');
+
+
+                $tgl_awal = date('Y-m-d');
+                $tgl_akhir = '1900-01-01';
+                $cetak2 = $this->mlapaudit->partValid($cabang, $idjadwal_audit);
+                if ($cetak) {
+                foreach ($cetak as $c) {
+                    if ($tgl_akhir < $c['tanggal_audit']) {
+                        $tgl_akhir = $c['tanggal_audit'];
+                    }
+                    if ($tgl_awal > $c['tanggal_audit']) {
+                        $tgl_awal = $c['tanggal_audit'];
+                    }
+                }
 
                 $no = 1;
                 $seri = $seri + 2;
