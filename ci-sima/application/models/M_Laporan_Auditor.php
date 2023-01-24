@@ -57,6 +57,7 @@ class M_Laporan_Auditor extends CI_Model
             return false;
         }
     }
+
     public function cetakPart($a, $b, $d)
     {
         $respon =  $this->_client->request('GET', 'cetakPart', [
@@ -75,6 +76,101 @@ class M_Laporan_Auditor extends CI_Model
             return false;
         }
     }
+
+ public function cetakPartSesuai($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'cetakPartSesuai', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+
+    public function cetakPartKurang($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'cetakPartKurang', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function cetakPartlebih($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'cetakPartlebih', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+    public function cetakPart($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'cetakPart', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'status' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+    public function cetakPartbelumditemukan($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'cetakPartbelumditemukan', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'status' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
     public function cetakUnitNotReady($a, $b, $d)
     {
         $respon =  $this->_client->request('GET', 'cetakunitnotready', [
