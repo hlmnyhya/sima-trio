@@ -2245,7 +2245,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $part['harga_jual'],
                         'kondisi' => $kondisi,
-                        'status' => 'Lokasi Sesuai',
+                        'status' => 'Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }elseif($part['kd_lokasi_rak'] == $rakbin) {
@@ -2316,7 +2316,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $amount,
                         'kondisi' => $kondisi,
-                        'status' => ' Lokasi Sesuai',
+                        'status' => 'Sesuai',
                         'keterangan' => 'Part Lebih',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
