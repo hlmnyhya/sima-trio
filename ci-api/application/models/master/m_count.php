@@ -79,24 +79,49 @@ class M_Count extends CI_Model
         }
     }
 
-    public function Countbelumditemukan()
+    public function Countbelumditemukan($cabang, $idjadwal_audit)
     {
-        $query = $this ->db->from('part')
-                            ->where("status = 'belum ditemukan'")
-                            ->get()
-                            ->result();
-        if (count($query) >0) {
-           return count($query);
-        }else {
+        // $query = "select count (id_part) from part where status ='Belum ditemukan' AND id_cabang ='2NG' AND idjadwal_audit = 'AUDIT00030'";
+
+        // // $query = $this ->db->from('part')
+        // //                     ->where("status = 'belum ditemukan' id_cabang = '2NG' AND idjadwal_audit = 'AUDIT00030'")
+        // //                     // ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
+        //                     // ->get()
+        //                     // ->result();
+        // if (count($query) >0) {
+        //    return count($query);
+        // }else {
+        //     return 0;
+
+        // }
+        $count = $this->db->query("select count (id_part) from part where status ='Belum ditemukan' AND id_cabang ='$cabang' AND idjadwal_audit = '$idjadwal_audit'");
+
+        if ($count->num_rows() > 0) {
+            return $count->num_rows();
+        } else {
             return 0;
-
         }
-    }
 
-    public function Countpartsesuai()
+        // if ($count->num_rows() > 0) {
+        //     return $count->num_rows();
+        // } else {
+        //     return 0;
+        // }
+    }
+    // public function Countbelumditemukan($cabang, $idjadwal_audit)
+    // {
+    //     $query = "select count (id_part) from part where  status ='Belum ditemukan' AND id_cabang ='$cabang' AND idjadwal_audit = '$idjadwal_audit'";
+
+    //     $this->db->query($query);
+
+    //     return  $this->db->affected_rows();
+    // }
+
+    public function Countpartsesuai($cabang, $idjadwal_audit)
     {
         $query = $this ->db->from('part')
                             ->where("keterangan = 'Part Sesuai'")
+                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
                             ->get()
                             ->result();
         if (count($query) >0) {
@@ -107,10 +132,11 @@ class M_Count extends CI_Model
         }
     }
 
-    public function Countpartlebih()
+    public function Countpartlebih($cabang, $idjadwal_audit)
     {
         $query = $this ->db->from('part')
                             ->where("keterangan = 'Part Lebih'")
+                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
                             ->get()
                             ->result();
         if (count($query) >0) {
@@ -121,10 +147,11 @@ class M_Count extends CI_Model
         }
     }
 
-    public function Countpartkurang()
+    public function Countpartkurang($cabang, $idjadwal_audit)
     {
         $query = $this ->db->from('part')
                             ->where("keterangan = 'Part Kurang'")
+                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
                             ->get()
                             ->result();
         if (count($query) >0) {

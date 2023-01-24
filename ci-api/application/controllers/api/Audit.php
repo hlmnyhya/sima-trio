@@ -1211,13 +1211,16 @@ function __construct() {
 
     public function countbelumditemukan_get()
     {
+        $cabang =$this->post('id_cabang');
+        $idjadwal_audit = $this->post('idjadwal_audit');
         
-        $count= $this->mcount->Countbelumditemukan();
+        $count= $this->mcount->Countbelumditemukan($cabang, $idjadwal_audit);
+        // var_dump($count);exit;
 
         if ($count) {
             $this->response([
                 'status' => true,
-                'data' => (int)$count
+                'data' => $count
             ], REST_Controller::HTTP_OK);
         }else{
             $this->response([
@@ -1230,8 +1233,10 @@ function __construct() {
 
     public function countpartsesuai_get()
     {
-        
-        $count= $this->mcount->Countpartsesuai();
+        $cabang =$this->post('id_cabang');
+        $idjadwal_audit = $this->post('idjadwal_audit');
+
+        $count= $this->mcount->Countpartsesuai($cabang, $idjadwal_audit);
 
         if ($count) {
             $this->response([
@@ -1249,8 +1254,10 @@ function __construct() {
 
     public function countpartkurang_get()
     {
-        
-        $count= $this->mcount->countpartkurang();
+        $cabang =$this->post('id_cabang');
+        $idjadwal_audit = $this->post('idjadwal_audit');
+
+        $count= $this->mcount->countpartkurang($cabang, $idjadwal_audit);
 
         if ($count) {
             $this->response([
@@ -1268,8 +1275,10 @@ function __construct() {
 
     public function countpartlebih_get()
     {
+        $cabang =$this->post('id_cabang');
+        $idjadwal_audit = $this->post('idjadwal_audit');
         
-        $count= $this->mcount->countpartlebih();
+        $count= $this->mcount->countpartlebih($cabang, $idjadwal_audit);
 
         if ($count) {
             $this->response([
