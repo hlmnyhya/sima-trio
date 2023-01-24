@@ -2151,10 +2151,12 @@ class laporan_auditor extends CI_Controller
         $cabang = $this->input->post('id_cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         $status = $this->input->post('status');
+        $keterangan = $this->input->post('keterangan');
 
         $tgl_awal = date('Y-m-d');
         $tgl_akhir = '1900-01-01';
-        $cetak = $this->mlapaudit->partValid($cabang, $idjadwal_audit);
+        $cetak = $this->mlapaudit->cetakPartKurang($cabang, $idjadwal_audit, $status, $keterangan);
+        // var_dump($cetak);exit;
         if ($cetak) {
             foreach ($cetak as $c) {
                 if ($tgl_akhir < $c['tanggal_audit']) {
@@ -2463,8 +2465,8 @@ class laporan_auditor extends CI_Controller
                 $excel->setActiveSheetIndex(0)->setCellValue('G15', 'Selisih');
                 $excel->setActiveSheetIndex(0)->setCellValue('H14', 'Amount');
                 $excel->getActiveSheet()->mergeCells('H14:H15');
-                $excel->setActiveSheetIndex(0)->setCellValue('J14', 'Amount');
-                $excel->getActiveSheet()->mergeCells('J14:J15');
+                // $excel->setActiveSheetIndex(0)->setCellValue('J14', 'Amount');
+                // $excel->getActiveSheet()->mergeCells('J14:J15');
 
                 
                 // STYLE HEADER TABLE
@@ -2557,7 +2559,6 @@ class laporan_auditor extends CI_Controller
                     
                         
                         
-
                     $excel
                         ->getActiveSheet()
                         ->getStyle('A' . $seri)
@@ -2594,34 +2595,40 @@ class laporan_auditor extends CI_Controller
                     $no++;
                     $seri++;
                 }
-            }
-
+            
+                $excel->setActiveSheetIndex(0)->setCellValue('A3','PERIODE ' . strtoupper($tgl2) );
+                $excel->getActiveSheet()->mergeCells('A3:H3');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setSize(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
                 
+                // BELUM DITEMUKAN REPORT
+                $cetak2 = $this->mlapaudit->cetakPartbelumditemukan($cabang, $idjadwal_audit, $status, $keterangan);
+
                 // kondisi part
-                $excel->setActiveSheetIndex(0)->setCellValue('A12', '1. STOCK OPNAME SPARE PART / HGP.');
-                $excel->getActiveSheet()->mergeCells('A12:H12');
-                $excel->setActiveSheetIndex(0)->setCellValue('A13', 'B. B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
-                $excel->getActiveSheet()->mergeCells('A13:H13');
-
-
-                $tgl_awal = date('Y-m-d');
-                $tgl_akhir = '1900-01-01';
-                $cetak2 = $this->mlapaudit->partValid($cabang, $idjadwal_audit);
-                if ($cetak) {
-                foreach ($cetak as $c) {
-                    if ($tgl_akhir < $c['tanggal_audit']) {
-                        $tgl_akhir = $c['tanggal_audit'];
-                    }
-                    if ($tgl_awal > $c['tanggal_audit']) {
-                        $tgl_awal = $c['tanggal_audit'];
-                    }
-                }
-
+                // $excel->setActiveSheetIndex(0)->setCellValue('A12', '1. STOCK OPNAME SPARE PART / HGP.');
+                // $excel->getActiveSheet()->mergeCells(':');
+                // $excel->setActiveSheetIndex(0)->setCellValue('A13', 'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
+                // $excel->getActiveSheet()->mergeCells('A13:H13');
+                
                 $no = 1;
-                $seri = $seri + 2;
+                $seri = 18;
 
-                $cetak2 = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
-                foreach ($cetak2 as $c2) {
+                foreach ($cetak2 as $c) {
                     $excel
                         ->setActiveSheetIndex(0)
                         ->setCellValue('A' . $seri, $no);
@@ -2649,7 +2656,6 @@ class laporan_auditor extends CI_Controller
                     
                         
                         
-
                     $excel
                         ->getActiveSheet()
                         ->getStyle('A' . $seri)
@@ -2684,42 +2690,13 @@ class laporan_auditor extends CI_Controller
                         ->applyFromArray($style_row);
 
                     $no++;
-                    $seri2++;
+                    $seri++;
                 }
 
+                
 
-                // $cetak2 = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
-                // // $cetak2 = $cetak2[0]['amount'];
-                // // var_dump($cetak2);exit;
 
-                // $excel
-                //         ->setActiveSheetIndex(0)
-                //         ->setCellValue('H' . $seri, '=SUM('.$cetak2[0]['amount'].')' );
 
-                $excel
-                    ->setActiveSheetIndex(0)
-                    ->setCellValue(
-                        'A3',
-                        'PERIODE ' . strtoupper($tgl2) 
-                    );
-                $excel->getActiveSheet()->mergeCells('A3:H3');
-                $excel
-                    ->getActiveSheet()
-                    ->getStyle('A3')
-                    ->getFont()
-                    ->setBold(true);
-                $excel
-                    ->getActiveSheet()
-                    ->getStyle('A3')
-                    ->getFont()
-                    ->setSize(10);
-                $excel
-                    ->getActiveSheet()
-                    ->getStyle('A3')
-                    ->getAlignment()
-                    ->setHorizontal(
-                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
-                    );
 
                 $excel
                     ->getActiveSheet()
@@ -2765,6 +2742,10 @@ class laporan_auditor extends CI_Controller
                     ->setOrientation(
                         \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT
                     );
+                
+
+                
+                
                 $statu = strtoupper($status);
                 $excel->getActiveSheet(0)->setTitle($statu . $tgl);
                 $excel->setActiveSheetIndex(0);
@@ -2803,7 +2784,6 @@ class laporan_auditor extends CI_Controller
                     'C'
                 );
                 $pdf->Cell(10, 7, '', 0, 1);
-
                 $pdf->SetFont('Arial', 'B', 8);
                 $pdf->Cell(8, 6, 'NO', 1, 0, 'C');
                 $pdf->Cell(25, 6, 'NO MESIN', 1, 0, 'C');
@@ -2840,6 +2820,7 @@ class laporan_auditor extends CI_Controller
         } else {
             echo "<script>alert('Data tidak ditemukan'); history.go(-1);</script>";
         }
+    
     }
 }
 

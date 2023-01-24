@@ -30,7 +30,7 @@
                     <span id="info_message"></span>
                 </div>
                 <div class="panel-body">
-                    <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakpart" method="post">
+                    <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakexcelpart" method="post">
                         <div class="row">
                             <div class="col-sm-9">
                                 <div class="col-sm-5 form-group">

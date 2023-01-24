@@ -102,7 +102,7 @@
                             <div class="col-sm-3">
                             <!-- <input type="hidden" name="status" id="status" value="sesuai" /> -->
                                 <a id="preview" class="btn btn-primary">Preview</a>
-                                <button type="submit" class="btn btn-primary" id="open" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
+                                 <button type="submit" class="btn btn-primary" id="type" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
                             <button type="submit" class="btn btn-danger" id="open" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Pdf</button>
                                 <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> PDF</a>
                                 <a type="submit" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> EXCEL</a> -->
