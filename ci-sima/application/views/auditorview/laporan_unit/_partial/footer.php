@@ -139,44 +139,7 @@
         $('#preview').click(function(e) {
             e.preventDefault();
             get_data(1);
-            //     var cabang = $('#OptCabang').val();
-            //     var tgl_awal = $('#tgl_awal').val();
-            //     var tgl_akhir = $('#tgl_akhir').val();
-            //     var status = $('#status').val();
-            //     var getUrlParameter = function getUrlParameter(sParam) {
-            //     var sPageURL = window.location.search.substring(1),
-            //         sURLVariables = sPageURL.split('&'),
-            //         sParameterName,
-            //         i;
-
-            //     for (i = 0; i < sURLVariables.length; i++) {
-            //         sParameterName = sURLVariables[i].split('=');
-
-            //         if (sParameterName[0] === sParam) {
-            //             return sParameterName[1] === undefined ? true : decodeURIComponent(sParameterName[1]);
-            //         }
-            //     }
-            // };
-
-            //     var valu = getUrlParameter('pages');
-
-            //     $.ajax({
-            //         method: 'post',
-            //         dataType:'JSON',
-            //         url: '<?php echo base_url() ?>laporan_auditor/preview',
-            //         data:{id_cabang: cabang, tgl_awal: tgl_awal, tgl_akhir: tgl_akhir, status: status, pages: valu},
-            //         // data: 'id_cabang='+cabang+'&&tgl_awal='+tgl_awal+'&&tgl_akhir='+tgl_akhir+'&&status='+status+'&&pages='+valu,
-            //         success:function(data){
-            //             console.log(data.pagination_link);
-
-            //         $('#unit').html(data.unit_list);
-            //         $('#pagination').html(data.pagination_link);
-            //         $('#pagination').html(data.pagination_link);
-
-            //         }
-            //     })
-
-            // tes
+          
 
         });
         $(document).on('click', '.pagination li a', function(event) {

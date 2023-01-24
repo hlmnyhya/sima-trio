@@ -58,7 +58,11 @@ class laporan_auditor extends CI_Controller
         ];
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
-        $this->load->view('auditorview/laporan_part/v_laporan_part.php', $data);
+        $this->load->view(
+            'auditorview/laporan_part/v_filter_kondisi_part.php',
+            $data
+        );
+        // $this->load->view('auditorview/laporan_part/v_laporan_part.php', $data);
         $this->load->view('auditorview/laporan_part/_partial/footer.php');
     }
     public function cetak()
@@ -1524,6 +1528,7 @@ class laporan_auditor extends CI_Controller
     {
         $cabang = $this->input->post('id_cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $status = $this->input->post('status');
         $this->load->library('pagination');
 
         $count = $this->mlapaudit->countpartvalid($cabang, $idjadwal_audit);
@@ -1569,7 +1574,74 @@ class laporan_auditor extends CI_Controller
         }
         $start = ($page - 1) * $config['per_page'];
 
-        $cetak = $this->mlapaudit->auditPart($cabang, $idjadwal_audit, $start);
+        $cetak = $this->mlapaudit->auditPart($cabang, $idjadwal_audit, $start, $status);
+        $row_entry =
+            '
+                    <div class=" label label-default">' .
+            $count .
+            '</div>
+                ';
+
+        $output = [
+            // 'pagination_link'   => $count,
+            'pagination_link' => $this->pagination->create_links(),
+            'part_list' => $cetak,
+            'row_entry' => $row_entry,
+        ];
+
+        echo json_encode($output);
+    }
+    public function previewket()
+    {
+        $cabang = $this->input->post('id_cabang');
+        $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $this->load->library('pagination');
+        $keterangan = $this->input->post('keterangan');
+
+        $count = $this->mlapaudit->countpartvalid($cabang, $idjadwal_audit);
+        // $count= 13;
+        // $this->load->library('pagination');
+        $config['base_url'] = base_url() . 'laporan_auditor/previewpart';
+        $config['total_rows'] = $count;
+        $config['per_page'] = 15;
+        $config['uri_segment'] = 3;
+        $config['use_page_numbers'] = true;
+        $config['num_links'] = 3;
+
+        $config['full_tag_open'] = '<ul class="pagination">';
+        $config['full_tag_close'] = '</ul>';
+        $config['first_link'] = 'First';
+        $config['first_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['first_tag_close'] = '</li>';
+        $config['last_link'] = 'Last';
+        $config['last_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['last_tag_close'] = '</li>';
+        $config['next_link'] = '&gt;';
+        $config['next_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['next_tag_close'] = '</li>';
+        $config['prev_link'] = '&lt;&nbsp;';
+        $config['prev_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['prev_tag_close'] = '</li>';
+        $config['num_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['num_tag_close'] = '</li>';
+        $config['cur_tag_open'] =
+            '<li class="page-item"><span class="page-link">';
+        $config['cur_tag_close'] = '</li>';
+
+        $this->pagination->initialize($config);
+
+        $page = $this->uri->segment(3);
+        if ($page == null) {
+            $page = 1;
+        }
+        $start = ($page - 1) * $config['per_page'];
+
+        $cetak = $this->mlapaudit->previewket($cabang, $idjadwal_audit, $start, $keterangan);
         $row_entry =
             '
                     <div class=" label label-default">' .
@@ -1860,6 +1932,42 @@ class laporan_auditor extends CI_Controller
         $this->load->view('_partial/header.php', $data);
         $this->load->view('_partial/sidebar.php');
         $this->load->view('auditorview/laporan_part/v_laporan_part.php', $data);
+        $this->load->view('auditorview/laporan_part/_partial/footer.php');
+    }
+    public function Lap_part_belum_ditemukan()
+    {
+        $data = [
+            'judul' => 'Laporan Audit Part',
+            'judul1' => 'Laporan Auditor',
+            'tgl' => date('m/d/Y'),
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view('auditorview/laporan_part/v_laporan_belum_ditemukan.php', $data);
+        $this->load->view('auditorview/laporan_part/_partial/footer.php');
+    }
+    public function Lap_part_lebih()
+    {
+        $data = [
+            'judul' => 'Laporan Audit Part',
+            'judul1' => 'Laporan Auditor',
+            'tgl' => date('m/d/Y'),
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view('auditorview/laporan_part/v_laporan_part_lebih.php', $data);
+        $this->load->view('auditorview/laporan_part/_partial/footer.php');
+    }
+     public function Lap_part_Kurang()
+    {
+        $data = [
+            'judul' => 'Laporan Audit Part',
+            'judul1' => 'Laporan Auditor',
+            'tgl' => date('m/d/Y'),
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view('auditorview/laporan_part/v_laporan_part_Kurang.php', $data);
         $this->load->view('auditorview/laporan_part/_partial/footer.php');
     }
 
