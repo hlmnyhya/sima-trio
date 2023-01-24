@@ -2731,9 +2731,8 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                 // var_dump($tes);exit;
 
                 // kondisi part
-                $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow++.'', 'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)							
-');
-                $excel->getActiveSheet()->mergeCells('A'.$lastrow++.':H'.$lastrow++.);
+                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow++.'', 'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
+                // $excel->getActiveSheet()->mergeCells('A'.$lastrow++.':H'.$lastrow++.);
 
                 
 
@@ -2810,8 +2809,8 @@ $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
                 $lastrow3 = $this->mlapaudit->countbelumditemukan($cabang, $idjadwal_audit, $status, $keterangan);
 
                 // kondisi part
-                $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow3++.'', 'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)');
-$excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
+//                 $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow3++.'', 'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)');
+// $excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
 
                 $no = 1;
                 $seri = $lastrow3+3;
@@ -2886,8 +2885,8 @@ $excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
                 $lastrow4 = $this->mlapaudit->countlebih($cabang, $idjadwal_audit, $status, $keterangan);
 
                 // kondisi part
-                $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow4++.'', 'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)');
-                $excel->getActiveSheet()->mergeCells('A'.$lastrow4++.':H'.$lastrow4++.);
+                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow4++.'', 'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)');
+                // $excel->getActiveSheet()->mergeCells('A'.$lastrow4++.':H'.$lastrow4++.);
 
                 $no = 1;
                 $seri = $lastrow4+3;
@@ -2962,8 +2961,8 @@ $excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
                 $lastrow5 = $this->mlapaudit->countmanual($cabang, $idjadwal_audit, $status, $keterangan);
 
                 // kondisi part
-                $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
-                $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
+                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
+                // $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
 
                 $no = 1;
                 $seri = $lastrow5+3;
