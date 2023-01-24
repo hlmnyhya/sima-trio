@@ -110,21 +110,24 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover dataTables-example gray-bg">
                                     <thead>
+                                           <tr>
+                                            <th rowspan="2" class="text-center" width="3%">No</th>
+                                            <th rowspan="2" class="text-center">Gudang</th>
+                                            <th rowspan="2" class="text-center">Lokasi</th>
+                                            <th rowspan="2" class="text-center">PART NUMBER</th>
+                                            <th rowspan="2" class="text-center">PART DESKRIPSI</th>
+                                            <th colspan="3" class="text-center">QTY</th>
+                                            <th rowspan="2" class="text-center">HET</th>
+                                            <th rowspan="2" class="text-center">AMOUNT</th>
+                                            <th rowspan="2" class="text-center">KD RAKBIN</th>
+                                            <th rowspan="2" class="text-center">Status</th>
+                                            <th rowspan="2" class="text-center">Kondisi</th>
+                                            <th rowspan="2" class="text-center">Keterangan</th>
+                                        </tr>
                                         <tr>
-                                            <th class="text-center" width="3%">No</th>
-                                            <th class="text-center">Gudang</th>
-                                            <th class="text-center">Lokasi</th>
-                                            <th class="text-center">PART NUMBER</th>
-                                            <th class="text-center">PART DESKRIPSI</th>
                                             <th class="text-center">QTY</th>
                                             <th class="text-center">QTY FISIK</th>
                                             <th class="text-center">SELISIH</th>
-                                            <th class="text-center">HET</th>
-                                            <th class="text-center">AMOUNT</th>
-                                            <th class="text-center">KD RAKBIN</th>
-                                            <th class="text-center">Status</th>
-                                            <th class="text-center">Kondisi</th>
-                                            <th class="text-center">Keterangan</th>
                                         </tr>
                                     </thead>
                                     <tbody id="audit_part">

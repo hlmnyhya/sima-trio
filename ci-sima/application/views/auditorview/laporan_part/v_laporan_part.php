@@ -30,7 +30,7 @@
                     <span id="info_message"></span>
                 </div>
                 <div class="panel-body">
-                    <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakpart" method="post">
+                    <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakexcelpart" method="post">
                         <div class="row">
                             <div class="col-sm-9">
                                 <div class="col-sm-5 form-group">
@@ -101,8 +101,10 @@
                             </div>
                             <div class="col-sm-3">
                                 <a id="preview" class="btn btn-primary">Preview</a>
-                                <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> Download Pdf</a>
-
+                                <button type="submit" class="btn btn-primary" id="type" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
+                            <button type="submit" class="btn btn-danger" id="open" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Pdf</button>
+                                <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> PDF</a>
+                                <a type="submit" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> EXCEL</a> -->
                             </div>
                         </div>
                     </form>
@@ -113,22 +115,27 @@
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover dataTables-example gray-bg">
                                     <thead>
-                                        <tr>
-                                            <th class="text-center" width="3%">No</th>
-                                            <th class="text-center">Nama Lokasi</th>
-                                            <th class="text-center">Part Number</th>
-                                            <th class="text-center">Deskripsi</th>
-                                            <th class="text-center">KD Rak Bin</th>
-                                            <th class="text-center">QTY SIMANDE</th>
-                                            <th class="text-center">QTY</th>
-                                            <th class="text-center">SELISIH</th>
-                                            <th class="text-center">HET</th>
-                                            <th class="text-center">AMOUNT</th>
-                                            <th class="text-center">Kondisi</th>
-                                            <th class="text-center">Keterangan</th>
-                                            <th class="text-center">Status</th> 
-                                            <th class="text-center">Tanggal Audit</th>
-                                        </tr>
+                                <tr class="text-center">
+                                    <th class="text-center" rowspan="2" width="3%">No</th>
+                                    <!-- <th class="text-center" rowspan="2" width="5%">Aksi</th> -->
+                                    <!-- <th rowspan="2" class="text-center">Cabang</th> -->
+                                    <th rowspan="2" class="text-center">NAMA LOKASI</th>
+                                    <th rowspan="2" class="text-center">PART NUMBER</th>
+                                    <th rowspan="2" class="text-center">DESKRIPSI</th>
+                                    <th rowspan="2" class="text-center">KD RAKBIN</th>
+                                    <th colspan="3" class="text-center">QTY</th>
+                                    <th rowspan="2" class="text-center">HET</th>
+                                    <th rowspan="2" class="text-center">AMOUNT</th>
+                                    <th rowspan="2" class="text-center">Status</th>
+                                    <th rowspan="2" class="text-center">Kondisi</th>
+                                    <th rowspan="2" class="text-center">Keterangan</th>
+                                    <th rowspan="2" class="text-center">TANGGAL AUDIT</th>
+                                </tr>
+                                <tr>
+                                    <th class="text-center">QTY</th>
+                                    <th class="text-center">QTY FISIK</th>
+                                    <th class="text-center">SELISIH</th>
+                                </tr>
                                     </thead>
                                     <tbody id="part">
                                     </tbody>
@@ -139,14 +146,14 @@
                                             <th class="text-center">Part Number</th>
                                             <th class="text-center">Deskripsi</th>
                                             <th class="text-center">KD Rak Bin</th>
-                                            <th class="text-center">QTY SIMANDE</th>
                                             <th class="text-center">QTY</th>
+                                            <th class="text-center">QTY FISIK</th>
                                             <th class="text-center">SELISIH</th>
                                             <th class="text-center">HET</th>
                                             <th class="text-center">AMOUNT</th>
+                                            <th class="text-center">Status</th>
                                             <th class="text-center">Kondisi</th>
                                             <th class="text-center">Keterangan</th>
-                                            <th class="text-center">Status</th>
                                             <th class="text-center">Tanggal Audit</th>
                                         </tr>
                                     </tfoot>

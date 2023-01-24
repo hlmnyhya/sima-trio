@@ -7,6 +7,9 @@ use PhpOffice\PhpSpreadsheet\Helper\Sample;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
+use PhpOffice\PhpSpreadsheet\Style\Border;
+use PhpOffice\PhpSpreadsheet\Style\Color;
+use PhpOffice\PhpSpreadsheet\Style\Fill;
 
 class laporan_auditor extends CI_Controller
 {
@@ -398,7 +401,7 @@ class laporan_auditor extends CI_Controller
 
                 $excel
                     ->setActiveSheetIndex(0)
-                    ->setCellValue('A1', 'TEMUAN AUDIT ' . strtoupper($status));
+                    ->setCellValue('A1', 'LHA AUDIT UNIT' . strtoupper($status));
                 $excel->getActiveSheet()->mergeCells('A1:H1');
                 $excel
                     ->getActiveSheet()
@@ -2017,6 +2020,603 @@ class laporan_auditor extends CI_Controller
             ';
         }
         echo $output;
+    }
+
+    public function cetakexcelpart()
+    {
+        $excel = new Spreadsheet();
+        $tgl = date('Ymd');
+        $tgl2 = date('F Y');
+        $type = $this->input->post('type');
+        $cabang = $this->input->post('id_cabang');
+        $idjadwal_audit = $this->input->post('idjadwal_audit');
+        $status = $this->input->post('status');
+
+        $tgl_awal = date('Y-m-d');
+        $tgl_akhir = '1900-01-01';
+        $cetak = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
+        if ($cetak) {
+            foreach ($cetak as $c) {
+                if ($tgl_akhir < $c['tanggal_audit']) {
+                    $tgl_akhir = $c['tanggal_audit'];
+                }
+                if ($tgl_awal > $c['tanggal_audit']) {
+                    $tgl_awal = $c['tanggal_audit'];
+                }
+            }
+
+            if ($type == 'excel') {
+                $style_col = [
+                    'font' => ['bold' => true],
+                    'alignment' => [
+                        'horizontal' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                    ],
+                     'borders' => [
+                        'top' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'right' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'left' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                        'bottom' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        ],
+                    ],
+                    'fill'=>[
+		                'fillType' =>  fill::FILL_SOLID,
+		                'startColor' => [
+			            'rgb' => 'c9c9c9'
+		                ]
+	                ],
+            ];
+
+                $styleArray = [
+			'borders' => [
+				'allBorders' => [
+					'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+				],
+			],
+		];
+
+                $style_row = [
+                    'alignment' => [
+                        'horizontal' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER,
+                        'vertical' =>
+                            \PhpOffice\PhpSpreadsheet\Style\Alignment::VERTICAL_CENTER,
+                    ],
+                    'borders' => [
+                        'top' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                        ],
+                        'right' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                        ],
+                        'left' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                        ],
+                        'bottom' => [
+                            'style' =>
+                                \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                        ],
+                    ],
+                ];
+
+                    $styleArray = array(
+                        'borders' => array(
+                        'outline' => array(
+                        'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THICK,
+                        'color' => array('argb' => '0000'),
+                        ),
+                    ),
+                );
+
+
+                $styleArray2 = array(
+                        'borders' => array(
+                        'outline' => array(
+                        'borderStyle' => \PhpOffice\PhpSpreadsheet\Style\Border::BORDER_THIN,
+                        'color' => array('argb' => '0000'),
+                        ),
+                    ),
+                );
+
+                $bold = [
+                    'font' => ['bold' => true],
+                ];
+
+                $systm = [
+                    'fill'=>[
+		                'fillType' =>  fill::FILL_SOLID,
+		                'startColor' => [
+			            'rgb' => '88c07f'
+		                ]
+	                ],
+                ];
+
+                $fisk = [
+                    'fill'=>[
+		                'fillType' =>  fill::FILL_SOLID,
+		                'startColor' => [
+			            'rgb' => 'dcc058'
+		                ]
+	                ],
+                ];
+
+                 $selisih = [
+                    'fill'=>[
+		                'fillType' =>  fill::FILL_SOLID,
+		                'startColor' => [
+			            'rgb' => 'de925c'
+		                ]
+	                ],
+                ];
+
+                $cab = $this->mlapaudit->getCabangbyId($cabang);
+                foreach ($cab as $c) {
+                    $cab = $c['nama_cabang'];
+                }
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setPaperSize(
+                        \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::PAPERSIZE_A4
+                    );
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup();
+                    // ->setRowsToRepeatAtTop('A5');
+
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A1', 'LHA STOCK OPNAME SPAREPART DAN OLI');
+                $excel->getActiveSheet()->mergeCells('A1:H1');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getFont()
+                    ->setSize(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A1')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
+
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A2', 'TRIO MOTOR ' . $cab);
+                $excel->getActiveSheet()->mergeCells('A2:H2');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getFont()
+                    ->setSize(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A2')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
+
+                 $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue('A3', 'PERIODE ' . $tgl2);
+                $excel->getActiveSheet()->mergeCells('A3:H2');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setSize(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
+
+
+                    // logo
+
+                $drawing = new \PhpOffice\PhpSpreadsheet\Worksheet\Drawing();
+                $drawing->setName('Paid');
+                $drawing->setDescription('Paid');
+                $drawing->setPath('assets/images/logo-print.png'); /* put your path and image here */
+                $drawing->setHeight(60);
+                $drawing->setCoordinates('B5');
+                $drawing->setWorksheet($excel->getActiveSheet());
+
+                // ttd
+                $excel->setActiveSheetIndex(0)->setCellValue('F5', 'Cek I');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('F5')
+                    ->applyFromArray($bold);
+                
+                $excel->setActiveSheetIndex(0)->setCellValue('F6', 'TTD');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('F6')
+                    ->applyFromArray($bold);
+                   
+
+                $excel->setActiveSheetIndex(0)->setCellValue('G5', 'SYAIFUL BAHRI');
+                $excel->getActiveSheet()->mergeCells('G5:H5');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('G5:H5')
+                    ->applyFromArray($bold);
+
+                $excel->setActiveSheetIndex(0)->setCellValue('F8', 'Cek II');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('F8')
+                    ->applyFromArray($bold);
+                
+                $excel->setActiveSheetIndex(0)->setCellValue('F9', 'TTD');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('F9')
+                    ->applyFromArray($bold);
+
+                $excel->setActiveSheetIndex(0)->setCellValue('G8', 'AGUS ZAINUDDIN');
+                $excel->getActiveSheet()->mergeCells('G8:H8');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('G8:H8')
+                    ->applyFromArray($bold);
+
+
+
+
+                $excel->setActiveSheetIndex(0)->setCellValue('G6', '');
+                $excel->getActiveSheet()->mergeCells('G6:H7');
+
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('G6:H7')
+                    ->applyFromArray($styleArray);
+
+                $excel->setActiveSheetIndex(0)->setCellValue('H9', '');
+                $excel->getActiveSheet()->mergeCells('G9:H10');
+
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('G9:H10')
+                    ->applyFromArray($styleArray);
+                
+
+
+                // kondisi part
+                $excel->setActiveSheetIndex(0)->setCellValue('A12', '1. STOCK OPNAME SPARE PART / HGP.');
+                $excel->getActiveSheet()->mergeCells('A12:H12');
+                $excel->setActiveSheetIndex(0)->setCellValue('A13', 'A. SELISIH KURANG SPARE PART (QUANTITY FISIK ADA, QUANTITY SISTEM ADA)');
+                $excel->getActiveSheet()->mergeCells('A13:H13');
+
+
+                
+
+
+                $excel->setActiveSheetIndex(0)->setCellValue('A14', 'No');
+                $excel->getActiveSheet()->mergeCells('A14:A15');
+                $excel->setActiveSheetIndex(0)->setCellValue('B14', 'No Part');
+                $excel->getActiveSheet()->mergeCells('B14:B15');
+                $excel->setActiveSheetIndex(0)->setCellValue('C14', 'Deskripsi');
+                $excel->getActiveSheet()->mergeCells('C14:C15');
+                $excel->setActiveSheetIndex(0)->setCellValue('D14', 'HET');
+                $excel->getActiveSheet()->mergeCells('D14:D15');
+                $excel->setActiveSheetIndex(0)->setCellValue('E14', 'QTY');
+                $excel->getActiveSheet()->mergeCells('E14:G14');
+                $excel->setActiveSheetIndex(0)->setCellValue('E15', 'Systm');
+                $excel->setActiveSheetIndex(0)->setCellValue('F15', 'Fisk');
+                $excel->setActiveSheetIndex(0)->setCellValue('G15', 'Selisih');
+                $excel->setActiveSheetIndex(0)->setCellValue('H14', 'Amount');
+                $excel->getActiveSheet()->mergeCells('H14:H15');
+
+                
+                // STYLE HEADER TABLE
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A12')
+                    ->applyFromArray($bold);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A13')
+                    ->applyFromArray($bold);
+                    
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A14:A15')
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('B14:B15')
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('C14:C15')                    
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('D14:D15')
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('E14:G14')
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('E15')
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($systm)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('F15')                    
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($fisk)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('G15')
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($selisih)
+                    ->applyFromArray($styleArray2);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('H14:H15')
+                    ->applyFromArray($style_col)
+                    ->applyFromArray($styleArray2);
+
+                $no = 1;
+                $seri = 16;
+
+                foreach ($cetak as $c) {
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('A' . $seri, $no);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('B' . $seri, $c['part_number']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('C' . $seri, $c['deskripsi']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('D' . $seri, $c['harga_jual']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('E' . $seri, $c['qty']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('F' . $seri, $c['qty_fsk']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('G' . $seri, $c['selisih']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue(
+                            'H' . $seri,
+                            strtoupper($c['amount'])
+                        );
+
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('A' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('B' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('C' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('D' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('E' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('F' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('G' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('H' . $seri)
+                        ->applyFromArray($style_row);
+
+                    $no++;
+                    $seri++;
+                }
+
+                $excel
+                    ->setActiveSheetIndex(0)
+                    ->setCellValue(
+                        'A3',
+                        'PERIODE ' . strtoupper($tgl2) 
+                    );
+                $excel->getActiveSheet()->mergeCells('A3:H3');
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setBold(true);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getFont()
+                    ->setSize(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getStyle('A3')
+                    ->getAlignment()
+                    ->setHorizontal(
+                        \PhpOffice\PhpSpreadsheet\Style\Alignment::HORIZONTAL_CENTER
+                    );
+
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('A')
+                    ->setWidth(5);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('B')
+                    ->setWidth(20);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('C')
+                    ->setWidth(30);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('D')
+                    ->setWidth(10);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('E')
+                    ->setWidth(7);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('F')
+                    ->setWidth(7);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('G')
+                    ->setWidth(7);
+                $excel
+                    ->getActiveSheet()
+                    ->getColumnDimension('H')
+                    ->setWidth(10);
+
+                $excel
+                    ->getActiveSheet()
+                    ->getDefaultRowDimension()
+                    ->setRowHeight(-1);
+
+                $excel
+                    ->getActiveSheet()
+                    ->getPageSetup()
+                    ->setOrientation(
+                        \PhpOffice\PhpSpreadsheet\Worksheet\PageSetup::ORIENTATION_PORTRAIT
+                    );
+                $statu = strtoupper($status);
+                $excel->getActiveSheet(0)->setTitle($statu . $tgl);
+                $excel->setActiveSheetIndex(0);
+                header(
+                    'Content-Type: application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                );
+                header(
+                    'Content-Disposition: attachment; filename=REPORT-PART' .
+                        $status .
+                        $tgl .
+                        '.xlsx'
+                );
+                header('Cache-Control: max-age=0');
+                $write = new Xlsx($excel);
+                $write->save('php://output');
+            } elseif ($type == 'pdf') {
+                $pdf = new reportProduct();
+                $pdf->setKriteria('status');
+                $pdf->AliasNbPages();
+                $pdf->AddPage('P', 'A4');
+                $cab = $this->mlapaudit->getCabangbyId($cabang);
+                foreach ($cab as $c) {
+                    $cab = $c['nama_cabang'];
+                }
+
+                $stat = strtoupper($status);
+                $pdf->SetFont('Arial', 'B', '12');
+                $pdf->Cell(190, 7, 'TEMUAN AUDIT ' . $stat, 0, 1, 'C');
+                $pdf->Cell(190, 7, 'CABANG ' . $cab, 0, 1, 'C');
+                $pdf->Cell(
+                    190,
+                    7,
+                    'PERIODE ' . $tgl_awal . ' s/d ' . $tgl_akhir,
+                    0,
+                    1,
+                    'C'
+                );
+                $pdf->Cell(10, 7, '', 0, 1);
+
+                $pdf->SetFont('Arial', 'B', 8);
+                $pdf->Cell(8, 6, 'NO', 1, 0, 'C');
+                $pdf->Cell(25, 6, 'NO MESIN', 1, 0, 'C');
+                $pdf->Cell(28, 6, 'NO RANGKA', 1, 0, 'C');
+                $pdf->Cell(25, 6, 'KODE ITEM', 1, 0, 'C');
+                $pdf->Cell(27, 6, 'TYPE UNIT', 1, 0, 'C');
+                $pdf->Cell(20, 6, 'USIA UNIT', 1, 0, 'C');
+                $pdf->Cell(40, 6, 'LOKASI', 1, 0, 'C');
+                $pdf->Cell(20, 6, 'STATUS', 1, 1, 'C');
+
+                $pdf->SetFont('Arial', 'B', 8);
+                $start = 0;
+
+                // var_dump($cetak);die;
+                $no = 1;
+                foreach ($cetak as $c) {
+                    $pdf->Cell(8, 6, $no, 1, 0, 'C');
+                    $pdf->Cell(25, 6, $c['no_mesin'], 1, 0);
+                    $pdf->Cell(28, 6, $c['no_rangka'], 1, 0);
+                    $pdf->Cell(25, 6, $c['kode_item'], 1, 0);
+                    $pdf->Cell(27, 6, $c['type'], 1, 0);
+                    $pdf->Cell(20, 6, $c['umur_unit'], 1, 0, 'C');
+                    $pdf->Cell(40, 6, $c['nama_gudang'], 1, 0);
+                    $pdf->Cell(20, 6, $c['status_unit'], 1, 1);
+                    $no++;
+                    $start = $start + 15;
+                }
+
+                // $pdf->Output('D','REPORT-'.$stat.'.pdf');
+                header('Content-type: application/PDF');
+                $pdf->Output('D', 'REPORT-' . $stat . '.pdf');
+                // $pdf->Output();
+            }
+        } else {
+            echo "<script>alert('Data tidak ditemukan'); history.go(-1);</script>";
+        }
     }
 }
 
