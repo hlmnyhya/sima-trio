@@ -501,6 +501,87 @@ class M_Laporan_Auditor extends CI_Model
             return 0;
         }
     }
+    public function countbelumditemukan($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'countbelumditemukan', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'status ' => $d
+
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return 0;
+        }
+    }
+    
+    public function countpartlebih($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'countpartlebih', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function countpartsesuai($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'countpartsesuai', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function countpartkurang($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'countpartkurang', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return 0;
+        }
+    }
+
+
     public function countunitnotready($a, $b, $d)
     {
         $respon =  $this->_client->request('GET', 'countunitnotready', [

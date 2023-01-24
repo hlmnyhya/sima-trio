@@ -1209,6 +1209,82 @@ function __construct() {
         }
     }
 
+    public function countbelumditemukan_get()
+    {
+        
+        $count= $this->mcount->Countbelumditemukan();
+
+        if ($count) {
+            $this->response([
+                'status' => true,
+                'data' => (int)$count
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function countpartsesuai_get()
+    {
+        
+        $count= $this->mcount->Countpartsesuai();
+
+        if ($count) {
+            $this->response([
+                'status' => true,
+                'data' => (int)$count
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function countpartkurang_get()
+    {
+        
+        $count= $this->mcount->countpartkurang();
+
+        if ($count) {
+            $this->response([
+                'status' => true,
+                'data' => (int)$count
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function countpartlebih_get()
+    {
+        
+        $count= $this->mcount->countpartlebih();
+
+        if ($count) {
+            $this->response([
+                'status' => true,
+                'data' => (int)$count
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'data' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
     public function unitready_post()
     {
         $id = $this->post('part_number');

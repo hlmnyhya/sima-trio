@@ -1742,8 +1742,8 @@ class laporan_auditor extends CI_Controller
             $pdf->Cell(40, 5, '1. STOCK OPNAME SPARE PART / HGP.', 0, 1);
             $pdf->ln(0.5);
             $pdf->Cell(40, 5, 'A. SELISIH KURANG SPARE PART (QUANTITY FISIK ADA, QUANTITY SISTEM ADA)							
-', 0, 1);
-            
+', 0, 1);					
+
             $pdf->Cell(12, 15, 'No', 1, 0, 'C', true);
             // $pdf->Cell(55, 15, 'LOKASI', 1, 0, 'C', true);
             $pdf->Cell(50, 15, 'PART NUMBER', 1, 0, 'C', true);
