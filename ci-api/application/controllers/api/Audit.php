@@ -1215,11 +1215,12 @@ function __construct() {
         $idjadwal_audit = $this->post('idjadwal_audit');
         
         $count= $this->mcount->Countbelumditemukan($cabang, $idjadwal_audit);
+        // var_dump($count);exit;
 
         if ($count) {
             $this->response([
                 'status' => true,
-                'data' => (int)$count
+                'data' => $count
             ], REST_Controller::HTTP_OK);
         }else{
             $this->response([
