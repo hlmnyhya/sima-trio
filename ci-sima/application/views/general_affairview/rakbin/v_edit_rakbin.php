@@ -5,21 +5,21 @@
         </div>
 
         <div class="panel-body">
-            <form method="post" id="FormPerusahaan" class="form-horizontal" action="<?php echo base_url() ?>master_data/put_rakbin">
-                <!-- <?php foreach ($edit as $e) : ?> -->
+            <form method="post" id="FormRakbin" class="form-horizontal" action="<?php echo base_url() ?>master_data/put_rakbin">
+                <?php foreach ($edit as $e) : ?>
                     <div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Rakbin</label>
-                            <input type="hidden" class="form-control" name="kd_lokasi_rak_baru" id="kd_lokasi_rak_baru" value="<?php echo $e[''] ?>">
+                            <input type="hidden" class="form-control" name="kd_lokasi_rak_baru" id="kd_lokasi_rak_baru" value="<?php echo $e['kd_lokasi_rak_baru'] ?>">
                             <div class="col-sm-4">
-                                <input type="text" class="form-control" value="<?php echo $e[''] ?>">
+                                <input type="text" class="form-control" value="<?php echo $e['kd_lokasi_rak_baru'] ?>">
                             </div>
                         </div>
                     </div>
 
                     <div>
                         <div class="form-group"><label class="col-sm-2 control-label">perusahaan</label>
-                            <div class="col-sm-6"><input type="text" class="form-control" name="nama_perusahaan" id="nama_perusahaan" value="<?php echo $e[''] ?>">
+                            <div class="col-sm-6"><input type="text" class="form-control" name="id_lokasi" id="id_lokasi" value="<?php echo $e['id_lokasi'] ?>">
                         </div>
 
 
@@ -28,7 +28,7 @@
                                 <input type="submit" class="btn btn-m btn-success" id="submit" name="submit" value="Submit">
                             </div>
                         </div>
-                    <!-- <?php endforeach; ?> -->
+                    <?php endforeach; ?>
             </form>
         </div>
     </div>

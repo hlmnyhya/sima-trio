@@ -79,35 +79,32 @@ class M_Count extends CI_Model
         }
     }
 
-    public function Countbelumditemukan($cabang, $idjadwal_audit)
-    {
-        // $query = "select count (id_part) from part where status ='Belum ditemukan' AND id_cabang ='2NG' AND idjadwal_audit = 'AUDIT00030'";
+//     public function Countbelumditemukan($cabang = null,  $idjadwal_audit = null, $jenis = null )
+//     {
+//         $query = $this ->db->from('part')
+//                             ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
+//                             // ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
+//                             ->get()
+//                             ->result();
+//         if ($status != null ) {
+// $this ->db->where("status = '$status'");
+//         }
+//         if (count($query) >0) {
+//            return count($query);
+//         }else {
+//             return 0;
 
-        // // $query = $this ->db->from('part')
-        // //                     ->where("status = 'belum ditemukan' id_cabang = '2NG' AND idjadwal_audit = 'AUDIT00030'")
-        // //                     // ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
-        //                     // ->get()
-        //                     // ->result();
-        // if (count($query) >0) {
-        //    return count($query);
-        // }else {
-        //     return 0;
-
-        // }
-        $count = $this->db->query("select count (id_part) from part where status ='Belum ditemukan' AND id_cabang ='$cabang' AND idjadwal_audit = '$idjadwal_audit'");
-
-        if ($count->num_rows() > 0) {
-            return $count->num_rows();
-        } else {
-            return 0;
-        }
-
-        // if ($count->num_rows() > 0) {
-        //     return $count->num_rows();
-        // } else {
-        //     return 0;
-        // }
-    }
+//         }
+//     }
+    // public function Countbelumditemukan($cabang, $idjadwal_audit)
+    // {
+    //     $this->db->select("status = 'belum ditemukan'");
+    // $this->db->where('idjadwal_aduit',$idjadwal_audit);
+    // $this->db->where('id_cabang',$cabang);
+    // $q=$this->db->get('part');
+    // $count=$q->result();
+    // return count($count);
+    // }
     // public function Countbelumditemukan($cabang, $idjadwal_audit)
     // {
     //     $query = "select count (id_part) from part where  status ='Belum ditemukan' AND id_cabang ='$cabang' AND idjadwal_audit = '$idjadwal_audit'";
@@ -117,50 +114,50 @@ class M_Count extends CI_Model
     //     return  $this->db->affected_rows();
     // }
 
-    public function Countpartsesuai($cabang, $idjadwal_audit)
-    {
-        $query = $this ->db->from('part')
-                            ->where("keterangan = 'Part Sesuai'")
-                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
-                            ->get()
-                            ->result();
-        if (count($query) >0) {
-           return count($query);
-        }else {
-            return 0;
+    // public function Countpartsesuai($cabang, $idjadwal_audit)
+    // {
+    //     $query = $this ->db->from('part')
+    //                         ->where("keterangan = 'Part Sesuai'")
+    //                         ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
+    //                         ->get()
+    //                         ->result();
+    //     if (count($query) >0) {
+    //        return count($query);
+    //     }else {
+    //         return 0;
 
-        }
-    }
+    //     }
+    // }
 
-    public function Countpartlebih($cabang, $idjadwal_audit)
-    {
-        $query = $this ->db->from('part')
-                            ->where("keterangan = 'Part Lebih'")
-                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
-                            ->get()
-                            ->result();
-        if (count($query) >0) {
-           return count($query);
-        }else {
-            return 0;
+    // public function Countpartlebih($cabang, $idjadwal_audit)
+    // {
+    //     $query = $this ->db->from('part')
+    //                         ->where("keterangan = 'Part Lebih'")
+    //                         ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
+    //                         ->get()
+    //                         ->result();
+    //     if (count($query) >0) {
+    //        return count($query);
+    //     }else {
+    //         return 0;
 
-        }
-    }
+    //     }
+    // }
 
-    public function Countpartkurang($cabang, $idjadwal_audit)
-    {
-        $query = $this ->db->from('part')
-                            ->where("keterangan = 'Part Kurang'")
-                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
-                            ->get()
-                            ->result();
-        if (count($query) >0) {
-           return count($query);
-        }else {
-            return 0;
+    // public function Countpartkurang($cabang, $idjadwal_audit)
+    // {
+    //     $query = $this ->db->from('part')
+    //                         ->where("keterangan = 'Part Kurang'")
+    //                         ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
+    //                         ->get()
+    //                         ->result();
+    //     if (count($query) >0) {
+    //        return count($query);
+    //     }else {
+    //         return 0;
 
-        }
-    }
+    //     }
+    // }
 
     public function CountJenisAudit()
     {
@@ -224,6 +221,86 @@ class M_Count extends CI_Model
             return 0;
         }
     }
+    public function Countbelumditemukan($cabang = null, $idjadwal_audit = null )
+    {
+        if ($cabang === null && $idjadwal_audit === null) {
+            $count = $this->db->get('part');
+        } else {
+            $count = $this->db->get_where('part', [
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'status' => 'belum ditemukan'
+            ]);
+        }
+
+
+        if ($count->num_rows() > 0) {
+            return $count->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Countpartkurang($cabang = null, $idjadwal_audit = null )
+    {
+        if ($cabang === null && $idjadwal_audit === null) {
+            $count = $this->db->get('part');
+        } else {
+            $count = $this->db->get_where('part', [
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'keterangan' => 'Part kurang'
+            ]);
+        }
+
+
+        if ($count->num_rows() > 0) {
+            return $count->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Countpartlebih($cabang = null, $idjadwal_audit = null )
+    {
+        if ($cabang === null && $idjadwal_audit === null) {
+            $count = $this->db->get('part');
+        } else {
+            $count = $this->db->get_where('part', [
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'keterangan' => 'Part Lebih'
+            ]);
+        }
+
+
+        if ($count->num_rows() > 0) {
+            return $count->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
+    public function Countpartsesuai($cabang = null, $idjadwal_audit = null )
+    {
+        if ($cabang === null && $idjadwal_audit === null) {
+            $count = $this->db->get('part');
+        } else {
+            $count = $this->db->get_where('part', [
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'keterangan' => 'Part Sesuai'
+            ]);
+        }
+
+
+        if ($count->num_rows() > 0) {
+            return $count->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function CountTempPart($cabang = null)
     {
         if ($cabang === null) {

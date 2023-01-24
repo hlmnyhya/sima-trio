@@ -476,7 +476,7 @@ class M_Master_Data extends CI_Model
                 'id' => $id
             ]
         ]);
-
+        // var_dump($id);exit;
         $result = json_decode($respon->getBody()->getContents(), true);
         if ($result['status'] == true) {
             return $result['data'];
