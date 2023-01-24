@@ -245,11 +245,18 @@ class Transaksi_Auditor extends CI_Controller
         // $tgl = $_tgl;
         $time = date('Y-m-d');
         $output = '';
+        $tgl =  $this->mtransauditor->gettgltempunit();
         if ($this->mtransauditor->downloadunit($id, $idaudit)) {
+            // $output .=
+            // $tgl =  $this->mtransauditor->gettgltempunit();
+        
             $output .=
-                '<div class="text-success"> Data Berhasil Didownload Pada <span>'.$time.'</span>  </div>';
+                '<div class="text-success"> Data Berhasil Didownload Pada <span>"'.$tgl.'"</span>  </div>';
         } else {
-            $output .= '<div class="text-danger"> Data Diperbarui Pada <span>"'.$time.'"</span>   </div>';
+            // $tgl =  $this->mtransauditor->gettgltempunit();
+
+             $output .=
+                '<div class="text-danger"> Data Berhasil Diperbarui Pada <span>"'.$tgl.'"</span>  </div>';
         }
         echo json_encode($output, true);
     }
@@ -712,10 +719,14 @@ class Transaksi_Auditor extends CI_Controller
             'kondisi' => $this->input->post('kondisi'),
             'keterangan' => $this->input->post('keterangan'),
             'qty' => $this->input->post('qty'),
+            'qty_fsk' => $this->input->post('qty_fsk'),
+            'selisih' => $this->input->post('selisih'),
+            'amount' => $this->input->post('amount'),
+            'harga_jual' => $this->input->post('harga_jual'),
             'status' => 'Sesuai'
             // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
         ];
-        // var_dump($data);exit;
+        var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {
             $this->session->set_flashdata('berhasil', 'Berhasil Diedit');
 
@@ -1958,6 +1969,8 @@ class Transaksi_Auditor extends CI_Controller
     {
         // var_dump("aaa");exit;
         $manual = false;
+        $output = '';
+        $info = '';
         $scanpart = $this->input->post('id');
         // $part_number = $this->input->post('part_number');
         $cabang = $this->input->post('cabang');
@@ -1967,6 +1980,8 @@ class Transaksi_Auditor extends CI_Controller
         $qty = $this->input->post('qty');
         $status = $this->input->post('status');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
+
+        // var_dump($rakbin);exit;
         $data = [
             'id' => $this->input->post('id'),
             'id_cabang' => $cabang,
@@ -2196,6 +2211,7 @@ class Transaksi_Auditor extends CI_Controller
         $idjadwal_audit = $this->input->post('idjadwal_audit');
         // $qty = $this->input->post('qty');
         $output = '';
+        // $info = '';
         $manual = false;
         $base = base_url();
         $info = '';
@@ -2229,7 +2245,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $part['harga_jual'],
                         'kondisi' => $kondisi,
-                        'status' => ' Lokasi Sesuai',
+                        'status' => 'Lokasi Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }elseif($part['kd_lokasi_rak'] == $rakbin) {
@@ -2300,7 +2316,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $amount,
                         'kondisi' => $kondisi,
-                        'status' => 'Sesuai',
+                        'status' => ' Lokasi Sesuai',
                         'keterangan' => 'Part Lebih',
                         'idjadwal_audit' => $idjadwal_audit
                     ];

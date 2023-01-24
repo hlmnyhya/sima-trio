@@ -386,6 +386,17 @@ class M_Transaksi_Auditor extends CI_Model
             return false;
         }
     }
+    public function gettgltempunit(){
+        $respon =  $this->_client->request('GET', 'tanggalunit');
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+        // var_dump($result);exit;
+        if ($result['status'] == true) {
+            return $result['data'][0]['time'];
+        } else {
+            return false;
+        }
+    }
     public function countunit($a, $b, $c)
     {
         $respon =  $this->_client->request('GET', 'countunit', [

@@ -1934,6 +1934,18 @@ class laporan_auditor extends CI_Controller
         $this->load->view('auditorview/laporan_part/v_laporan_part.php', $data);
         $this->load->view('auditorview/laporan_part/_partial/footer.php');
     }
+    public function Lap_part()
+    {
+        $data = [
+            'judul' => 'Laporan Audit Part',
+            'judul1' => 'Laporan Auditor',
+            'tgl' => date('m/d/Y'),
+        ];
+        $this->load->view('_partial/header.php', $data);
+        $this->load->view('_partial/sidebar.php');
+        $this->load->view('auditorview/laporan_part/v_laporan_audit_part.php', $data);
+        $this->load->view('auditorview/laporan_part/_partial/footer.php');
+    }
     public function Lap_part_belum_ditemukan()
     {
         $data = [
@@ -2142,7 +2154,7 @@ class laporan_auditor extends CI_Controller
 
         $tgl_awal = date('Y-m-d');
         $tgl_akhir = '1900-01-01';
-        $cetak = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
+        $cetak = $this->mlapaudit->partValid($cabang, $idjadwal_audit);
         if ($cetak) {
             foreach ($cetak as $c) {
                 if ($tgl_akhir < $c['tanggal_audit']) {
@@ -2793,7 +2805,7 @@ class laporan_auditor extends CI_Controller
                 $no = 1;
                 foreach ($cetak as $c) {
                     $pdf->Cell(8, 6, $no, 1, 0, 'C');
-                    $pdf->Cell(25, 6, $c['no_mesin'], 1, 0);
+                    $pdf->Cell(25, 6, $c['part_number'], 1, 0);
                     $pdf->Cell(28, 6, $c['no_rangka'], 1, 0);
                     $pdf->Cell(25, 6, $c['kode_item'], 1, 0);
                     $pdf->Cell(27, 6, $c['type'], 1, 0);

@@ -24,6 +24,103 @@ class m_laporan_audit extends CI_Model {
             return $this->db->get()->result();
         
     }
+//     public function cetakPartSesuai($a,$b,$d)
+//     {
+//         $this->db->select('
+//                 a.*,b.nama_cabang, c.nama_gudang,
+        
+//         ');
+//             $this->db->from('part a');
+//             $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+//             $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+//             $this->db->where("a.idjadwal_audit", $b);
+//             $this->db->where('a.id_cabang', $a);
+//             $this->db->where('a.status = Sesuai', $d);
+            
+//             return $this->db->get()->result();
+        
+//     }
+    public function cetakPartBelum_ditemukan($a,$b,$d)
+    {
+        $this->db->select('
+                a.*,b.nama_cabang, c.nama_gudang,
+        
+        ');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where("a.idjadwal_audit", $b);
+            $this->db->where('a.id_cabang', $a);
+            $this->db->where("a.status = 'belum ditemukan'", $d);
+            
+            return $this->db->get()->result();
+        
+    }
+    public function cetakPartSesuai($a,$b,$d)
+    {
+        $this->db->select('
+                a.*,b.nama_cabang, c.nama_gudang,
+        
+        ');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where("a.idjadwal_audit", $b);
+            $this->db->where('a.id_cabang', $a);
+            $this->db->where("a.keterangan = 'Part Sesuai'", $d);
+            
+            return $this->db->get()->result();
+        
+    }
+    public function cetakPartkurang($a,$b,$d)
+    {
+        $this->db->select('
+                a.*,b.nama_cabang, c.nama_gudang,
+        
+        ');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where("a.idjadwal_audit", $b);
+            $this->db->where('a.id_cabang', $a);
+            $this->db->where("a.keterangan = 'Part Kurang'", $d);
+            
+            return $this->db->get()->result();
+        
+    }
+    public function cetakPartlebih($a,$b,$d)
+    {
+        $this->db->select('
+                a.*,b.nama_cabang, c.nama_gudang,
+        
+        ');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where("a.idjadwal_audit", $b);
+            $this->db->where('a.id_cabang', $a);
+            $this->db->where("a.keterangan = 'Part lebih'", $d);
+            
+            return $this->db->get()->result();
+        
+    }
+
+    public function cetakPartket($a,$b,$d)
+    {
+        $this->db->select('
+                a.*,b.nama_cabang, c.nama_gudang,
+        
+        ');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where("a.idjadwal_audit", $b);
+            $this->db->where('a.id_cabang', $a);
+            $this->db->where('a.keterangan', $d);
+            
+            return $this->db->get()->result();
+        
+    }
     public function cetakUnitnotReady($a,$b,$d)
     {
         $this->db->select('
