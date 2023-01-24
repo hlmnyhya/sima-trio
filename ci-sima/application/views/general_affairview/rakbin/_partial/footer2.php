@@ -1,14 +1,14 @@
     <script src="<?php echo base_url() ?>assets/js/jquery-3.1.1.min.js"></script>
     <script src="<?php echo base_url() ?>assets/js/jquery.validate.js"></script>
     <script>
-        $( "#FormPerusahaan" ).validate({
+        $( "#FormRakbin" ).validate({
         rules: {
-            id_perusahaan:{
+            kd_lokasi_rak_baru:{
                 required: true,
                 maxlength: 5,
                 minlength:3
             },
-            nama_perusahaan:{
+            id_lokasi:{
                 required:true
             }
 

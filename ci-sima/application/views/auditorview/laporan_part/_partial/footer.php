@@ -182,6 +182,8 @@
         $('#open').click(function(e) {
             e.preventDefault();
             $('#change').toggleClass('hidden form-group');
+            $('#excel').toggleClass('hidden form-group');
+            
             $('#open').toggleClass('xshow hidden');
             $('#OptCabang').attr('readonly', true);
             $('#tgl_awal').attr('readonly', true);
@@ -191,6 +193,7 @@
         $('#cancel').click(function(e) {
             e.preventDefault();
             $('#change').toggleClass('form-group hidden');
+            $('#excel').toggleClass('form-group hidden');
             $('#open').toggleClass('hidden xshow');
             $('#OptCabang').attr('readonly', false);
             $('#tgl_awal').attr('readonly', false);

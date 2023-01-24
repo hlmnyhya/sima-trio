@@ -966,6 +966,8 @@ class Master_Data extends CI_Controller
         }
         $start = ($page - 1) * $config['per_page'];
         $listRakbin = $this->mmasdat->getRakbin($start);
+
+        // var_dump($listRakbin);exit;
         if ($listRakbin) {
             foreach ($listRakbin as $list) {
                 $no++;
@@ -977,7 +979,7 @@ class Master_Data extends CI_Controller
                     '</td>
                     <td class="text-center">
                     <a onclick="edit(id=\'' .
-                    $list['id_cabang'] .
+                    $list['kd_lokasi_rak_baru'] .
                     '\')" class="text-warning" ><i class="fa fa-pencil"></i></a>
                     <a href="' .
                     $base .
@@ -988,7 +990,6 @@ class Master_Data extends CI_Controller
                     ' - ' .
                     $list['kd_lokasi_rak_baru'] .
                     ' ? ");\'><i class="fa fa-trash"></i></a>
-                   
                     <td class="text-center">' .
                     $list['id_lokasi'] .
                     '</td>
@@ -1578,11 +1579,13 @@ class Master_Data extends CI_Controller
     public function edit_rakbin()
     {
         $id = $this->input->get('id');
-         // var_dump($id);die;
+        //  var_dump($id);die;
 
         $data = [
             'edit' => $this->mmasdat->getRakbinById($id),
         ];
+
+        // var_dump($data);die;
 
         // $this->load->view('_partial/header.php', $data);
         // $this->load->view('_partial/sidebar.php', $data);
@@ -1661,6 +1664,8 @@ class Master_Data extends CI_Controller
         $data = [
             'edit' => $this->mmasdat->getPerusahaanById($id),
         ];
+
+        // var_dump($data);die;
 
         $this->load->view(
             'general_affairview/perusahaan/v_edit_perusahaan.php',
@@ -2231,7 +2236,7 @@ class Master_Data extends CI_Controller
         $data = [
             'id_cabang' => $this->input->post('id_cabang', true),
             'id_lokasi' => $this->input->post('id_lokasi', true),
-            'kd_lokasi_rak' => $this->input->post('kd_lokasi_rak', true),
+            'kd_lokasi_rak_baru' => $this->input->post('kd_lokasi_rak_baru', true),
             'kd_rak' => $this->input->post('kd_rak', true),
             'kd_binbox' => $this->input->post('kd_binbox', true),
         ];
