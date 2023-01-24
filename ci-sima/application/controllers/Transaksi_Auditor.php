@@ -719,10 +719,14 @@ class Transaksi_Auditor extends CI_Controller
             'kondisi' => $this->input->post('kondisi'),
             'keterangan' => $this->input->post('keterangan'),
             'qty' => $this->input->post('qty'),
+            'qty_fsk' => $this->input->post('qty_fsk'),
+            'selisih' => $this->input->post('selisih'),
+            'amount' => $this->input->post('amount'),
+            'harga_jual' => $this->input->post('harga_jual'),
             'status' => 'Sesuai'
             // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
         ];
-        // var_dump($data);exit;
+        var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {
             $this->session->set_flashdata('berhasil', 'Berhasil Diedit');
 
@@ -2241,7 +2245,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $part['harga_jual'],
                         'kondisi' => $kondisi,
-                        'status' => ' Lokasi Sesuai',
+                        'status' => 'Lokasi Sesuai',
                         'idjadwal_audit' => $idjadwal_audit,
                     ];
                 }elseif($part['kd_lokasi_rak'] == $rakbin) {
@@ -2312,7 +2316,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $amount,
                         'kondisi' => $kondisi,
-                        'status' => $status,
+                        'status' => ' Lokasi Sesuai',
                         'keterangan' => 'Part Lebih',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
@@ -2333,7 +2337,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $amount,
                         'kondisi' => $kondisi,
-                        'status' => $status,
+                        'status' =>' Lokasi Sesuai',
                         'keterangan' => 'Part Kurang',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
@@ -2355,7 +2359,7 @@ class Transaksi_Auditor extends CI_Controller
                         'harga_jual' => $part['harga_jual'],
                         'amount' => $amount,
                         'kondisi' => $kondisi,
-                        'status' => $status,
+                        'status' => ' Lokasi Sesuai',
                         'keterangan' => 'Part Sesuai',
                         'idjadwal_audit' => $idjadwal_audit
                     ];
