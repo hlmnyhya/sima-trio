@@ -69,9 +69,29 @@
                                  </div>
                                             
 
-                        <div class="form-group"><label class="col-sm-2 control-label">QTY</label>
+                        <div class="form-group"><label class="col-sm-2 control-label">QTY Simande</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" name="qty" id="qty" value="<?php echo $edit_part['qty'] ?>">
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">QTY Fisik</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="qty_fsk" id="qty_fsk" value="<?php echo $edit_part['qty_fsk'] ?>">
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">Selisih</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="selisih" id="selisih" value="<?php echo $edit_part['selisih'] ?>">
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">amount</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="amount" id="amount" value="<?php echo $edit_part['amount'] ?>">
+                            </div>
+                        </div>
+                        <div class="form-group"><label class="col-sm-2 control-label">HET</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" name="harga_jual" id="harga_jual" value="<?php echo $edit_part['harga_jual'] ?>">
                             </div>
                         </div>
 
