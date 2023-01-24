@@ -40,43 +40,46 @@
                 <div class="table-responsive">
                         <table class="table table-striped table-bordered table-hover dataTables-example">
                             <thead>
+                                <tr class="text-center">
+                                    <th class="text-center" rowspan="2" width="3%">No</th>
+                                    <th class="text-center" rowspan="2" width="5%">Aksi</th>
+                                    <th rowspan="2" class="text-center">Cabang</th>
+                                    <th rowspan="2" class="text-center">Lokasi</th>
+                                    <th rowspan="2" class="text-center">PART NUMBER</th>
+                                    <th rowspan="2" class="text-center">DESKRIPSI</th>
+                                    <th colspan="3" class="text-center">QTY</th>
+                                    <th rowspan="2" class="text-center">HET</th>
+                                    <th rowspan="2" class="text-center">AMOUNT</th>
+                                    <th rowspan="2" class="text-center">KD RAKBIN</th>
+                                    <th rowspan="2" class="text-center">Status</th>
+                                    <th rowspan="2" class="text-center">Kondisi</th>
+                                    <th rowspan="2" class="text-center">Keterangan</th>
+                                </tr>
                                 <tr>
-                                <th width="3%">No</th>
-                                    <th width="5%">Aksi</th>
-                                    <th>Cabang</th>
-                                    <th>Lokasi</th>
-                                    <th>Part Number</th>
-                                    <th>KD Bin Box</th>
-                                    <th>Status</th>                                    
-                                    <th>Deskripsi</th>
-                                    <th>Qty SIMANDE</th>
-                                    <th>Qty</th>
-                                    <th>SELISIH</th>
-                                    <th>HET</th>
-                                    <th>AMOUNT</th>
-                                    <th>Kondisi</th>
-                                    <th>Keterangan</th>
+                                    <th class="text-center">QTY</th>
+                                    <th class="text-center">QTY FISIK</th>
+                                    <th class="text-center">SELISIH</th>
                                 </tr>
                             </thead>
                             <tbody id="audit_part">
                             </tbody>
                             <tfoot>
-                                <tr>
-                                    <th width="3%">No</th>
-                                    <th width="5%">Aksi</th>
-                                    <th>Cabang</th>
-                                    <th>Lokasi</th>
-                                    <th>Part Number</th>
-                                    <th>KD Bin Box</th>
-                                    <th>Status</th>                                    
-                                    <th>Deskripsi</th>
-                                    <th>Qty SIMANDE</th>
-                                    <th>Qty</th>
-                                    <th>SELISIH</th>
-                                    <th>HET</th>
-                                    <th>AMOUNT</th>
-                                    <th>Kondisi</th>
-                                    <th>Keterangan</th>
+                                <tr class="text-center">
+                                    <th class="text-center" width="3%">No</th>
+                                    <th class="text-center" width="5%">Aksi</th>
+                                    <th class="text-center">Cabang</th>
+                                    <th class="text-center">Lokasi</th>
+                                    <th class="text-center">Part Number</th>
+                                    <th class="text-center">Deskripsi</th>                                   
+                                    <th class="text-center">Qty</th>
+                                    <th class="text-center">Qty FISIK</th>
+                                    <th class="text-center">SELISIH</th>
+                                    <th class="text-center">HET</th>
+                                    <th class="text-center">AMOUNT</th>
+                                    <th class="text-center">KD RAKBIN</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Kondisi</th>
+                                    <th class="text-center">Keterangan</th>
                                 </tr>
                             </tfoot>
                         </table>

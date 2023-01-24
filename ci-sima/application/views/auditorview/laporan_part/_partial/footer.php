@@ -93,6 +93,11 @@
             get_data(1);
 
         });
+        $('#preview1').click(function(e) {
+            e.preventDefault();
+            get_data1(1);
+
+        });
         $('#data_1 .input-group.date').datepicker({
             format: 'mm/dd/yyyy',
             todayBtn: "linked",
@@ -118,6 +123,7 @@
         function get_data(page) {
             var cabang = $('#OptCabang').val();
             var idjadwal_audit = $('#OptJadwalAudit').val();
+            var status = $('#status').val();
             $('#part').html("<tr> <td id='loading' colspan='7'></td></tr>");
 
             $.ajax({
@@ -126,7 +132,41 @@
                 url: '<?php echo base_url() ?>laporan_auditor/previewpart/' + page,
                 data: {
                     id_cabang: cabang,
-                    idjadwal_audit: idjadwal_audit
+                    idjadwal_audit: idjadwal_audit,
+                    status: status
+                },
+                // data: 'id_cabang='+cabang+'&&tgl_awal='+tgl_awal+'&&tgl_akhir='+tgl_akhir+'&&status='+status+'&&pages='+valu,
+                success: function(data) {
+                    console.log(data);
+
+                    $('#part').html(data.part_list);
+                    $('#pagination').html(data.pagination_link);
+                    $('#rows_entry').html(data.row_entry);
+
+                }
+            });
+        }
+        $(document).on('click', '.pagination li a', function(event) {
+            event.preventDefault();
+            var page = $(this).data('ci-pagination-page');
+            get_data1(page);
+
+        });
+
+        function get_data1(page) {
+            var cabang = $('#OptCabang').val();
+            var idjadwal_audit = $('#OptJadwalAudit').val();
+            var keterangan = $('#keterangan').val();
+            $('#part').html("<tr> <td id='loading' colspan='7'></td></tr>");
+
+            $.ajax({
+                method: 'post',
+                dataType: 'JSON',
+                url: '<?php echo base_url() ?>laporan_auditor/previewket/' + page,
+                data: {
+                    id_cabang: cabang,
+                    idjadwal_audit: idjadwal_audit,
+                   keterangan: keterangan
                 },
                 // data: 'id_cabang='+cabang+'&&tgl_awal='+tgl_awal+'&&tgl_akhir='+tgl_akhir+'&&status='+status+'&&pages='+valu,
                 success: function(data) {
