@@ -1256,6 +1256,30 @@ function __construct() {
                 ], REST_Controller::HTTP_OK);
             }  
         }
+
+    public function countpartqty_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        
+            if ($cabang ===null && $idjadwal_audit) {
+                $count = $this->mcount->countpartqty($cabang, $idjadwal_audit);
+            }else{
+                $count = $this->mcount->countpartqty($cabang, $idjadwal_audit);
+            }
+    
+            if ($count) {
+                $this->response([
+                    'status' => true,
+                    'data' => $count
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "data not found"
+                ], REST_Controller::HTTP_OK);
+            }  
+        }
     
 
     public function countpartkurang_get()
@@ -1837,6 +1861,27 @@ function __construct() {
         $status = $this->get('status');
         
             $cetak= $this->mlapdat->cetakPartbelum_ditemukan($cabang, $idjadwal_audit,$status);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function cetakpartqty_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $qty = $this->get('qty');
+        
+            $cetak= $this->mlapdat->cetakpartqty($cabang, $idjadwal_audit,$qty);
         if ($cetak) {
             $this->response([
                 'status' => true,

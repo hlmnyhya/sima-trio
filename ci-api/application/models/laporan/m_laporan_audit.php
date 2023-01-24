@@ -72,6 +72,23 @@ class m_laporan_audit extends CI_Model {
             return $this->db->get()->result();
         
     }
+
+    public function cetakpartqty($a,$b,$d)
+    {
+        $this->db->select('
+                a.*,b.nama_cabang, c.nama_gudang,
+        
+        ');
+            $this->db->from('part a');
+            $this->db->join('cabang b', 'a.id_cabang = b.id_cabang', 'left');
+            $this->db->join('gudang c', 'a.id_lokasi = c.kd_gudang', 'left');
+            $this->db->where("a.idjadwal_audit", $b);
+            $this->db->where('a.id_cabang', $a);
+            $this->db->where("a.qty = '0'", $d);
+            
+            return $this->db->get()->result();
+        
+    }
     public function cetakPartkurang($a,$b,$d)
     {
         $this->db->select('

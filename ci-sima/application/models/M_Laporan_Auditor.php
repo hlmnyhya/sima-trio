@@ -171,6 +171,25 @@ class M_Laporan_Auditor extends CI_Model
         }
     }
 
+    public function cetakpartqty($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'cetakpartqty', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'qty' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
     public function cetakUnitNotReady($a, $b, $d)
     {
         $respon =  $this->_client->request('GET', 'cetakunitnotready', [
@@ -548,6 +567,26 @@ class M_Laporan_Auditor extends CI_Model
                 'id_cabang' => $a,
                 'idjadwal_audit' => $b,
                 'keterangan' => $d
+
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function countpartqty($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'countpartqty', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'qty' => $d
 
             ]
         ]);

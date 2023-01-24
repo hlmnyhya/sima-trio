@@ -241,6 +241,26 @@ class M_Count extends CI_Model
         }
     }
 
+    public function countpartqty($cabang = null, $idjadwal_audit = null )
+    {
+        if ($cabang === null && $idjadwal_audit === null) {
+            $count = $this->db->get('part');
+        } else {
+            $count = $this->db->get_where('part', [
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'qty' => '0'
+            ]);
+        }
+
+
+        if ($count->num_rows() > 0) {
+            return $count->num_rows();
+        } else {
+            return 0;
+        }
+    }
+
     public function Countpartkurang($cabang = null, $idjadwal_audit = null )
     {
         if ($cabang === null && $idjadwal_audit === null) {
