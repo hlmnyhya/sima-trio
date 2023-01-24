@@ -79,6 +79,62 @@ class M_Count extends CI_Model
         }
     }
 
+    public function Countbelumditemukan()
+    {
+        $query = $this ->db->from('part')
+                            ->where("status = 'belum ditemukan'")
+                            ->get()
+                            ->result();
+        if (count($query) >0) {
+           return count($query);
+        }else {
+            return 0;
+
+        }
+    }
+
+    public function Countpartsesuai()
+    {
+        $query = $this ->db->from('part')
+                            ->where("keterangan = 'Part Sesuai'")
+                            ->get()
+                            ->result();
+        if (count($query) >0) {
+           return count($query);
+        }else {
+            return 0;
+
+        }
+    }
+
+    public function Countpartlebih()
+    {
+        $query = $this ->db->from('part')
+                            ->where("keterangan = 'Part Lebih'")
+                            ->get()
+                            ->result();
+        if (count($query) >0) {
+           return count($query);
+        }else {
+            return 0;
+
+        }
+    }
+
+    public function Countpartkurang()
+    {
+        $query = $this ->db->from('part')
+                            ->where("keterangan = 'Part Kurang'")
+                            ->get()
+                            ->result();
+        if (count($query) >0) {
+           return count($query);
+        }else {
+            return 0;
+
+        }
+    }
+
     public function CountJenisAudit()
     {
         $count = $this->db->get('jenis_audit');
