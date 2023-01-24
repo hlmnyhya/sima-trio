@@ -79,10 +79,11 @@ class M_Count extends CI_Model
         }
     }
 
-    public function Countbelumditemukan()
+    public function Countbelumditemukan($cabang, $idjadwal_audit)
     {
         $query = $this ->db->from('part')
                             ->where("status = 'belum ditemukan'")
+                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
                             ->get()
                             ->result();
         if (count($query) >0) {
@@ -92,11 +93,20 @@ class M_Count extends CI_Model
 
         }
     }
+    // public function Countbelumditemukan($cabang, $idjadwal_audit)
+    // {
+    //     $query = "select count (id_part) from part where  status ='Belum ditemukan' AND id_cabang ='$cabang' AND idjadwal_audit = '$idjadwal_audit'";
 
-    public function Countpartsesuai()
+    //     $this->db->query($query);
+
+    //     return  $this->db->affected_rows();
+    // }
+
+    public function Countpartsesuai($cabang, $idjadwal_audit)
     {
         $query = $this ->db->from('part')
                             ->where("keterangan = 'Part Sesuai'")
+                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
                             ->get()
                             ->result();
         if (count($query) >0) {
@@ -107,10 +117,11 @@ class M_Count extends CI_Model
         }
     }
 
-    public function Countpartlebih()
+    public function Countpartlebih($cabang, $idjadwal_audit)
     {
         $query = $this ->db->from('part')
                             ->where("keterangan = 'Part Lebih'")
+                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
                             ->get()
                             ->result();
         if (count($query) >0) {
@@ -121,10 +132,11 @@ class M_Count extends CI_Model
         }
     }
 
-    public function Countpartkurang()
+    public function Countpartkurang($cabang, $idjadwal_audit)
     {
         $query = $this ->db->from('part')
                             ->where("keterangan = 'Part Kurang'")
+                            ->where("id_cabang = '$cabang' AND idjadwal_audit = '$idjadwal_audit'")
                             ->get()
                             ->result();
         if (count($query) >0) {
