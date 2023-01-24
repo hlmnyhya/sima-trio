@@ -462,12 +462,57 @@ class M_Laporan_Auditor extends CI_Model
         }
         return $output;
     }
-    public function auditPart($cabang, $idjadwal_audit, $start)
+    public function auditPart($cabang, $idjadwal_audit, $start, $status)
     {
-        $respon =  $this->_client->request('GET', 'previewpart', [
+        $respon =  $this->_client->request('GET', 'previewpart2', [
             'query' => [
                 'id_cabang' => $cabang,
                 'idjadwal_audit' => $idjadwal_audit,
+                'status' => $status,
+                'offset' => $start
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        $output = '';
+        if ($result['status'] == true) {
+            foreach ($result['data'] as $res) {
+                $start++;
+                $output .= '
+                    <tr>
+                    <td>' . $start . '</td>
+                    <td>' . $res['nama_gudang'] . '</td>
+                    <td>' . $res['part_number'] . '</td>
+                    <td>' . $res['deskripsi'] . '</td>
+                    <td>' . $res['kd_lokasi_rak'] . '</td>
+                    <td>' . $res['qty'] . '</td>
+                    <td>' . $res['qty_fsk'] . '</td>
+                    <td>' . $res['selisih'] . '</td>
+                    <td>' . $res['harga_jual'] . '</td>
+                    <td>' . $res['amount'] . '</td>
+                    <td>' . $res['status'] . '</td>
+                    <td>' . $res['kondisi'] . '</td>
+                    <td>' . $res['keterangan'] . '</td>
+                    <td>' . $res['tanggal_audit'] . '</td>
+                   
+                    </tr>
+                ';
+            }
+        } else {
+            $output .= '
+                <tr><td colspan="8" class="text-center">Data not found.</td></tr>
+            ';
+        }
+        return $output;
+    }
+    public function previewket($cabang, $idjadwal_audit, $start, $keterangan)
+    {
+        $respon =  $this->_client->request('GET', 'previewket', [
+            'query' => [
+                'id_cabang' => $cabang,
+                'idjadwal_audit' => $idjadwal_audit,
+                'keterangan'=> $keterangan,
                 'offset' => $start
             ]
         ]);

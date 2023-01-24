@@ -96,15 +96,35 @@ class M_Part extends CI_Model {
         }
         
     }
-     public function Getpreview1($cabang,$idjadwal_audit,$offset)
+     public function Getpreview1($cabang,$idjadwal_audit,$offset, $status)
     {
         $this->db->select('part.*,nama_cabang, nama_gudang');
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
         $this->db->where("part.id_cabang='$cabang' AND part.idjadwal_audit = '$idjadwal_audit' ");
+        if($status != ""){
+            $this->db->where('status', $status);
+        }
             
-            $this->db->limit(15, $offset);
+            $this->db->limit(15);
+            $this->db->offset($offset);
+
+            return $this->db->get()->result();
+
+    }
+     public function previewket($cabang,$idjadwal_audit,$offset, $keterangan)
+    {
+        $this->db->select('part.*,nama_cabang, nama_gudang');
+            $this->db->from('part');
+            $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
+            $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');
+        $this->db->where("part.id_cabang='$cabang' AND part.idjadwal_audit = '$idjadwal_audit' ");
+        if($keterangan != ""){
+            $this->db->where('keterangan', $keterangan);
+        }
+            
+            $this->db->limit(15);
             $this->db->offset($offset);
 
             return $this->db->get()->result();
@@ -239,7 +259,7 @@ class M_Part extends CI_Model {
             $this->db->where("a.id_cabang='$cabang' AND a.idjadwal_audit = '$idjadwal_audit' ");
             $this->db->limit(15, $offset);
             $this->db->offset($offset);
-
+           
             return $this->db->get()->result();
 
     }

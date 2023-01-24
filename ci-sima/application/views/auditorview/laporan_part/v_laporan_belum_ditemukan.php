@@ -100,7 +100,7 @@
                                 </span>
                             </div>
                             <div class="col-sm-3">
-                            <input type="hidden" name="status" id="status" value="sesuai" />
+                            <input type="hidden" name="status" id="status" value="Belum ditemukan" />
                                 <a id="preview" class="btn btn-primary">Preview</a>
                                 <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> Download Pdf</a>
 
