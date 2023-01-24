@@ -1663,8 +1663,6 @@ class laporan_auditor extends CI_Controller
         $tgl = date('Ymd');
         $cabang = $this->input->post('id_cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
-        $status = $this->input->post('status');
-        $keterangan = $this->input->post('keterangan');
         $kacab = $this->input->post('kacab');
         $tempat = $this->input->post('tempat');
         $counter = $this->input->post('counter');
@@ -1704,6 +1702,17 @@ class laporan_auditor extends CI_Controller
             $pdf->SetXY(150, 34);
             $pdf->cell(0, 0, 'CEK I        SYAIFUL BAHRI', 0, 1);
 
+            // $pdf->SetXY(152, 34);
+            // $pdf->cell(0, 0, ': Part', 0, 1);
+            // $pdf->SetXY(120, 39);
+            // $pdf->cell(0, 0, 'Periode Pelaksanaan', 0, 1);
+            // $pdf->SetXY(152, 39);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            
+            // $pdf->SetXY(154, 44);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            // $pdf->Rect(140, 34, 30, 10);
+            // $pdf->SetXY(154, 44);
             $pdf->SetXY(150, 42);            
             $pdf->cell(0, 0, 'TTD', 0, 1);
             $pdf->Rect(165, 37, 30, 10);
@@ -1714,6 +1723,15 @@ class laporan_auditor extends CI_Controller
             $pdf->SetXY(150, 59);            
             $pdf->cell(0, 0, 'TTD', 0, 1);
             $pdf->Rect(165, 54, 30, 10);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            // $pdf->SetXY(120, 44);
+            // $pdf->cell(0, 0, 'Auditor', 0, 1);
+            // $pdf->SetXY(152, 44);
+            // $pdf->cell(0, 0, ': ' . $auditor, 0, 1);
+            // $pdf->SetXY(120, 49);
+            // $pdf->cell(0, 0, 'Di-review Oleh', 0, 1);
+            // $pdf->SetXY(152, 49);
+            // $pdf->cell(0, 0, ': ', 0, 1);
             $pdf->ln();
         
             $pdf->SetY(70);
@@ -1780,8 +1798,6 @@ class laporan_auditor extends CI_Controller
         $tgl = date('Ymd');
         $cabang = $this->input->post('id_cabang');
         $idjadwal_audit = $this->input->post('idjadwal_audit');
-        $status = $this->input->post('status');
-        $keterangan = $this->input->post('keterangan');
         $kacab = $this->input->post('kacab');
         $tempat = $this->input->post('tempat');
         $counter = $this->input->post('counter');
@@ -1794,9 +1810,7 @@ class laporan_auditor extends CI_Controller
             $cab = $c['nama_cabang'];
         }
         $start = 0;
-
-        // kurang report
-        $cetak = $this->mlapaudit->cetakPartKurang($cabang, $idjadwal_audit, $status, $keterangan);
+        $cetak = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
 
         if ($cetak != null) {
             $tgl_awal = date('Y-m-d');
@@ -1818,11 +1832,22 @@ class laporan_auditor extends CI_Controller
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');
             $pdf->SetFont('Times', 'B', '16');
-
+            // $pdf->Cell(0, 30, 'Kertas Kerja Audit', 0, 1, 'L');
             $pdf->SetFont('Times', '', '10');
             $pdf->SetXY(150, 34);
             $pdf->cell(0, 0, 'CEK I        SYAIFUL BAHRI', 0, 1);
 
+            // $pdf->SetXY(152, 34);
+            // $pdf->cell(0, 0, ': Part', 0, 1);
+            // $pdf->SetXY(120, 39);
+            // $pdf->cell(0, 0, 'Periode Pelaksanaan', 0, 1);
+            // $pdf->SetXY(152, 39);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            
+            // $pdf->SetXY(154, 44);
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            // $pdf->Rect(140, 34, 30, 10);
+            // $pdf->SetXY(154, 44);
             $pdf->SetXY(150, 42);            
             $pdf->cell(0, 0, 'TTD', 0, 1);
             $pdf->Rect(165, 37, 30, 10);
@@ -1833,7 +1858,15 @@ class laporan_auditor extends CI_Controller
             $pdf->SetXY(150, 59);            
             $pdf->cell(0, 0, 'TTD', 0, 1);
             $pdf->Rect(165, 54, 30, 10);
-
+            // $pdf->cell(0, 0, ': ' . $tgl, 0, 1);
+            // $pdf->SetXY(120, 44);
+            // $pdf->cell(0, 0, 'Auditor', 0, 1);
+            // $pdf->SetXY(152, 44);
+            // $pdf->cell(0, 0, ': ' . $auditor, 0, 1);
+            // $pdf->SetXY(120, 49);
+            // $pdf->cell(0, 0, 'Di-review Oleh', 0, 1);
+            // $pdf->SetXY(152, 49);
+            // $pdf->cell(0, 0, ': ', 0, 1);
             $pdf->ln();
             $pdf->SetY(60);
             $pdf->SetLineWidth(0.1);
@@ -1844,64 +1877,73 @@ class laporan_auditor extends CI_Controller
             
             $pdf->Cell(40, 5, '1. STOCK OPNAME SPARE PART / HGP.', 0, 1);
             $pdf->ln(0.5);
-            $pdf->Cell(40, 5, 'A. SELISIH KURANG SPARE PART (QUANTITY FISIK ADA, QUANTITY SISTEM ADA)', 0, 1);					
+            $pdf->Cell(40, 5, 'A. SELISIH KURANG SPARE PART (QUANTITY FISIK ADA, QUANTITY SISTEM ADA)							
+', 0, 1);					
 
-            $pdf->Cell(12, 16, 'No', 1, 0, 'C', true);
-            $pdf->Cell(30, 16, 'No Part', 1, 0, 'C', true);
-            $pdf->Cell(50, 16, 'Deskripsi', 1, 0, 'C', true);
-            $pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
-            $pdf->Cell(36, 8, 'QTY', 1,0, 'C', true);  
-            $pdf->Cell(12, 8, 'Sys', 1,0, 'C', true);
-            $pdf->Cell(12, 8, 'Fisk', 1,0, 'C', true);
-            $pdf->Cell(12, 8, 'Selisih', 1, 0, 'C', true);};
-            $pdf->MultiCell(20, 16, 'Amount', 1,1, 'C', true);
+$pdf->Cell(12, 16, 'No', 1, 0, 'C', true);
+$pdf->Cell(30, 16, 'No Part', 1, 0, 'C', true);
+$pdf->Cell(50, 16, 'Deskripsi', 1, 0, 'C', true);
+$pdf->Cell(20, 16, 'HET', 1, 0, 'C', true);
+{$pdf->Cell(36, 8, 'QTY', 1,0, 'C', true);  
+    $pdf->Cell(12, 8, 'Sys', 1,0, 'C', true);
+    $pdf->Cell(12, 8, 'Fisk', 1,0, 'C', true);
+    $pdf->Cell(12, 8, 'Selisih', 1, 0, 'C', true);};
+    
+    $pdf->Cell2(20, 16, 'Amount', 1,1, 'C', true);
+            // $pdf->Cell(,16);          
+
+
+            // $pdf->ln();
+            // $pdf->Cell(102,8)
+            // $pdf->Cell(30,8);
+            // $pdf->Cell(50,8);
+            // $pdf->Cell(20,8);
+            // $pdf->Cell(36,16);
+            // $pdf->Cell(12, 8, 'Sys', 1,0, 'C', true);
+            // $pdf->Cell(12, 8, 'Fisk', 1,0, 'C', true);
+            // $pdf->Cell(12, 8, 'Selisih', 1, 0, 'C', true);
+            // $pdf->Cell(36,16);
+            // $pdf->Cell(12, 8);
+            // $pdf->Cell(12, 8);
+            // $pdf->Cell(12, 8);
+            // $pdf->Cell(48, 8);
+            
+            // $pdf->Cell(12, 8);
+            // $pdf->Cell(30, 8);
+            // $pdf->Cell(50, 8);
+            // $pdf->Cell(20, 8);
+            
+            
+            
+            
+            // $pdf->Cell(12, 8);
+            
+            
+            
             
             $pdf->ln();
             $start = null;
+            
+            
 
             $no = 1;
             $pdf->SetFont('Times', '', 10);
             foreach ($cetak as $c) {
                 $pdf->Cell(12, 8, $no, 1, 0, 'C');
+                // $pdf->Cell(55, 6, $c['nama_gudang'], 1, 0);
+                // $x = $pdf->GetX();
+                // $pdf->myCell(55, 8, $x, $c['nama_gudang']);
                 $x = $pdf->GetX();
                 $pdf->myCell(30, 8, $x, $c['part_number']);
+                // $x = $pdf->GetX();
                 $x = $pdf->GetX();
                 $pdf->myCell(50, 8, $x, $c['deskripsi']);
                 $x = $pdf->GetX();
                 $pdf->myCell(20, 8, $x, $c['harga_jual']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty_fsk']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['selisih']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x,  $c['amount']);
-                $pdf->ln();
-                $no++;
-            }
-
-            //titel
-            $pdf->Cell(40, 5, '1. STOCK OPNAME SPARE PART / HGP.', 0, 1);
-            $pdf->ln(0.5);
-            $pdf->Cell(40, 5, 'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)', 0, 1);	
-
-            //belum ditemukan report
-            $cetak2 = $this->mlapaudit->cetakPartbelumditemukan($cabang, $idjadwal_audit, $iduser_audit);
-
-            $pdf->ln();
-            $start = null;
-
-            $no = 1;
-            $pdf->SetFont('Times', '', 10);
-            foreach ($cetak2 as $c) {
-                $pdf->Cell(12, 8, $no, 1, 0, 'C');
-                $x = $pdf->GetX();
-                $pdf->myCell(30, 8, $x, $c['part_number']);
-                $x = $pdf->GetX();
-                $pdf->myCell(50, 8, $x, $c['deskripsi']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x, $c['harga_jual']);
+                // $x = $pdf->GetX();
+                // $pdf->myCell(30, 8, $x, $c['kd_lokasi_rak']);
+                // $x = $pdf->GetX();
+                // $pdf->Cell(12, 8);
                 $x = $pdf->GetX();
                 $pdf->myCell(12, 8, $x,  $c['qty']);
                 $x = $pdf->GetX();
@@ -1914,108 +1956,22 @@ class laporan_auditor extends CI_Controller
                 $no++;
             }
             
-            //titel
-            $pdf->Cell(40, 5, '1. STOCK OPNAME SPARE PART / HGP.', 0, 1);
-            $pdf->ln(0.5);
-            $pdf->Cell(40, 5, 'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)', 0, 1);	
-
-            //sesuai report
-            $cetak3 = $this->mlapaudit->cetakPartSesuai($cabang, $idjadwal_audit, $status, $keterangan);
-
-            $pdf->ln();
-            $start = null;
-
-            $no = 1;
-            $pdf->SetFont('Times', '', 10);
-            foreach ($cetak3 as $c) {
-                $pdf->Cell(12, 8, $no, 1, 0, 'C');
-                $x = $pdf->GetX();
-                $pdf->myCell(30, 8, $x, $c['part_number']);
-                $x = $pdf->GetX();
-                $pdf->myCell(50, 8, $x, $c['deskripsi']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x, $c['harga_jual']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty_fsk']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['selisih']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x,  $c['amount']);
-                $pdf->ln();
-                $no++;
-            }
-
-            //titel
-            $pdf->Cell(40, 5, '1. STOCK OPNAME SPARE PART / HGP.', 0, 1);
-            $pdf->ln(0.5);
-            $pdf->Cell(40, 5, 'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)', 0, 1);	
-
-            //lebih report
-            $cetak4 = $this->mlapaudit->cetakPartLebih($cabang, $idjadwal_audit, $status, $keterangan);
-
-            $pdf->ln();
-            $start = null;
-
-            $no = 1;
-            $pdf->SetFont('Times', '', 10);
-            foreach ($cetak4 as $c) {
-                $pdf->Cell(12, 8, $no, 1, 0, 'C');
-                $x = $pdf->GetX();
-                $pdf->myCell(30, 8, $x, $c['part_number']);
-                $x = $pdf->GetX();
-                $pdf->myCell(50, 8, $x, $c['deskripsi']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x, $c['harga_jual']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty_fsk']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['selisih']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x,  $c['amount']);
-                $pdf->ln();
-                $no++;
-            }
-
-            //titel
-            $pdf->Cell(40, 5, '1. STOCK OPNAME SPARE PART / HGP.', 0, 1);
-            $pdf->ln(0.5);
-            $pdf->Cell(40, 5, 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)', 0, 1);	
-
-            //lebih report
-            $cetak5 = $this->mlapaudit->cetakPartManual($cabang, $idjadwal_audit, $status, $keterangan);
-
-            $pdf->ln();
-            $start = null;
-
-            $no = 1;
-            $pdf->SetFont('Times', '', 10);
-            foreach ($cetak5 as $c) {
-                $pdf->Cell(12, 8, $no, 1, 0, 'C');
-                $x = $pdf->GetX();
-                $pdf->myCell(30, 8, $x, $c['part_number']);
-                $x = $pdf->GetX();
-                $pdf->myCell(50, 8, $x, $c['deskripsi']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x, $c['harga_jual']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['qty_fsk']);
-                $x = $pdf->GetX();
-                $pdf->myCell(12, 8, $x,  $c['selisih']);
-                $x = $pdf->GetX();
-                $pdf->myCell(20, 8, $x,  $c['amount']);
-                $pdf->ln();
-                $no++;
-            }
-            
-
             $pdf->Ln(5);
             $pdf->SetLineWidth(0.15);
+            $tgl_now = date('d F Y');
+            $pdf->cell(0, 6, $tempat . ' , ' . $tgl_now, 0, 1);
+            $pdf->cell(50, 8, 'Diperiksa Oleh,', 1, 0, 'C');
+            $pdf->cell(50, 8, 'Diverifikasi oleh,', 1, 0, 'C');
+            $pdf->cell(50, 8, 'Diketahui oleh,', 1, 1, 'C');
+            $pdf->cell(50, 30, '', 1, 0, 'C');
+            $pdf->cell(50, 30, '', 1, 0, 'C');
+            $pdf->cell(50, 30, '', 1, 1, 'C');
+            $pdf->cell(50, 5, $auditor, 1, 0, 'C');
+            $pdf->cell(50, 5, $counter, 1, 0, 'C');
+            $pdf->cell(50, 5, $kacab, 1, 1, 'C');
+            $pdf->cell(50, 5, 'Auditor', 1, 0, 'C');
+            $pdf->cell(50, 5, 'PDI/PIC Gudang', 1, 0, 'C');
+            $pdf->cell(50, 5, 'Kepala Cabang', 1, 1, 'C');
             $pdf->Output('D', 'REPORTPART-' . $tgl . '.pdf');
             $pdf->Output();
         } else {
@@ -2776,9 +2732,8 @@ class laporan_auditor extends CI_Controller
                 // var_dump($tes);exit;
 
                 // kondisi part
-//                 $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow++.'', 'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)							
-// ');
-//                 $excel->getActiveSheet()->mergeCells('A'.$lastrow++.':H'.$lastrow++.);
+                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow++.'', 'B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
+                // $excel->getActiveSheet()->mergeCells('A'.$lastrow++.':H'.$lastrow++.);
 
                 
 
@@ -2857,6 +2812,8 @@ class laporan_auditor extends CI_Controller
                 // kondisi part
 //                 $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow3++.'', 'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)');
 // $excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
+//                 $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow3++.'', 'C. STOCK SPARE PART YANG TIDAK TERDAPAT SELISIH (SESUAI)');
+// $excel->getActiveSheet()->mergeCells('A'.$lastrow3++.':H'.$lastrow3++.);
 
                 $no = 1;
                 $seri = $lastrow3+3;
@@ -2933,6 +2890,8 @@ class laporan_auditor extends CI_Controller
                 // kondisi part
                 // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow4++.'', 'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)');
                 // $excel->getActiveSheet()->mergeCells('A'.$lastrow4++.':H'.$lastrow4++.);
+                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow4++.'', 'D. SELISIH LEBIH SPARE PART (QUANTITY SISTEM ADA, QUANTITY FISIK ADA)');
+                // $excel->getActiveSheet()->mergeCells('A'.$lastrow4++.':H'.$lastrow4++.);
 
                 $no = 1;
                 $seri = $lastrow4+3;
@@ -3007,6 +2966,8 @@ class laporan_auditor extends CI_Controller
                 // $lastrow5 = $this->mlapaudit->countmanual($cabang, $idjadwal_audit, $status, $keterangan);
 
                 // kondisi part
+                // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
+                // $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
                 // $excel->setActiveSheetIndex(0)->setCellValue('A'.$lastrow5++.'', 'E. SELISIH LEBIH SPARE PART (QUANTITY SISTEM TIDAK ADA, QUANTITY FISIK ADA)');
                 // $excel->getActiveSheet()->mergeCells('A'.$lastrow5++.':H'.$lastrow5++.);
 
