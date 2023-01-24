@@ -1938,6 +1938,173 @@ function __construct() {
         }
     }
 
+    public function totalselisihlebih_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $keterangan = $this->get('keterangan');
+        
+            $cetak= $this->mlapdat->totalselisihlebih($cabang, $idjadwal_audit,$keterangan);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function amountlebih_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $keterangan = $this->get('keterangan');
+        
+            $cetak= $this->mlapdat->amountlebih($cabang, $idjadwal_audit,$keterangan);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function totalselisihkurang_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $keterangan = $this->get('keterangan');
+        
+            $cetak= $this->mlapdat->totalselisihkurang($cabang, $idjadwal_audit,$keterangan);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function amountkurang_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $keterangan = $this->get('keterangan');
+        
+            $cetak= $this->mlapdat->amountkurang($cabang, $idjadwal_audit,$keterangan);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function totalselisihsesuai_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $keterangan = $this->get('keterangan');
+        
+            $cetak= $this->mlapdat->totalselisihsesuai($cabang, $idjadwal_audit,$keterangan);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function amountsesuai_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $keterangan = $this->get('keterangan');
+        
+            $cetak= $this->mlapdat->amountsesuai($cabang, $idjadwal_audit,$keterangan);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
+    public function totalselisihbelumditemukan_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $status = $this->get('status');
+        
+            $cetak= $this->mlapdat->totalselisihbelumditemukan($cabang, $idjadwal_audit,$status);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+    public function amountbelumditemukan_get()
+    {
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        $status = $this->get('status');
+        
+            $cetak= $this->mlapdat->amountbelumditemukan($cabang, $idjadwal_audit,$status);
+        if ($cetak) {
+            $this->response([
+                'status' => true,
+                'data' => $cetak
+            ], REST_Controller::HTTP_OK);
+        }else{
+            $this->response([
+                'status' => false,
+                'message' => 'Data not found.'
+            ], REST_Controller::HTTP_OK);
+            
+        }
+    }
+
     public function cetakPartket_get()
     {
         $cabang= $this->get('id_cabang');
