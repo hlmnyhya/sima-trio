@@ -67,6 +67,7 @@ class M_Part extends CI_Model {
     {
         if ($id === null && $offset === null) {
             $this->db->select('part.*,nama_cabang, nama_gudang');
+            $this->db->select("sum(qty_fsk) as total from part where status='belum ditemukan'");
             $this->db->from('part');
             $this->db->join('cabang', 'part.id_cabang = cabang.id_cabang', 'left');
             $this->db->join('gudang', 'part.id_lokasi = gudang.kd_gudang', 'left');

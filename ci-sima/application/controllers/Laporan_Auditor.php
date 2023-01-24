@@ -2435,7 +2435,7 @@ class laporan_auditor extends CI_Controller
 
                 
 
-
+                // header tabel
                 $excel->setActiveSheetIndex(0)->setCellValue('A14', 'No');
                 $excel->getActiveSheet()->mergeCells('A14:A15');
                 $excel->setActiveSheetIndex(0)->setCellValue('B14', 'No Part');
@@ -2451,6 +2451,8 @@ class laporan_auditor extends CI_Controller
                 $excel->setActiveSheetIndex(0)->setCellValue('G15', 'Selisih');
                 $excel->setActiveSheetIndex(0)->setCellValue('H14', 'Amount');
                 $excel->getActiveSheet()->mergeCells('H14:H15');
+                $excel->setActiveSheetIndex(0)->setCellValue('J14', 'Amount');
+                $excel->getActiveSheet()->mergeCells('J14:J15');
 
                 
                 // STYLE HEADER TABLE
@@ -2539,10 +2541,10 @@ class laporan_auditor extends CI_Controller
                         ->setCellValue('G' . $seri, $c['selisih']);
                     $excel
                         ->setActiveSheetIndex(0)
-                        ->setCellValue(
-                            'H' . $seri,
-                            strtoupper($c['amount'])
-                        );
+                        ->setCellValue('H' . $seri, $c['amount'] );
+                    
+                        
+                        
 
                     $excel
                         ->getActiveSheet()
@@ -2580,6 +2582,91 @@ class laporan_auditor extends CI_Controller
                     $no++;
                     $seri++;
                 }
+                
+                // kondisi part
+                $excel->setActiveSheetIndex(0)->setCellValue('A12', '1. STOCK OPNAME SPARE PART / HGP.');
+                $excel->getActiveSheet()->mergeCells('A12:H12');
+                $excel->setActiveSheetIndex(0)->setCellValue('A13', 'B. B. SELISIH KURANG SPARE PART (QUANTITY FISIK TIDAK ADA, QUANTITY SISTEM ADA)');
+                $excel->getActiveSheet()->mergeCells('A13:H13');
+
+                $no = 1;
+                $seri = $seri + 2;
+
+                $cetak2 = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
+                foreach ($cetak2 as $c2) {
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('A' . $seri, $no);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('B' . $seri, $c['part_number']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('C' . $seri, $c['deskripsi']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('D' . $seri, $c['harga_jual']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('E' . $seri, $c['qty']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('F' . $seri, $c['qty_fsk']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('G' . $seri, $c['selisih']);
+                    $excel
+                        ->setActiveSheetIndex(0)
+                        ->setCellValue('H' . $seri, $c['amount'] );
+                    
+                        
+                        
+
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('A' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('B' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('C' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('D' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('E' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('F' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('G' . $seri)
+                        ->applyFromArray($style_row);
+                    $excel
+                        ->getActiveSheet()
+                        ->getStyle('H' . $seri)
+                        ->applyFromArray($style_row);
+
+                    $no++;
+                    $seri2++;
+                }
+
+
+                // $cetak2 = $this->mlapaudit->partvalid($cabang, $idjadwal_audit);
+                // // $cetak2 = $cetak2[0]['amount'];
+                // // var_dump($cetak2);exit;
+
+                // $excel
+                //         ->setActiveSheetIndex(0)
+                //         ->setCellValue('H' . $seri, '=SUM('.$cetak2[0]['amount'].')' );
 
                 $excel
                     ->setActiveSheetIndex(0)
