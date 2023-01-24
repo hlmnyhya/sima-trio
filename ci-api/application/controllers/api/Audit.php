@@ -1211,87 +1211,99 @@ function __construct() {
 
     public function countbelumditemukan_get()
     {
-        $cabang =$this->post('id_cabang');
-        $idjadwal_audit = $this->post('idjadwal_audit');
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
         
-        $count= $this->mcount->Countbelumditemukan($cabang, $idjadwal_audit);
-        // var_dump($count);exit;
-
-        if ($count) {
-            $this->response([
-                'status' => true,
-                'data' => $count
-            ], REST_Controller::HTTP_OK);
-        }else{
-            $this->response([
-                'status' => false,
-                'data' => 'Data not found.'
-            ], REST_Controller::HTTP_OK);
-            
-        }
+            if ($cabang ===null && $idjadwal_audit) {
+                $count = $this->mcount->countbelumditemukan($cabang, $idjadwal_audit);
+            }else{
+                $count = $this->mcount->countbelumditemukan($cabang, $idjadwal_audit);
+            }
+    
+            if ($count) {
+                $this->response([
+                    'status' => true,
+                    'data' => $count
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "data not found"
+                ], REST_Controller::HTTP_OK);
+            }
     }
 
     public function countpartsesuai_get()
     {
-        $cabang =$this->post('id_cabang');
-        $idjadwal_audit = $this->post('idjadwal_audit');
-
-        $count= $this->mcount->Countpartsesuai($cabang, $idjadwal_audit);
-
-        if ($count) {
-            $this->response([
-                'status' => true,
-                'data' => (int)$count
-            ], REST_Controller::HTTP_OK);
-        }else{
-            $this->response([
-                'status' => false,
-                'data' => 'Data not found.'
-            ], REST_Controller::HTTP_OK);
-            
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        
+            if ($cabang ===null && $idjadwal_audit) {
+                $count = $this->mcount->countpartsesuai($cabang, $idjadwal_audit);
+            }else{
+                $count = $this->mcount->countpartsesuai($cabang, $idjadwal_audit);
+            }
+    
+            if ($count) {
+                $this->response([
+                    'status' => true,
+                    'data' => $count
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "data not found"
+                ], REST_Controller::HTTP_OK);
+            }  
         }
-    }
+    
 
     public function countpartkurang_get()
     {
-        $cabang =$this->post('id_cabang');
-        $idjadwal_audit = $this->post('idjadwal_audit');
-
-        $count= $this->mcount->countpartkurang($cabang, $idjadwal_audit);
-
-        if ($count) {
-            $this->response([
-                'status' => true,
-                'data' => (int)$count
-            ], REST_Controller::HTTP_OK);
-        }else{
-            $this->response([
-                'status' => false,
-                'data' => 'Data not found.'
-            ], REST_Controller::HTTP_OK);
-            
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
+        
+            if ($cabang ===null && $idjadwal_audit) {
+                $count = $this->mcount->countpartkurang($cabang, $idjadwal_audit);
+            }else{
+                $count = $this->mcount->countpartkurang($cabang, $idjadwal_audit);
+            }
+    
+            if ($count) {
+                $this->response([
+                    'status' => true,
+                    'data' => $count
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "data not found"
+                ], REST_Controller::HTTP_OK);
+            }
         }
-    }
 
     public function countpartlebih_get()
     {
-        $cabang =$this->post('id_cabang');
-        $idjadwal_audit = $this->post('idjadwal_audit');
+        $cabang= $this->get('id_cabang');
+        $idjadwal_audit= $this->get('idjadwal_audit');
         
-        $count= $this->mcount->countpartlebih($cabang, $idjadwal_audit);
-
-        if ($count) {
-            $this->response([
-                'status' => true,
-                'data' => (int)$count
-            ], REST_Controller::HTTP_OK);
-        }else{
-            $this->response([
-                'status' => false,
-                'data' => 'Data not found.'
-            ], REST_Controller::HTTP_OK);
-            
-        }
+            if ($cabang ===null && $idjadwal_audit) {
+                $count = $this->mcount->countpartlebih($cabang, $idjadwal_audit);
+            }else{
+                $count = $this->mcount->countpartlebih($cabang, $idjadwal_audit);
+            }
+    
+            if ($count) {
+                $this->response([
+                    'status' => true,
+                    'data' => $count
+                ], REST_Controller::HTTP_OK);
+            }else{
+                $this->response([
+                    'status' => false,
+                    'data' => "data not found"
+                ], REST_Controller::HTTP_OK);
+            }
     }
 
     public function unitready_post()
