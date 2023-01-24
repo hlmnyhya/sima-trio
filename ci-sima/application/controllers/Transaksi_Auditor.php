@@ -726,7 +726,7 @@ class Transaksi_Auditor extends CI_Controller
             'status' => 'Sesuai'
             // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
         ];
-        var_dump($data);exit;
+        // var_dump($data);exit;
         if ($this->mtransauditor->editPart($data)) {
             $this->session->set_flashdata('berhasil', 'Berhasil Diedit');
 
