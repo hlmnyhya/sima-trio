@@ -1578,23 +1578,14 @@ class Master_Data extends CI_Controller
     public function edit_rakbin()
     {
         $id = $this->input->get('id');
-        $cabang = $this->input->get('cabang');
-        $lokasi = $this->input->get('lokasi');
-        $kd_rak = $this->input->get('kd_rak');
-        $kd_binbox = $this->input->get('kd_binbox');
+         // var_dump($id);die;
 
         $data = [
-            'judul' => 'Rakbin',
-            'judul1' => 'Master Data',
-            'user' => $this->mmasdat->getRakbinById($id),
-            'cabang' => $cabang,
-            'lokasi' => $lokasi,
-            'kd_rak' => $kd_rak,
-            'kd_binbox' => $kd_binbox,
+            'edit' => $this->mmasdat->getRakbinById($id),
         ];
 
-        $this->load->view('_partial/header.php', $data);
-        $this->load->view('_partial/sidebar.php', $data);
+        // $this->load->view('_partial/header.php', $data);
+        // $this->load->view('_partial/sidebar.php', $data);
         $this->load->view('general_affairview/rakbin/v_edit_rakbin.php', $data);
         $this->load->view('general_affairview/rakbin/_partial/footer2.php');
     }
