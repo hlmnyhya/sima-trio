@@ -32,7 +32,7 @@
                 <div class="panel-body">
                     <form id="FormLap" action="<?php echo base_url() ?>laporan_auditor/cetakexcelpart" method="post">
                         <div class="row">
-                            <div class="col-sm-9">
+                        <div class="col-sm-8">
                                 <div class="col-sm-5 form-group">
                                     <div class="form-group">
                                         <label class="col-sm-3 control-label">Cabang</label>
@@ -63,13 +63,13 @@
                                     </div>
                                 </div> -->
                                 <span id="change" class="hidden">
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Auditor</label>
                                             <div class="col-sm-9"><input type="text" id="auditor" class="form-control" name="auditor" required></div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Tempat</label>
                                             <div class="col-sm-9"><input type="text" id="tempat" class="form-control" name="tempat" required></div>
@@ -77,33 +77,39 @@
                                     </div>
                                     <div class="col-sm-2">
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-danger btn-block" id="type" name="type" value="pdf">OK</button>
+                                            <button type="submit" class="btn btn-danger btn-block" id="type" name="type" value="pdf">PDF</button>
                                         </div>
                                     </div>
-                                    <div class="col-sm-5 ">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                        <button type="submit" class="btn btn-primary btn-block hidden " id="excel" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-4 ">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">PIC Part</label>
                                             <div class="col-sm-9"><input type="text" id="counter" class="form-control" name="counter" required></div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-5">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <label class="col-sm-3 control-label">Kepala Cabang</label>
                                             <div class="col-sm-9"><input type="text" id="kacab" class="form-control" name="kacab" required></div>
                                         </div>
                                     </div>
-                                    <div class="col-sm-2">
+                                    <div class="col-sm-4">
                                         <div class="form-group">
                                             <a class="btn btn-warning btn-block" id="cancel">Cancel</a>
                                         </div>
                                     </div>
                                 </span>
                             </div>
-                            <div class="col-sm-3">
-                            <input type="hidden" name="status" id="keterangan" value="Part Lebih" />
-                                <a id="preview1" class="btn btn-primary">Preview</a>
-                                 <button type="submit" class="btn btn-primary" id="type" name="type" value="excel"><i class="fa fa-fw fa-print"></i>Excel</button>
-                            <button type="submit" class="btn btn-danger" id="open" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Pdf</button>
+                            <div class="col-sm-4">
+                            <input type="hidden" name="status" id="status" value="Part Lebih" />
+                            <a id="preview" class="btn btn-primary">Preview</a>
+                            <button type="submit" class="btn btn-danger" id="open" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Report</button>
+                                <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> PDF</a>
+                                <a type="submit" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i> EXCEL</a> -->
                             </div>
                         </div>
                     </form>

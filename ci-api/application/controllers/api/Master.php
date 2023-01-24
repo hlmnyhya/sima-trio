@@ -2601,15 +2601,14 @@ class Master extends REST_Controller
 
     public function rakbin_put()
     {
-        $id = $this->put('kd_lokasi_rak');
+        $id = $this->put('kd_lokasi_rak_baru');
 
        $data = [
-        'kd_lokasi_rak' => $this->post('kd_lokasi_rak'),
             'id_cabang' => $this->post('id_cabang'),
             'id_lokasi' => $this->post('id_lokasi'),
             'kd_rak' => $this->post('kd_rak'),
             'kd_binbox' => $this->post('kd_binbox'),
-        ];
+        ];  
 
         if ($id === null) {
             $this->response(

@@ -105,7 +105,7 @@ class M_Lokasi_Cabang extends CI_Model
     public function editRakbin($data,$id)
     {
 
-        $this->db->where('kd_lokasi_rak', $id);
+        $this->db->where('kd_lokasi_rak_baru', $id);
         $this->db->update('lokasi_rakbin_baru', $data);
         return $this->db->affected_rows();
     }
