@@ -96,10 +96,86 @@ class M_Laporan_Auditor extends CI_Model
         }
     }
 
+ public function totalselishsesuai($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'totalselishsesuai', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+ public function amountsesuai($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'amountsesuai', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
 
     public function cetakPartKurang($a, $b, $d)
     {
         $respon =  $this->_client->request('GET', 'cetakPartKurang', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function amountKurang($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'amountkurang', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function totalselisihkurang($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'totalselisihkurang', [
             'query' => [
                 'id_cabang' => $a,
                 'idjadwal_audit' => $b,
@@ -134,6 +210,43 @@ class M_Laporan_Auditor extends CI_Model
             return false;
         }
     }
+
+    public function amountlebih($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'amountlebih', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+    public function totalselisihlebih($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'totalselisihlebih', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'keterangan' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
     // public function cetakPart($a, $b, $d)
     // {
     //     $respon =  $this->_client->request('GET', 'cetakPart', [
@@ -152,6 +265,25 @@ class M_Laporan_Auditor extends CI_Model
     //         return false;
     //     }
     // }
+    public function amountbelumditemukan($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'amountbelumditemukan', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'status' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+   
+    }
     public function cetakPartbelumditemukan($a, $b, $d)
     {
         $respon =  $this->_client->request('GET', 'cetakPartbelumditemukan', [
@@ -159,6 +291,43 @@ class M_Laporan_Auditor extends CI_Model
                 'id_cabang' => $a,
                 'idjadwal_audit' => $b,
                 'status' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+    public function totalselisihbelumditemukan($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'totalselisihbelumditemukan', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'status' => $d
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return false;
+        }
+    }
+
+    public function cetakpartqty($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'cetakpartqty', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'qty' => $d
             ]
         ]);
 
@@ -548,6 +717,26 @@ class M_Laporan_Auditor extends CI_Model
                 'id_cabang' => $a,
                 'idjadwal_audit' => $b,
                 'keterangan' => $d
+
+            ]
+        ]);
+
+        $result = json_decode($respon->getBody()->getContents(), true);
+
+        if ($result['status'] == true) {
+            return $result['data'];
+        } else {
+            return 0;
+        }
+    }
+
+    public function countpartqty($a, $b, $d)
+    {
+        $respon =  $this->_client->request('GET', 'countpartqty', [
+            'query' => [
+                'id_cabang' => $a,
+                'idjadwal_audit' => $b,
+                'qty' => $d
 
             ]
         ]);
