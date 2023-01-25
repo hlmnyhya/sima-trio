@@ -978,18 +978,7 @@ class Master_Data extends CI_Controller
                     $no .
                     '</td>
                     <td class="text-center">
-                    <a onclick="edit(id=\'' .
-                    $list['kd_lokasi_rak_baru'] .
-                    '\')" class="text-warning" ><i class="fa fa-pencil"></i></a>
-                    <a href="' .
-                    $base .
-                    'master_data/delete_rakbin/' .
-                    $list['id_lokasi'] .
-                    '" class="text-danger" onclick=\'return confirm("Konfirmasi menghapus data ' .
-                    $list['kd_lokasi_rak_baru'] .
-                    ' - ' .
-                    $list['kd_lokasi_rak_baru'] .
-                    ' ? ");\'><i class="fa fa-trash"></i></a>
+                  </td>
                     <td class="text-center">' .
                     $list['id_lokasi'] .
                     '</td>

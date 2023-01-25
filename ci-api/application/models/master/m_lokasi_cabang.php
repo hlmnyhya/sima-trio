@@ -121,13 +121,13 @@ class M_Lokasi_Cabang extends CI_Model
       {
         $query ="
         SELECT a.* FROM lokasi_rakbin_baru a
-        WHERE a.kd_lokasi_rak LIKE '%$id%'
+        WHERE a.kd_lokasi_rak_baru LIKE '%$id%'
         OR a.kd_rak LIKE '%$id%'
         OR a.kd_binbox LIKE '%$id%'
         ";
         if ($offset!=null) {
             $query .="
-            ORDER BY a.kd_lokasi_rak ASC
+            ORDER BY a.kd_lokasi_rak_baru ASC
             OFFSET $offset ROWS 
             FETCH NEXT 15 ROWS ONLY;
             ";
