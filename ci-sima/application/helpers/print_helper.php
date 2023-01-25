@@ -369,18 +369,15 @@ class reportProduct extends FPDF
         $bulan = date('F Y');
         
         if ($this->kriteria == 'report') {
+            // $this->kriteria == 'report'
             $this->image(
                 base_url() . 'assets/images/logo-print.png', 10, 40, 45, 16
             );
-            //   $this->SetX(0);
             $nama = strtolower($this->nama);
             $this->SetFont('Times', 'B', '11');
             $this->Cell(0, 4, 'LHA STOCK OPNAME SPAREPART OLI ', 0, 1, 'C');
             $this->Cell(0, 5, 'TRIO MOTOR ' . strtoupper($nama), 0, 1, 'C');
             $this->Cell(0, 5, 'PERIODE  ' . strtoupper($bulan), 0, 1, 'C');
-            
-            // $this->SetLineWidth(0.3);
-            $this->line(10, 25, 200, 25);
             $this->ln(10);
             // if ($this->PageNo() >= 2) {
             //         $this->Cell(8, 15, 'No', 1, 0, 'C', true);
@@ -392,7 +389,8 @@ class reportProduct extends FPDF
             //         $this->Cell(25, 15, 'Status Unit', 1, 0, 'C', true);
             //         $this->Cell(25, 15, 'Keterangan', 1, 1, 'C', true);
             //     }
-            // } elseif ($this->kriteria == 'status') {
+            // } 
+            // elseif ($this->kriteria == 'status') {
             //     if ($this->PageNo() >= 2) {
             //         $this->SetFont('Arial', 'B', 8);
             //         $this->Cell(8, 6, 'NO', 1, 0, 'C');
@@ -423,6 +421,8 @@ class reportProduct extends FPDF
             $this->line(10, 25, 200, 25);
             $this->ln(5);
 
+        }elseif ($this->kriteria == 'report3') {
+            
         }
             //     if ($this->PageNo() >= 2) {
             //         $this->Cell(8, 15, 'No', 1, 0, 'C', true);
@@ -448,7 +448,9 @@ class reportProduct extends FPDF
         //         }
         // }
         
-    }
+    
+        }
+    
 
     
 

@@ -154,7 +154,7 @@ class M_Laporan_Auditor extends CI_Model
         }
     }
 
-    public function amounttKurang($a, $b, $d)
+    public function amountKurang($a, $b, $d)
     {
         $respon =  $this->_client->request('GET', 'amountkurang', [
             'query' => [
