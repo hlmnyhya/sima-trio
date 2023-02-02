@@ -165,7 +165,7 @@ class M_Part extends CI_Model {
         $this->db->update('part', $data, ['id_part' => $id]);
         return $this->db->affected_rows();
     }
-
+// test
     public function PartEnd($cabang, $idjadwal_audit)
     { 
         $query = "
