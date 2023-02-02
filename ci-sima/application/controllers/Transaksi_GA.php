@@ -147,6 +147,10 @@ class Transaksi_GA extends CI_Controller
                 'general_affairview/management_office/_partial/footer2.php',
                 $data
             );
+            $this->load->view(
+                'general_affairview/management_office/_partial/footer.php',
+                $data
+            );
         }
     }
     public function delOffice()

@@ -2535,52 +2535,52 @@ class Transaksi_Auditor extends CI_Controller
                         foreach ($getpart as $list) {
                             $start++;
                             $output .=
-                                '
-                                        <tr> 
-                                        <td>' .
-                                $start .
-                                '</td>
+                            '
+                                    <tr> 
                                         <td class="text-center">' .
-                                $list['nama_cabang'] .
-                                '</td>
+                            $start .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['nama_gudang'] .
-                                '</td>
+                            $list['nama_cabang'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['part_number'] .
-                                '</td>
+                            $list['nama_gudang'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['deskripsi'] .
-                                '</td>
+                            $list['part_number'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['qty'] .
-                                '</td>
+                            $list['deskripsi'] .
+                            '</td>
                                         <td class="text-center">' .
-                                 $list['qty_fsk'] .
-                                '</td>
+                            $list['qty'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['selisih'] .
-                                '</td>
+                            $list['qty_fsk'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['harga_jual'] .
-                                '</td>
-                                <td class="text-center">' .
+                            $list['selisih'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['harga_jual'] .
+                            '</td>
+                            <td class="text-center">' .
                 $list['amount'] .
                 '</td>
+                                        <td class=a"text-center">' .
+                            $list['kd_lokasi_rak'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['kd_lokasi_rak'] .
-                                '</td>
+                            $list['status'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['status'] .
-                                '</td>
+                            $list['kondisi'] .
+                            '</td>
                                         <td class="text-center">' .
-                                $list['kondisi'] .
-                                '</td>
-                                        <td class="text-center">' .
-                                $list['keterangan'] .
-                                '</td>
-                                        </tr>     
-                                        ';
+                            $list['keterangan'] .
+                            '</td>
+                                    </tr>     
+                                    ';
                         }
                     }
                 }
@@ -2642,51 +2642,51 @@ class Transaksi_Auditor extends CI_Controller
                 foreach ($getpart as $list) {
                     $start++;
                     $output .=
-                        '
-                        <tr> 
-                        <td>' .
-                $start .
-                '</td>
-                        <td class="text-center">' .
-                $list['nama_cabang'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['nama_gudang'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['part_number'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['deskripsi'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['qty'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['qty_fsk'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['selisih'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['harga_jual'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['kd_lokasi_rak'] .
-                '</td>
-                <td class="text-center">' .
-                $list['amount'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['status'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['kondisi'] .
-                '</td>
-                        <td class="text-center">' .
-                $list['keterangan'] .
-                '</td>
-                        </tr> 
+                            '
+                                    <tr> 
+                                        <td class="text-center">' .
+                            $start .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['nama_cabang'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['nama_gudang'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['part_number'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['deskripsi'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['qty'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['qty_fsk'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['selisih'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['harga_jual'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['amount'] .
+                            '</td>
+                                        <td class=a"text-center">' .
+                            $list['kd_lokasi_rak'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['status'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['kondisi'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['keterangan'] .
+                            '</td>
+                                    </tr>     
                                     ';
                 }
             }
@@ -2754,34 +2754,52 @@ class Transaksi_Auditor extends CI_Controller
             foreach ($getunit as $list) {
                 $start++;
                 $output .=
-                    '
-                    <tr> 
-                            <td>' .
-                    $start .
-                    '</td>
-                            <td>' .
-                    $list['nama_cabang'] .
-                    '</td>
-                            <td>' .
-                    $list['nama_gudang'] .
-                    '</td>
-                            <td>' .
-                    $list['part_number'] .
-                    '</td>
-                            <td>' .
-                    $list['deskripsi'] .
-                    '</td>
-                            <td>' .
-                    $list['kd_lokasi_rak'] .
-                    '</td>
-                            <td>' .
-                    $list['qty'] .
-                    '</td>
-                    <td>' .
-                    $list['harga_jual'] .
-                    '</td>
-                        </tr>    
-                        ';
+                            '
+                                    <tr> 
+                                        <td class="text-center">' .
+                            $start .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['nama_cabang'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['nama_gudang'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['part_number'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['deskripsi'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['qty'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['qty_fsk'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['selisih'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['harga_jual'] .
+                            '</td>
+                            <td class="text-center">' .
+                $list['amount'] .
+                '</td>
+                                        <td class=a"text-center">' .
+                            $list['kd_lokasi_rak'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['status'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['kondisi'] .
+                            '</td>
+                                        <td class="text-center">' .
+                            $list['keterangan'] .
+                            '</td>
+                                    </tr>     
+                                    ';
             }
         } else {
             $output .=
