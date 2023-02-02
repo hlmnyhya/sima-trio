@@ -1370,6 +1370,7 @@ class Master extends REST_Controller
     public function countrakbin_get()
     {
         $id = $this->get('id');
+        // var_dump($id);exit;
 
         if ($id === null) {
             $rakbin = $this->mcount->countrakbin();

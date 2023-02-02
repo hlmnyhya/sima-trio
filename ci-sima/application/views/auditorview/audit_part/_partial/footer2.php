@@ -199,26 +199,26 @@ $('#id_rakbin').select2();
                 },
                 url: "<?php echo base_url() ?>transaksi_auditor/ajax_get_rakbin",
                 success: function(data) {
-                    $('#rakbin').html(data);
-                    $('#rakbin').select2();
+                    $('#kd_lokasi_rak').html(data);
+                    $('#kd_lokasi_rak').select2();
                 } 
             });
             console.log(id);
             }
 
-            $('#rakbin').change(function() {
-            var rakbin = $('#rakbin').val();
-            console.log(rakbin);
-            if (rakbin == 'RakbinBaru') {
-                console.log('berhasil')
-                $('#rakbin_baru').removeClass('hidden');
-                $('#rakbin_baru').addClass('form-group');   
-            }else {
-                $('#rakbin_baru').removeClass('form-group');
-                $('#rakbin_baru').addClass('hidden');
-                console.log('gagal')
-            }
-        });
+        //     $('#kd_lokasi_Rak').change(function() {
+        //     var rakbin = $('#kd_lokasi_rak').val();
+        //     console.log(rakbin);
+        //     if (rakbin == 'RakbinBaru') {
+        //         console.log('berhasil')
+        //         $('#rakbin_baru').removeClass('hidden');
+        //         $('#rakbin_baru').addClass('form-group');   
+        //     }else {
+        //         $('#rakbin_baru').removeClass('form-group');
+        //         $('#rakbin_baru').addClass('hidden');
+        //         console.log('gagal')
+        //     }
+        // });
 
             function lokasi() {
                 var id = "<?php echo base64_decode($_GET['a']); ?>";

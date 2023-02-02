@@ -50,7 +50,7 @@
                         </div>
                         <div class="form-group"><label class="col-sm-2 control-label">Rak Bin Lama</label>
                         <div class="col-sm-10">
-                            <select class="form-control" name="kd_lokasi_rak" id="rakbin" value="<?php  echo  $edit_part['kd_lokasi_rak'] ?>"></select>
+                            <select class="form-control" name="kd_lokasi_rak" id="kd_lokasi_rak" value="<?php  echo  $edit_part['kd_lokasi_rak'] ?>"></select>
                         </div>
                         </div>
                         <div class="form-group" id="rakbin_baru">
@@ -112,7 +112,6 @@
                                 <select class="form-control" name="status" id="status" >
                                     <option value="">--Status--</option>
                                     <option value="Sesuai" <?php if ($edit_part['status'] == 'Sesuai') echo 'selected' ?>>Sesuai</option>
-                                    <option value="Belum Sesuai" <?php if ($edit_part['status'] == 'Belum Sesuai') echo 'selected' ?>>Belum Sesuai</option>
                                     <option value="Tidak Ditemukan" <?php if ($edit_part['status'] == 'Tidak Ditemukan') echo 'selected' ?>>Tidak Ditemukan</option>
                                 </select>
                                 <!-- <input type="text" class="form-control" name="status" id="status" value="<?php echo $edit_part['status'] ?>"> -->

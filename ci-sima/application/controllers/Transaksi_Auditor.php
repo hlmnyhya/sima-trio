@@ -723,7 +723,7 @@ class Transaksi_Auditor extends CI_Controller
             'selisih' => $this->input->post('selisih'),
             'amount' => $this->input->post('amount'),
             'harga_jual' => $this->input->post('harga_jual'),
-            'status' => 'Sesuai'
+            'status' => $this->input->post('status'),
             // 'penanggung_jawab' => $this->input->post('penanggung_jawab')
         ];
         // var_dump($data);exit;
