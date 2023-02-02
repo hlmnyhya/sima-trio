@@ -118,7 +118,7 @@
                 $.ajax({
                     type: "post",
                     dataType: 'JSON',
-                    url: "<?php echo base_url() ?>master_data/search_data_gudang/" + page,
+                    url: "<?php echo base_url() ?>master_data/search_data_lokasi/" + page,
                     data: "lokasi=" + lokasi,
                     success: function(data) {
                         $("#lokasi").html(data.output);
@@ -171,6 +171,26 @@
 
         })
     }
+    
+        function search(page) {
+            var lokasi = $('#Inlokasi').val();
+            $('#gudang').html('<tr><td colspan="4" class="text-right" id="loading"></td></tr>');
+            if (gudang != '') {
+                $.ajax({
+                    type: "post",
+                    dataType: 'JSON',
+                    url: "<?php echo base_url() ?>master_data/search_data_lokasi/" + page,
+                    data: "gudang=" + gudang,
+                    success: function(data) {
+                        $("#cabang").html(data.output);
+                        $("#pagination").html(data.pagination);
+                        $("#search").val("");
+                    }
+                });
+            } else {
+                get_data(1);
+            }
+        }
 
     function hide() {
         $('#add').attr('disabled', false);

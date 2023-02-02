@@ -5,12 +5,9 @@
             <div class="panel panel-default">
                 <div class="panel-body">
                     <div class="form-group">
-                        <label class="col-md-2">Cari Gudang</label>
-                        <div class="col-md-5">
-                            <input type="text" class="form-control" id="Inlokasi" />
-                        </div>
-                        <div class="col-md-2">
-                            <button class="btn btn-w-m btn-success" id="caribtn">Cari Data</button>
+                        <div class="col-sm-2"><label>Cari Gudang</label></div>
+                        <div class="col-sm-8"><input type="text" class="form-control" id="Inlokasi"></div>
+                        <div class=" col-sm-2 text-center"><button class="btn btn-w-m btn-success" id="caribtn">Cari Data</button>
                         </div>
                     </div>
                 </div>

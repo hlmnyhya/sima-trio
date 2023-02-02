@@ -2309,6 +2309,7 @@ class laporan_auditor extends CI_Controller
         $status = $this->input->post('status');
         $qty = $this->input->post('qty');
         $keterangan = $this->input->post('keterangan');
+        
 
         $tgl_awal = date('Y-m-d');
         $tgl_akhir = '1900-01-01';

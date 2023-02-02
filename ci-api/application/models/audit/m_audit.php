@@ -11,7 +11,7 @@ class M_Audit extends CI_Model {
             $this->db->from('jadwal_audit');
             $this->db->join('jenis_audit', 'jadwal_audit.idjenis_audit = jenis_audit.idjenis_audit', 'left');
             $this->db->join('cabang', 'jadwal_audit.id_cabang = cabang.id_cabang', 'left');
-            $this->db->limit(15, $offset);
+            $this->db->limit(15);
             $this->db->offset($offset);
             $this->db->order_by('keterangan', 'asc');
             
