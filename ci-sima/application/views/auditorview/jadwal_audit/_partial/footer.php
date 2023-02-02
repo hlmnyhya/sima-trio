@@ -94,7 +94,7 @@
 <script>
     $(document).ready(function() {
         get_data(1);
-        $('#list_jadwal_audit').load("<?php echo base_url(); ?>audit/ajax_get_jadwal_audit");  
+        // $('#list_jadwal_audit').load("<?php echo base_url(); ?>audit/ajax_get_jadwal_audit");  
         $('#Optjenisaudit').load("<?php echo base_url(); ?>audit/ajax_get_jenis_audit2");
         $('#audit_part').load("<?php echo base_url() ?>transaksi_auditor/ajax_get_part");
         $('#OptCabang').load("<?php echo base_url() ?>audit/ajax_get_cabang2");

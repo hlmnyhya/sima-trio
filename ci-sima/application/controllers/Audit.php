@@ -127,9 +127,9 @@ class Audit extends CI_Controller
         $config['base_url'] = base_url() . 'data_temporary/unit';
         $config['total_rows'] = $this->maudit->counttempunit($cabang);
         $config['per_page'] = 15;
-        $config['page_query_string'] = true;
-        $config['query_string_segment'] = 'pages';
-        $config['num_links'] = 2;
+        $config['uri_segment'] = 3;
+        $config['use_page_numbers'] = true;
+        $config['num_links'] = 1;
 
         $config['full_tag_open'] =
             '<div class="pagination"><nav><ul class="pagination">';
@@ -179,24 +179,17 @@ class Audit extends CI_Controller
     }
 
     //---------------------------------------GET-----------------------------------------------------//
-    public function ajax_get_jadwal_audit($page)
+     public function ajax_get_jadwal_audit()
     {
         $output = '';
         $hapus = '';
-        $id = $this->input->post('id');
-        $limit = $this->input->post('limit');
         $base = base_url();
         $config['base_url'] = base_url() . 'audit/list_audit';
-        $count = $this->maudit->countjadwalaudit();
-        $this->load->library('pagination');
-
-        $config['total_rows'] = $count;
+        $config['total_rows'] = $this->maudit->countjadwalaudit();
         $config['per_page'] = 15;
-        $config['uri_segment'] = 3;
-        $config['use_page_numbers'] = true;
+        $config['page_query_string'] = true;
+        $config['query_string_segment'] = 'pages';
         $config['num_links'] = 3;
-
-
 
         $config['full_tag_open'] =
             '<div class="pagination"><nav><ul class="pagination">';
@@ -223,27 +216,18 @@ class Audit extends CI_Controller
         $config['cur_tag_open'] =
             '<li class="page-item"><span class="page-link">';
         $config['cur_tag_close'] = '</li>';
-        $config['cur_page'] = $page;
 
         $this->pagination->initialize($config);
-
         $page = $this->uri->segment(3);
-        
-        // var_dump($page);exit;
-        // if ($page == null) {
-        //     $page = 1;
-        // }
-        
+        if ($page == null) {
+            $page = 1;
+        }
         $start = ($page - 1) * $config['per_page'];
-
-        // var_dump($start);exit;
-        $listJadwalAudit = $this->maudit->getAudit($start, $limit );
-        // var_dump($listJadwalAudit);exit;
+        $listJadwalAudit = $this->maudit->getAudit($start);
         if ($listJadwalAudit) {
             foreach ($listJadwalAudit as $list) {
                 if ($list['keterangan'] == 'waiting') {
-                    $hapus =
-                        '
+                    $hapus =                        '
                     <a href="' .
                         $base .
                         'audit/delete_jadwalaudit/' .
@@ -332,12 +316,6 @@ class Audit extends CI_Controller
                 'audit/input_jadwal" class="btn btn-xs btn-success">Buat Jadwal</a></td>
             </tr>';
         }
-        $row_entry =
-            '
-            <div class=" label label-default">' .
-            $count .
-            '</div>
-        ';
         $data = [
             'output' => $output,
             'pagination' => $this->pagination->create_links(),
