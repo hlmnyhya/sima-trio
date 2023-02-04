@@ -76,7 +76,7 @@
                                                 $link = base_url("master_data/viewRakbinBaru"); 
                                             ?>
                                             <a id="add" class="btn btn-primary" onclick="
-                                            myWindow = window.open('<?php echo $link ?>', 'myWindow', 'width=800, height=600');
+                                            myWindow = window.open('<?php echo $link ?>', 'myWindow', 'width=800, height=300');
                                             " >Tambah Rakbin</a>
                                         </div>
                                         <div class="form-group col-sm-12">

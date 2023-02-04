@@ -2772,31 +2772,10 @@ class Transaksi_Auditor extends CI_Controller
                             $list['deskripsi'] .
                             '</td>
                                         <td class="text-center">' .
-                            $list['qty'] .
-                            '</td>
-                                        <td class="text-center">' .
-                            $list['qty_fsk'] .
-                            '</td>
-                                        <td class="text-center">' .
-                            $list['selisih'] .
-                            '</td>
-                                        <td class="text-center">' .
-                            $list['harga_jual'] .
-                            '</td>
-                            <td class="text-center">' .
-                $list['amount'] .
-                '</td>
-                                        <td class=a"text-center">' .
                             $list['kd_lokasi_rak'] .
                             '</td>
                                         <td class="text-center">' .
-                            $list['status'] .
-                            '</td>
-                                        <td class="text-center">' .
-                            $list['kondisi'] .
-                            '</td>
-                                        <td class="text-center">' .
-                            $list['keterangan'] .
+                            $list['qty'] .
                             '</td>
                                     </tr>     
                                     ';

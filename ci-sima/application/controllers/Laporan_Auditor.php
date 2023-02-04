@@ -2029,7 +2029,7 @@ class laporan_auditor extends CI_Controller
             $pdf->Output('D', 'REPORTPART-' . $tgl . '.pdf');
             $pdf->Output();
         } else {
-            redirect('laporan_auditor/lap_audit_part', 'refresh');
+            redirect('transaksi_auditor/audit_part', 'refresh');
         }
     }
 

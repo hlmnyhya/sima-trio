@@ -28,7 +28,7 @@
                                 <div class="col-sm-4 m-t-md">
                                     <a id="previewpart" class="btn btn-success">Preview</a>
                                     <!-- <a id="open" class="btn btn-danger xshow"><i class="fa fa-fw fa-file-pdf-o"></i>Download Pdf</a> -->
-                                    <button type="submit" class="btn btn-danger xshow" id="type" name="type" value="pdf" <i class="fa fa-fw fa-file-pdf-o"></i>Download PDF</button>
+                                    <button type="submit" class="btn btn-danger xshow" id="type" name="type" value="pdf"><i class="fa fa-fw fa-file-pdf-o"></i>Download PDF</button>
                                 </div>
                                     </form>
 
