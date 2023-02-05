@@ -255,7 +255,7 @@ class Laporan_GA extends CI_Controller
             $tgl = $tgl_awal . ' s/d ' . $tgl_akhir;
 
             $pdf = new reportProduct();
-            $pdf->setKriteria('report');
+            $pdf->setKriteria('report3');
             $pdf->setNama('General Affair');
             $pdf->AliasNbPages();
             $pdf->AddPage('P', 'A4');

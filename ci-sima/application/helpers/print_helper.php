@@ -422,7 +422,21 @@ class reportProduct extends FPDF
             $this->ln(5);
 
         }elseif ($this->kriteria == 'report3') {
-            
+                $nama = strtolower($this->nama);
+            $this->image(
+                base_url() . 'assets/images/logo-print.png',
+                160,
+                8,
+                35,
+                16
+            );
+            $this->SetFont('Times', 'B', '11');
+            $this->Cell(0, 4, 'Main Dealer ', 0, 1, 'L');
+            $this->Cell(0, 5, 'Departement Audit Trio Motor ', 0, 1, 'L');
+            $this->Cell(0, 5, 'Cabang ' . ucwords($nama), 0, 1, 'L');
+            $this->SetLineWidth(0.3);
+            $this->line(10, 25, 200, 25);
+            $this->ln(5);
         }
             //     if ($this->PageNo() >= 2) {
             //         $this->Cell(8, 15, 'No', 1, 0, 'C', true);
